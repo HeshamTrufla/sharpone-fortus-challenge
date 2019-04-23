@@ -50,3 +50,7 @@ please, check what you have done so far.
 - [ ] Cache responses to be able to retrieve it again anytime. [ Optional ]
 - [ ] write test cases [ Optional ]
 - [ ] use Docker [ Optional ]
+
+<hr />
+
+please, commit your code to this repository and update above checklist.
