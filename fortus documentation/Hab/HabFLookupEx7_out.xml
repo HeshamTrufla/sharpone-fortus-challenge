@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LookupTransaction Type="Property">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <Province>QC</Province>
+      <Carrier>AXA</Carrier>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="0.3" Type="RatebookList">
+         <CodeName>Condos</CodeName>
+         <Results>
+            <Values Group="Condos">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="0.5" Type="CodeNameList">
+         <Results>
+            <Value>Homeowners</Value>
+            <Value>Condos</Value>
+            <Value>Tenants</Value>
+            <Value>Seasonal</Value>
+            <Value>Watercraft</Value>
+            <Value>SASecRentalDwellings</Value>
+            <Value>SASeasonal</Value>
+            <Value>SecRentalDwellings</Value>
+            <Value>SecRentalCondos</Value>
+            <Value>SecHomeowners</Value>
+            <Value>SASecHomeowners</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="1" Type="TableName">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Territoire R</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="TableName">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="Watercraft"/>
+            <Values Group="SASecRentalDwellings">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Territoire R</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Territoire R</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+         </Results>
+      </Lookup>
+      <Lookup ID="3" Type="RatebookList">
+         <Results>
+            <Values Group="Homeowners">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="Condos">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="Tenants">
+               <Values Group="RatesSetup">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="Seasonal">
+               <Values Group="RatesSetup">
+                  <Value>3</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="Watercraft">
+               <Values Group="RatesSetup">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Values Group="RatesSetup">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="SASeasonal">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Values Group="RatesSetup">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="SecRentalCondos"/>
+            <Values Group="SecHomeowners">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Values Group="RatesSetup">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>1</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="4" Type="FloaterZone">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="5" Type="FloaterZone">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Watercraft"/>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 2</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+         </Results>
+      </Lookup>
+      <Lookup ID="6" Type="EarthquakeZone">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="7" Type="EarthquakeZone">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Watercraft"/>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 2</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+         </Results>
+      </Lookup>
+      <Lookup ID="8" Type="SewerBackupZone">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 1</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="9" Type="SewerBackupZone">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="Watercraft"/>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 1</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 1</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+         </Results>
+      </Lookup>
+      <Lookup ID="10" Type="TableNameList">
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+               <Value>Aucune Tarification</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire C1</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire H</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire J</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire K1</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire L1</Value>
+               <Value>Territoire M</Value>
+               <Value>Territoire N</Value>
+               <Value>Territoire O</Value>
+               <Value>Territoire P</Value>
+               <Value>Territoire Q</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire S</Value>
+               <Value>Territoire S1</Value>
+               <Value>Territoire S2</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="Watercraft">
+               <Value>Tout le Quebec</Value>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire C1</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire H</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire J</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire K1</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire L1</Value>
+               <Value>Territoire M</Value>
+               <Value>Territoire N</Value>
+               <Value>Territoire O</Value>
+               <Value>Territoire P</Value>
+               <Value>Territoire Q</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire S</Value>
+               <Value>Territoire S1</Value>
+               <Value>Territoire S2</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="11" Type="TableNameList">
+         <CodeName>Homeowners</CodeName>
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Aucune Tarification</Value>
+               <Value>Territoire A1</Value>
+               <Value>Territoire A2</Value>
+               <Value>Territoire A3</Value>
+               <Value>Territoire A4</Value>
+               <Value>Territoire A5</Value>
+               <Value>Territoire A6</Value>
+               <Value>Territoire B</Value>
+               <Value>Territoire C</Value>
+               <Value>Territoire E1</Value>
+               <Value>Territoire E2</Value>
+               <Value>Territoire E3</Value>
+               <Value>Territoire E4</Value>
+               <Value>Territoire F</Value>
+               <Value>Territoire F1</Value>
+               <Value>Territoire G</Value>
+               <Value>Territoire I</Value>
+               <Value>Territoire K</Value>
+               <Value>Territoire L</Value>
+               <Value>Territoire R</Value>
+               <Value>Territoire T</Value>
+               <Value>Territoire U</Value>
+               <Value>Territoire X</Value>
+               <Value>Territoire X1</Value>
+               <Value>Territoire Y</Value>
+               <Value>Territoire Y1</Value>
+               <Value>Territoire Z</Value>
+               <Value>Territoire Z1</Value>
+               <Value>Territoire Z2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="12" Type="FloaterZoneList">
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="13" Type="FloaterZoneList">
+         <CodeName>SecHomeowners</CodeName>
+         <Results>
+            <Values Group="SecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="14" Type="EarthquakeZoneList">
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="15" Type="EarthquakeZoneList">
+         <CodeName>SASecHomeowners</CodeName>
+         <Results>
+            <Values Group="SASecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="16" Type="SewerBackupZoneList">
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="17" Type="SewerBackupZoneList">
+         <CodeName>SASeasonal</CodeName>
+         <Results>
+            <Values Group="SASeasonal">
+               <Value>Zone 1</Value>
+               <Value>Zone 2</Value>
+               <Value>Zone 3</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="18" Type="FormList">
+         <Results>
+            <Values Group="Homeowners">
+               <Values Group="FormType_0">
+                  <Value>Uniforme</Value>
+                  <Value>Uniforme Restr.</Value>
+                  <Values Group="Default">
+                     <Value>Uniforme</Value>
+                  </Values>
+               </Values>
+               <Values Group="FormType_1">
+                  <Value>Uniplus</Value>
+               </Values>
+               <Values Group="FormType_2">
+                  <Value>Uniglobale</Value>
+               </Values>
+            </Values>
+            <Values Group="Condos">
+               <Values Group="FormType_5">
+                  <Value>Uniglobale</Value>
+               </Values>
+               <Values Group="FormType_6">
+                  <Value>Uniplus</Value>
+               </Values>
+            </Values>
+            <Values Group="Tenants">
+               <Values Group="FormType_5">
+                  <Value>Uniglobale</Value>
+               </Values>
+               <Values Group="FormType_6">
+                  <Value>Uniforme</Value>
+                  <Value>Uniforme Restr.</Value>
+                  <Values Group="Default">
+                     <Value>Uniforme</Value>
+                  </Values>
+               </Values>
+               <Values Group="FormType_9">
+                  <Value>Uniforme Restr. Sans VAN</Value>
+                  <Value>Uniforme Sans VAN</Value>
+                  <Values Group="Default">
+                     <Value>Uniforme Sans VAN</Value>
+                  </Values>
+               </Values>
+            </Values>
+            <Values Group="Seasonal">
+               <Values Group="FormType_3">
+                  <Value>Incendie et G.A.</Value>
+                  <Value>Incendie et G.A. - occupee</Value>
+                  <Values Group="Default">
+                     <Value>Incendie et G.A.</Value>
+                  </Values>
+               </Values>
+            </Values>
+            <Values Group="Watercraft">
+               <Values Group="FormType_5">
+                  <Value>Tous Risques</Value>
+               </Values>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Values Group="FormType_0">
+                  <Value>Uniforme</Value>
+               </Values>
+               <Values Group="FormType_2">
+                  <Value>Uniplus</Value>
+               </Values>
+            </Values>
+            <Values Group="SASeasonal">
+               <Values Group="FormType_3">
+                  <Value>Incendie et G.A.</Value>
+                  <Value>Incendie et G.A. - occupee</Value>
+                  <Values Group="Default">
+                     <Value>Incendie et G.A.</Value>
+                  </Values>
+               </Values>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Values Group="FormType_0">
+                  <Value>Uniforme</Value>
+               </Values>
+               <Values Group="FormType_2">
+                  <Value>Uniplus</Value>
+               </Values>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Values Group="FormType_0">
+                  <Value>Uniforme</Value>
+                  <Value>Uniforme Restr.</Value>
+                  <Values Group="Default">
+                     <Value>Uniforme</Value>
+                  </Values>
+               </Values>
+               <Values Group="FormType_1">
+                  <Value>Uniplus</Value>
+               </Values>
+               <Values Group="FormType_3">
+                  <Value>Incendie et G.A.</Value>
+               </Values>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Values Group="FormType_0">
+                  <Value>Uniforme</Value>
+                  <Value>Uniforme Restr.</Value>
+                  <Values Group="Default">
+                     <Value>Uniforme</Value>
+                  </Values>
+               </Values>
+               <Values Group="FormType_1">
+                  <Value>Uniplus</Value>
+               </Values>
+               <Values Group="FormType_3">
+                  <Value>Incendie et G.A.</Value>
+               </Values>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="19" Type="RatingList">
+         <Results>
+            <Values Group="Homeowners">
+               <Value>Bonifie/Minimum/2+</Value>
+               <Value>Bonifie/Minimum/Un</Value>
+               <Value>Bonifie/Regulier/2+</Value>
+               <Value>Bonifie/Regulier/Un</Value>
+               <Value>Bonifie/Unipro 10/2+</Value>
+               <Value>Bonifie/Unipro 10/Un</Value>
+               <Value>Bonifie/Unipro/2+</Value>
+               <Value>Bonifie/Unipro/Un</Value>
+               <Value>Non-Bonifie/Minimum/2+</Value>
+               <Value>Non-Bonifie/Minimum/Un</Value>
+               <Value>Non-Bonifie/Regulier/2+</Value>
+               <Value>Non-Bonifie/Regulier/Un</Value>
+               <Value>Non-Bonifie/Unipro 10/2+</Value>
+               <Value>Non-Bonifie/Unipro 10/Un</Value>
+               <Value>Non-Bonifie/Unipro/2+</Value>
+               <Value>Non-Bonifie/Unipro/Un</Value>
+            </Values>
+            <Values Group="Condos">
+               <Value>Bonifie/1-6 Logis</Value>
+               <Value>Bonifie/7+ Logis NRF</Value>
+               <Value>Bonifie/7+ Logis RF</Value>
+               <Value>Non-Bonifie/1-6 Logis</Value>
+               <Value>Non-Bonifie/7+ Logis NRF</Value>
+               <Value>Non-Bonifie/7+ Logis RF</Value>
+            </Values>
+            <Values Group="Tenants">
+               <Value>Bonifie/2-3 Logis</Value>
+               <Value>Bonifie/4-6 Logis</Value>
+               <Value>Bonifie/7+ Logis NRF</Value>
+               <Value>Bonifie/7+ Logis RF</Value>
+               <Value>Non-Bonifie/2-3 Logis</Value>
+               <Value>Non-Bonifie/4-6 Logis</Value>
+               <Value>Non-Bonifie/7+ Logis NRF</Value>
+               <Value>Non-Bonifie/7+ Logis RF</Value>
+            </Values>
+            <Values Group="Seasonal">
+               <Value>Standard</Value>
+            </Values>
+            <Values Group="Watercraft">
+               <Value>Standard</Value>
+            </Values>
+            <Values Group="SASecRentalDwellings">
+               <Value>Bonifie/Minimum/1 a 6</Value>
+               <Value>Bonifie/Regulier/1 a 6</Value>
+               <Value>Bonifie/Unipro 10/1 a 6</Value>
+               <Value>Bonifie/Unipro/1 a 6</Value>
+               <Value>Non Bonifie/Minimum/1 a 6</Value>
+               <Value>Non Bonifie/Regulier/1 a 6</Value>
+               <Value>Non Bonifie/Unipro 10/1 a 6</Value>
+               <Value>Non Bonifie/Unipro/1 a 6</Value>
+            </Values>
+            <Values Group="SASeasonal">
+               <Value>Standard</Value>
+            </Values>
+            <Values Group="SecRentalDwellings">
+               <Value>Bonifie/Minimum/1 a 6</Value>
+               <Value>Bonifie/Regulier/1 a 6</Value>
+               <Value>Bonifie/Unipro 10/1 a 6</Value>
+               <Value>Bonifie/Unipro/1 a 6</Value>
+               <Value>Non Bonifie/Minimum/1 a 6</Value>
+               <Value>Non Bonifie/Regulier/1 a 6</Value>
+               <Value>Non Bonifie/Unipro 10/1 a 6</Value>
+               <Value>Non Bonifie/Unipro/1 a 6</Value>
+            </Values>
+            <Error>Unable to determine Form ratebook for SecRentalCondos</Error>
+            <Values Group="SecHomeowners">
+               <Value>Bonifie/Minimum/2+</Value>
+               <Value>Bonifie/Minimum/Un</Value>
+               <Value>Bonifie/Regulier/2+</Value>
+               <Value>Bonifie/Regulier/Un</Value>
+               <Value>Bonifie/Unipro 10/2+</Value>
+               <Value>Bonifie/Unipro 10/Un</Value>
+               <Value>Bonifie/Unipro/2+</Value>
+               <Value>Bonifie/Unipro/Un</Value>
+               <Value>Non-Bonifie/Minimum/2+</Value>
+               <Value>Non-Bonifie/Minimum/Un</Value>
+               <Value>Non-Bonifie/Regulier/2+</Value>
+               <Value>Non-Bonifie/Regulier/Un</Value>
+               <Value>Non-Bonifie/Unipro 10/2+</Value>
+               <Value>Non-Bonifie/Unipro 10/Un</Value>
+               <Value>Non-Bonifie/Unipro/2+</Value>
+               <Value>Non-Bonifie/Unipro/Un</Value>
+               <Value>Standard</Value>
+            </Values>
+            <Values Group="SASecHomeowners">
+               <Value>Standard</Value>
+               <Value>Bonifie/Minimum/2+</Value>
+               <Value>Bonifie/Minimum/Un</Value>
+               <Value>Bonifie/Regulier/2+</Value>
+               <Value>Bonifie/Regulier/Un</Value>
+               <Value>Bonifie/Unipro 10/2+</Value>
+               <Value>Bonifie/Unipro 10/Un</Value>
+               <Value>Bonifie/Unipro/2+</Value>
+               <Value>Bonifie/Unipro/Un</Value>
+               <Value>Non-Bonifie/Minimum/2+</Value>
+               <Value>Non-Bonifie/Minimum/Un</Value>
+               <Value>Non-Bonifie/Regulier/2+</Value>
+               <Value>Non-Bonifie/Regulier/Un</Value>
+               <Value>Non-Bonifie/Unipro 10/2+</Value>
+               <Value>Non-Bonifie/Unipro 10/Un</Value>
+               <Value>Non-Bonifie/Unipro/2+</Value>
+               <Value>Non-Bonifie/Unipro/Un</Value>
+            </Values>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>New Engine: C:\CQFortus\bin\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Hab Engine: C:\CQFortus\bin\cqhe3210.dll</Info>
+      <Info>Legacy Hab Engine Info: Version 1.2 Build 3</Info>
+      <Info LookupID="0.3">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="0.5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="1">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="1">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="1">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="1">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="3">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="4">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="4">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="4">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="4">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="5">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="6">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="6">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="6">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="6">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="7">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="8">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="8">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="8">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="8">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="9">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="10">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="11">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="11">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="11">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="11">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="12">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="13">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="13">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="13">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="13">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="14">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="15">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="15">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="15">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="15">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="16">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="17">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="17">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="17">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="17">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="18">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ehq1axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ihq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ecq1axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\icq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\etq2axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\itq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\esq3axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\isq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ewq2axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\iwq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\eaq2axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\iaq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\eeq1axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ieq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\erq2axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\irq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\eoq1axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ioq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ekq1axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\ikq_axa.bdf</Info>
+      <Info LookupID="19">c:\cqwin\hab\qc\c_q_axa.bdf</Info>
+      <Info>FLookup Engine Info: Version 1 Build 1</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Wed Jul 05 13:29:09 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

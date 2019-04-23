@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+      <DataPath>c:\cqwin\auto</DataPath>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="3" Type="DsHelp">
+         <Carrier>GC</Carrier>
+         <Results>
+            <Value>
+               <CarrierInfo>
+                  <DiscountInfo>
+                     <AntiTheft Name="Système De Protection Contre Le Vol">Le rabais s'adresse aux véhicules utilitaires légers.  Il s'applique aux primes pour les chapitre B3 ou B4 des véhicules qui sont munis d'un système de protection contre le vol et dont l'Assuré fait un usage constant.
+
+Nous considérons 6 genres de système :
+1. Le burinage des glaces, 
+2. Les systèmes mécaniques manuels.  Ces système empêchent l'utilisation du volant et/ ou de l'accélérateur et/ou du levier de vitesse.  Entrent dans cette catégorie les système permettant le blocage des roues.
+Par exemple: Mult-T-Lock, Club, Autoblock, etc.
+3.  Les système électroniques ou mécaniques électriques.  Ce sont des systèmes anti-démarrage (coupe- moteur) munis ou non d'un avertisseur sonore.
+Par example:  SPAV, PRO-TG, Alpine, Carbine, Steal Stopper, Ranger, Clifford Car safe etc.
+4.  La combinaison du burinage des glaces et d'un système mécanique manuel ou d'un système électronique ou de système mécanique électrique.
+5. Les système de repérage à distance de véhicules volés.  Ces systèmes permettent le repérage des véhicules par ondes cellulaires ou par satellite.  Ils doivent être utilisés en combinaison avec un système anit-démarrage.
+Par exemple:  On-Star n'est pas reconnu comme système de repérage valide pour ING.  
+6.  Le marquage est effectué sur plusieurs pièces de l'automobile (environ 200) et permet de réduire la valeur sur le marché noir et par conséquent l'intérêt pour le vol ou recel..
+Par exemple:   marquage antivol Sherlock.
+
+Genres de systèmes                  Territoires 1A,B,C,D,F,4                               Autre territoires
+                                                           (815 et 835) 
+Burinage                                                10%                                                          5%
+Mécanique manuels                               15%                                                        10%
+Électronique ou mécanique
+électriques                                              15%                                                        10%
+Combinaison                                           20%                                                        15% 
+Repérage à distance et 
+antidémarreur                                          30%                                                        25%
+Marquage antivol intensif
+et antidémarreur                                      30%                                                        25%
+
+Pour être admissible au rabais, vous devez nous faire parvenir une preuve de l'achat ou de l'installation sur le véhicule assuré du système antivol, précisant la marque ou le modèle.  Pour le marquage AUTOGRAPHE, en l'absence de preuve émise par l'installateur, vous devez nous certifier par écrit que vous avez vu le véhicule et que toutes les vitres ont été marquées.</AntiTheft>
+                     <Female Name="Conducteur principal féminin de 25 ans et plus">Un rabais est accordé pour le véhicule dont le conducteur principal est une femme de 25 ans ou plus, si la classe qui lui a été assignée est 01, 22, 02, 03, ou 07 et :
+- qu'il n'y a aucun conducteur occasionnel masculin ou;
+- qu'il y a un seul conducteur occasionnel masculin tarifié classe 06.
+Le rabais s'applique aux primes pour les garanties de base, c'est-à-dire:
+ - chapitre A - Responsabilité civile - montant de 100000$;
+ - chapitre B2 - Collision - franchise de 250$;
+ - chapitre B3 - Accidents sans collision ou chapitre B4 - Risques spécifiés - franchise de 100$.</Female>
+                     <MVD Name="Conjoints ayant 2 véhicules ou plus">Un rabais de 15% est accordé sur les primes de tous les chapitres pour toutes les voitures de tourisme, pourvu que ces véhicules soient assurés par toutes les même contrat et que l'une des deux conditions suivantes soient satisfaites:
+
+- toutes les voitures de tourisme appartiennent ou sont louées à des conjoints vivant sous le même toit et sont conduits principalement par eux.
+- ou le nombre de voitures de tourisme est plus grand que le nombre de conducteurs.
+
+Ne sont pas admissibles au rabais:
+- les voitures d'agriculteurs;
+- les polices comptant plus d'un véhicule ayant la classe 07;
+Le rabais est de 10% lorsqu'en plus des deux conjoints, i y a un ou plusieurs conducteurs occasionnels masculins ou féminins de moins de 25 ans.
+Note: Est considérée comme  "conjoint" une personne qui:
+a) est mariée et cohabite avec la personne avec laquelle elle est mairée;
+b) vit maritalement et cohabite avec une personne de sexe différent ou de même sexe et qui est publiquement représentée comme son conjoint depuis au moins trois ans ou dans les cas suivants, depuis au moins un an:
+ - un enfant est né est à naître de leur union,
+ - elles on conjointement adopté un enfant,
+ - l'une d'elles a adopté un enfant de l'autre.</MVD>
+                     <OtherDisc Name="Autres rabais">Jeunes conducteurs demeurant au même domicile que leurs parents assurés chez ING.
+
+Les filles ou les fils d'un assuré ayant au moins une voiture de tourisme couverte pas ING bénéficient d'un rabais de 10% sur les primes de tous les chapitres, si les conditions suivantes sont respectées:
+- la voiture du parent assuré chez ING a une classe 01,02,03,07 ou 22 
+   (le conducteur principal doit être âgé d'au moins 35 ans);
+- la fille ou le fils a moins de 25 ans et est conducteur principal du véhicule (classe 10,11,12,13,18 et 19);
+- la fille ou le fils demeure au même domicile que le ou les parents assurés chez filles
+Note:  Le rabais est accordé, que les filles ou les fils soient assurées ou non sure le même contrat que leurs parents.  Dans ce dernier cas, nous devons avoir le numéro de police des parents en référence.
+
+
+Jeunes conducteurs résident à l'extérieur du domicile de leurs parents assurés chez filles
+
+Un rabais de 50% est accordé sur les primes de la classe 06, lorsque le jeune n'habite pas au même domicile que ses parents.
+Note:  Ce rabais ne peut pas être additionné au rabais Jeunes Conducteurs ayant un permis d'apprenti conducteur.</OtherDisc>
+                     <GradLicense Name="Jeunes Conducteurs ayant un permis d'apprenti conducteur.">Un rabais de 50% est accordé sur les primes de la classe 06, lorsque le conducteur détient un permis d'apprenti conducteur.
+
+Note:  Ce rabais ne peut pas être additionné au rabais Jeunes Conducteurs résidant à l'extérieur du domicile de leurs parents assurés chez ING.</GradLicense>
+                     <Occupation Name="Profession, employeurs et groupes">Les assurés exerçant une profession, travaillant pour un employeur ou faisant partie d'un groupe admissible peuvent bénéficier d'un rabais.
+
+Professions, employeurs et groupes admissibles:
+ 
+                                                             Rabais 25%
+IE - Courtiers d'assurance IARD et personnel administratif ou employées de bureau des cabinets de courtages IARD qui sont membres de CAA-Québec
+
+                                                              Rabais 20%
+OL - Employées permanents du Réseau santé Richelieu-Yamaska
+OQ - Membres cotisants, retraitées et employés de SPGQ
+
+                                                              Rabais 15%
+* Fédération des Clubs de l'Âge d'Or de l'Est du Québec (FADEQ)(voir conditions à la page suivante).
+OA - Instituteurs et professeurs (en milieu scolaire);
+OB - Infirmiers, infirmière et infirmiers et  infirmière auxilliaires;
+OB - Autres techniciens de la santé (en milieu hospitalier);
+OH - Tous les employées de Bell Canada, de Nortel et de Telus Québec;
+Personnel administratif et employés de bureau des employeurs suivants;
+OD - Banques                                             OE - Universités
+OD - Caisses populaires                              Gouvernement du Québec et du Canada:
+OD - Caisse d'économie                              OF - Ministères
+OD - Courtiers d'assurance                          ON - Régies, commissions, sociétés, offices, conseils, CLSC
+OD - Sociétés de fiducie
+OE - Commissions scolaires                          OG - Hôpitaux
+OE - Collèges 
+                                                              Rabais 10%
+* Membres des Clubs de l'Âge d'Or (voir liste et conditions à la page suivante).
+OJ -   Membres de l'A.P.C.H.Q. et de l'A.C.Q.
+OR - Conjoints et enfants à la charge d'un membre du SPGQ
+OW - Étudiant à temps plein d'un Cégep ou d'une université au Québec (pour les classes 08,09,10,11,12,13,18 et 19 seulement)
+OP- Actuaires                                                            OP- Médecins
+OP- Agronomes                                                         OP- Notaires
+OP- Architectes                                                         OP - Opticiens d'ordonnance
+OP - Arpenteurs géomètres                                       OP- Optométristes
+OP- Audiologistes - Audioprothésistes                       OP- Orthophonistes 
+géomètres                                                                 OP- Pharmaciens
+OP- C.A,.C.G.A., C.M.A., R.I.A.,                                OP - Physiothérapeutes
+OP- Chimistes                                                            OP- Podiatres
+OP- Chiropraticiens                                                    OP- Techniciens dentaires
+OP- Dentistes - géomètres                                         OP- Technologues en radiologie
+OP- Diététistes                                                           OP- Urbanistes
+OP - Ergothérapeutes                                                OP - Vétérinaires
+OP - Hygiénistes dentaires                                         OU - Policiers
+OP - Ingénieurs                                                          OT - Policiers et employées de la GRC
+OP - Inhalothérapeutes                   
+
+Personnel administratif et employés de bureau des employeurs suivants:
+OV - Compagnies d'assurance
+OM - Municipalités
+1U - Personne ayant obtenu un diplôme universitaires de 1er cycle (baccalauréat) et détenant un emploi à temps plein, dans une profession ou pour un employeur autre que ceux listés ci-haut.
+1R - Hommes retraités de 55 ans et plus.
+                     
+                                                                       Rabais 5%
+1R - Femmes retraitées de 55 ans et plus.
+
+
+Condition d'admissibilité
+Peut bénéficier du rabais toute voiture de tourisme dont le conducteur principal est une personne admissible en vertu de sa profession, de son employeur ou de son groupe et qui s'est vue assigner une classe 01 à 22  (sauf la class 06 et les remorques).
+
+Ne sont cependant pas admissibles:
+- les assurées (nouvelles affaires) ayant subi 2 sinistres et plus - de quelque natures que ce soit - au cours des 3 dernières années;
+- les assurés (renouvellement) ayant subi 2 sinistres et plus - dont au moins un sinistre responsable au cours de la dernière année;
+- les assurés dont le  lieu de travail habituel est à l'extérieur du Québec et de l'Ontario et qui utilisent leur véhicule pour s'y rendre;
+- les véhicules identifiés par un losange   (1998 et plus récents);
+- les véhicules antiques;
+- les véhicules sensiblement modifiés;
+- les maisons motorisées;
+- police connexe à une F.P.Q. no.4 (sans chapitre A).
+Notes: Lorsqu'un assuré est admissible à plus d'un rabais, il bénéficie de celui qui l'avantage le plus.
+
+Clubs de l'Âge d'or 
+* Sont admissibles à un rabais de 15% les membres de la Fédération des Clubs de l'Âge d'or de l'Est du Québec (FADEQ).
+* Sont admissibles à un rabais de 10% les membres des Clubs de l'Âge d'or suivants:
+- Club de l'Âge d'or accrédité de la région Chaudière-Appalaches;
+- Fédération des Clubs de  l'Âge  d'or de l'Abitibi, Témiscamingue et Ungava;
+- Tout autre Club de  l'Âge d'or accrédité par ING (consultez la Compagnie pour plus de détails).
+
+Conditions spécifiques aux rabais pour Clubs de  l'Âge d'or;
+- l'Assuré doit résider dans la région en question;
+- vous devez indiquer le nom du Club et le numéro de la carte de membre;
+- les rabais pour membre d'un Club de  l'Âge ne peuvent pas être accordés lorsque la tarification des agriculteurs est appliquée;
+- les rabais pour membre d'un Club de  l'Âge d'or admissible sont cumulatifs aux rabais de profession.  Ils ne peuvent cependant pas être cumulés au rabais pour homme ou femme retraité de 55 ans ou plus (1R).</Occupation>
+                     <ConvFree Name="Rabais pour absence d'infractions au cours des 3 dernières années">Un rabais de 10% sera accordé sur les primes du chapitre A et B2 si toutes les conditions suivantes sont remplis:
+- La voiture de tourisme n'a pas subi plus d'un sinistre de quelque nature que ce soit au cours des 3 dernières années;
+- Aucun des conducteurs du véhicule ( principal et occasionnels) n'a commis d'infraction au Code de la sécurité routière ou au Code criminel au cours des 3 dernières années;
+- Le conducteur principal détient un permis de conduire du Québec depuis au moins 3 ans.
+Au moment où vous demandez le rabais, vous devez nous faire parvenir un formulaire d'autorisation signé pour chacun des conducteurs du véhicule.  Cela nous permettrea de consulter le dossier des conducteurs à la SAAQ.
+
+. Ne sont pas admissibles les véhicules suivants:
+* - les véhicules avec losange (1998 et plus récents):
+- les véhicules antiques;
+- les véhicules taxis;
+- les véhicules sensiblement modifiés;
+- les maisons motorisées.
+. Rabais pour stabilité de résidence de 5 ans et plus
+Les assurés qui demeurrent à la même adresse depuis au moins 5 ans peuvent bénéficier d'un rabais de 5% sur les primes des chapitre A et B.
+.  Conditions d'admissibilité
+Ce rabais s'applique sur les voiture de tourisme de classes 01, 02,03,04,07 et 22 seulement.
+. Ne sont pas admissibles 
+- les maisons motorisées.</ConvFree>
+                  </DiscountInfo>
+                  <SurchargeInfo>
+                     <Claims Name="Accident Responsable">Note:  Le barème suivant ne doit en aucun temps être interprété comme étant une dérogation aux politique de souscription ou autre règles notamment celles concernant les risques à soumettre.  Ill est inclus à titre indicatif.
+
+Les primes des chapitres A et B2 doivent être majorées en fonction du barème ci-dessous, sure la base du dossier de l'Assuré et du conducteur principal au cours des 36 mois précédant la période d'assurance en cause.
+
+A- Plus de deux accidents responsables:              Majoration
+.trois accidents                                                         30%
+.chaque accident supplémentaire                              10%</Claims>
+                     <Convictions Name="Condamnation">Note: Le barème suivant ne doit en aucun temps être interprété comme étant une dérogation aux politique de souscription ou autre règles notamment celles concernant les risques à soumettre.  Ill est inclus à titre indicatif.
+
+Les primes des chapitres A et B2 doivent être majorées en fonction du barème ci-dessous, sure la base du dossier de l'Assuré et du conducteur principal au cours des 36 mois précédant la période d'assurance en cause.
+
+B- Condamnation pour toute infraction en vertu de toute loi régissant la circulation routière et ayant trait aux délits suivants:
+
+- défaut de signaler un accident ou de donner son nom et sone numéro de permis à la police  ou à toute autre personne ayant droit à ces renseignements;
+- violation des règlements régissant la circulation dans le voisinage des écoles, des terrains de jeux, des autobus scolaires;
+- violation des règlements régissant la conduite, à un passage à niveau, d'un autobus, d'un minibus ou d'un véhicule transportant des matière dangereuses;
+- violation des règlements interdisant un véhicule transport des matière dangereuse dans un tunnel;
+- tout autre délit analogue commis hors du Québec:
+. une condamnation                                           15%
+. chaque condamnation supplémentaire            10 %
+
+
+C- Condamnation pour toute infraction en vertu de toute loi régissant la circulation routière et ayant trait aux délite suivants:
+- excès de vitesse;
+- toute violation des règlements applicables aux véhicules automobiles en déplacement, autre que celles décrites aux alinéas (b) et (d) 
+- tout autre délit analogue commis hors du Québec:
+. trois condamnations                                           10%
+. chaque condamnation supplémentaire               15%
+
+
+D- Condamnation en vertu du code criminel du Canada pour l'une des infractions suivantes, ou condamnation en vertu de toute autre loi pour toute infraction analogue commise tant au Canada qu'à l'étranger:
+- course sur la voie publique;
+-négligence criminelle découlant de la conduite d'un véhicule automobile;
+- délit de fuite;
+- conduite avec facultés affaiblies;
+- défaut de se soumettre à l'épreuve de l'alcootest;
+- échec de l'épreuve de  l'alcootest;
+- conduite sous le coup d'une suspension du permis de conduire;
+-conduite dangereuse;
+. chaque condamnation                           100%
+Notes:  Aucune majoration n'est exigée pour la suspension du permis en raison du non-paiement d'amendes pour stationnement illégal ou interdit.  Par contre, il faut appliquer la surprime de 100% si le contrevenants conduit pendant la suspension de son permis pour amendes non payées.</Convictions>
+                  </SurchargeInfo>
+               </CarrierInfo>
+            </Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="1" Type="DsHelp">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>
+               <CarrierInfo>
+                  <DiscountInfo>
+                     <Age Name="Driver Age Discount">Spec Clarification:  For this digit years licensed is determined without consideration for a period of license suspension.
+
+Digit	Principal Operator Age	Principal Operator Years Licensed
+0	Any				less than 6
+0	16-24				equal or greater than 6
+1	25-29				equal or greater than 6
+2	30-34				equal or greater than 6
+3	35-39				equal or greater than 6
+4	40-45				equal or greater than 6
+5	46-55				equal or greater than 6
+6	56-65				equal or greater than 6
+7	66-70				equal or greater than 6
+8	71-74				equal or greater than 6
+9	75-79				equal or greater than 6
+A	&gt; 79				equal or greater than 6
+B	56-65 and retired		                equal or greater than 6</Age>
+                     <ClaimsFree Name="Claims Free Discount">In determining eligibility for this discount, the number of years with no NOT AT FAULT or COMP losses attributed to this vehicle is computed.  Per the rules below, the occurrence date of the most recent NAF/COMP loss is compared to the policy effective date.  All claims with an occurrence date within the past 6 years are considered.  Values range from 0 to a maximum of 6.  There is no consideration for claim forgiveness.
+Note:  The number of claim free years can never be greater than the Principal Operator's (or UOO) years licensed.
+
+# Years Claim Free		Digit 5
+0	                                   0
+1	                                   1
+2	                                   2
+3	                                   3
+4	                                   4
+5	                                   5
+&gt;5			   6</ClaimsFree>
+                     <MVD Name="Combined Discount">Multi vehicle/ Multi policy discount
+
+Valid values are now range 1, 4, 6 and 7.  This allows for application of a multi-policy discount in combination with the multi-vehicle discount.
+
+Condition					Digit 9
+Number of vehicles qualifying for 
+MVD = 0, No Multi-Policy			1
+
+Vehicled does not qualify for MVD 
+per rules below, no Multi-Policy		1
+
+No Multi-Policy, &gt;1 vehicle and 
+qualifies for Multi-Vehicle per rules below 	4
+
+No Multi-Policy, multi-car override and 
+qualifies for Multi-Vehicle per rules below	                4
+
+With Multi-Policy, no Multi-Vehicle		6
+
+With Multi-Policy, with Multi-Vehicle	                7
+
+Qualifying for Multi-Vehicle:
+Note: &gt;1 vehicle means at least 2 vehicles which are PP.  If no multi-vehicle override, then &gt;1 vehicle on the policy must have BI/PD and the vehicle in question must have BI/PD*.  If there is 1 vehicle with multi-vehicle override and it qualifies by coverage then multi-vehicle applies.
+
+* If a vehicle does not have BI/PD but does have SEF 16, the vehicle does not qualify for the multi-vehicle discount.
+
+
+To qualify for multi-policy discount:
+1) Vehicle type is equal to PP
+2) Linked POL NUM field is non-blank and number assigned
+3) Cross File Line Type is equal to SH, DH, AR, TE, TC, CO, CC, MN or MC.
+4) Liability coverage (BI/PD) must be present
+
+Note: 
+Includes vehicles with SEF 16 present in this determination.  Example: - 2 PP vehicles.  1st vehicle coverage includes BIPD, SEF 16 present.  2nd vehicle coverage includes BIPD.  In this example both vehicles qualify for the Multi-Line discount (assuming all other qualifying conditions as outlined above are met.)</MVD>
+                     <AntiTheft Name="Anti-Theft Discount">This digit will be used to drive a discount based on type of anti-theft device present.  Values for this digit range from 0 to 9.
+
+Based on the value in the APV_ANTI_TFT field the 19th digit will be determined as follows:  
+User Note:  If more than 1 protective device is present the underwriter will need to determine which drives the best discount and use that option for input.
+
+19th Digit	Anti-Theft Device
+0		NONE
+1		EDD
+2		SHER
+3		SPAV
+4		TRK1
+5		TRK2
+6		NEW1
+7		NEW2
+8		NEW3
+9		NEW4</AntiTheft>
+                  </DiscountInfo>
+                  <SurchargeInfo>
+                     <Claims Name="Claim Frequency Surcharge">AF Claim Frequency Surcharge
+
+In determining the appropriate surcharge level, all AF claims attributed to this vehicle with a charge date equal to or less than the effective date and with an occurrence date within the past 6 years are considered.  Values range from 0 to a maximum of 9.  There is no consideration for claim forgiveness.
+
+# AF Claims in last 6 years	Digit 6
+0	                                 0
+1	                                 1
+2	                                 2
+3	                                 3
+4	                                 4
+5	                                 5
+6	                                 6
+7	                                 7
+8	                                 8
+&gt;8			 9
+
+Claim NAF and COMP Frequency Surcharge
+
+In determining the appropriate surcharge level, all NAF claims in combination with all COMP claims attributed to this vehicle with an occurrence date within the past 6 years are considered.  Values range from 0 to 9 and from A- Z.  With this mod logic is introduced  for values 0 through 9.  Values A through Z, while added as valid values and included in the CF rate management table, are reserved for future use.  There is no consideration for claim forgiveness.
+
+# NAF + COMP Claims in last 6 Years	Digit 7
+0	                                                 0
+1	                                                 1
+2	                                                 2
+3	                                                 3
+4	                                                 4
+5	                                                 5
+6	                                                 6
+7	                                                 7
+8	                                                 8
+&gt;8				 9
+Reserved  for future use	                 A-Z</Claims>
+                     <Convictions Name="Conviction Frequency Surcharge">Minor Frequency Surcharge
+
+This digit will be used to drive a surcharge based on frequency of minor violations.  In determining the appropriate surcharge level, the violation history of all operators assigned to the vehicle is considered.  Values range from 0-9 and A-Z.
+
+Include incidents within the 3 years before the new business (if NTR = 0) or renewal effective date and severity = MI
+
+# Minor Violations in past 3 years 		16th Digit
+0	                                                                    0
+1	                                                                    1
+2	                                                                    2
+3	                                                                    3
+4	                                                                    4
+5	                                                                    5
+6	                                                                    6
+7	                                                                    7
+8	                                                                    8
+&gt;8				                    9
+
+In developing the value of the 16th digit the violation history of all operators assigned to the vehicle is considered.  The total number of incidents for all operators determines the applicable surcharge (if a separate 05/06 RCC is developed for the vehicle).  Note: System uses the "violation charge vehicle" to determine which vehicle surcharge applies to.  Note that, per the rules in FVCHVEH, where an operator is assigned to &gt;1 vehicle the surcharge is only applied to the vehicle that s/he principally operates.  If the operator is principal operator of &gt;1 vehicle the surcharge is applied to the highest rated vehicle.
+
+Determining the 16th digit when class 05/06 RCC present:
+Incidents attributed to an occasional operator under age 25 are used to determine the value of the 16th digit of the 05/06 rate class code developed for the vehicle while incidents associated with occasional operators with age &gt;=25 are included with those attributed to the principal operator when computing the rate class code for the principal operator.
+
+Major Frequency Surcharge
+
+This digit will be used to drive a surcharge based on frequency of major violations.  In determining the appropriate surcharge level, the violation history of all operators assigned to the vehicle is considered.  Values range from 0-9 and A-Z.
+
+Include incidents within the 3 years before the new business (if NTR = 0) or renewal effective date and severity = MA.
+
+# Major Violations in past 3 years	17th Digit
+0	                                                   0
+1	                                                   1
+2	                                                   2
+3	                                                   3
+4	                                                   4
+5	                                                   5
+6	                                                   6
+7	                                                   7
+8	                                                   8
+&gt;8			                   9
+
+In developing the value of the 17th digit consider the violation history of all operators assigned to the vehicle (except if a separate 05/06 RCC is developed for the vehicle).  The total number of incidents for all operators determines the applicable surcharge.  Note: System uses the "violation charge vehicle" to determine which vehicle surcharge applies to.  Note that, per the rules in FVCHVEH, where an operator is assigned to &gt;1 vehicle the surcharge is only applied to the vehicle that s/he principally operates.  If the operator is principal operator of &gt;1 vehicle the surcharge is applied to the highest rated vehicle.
+
+Determining the 17th digit when class 05/06 RCC present:
+Incidents attributed to an occasional operator under age 25 are used to determine the value of the 17th digit of the 05/06 rate class code developed for the vehicle while incidents associated with occasional operators with age &gt;= 25 are included with those attributed to the principal operator when computing the rate class code for the principal operator.
+
+Criminal Frequency Surcharge
+
+This digit will be used to drive a surcharge based on frequency of criminal violations.  In determining the appropriate surcharge level, the violation history of all operators assigned to the vehicle is considered.  Values range from 0-9 and A-Z.  Include incidents within the 10 years before the new business (if NTR = 0) or renewal effective date and severity = CR.  Note: we can't charge after 6 years but we do have the info from the MVR up to 10 years.
+
+18th Digit	                  # Criminal Convictions	               Most recent Criminal Conviction Date
+						(policy effective date minus CR date)
+0			0			N/A
+1			1			&lt; 12 months
+2			1			=&gt; 12 months but &lt; 36 months
+3			1			=&gt;36 months but &lt; 72 months
+4			1			=&gt; 72 months	
+
+5			2			&lt; 12 months
+6			2			=&gt; 12 months but &lt; 36 months
+7			2			=&gt;36 months but &lt; 72 months
+8			2			=&gt; 72 months	
+
+9			3			&lt; 12 months
+A			3			=&gt; 12 months but &lt; 36 months
+B			3			=&gt;36 months but &lt; 72 months
+C			3			=&gt; 72 months	
+
+D			4			&lt; 12 months
+E			4			=&gt; 12 months but &lt; 36 months
+F			4			=&gt;36 months but &lt; 72 months
+G			4			=&gt; 72 months	
+
+H			5			&lt; 12 months
+I			5			=&gt; 12 months but &lt; 36 months
+J			5			=&gt;36 months but &lt; 72 months
+K			5			=&gt; 72 months	
+
+L			6			&lt; 12 months
+M			6			=&gt; 12 months but &lt; 36 months
+N			6			=&gt;36 months but &lt; 72 months
+O			6			=&gt; 72 months	
+
+P			7			&lt; 12 months
+Q			7			=&gt; 12 months but &lt; 36 months
+R			7			=&gt;36 months but &lt; 72 months
+S			7			=&gt; 72 months	
+
+T			&gt;7			&lt; 12 months
+U			&gt;7			=&gt; 12 months but &lt; 36 months
+V			&gt;7			=&gt;36 months but &lt; 72 months
+W			&gt;7			=&gt; 72 months	
+
+In developing the value of the 18th digit the violation history of all operators assigned to the vehicle is considered as is the date of the most recent incident.  The total number of incidents for all operators determines the applicable surcharge (if a separate 05/06 RCC is developed for the vehicle).
+Note: System uses the "violation charge vehicle" to determine which vehicle surcharge applies to.  Note that, per the rules in FVCHVEH, where an operator is assigned to &gt;1 vehicle the surcharge is only applied to the vehicle that s/he principally operates.  If the operator is principal operator of &gt;1 vehicle the surcharge is applied to the highest rated vehicle.
+
+Determining the 18th digit when class 05/06 RCC present:
+Incidents attributed to an occasional operator under age 25 are used to determine the value of the 18th digit of the 05/06 rate class code developed for the vehicle while incidents associated with occasional operators with age &gt;=25 are included with those attributed to the principal operator when computing the rate class code for the principal operator.</Convictions>
+                     <OtherSurch Name="Suspension Surcharge">Suspension Surcharge
+
+This digit takes into account the most recent incident of license suspension in the last 6 years and develops the appropriate surcharge level based on the number of months since license reinstatement.  The intent is to penalize those with less driving experience since reinstatement more severely than those with greater number of years of driving suspension free.
+
+In determining the value of the 8th digit, the violation history of all operators assigned to this vehicle is considered.  In an example where &gt;1 operator assigned to the vehicle has &gt;0 convictions with type SUnn, the incident with the most recent reinstatement date is used to determine the suspension surcharge (if 05/06 RCC developed for the vehicle).
+
+Values range from 0 to 9 and from A - Z.  With this mod logic is introduced for values 0 through 7 and A.  Values 8 and 9 and B through Z, while added as valid values and included in the SS rate management table, are reserved for future use.
+
+# Suspensions		# Months Since License Reinstated		Digit 8
+	0		N/A		                                                0
+	&gt;0		&gt; 72 months				7
+	&gt;0		&gt; 60 months but &lt; or = 72 months		6
+	&gt;0		&gt; 48 months but &lt; or = 60 months		5
+	&gt;0		&gt; 36 months but &lt; or = 48 months		4
+	&gt;0		&gt; 24 months but &lt; or = 36 months		3
+	&gt;0		&gt; 12 months but &lt; or = 24 months		2
+	&gt;0		&gt; or = 1 month but &lt; or = 12 months		1
+	&gt;0		&lt; 1 month (license currently under 		A
+			suspension)
+			Reserved for future use			8-9 and B-Z
+
+No Prior/ Non-Payment History
+
+This digit will be used to drive a surcharge based on history of Prior Insurance and cancellation for non-payment.  The surcharge applied varies based on number of times renewed.
+
+Note: this surcharge is applicable to the premium developed for the vehicle so if a separate RCC is calculated for the 05/06 class then the 14th digit for both the principal operator and the UOO are set to the same value.
+
+14th Digit 	# Times Renewed	                   Prior Insurance       # Non Payment Cancels
+							  (within the last 3 years)
+0			N/A			Y		0
+1			N/A			Y		1
+2			N/A			Y		2
+3			N/A			Y 		&gt;2
+4			0			N		0
+5			0			N		1
+6			0			N		2
+7			0			N		&gt;2
+8			0			Y&gt;30 JRS	0
+9			0			Y&gt;30 JRS	1
+A			0			Y&gt;30 JRS	2
+B			0			Y&gt;30 JRS	&gt;2
+
+Defining Prior Insurance:
+N- prior insurer = None or Unknown
+Y- prior insurer does not equal None or Unknown and policy effective date minus expiry date of prior insurance is less than or equal to 30 days.
+Y &gt;30 - prior insurer does not equal None or Unknown and policy effective date minus expiry date of prior insurance is greater than 30 days.  Note that 6 months policies will be updated only at their annual renewal to ensure that they don't have an advantage over those policyholders renewing annually.</OtherSurch>
+                  </SurchargeInfo>
+               </CarrierInfo>
+            </Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="DsHelp">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>
+               <CarrierInfo>
+                  <DiscountInfo>
+                     <Group Name="FADOQ">Discount
+
+A 15% discount is applicable to the published automobile rates (over and above other discounts: age, bonuses, etc.).
+
+Discount Eligibility Conditions:
+- class 01 to 19 private passenger vehicles
+- commercial vehicles used for pleasure only
+Futhermore, the following vehicles aslo qualify for the discount provided they are added to the policy already covering one of the above-mentioned vehicles:
+-private trailer
+-camper
+-motor home
+-miscellaneous vehicles (except motorcycles and snow vehicles already covered by a special plan and except Harley Davidson motorcycles and "high performance motorcycles" .
+
+Excluded Risks
+
+-Applicants and drivers who in the last three (3) years have had:
+-two (2) or more traffic accidents (responsible or not);
+-three (3) or more claims (of any type):
+However, a risk already insured under this plan shall remain eligible at renewal if the insured has been involved in no more than two (2) non-responsible traffic accidents in the last three (3) years;
+-one (1) or more Criminal Code convictions.
+
+-Vehciles excluded:
+-whose rating group is 33 or higher (valued at $50,000 or higher);
+-identified with an asterisk (*) or a (check mark) in the Vehicle Rating Groups section;
+-of the antique or modified type;
+-not listed in the Vehicle Rating Groups section.</Group>
+                     <Occupation Name="Professional Discounts">Eligibility
+
+Eligible Risks
+Class 01 to 19 private passenger vehicle (except for class 06 and trailers) whose principal driver either practices or has retired from one of the listed professions.
+
+Non-Eligible Risks
+-New business:
+-Insureds who use their vehicle to travel to and from their normal workplace, which is located outside of Quebec.
+-Vehicles:
+-flagged with an asterisk (*) or a (check mark) in the Vehicle Rating Groups section;
+-of antique or modified type;
+-not listed in the Vehicle Rating Groups section.
+
+15% Discount (note1)
+
+Insurance broker
+Instructior or teacher (in a school setting)
+Nurse, health technician working  in a hospital center
+
+Administrative and office employees of the following employers:
+Bank                                                                                                 Hospital
+Caisse populaire                                                                                Insurance broker
+Credit union                                                                                       Quebec Government
+College                                                                                              School commission
+Fiduciary                                                                                            University
+Governement of Canada                                                                    Full-time student
+-department or ministry                                                                         (applicable to classes 08 to 19
+-governement board, commission                                                         except for class 17)
+ government-owned corporation, agency,
+ council, CLSC
+
+Noter 1: The reduction is applicable only to sections A and B. These discounts are not cumulative.
+
+10% Discount (note 1)
+
+Actuary                                                                                             Doctor (specialist)
+Agronomist, biologist                                                                         Engineer
+Architect                                                                                           Lawyer
+CA,CGA,CMA                                                                                   Notary
+Chemist                                                                                            Optometrist, ophthalmologist,
+Chiropractor                                                                                     Optician
+Dentist, denturist                                                                              Pharmacist
+Dietician                                                                                           Surveyor
+Doctor (general practitioner)                                                             Veterinarian
+
+Administrative and office employees of the following employers;
+Insurance companies
+Municipalities
+
+Note 1: The reduction is applicalbe only to sections A and B. These discounts are not cumulative.
+
+5% discount for retirees
+
+People retiring from professions or employers not listed above will get a 5% discount.
+
+This plan is assigned the profession code PR. Please indicate this code clearly on the insurance application.</Occupation>
+                     <Female Name="Female Discount">Eligibility
+-Classes 01-02-03 and 07 female principal drivers
+
+Discounts
+-Reduce the section A and B premiums based on the insured's class and age
+
+                                                                                                             CLASSES
+AGE                                                                                                01-02-03        07
+25 to 29                                                                                            -15%         -10%
+30 to 49                                                                                            -10%         -10%
+Your Client is also eligible to
+ASSURELLE 
+50 and over                                                                                         -5%        -10%</Female>
+                     <Farm Name="Farmers' Discount">Eligibility
+
+-Class 03 and 09 farmers' vehicles
+-Farmers who live on the farm and have no other business activities
+
+Discount
+-Reduce the section A and B premiums by thirty-five percent (35%)
+
+Exclusions
+-Class 06
+-Farm employee, temporary harvest employee, tobacco farmer and any other part-time farm employee
+-Poultry farmer, beekeeper
+-Compensated school transportation</Farm>
+                     <MVD Name="Discount For Two Or More Vehicles">A 15% (NOTE 1) discount is granted for all new private vehicles providing they are insured as part of the same policy and meet one of the following conditions:
+
+-all private vehicles are owned by or leased to spouses living under the same roof and are mainly driven by them;
+
+OR
+
+-all private vehicles, whatever their class, are driven exclusively by the designated Insured.
+
+Note 1: Discount is 10% when adding one or more occasional drivers to the spouses.
+In the presence of a single male driver under the age of 25, you must apply the premiums of class 10, 11, 12 or 13 for one of the vehicles.
+
+-Benefit
+Global 7 Auto Insurance
+By adding the Global 7 Auto insurance to the vehicle with the highest premium, your insured will benefit from this insurance, free of charge, for all other vehicles that also mee the eligibility criteria.
+
+-Exclusions
+-Farmers
+-Motor-Home
+The policies with more than one vehicle rated according to class 07 are also excluded.</MVD>
+                     <OtherDisc Name="Bonus">Rating
+Please refer the to the published rating tables which contain the basic rating that is make up of:
+- The BONUS 3 rates (in which the BONUS 3 discount % is integrated).
+- The REGULAR rates.
+
+To work out BONUS 2, multiply the REGULAR rates by the 0.92 factor.
+
+You will find the description of BONI 2 and BONI 3 below.
+
+Bonus 3 Discount / 3-year Claim Free (Also Known As "Bonus A")
+
+Eligibility
+To be eligible to Bonus 3, the principal driver must:
+
+- Hold a valid driver's license for the last three (3) years and, during this period:
+
+- Have no conviction for any Criminal Code traffic violation or no more than two (2) moving traffic violations.
+
+- Be insured as the owner, leaseholder, or principal driver of a private passenger vehilce for the last three (3) years.
+
+In addition, the following criteria must be met by all drivers:
+
+- No loss (whether responsible or not), including fire, theft, plate glass, vandalism, etc, in the past three (3) years.
+
+Bonus 2 Discount / 2-year Claim Free
+Eligibility
+
+To be eligible to Bonus 2, the principal driver must:
+
+- Hold a valid driver's license for the last two (2) years and during this period:
+
+- have no conviction for any Criminal Code traffic violation or no more than two (2) moving traffic violations.
+
+- Be insured as the owner, leaseholder, or principal driver of a private passenger vehicle for the last two (2) years.
+
+In addition, the following criteria must be met by all drivers:
+
+- No loss (whether responsible or not), including fire, theft, plate glass, vandalism, etc, in the past two (2) years.
+
+New Business Rating
+
+New Clients
+The Authorization For The Disclosure Of A Driving Record By The Societe De L'Assurance Automobile Du Quebect must be signed all new clients in your firm.
+
+Make Sure the Bonus 3, Bonus 2 or Level is Clearly Specified
+Clearly indicate on the application the information that will determine whether to apply the Bonus 3, Bonus 2 or Level (ref.: eligibility criteria).
+
+Level New Business
+(applicable only to classes 01-02-03-04-07)
+
+In new busniess, Level corresponds to an 8% discount applicable to "REGULAR" published rates.
+
+Level Eligibility In New Business
+
+When a new busniess is issued, the applicant is eligible to the level discount providing that he meets the following criteria:
+
+- Only one claim in the past two (2) years, for which he was not at fault; 
+and
+- in the three (3) years preceding the claim, was the principal driver of a vehicle insured without interuption and was not involved in any type of claim during that period.
+
+In addition, the principal driver must:
+
+- hold a valid driver's license for the last three (3) years and, during this period:
+
+- have no conviction for any Criminal Code traffic violation or no more than two (2) moving traffic violations.
+
+A word regarding MICRO-RATING
+(new business discount)
+
+Micro-rating has been designed to promote the development of your business while maintaining the good performance of your portfolio.
+
+This rating is allocated automatically by the AXA computer system or the comparative rating software to which you are connected (Compu-Quote, MDI or Ultima).
+
+Renewal Rating
+
+Discount
+- Your renewals will benefit from a discount depending on the number of years of insurance with AXA Assurances without any claims.
+
+The discount will be effected to regular, Uniperformance rates or files "5" or "3", as applicable.
+
+How It Works
+
+Step 1: Renewal Bonual Prerequisite
+The insured already has the Bonus 3 (or A) with AXA Assurances.
+
+Step 2:
+After being granted Bonus 3, providing no loss occurs, the bonus will be set as follows at the next renewal and on subsequent renewals with AXA Assurances:
+
+Number of no-claims renewals                          Territories 1 to 11                                         Other Territories
+with AXA Assurances                                            CLASSES                                                   CLASSES
+                                                                       01-02-03-        08-09-11-12-                01-02-03            08-09-11-12
+                                                                         04-07              13-18-19                       04-07                13-18-19
+  
+1st renewal                           Bonus B                 23%                    18%                           20%                      n/a
+2nd renewal                          Bonus C                 23%                    21%                           20%                      13%
+3th renewal                           Bonus D                 24%                    22%                           21%                      13%
+4th renewal                           Bonus E                 25%                    23%                           22%                       14%
+5th renewal                           Bonus F                  26%                    24%                          23%                        15%
+
+Forgiveness Clause
+
+Insured who have not more than two (2) losses in the three (3) years after being granted a bonus discount will not lose their bonus entirely on their next renewal.
+
+Their bonus will either be a reduced or remain at the same level as the previous term. 
+
+Here are a few definitions to help you understand the forgiveness clause.
+
+"Loss"
+Loss means any occurrence that caused damages covered under Sections A or B (subsections 1,2,3 or 4), whether or not the insured is deemed liabile.
+
+For the purpose of The Forgiveness Clause, we consider two (2) types of losses:
+
+- Liable Accidents
+
+Definition of "Liable Accident"
+Means an occurence resulting in Civil Liability or Collision damage arising out of the ownership, use or operation of an automobile (whether or not it is insured), in consequence of which:
+
+- an amount has been paid with repsect to the Civil Liability or Collision Coverage.
+
+- an amount would have been paid in the absence of the Quebec Direct Compensation Agreement (DCA) due to the applicant's liability in the accident;
+
+- a loss remains unsettled or unpaid;
+
+The definition of "Liable Accident" therefore includes any losses, paid for under the terms of the Direct Compensation Agreement, for which the insured is liable, even though the compensation was paid by the third party's insurer.
+
+- Losses under coverage B3-B4
+
+Forgiveness clause eligibility
+
+This clause applies only to insureds who meet each of the criteria below.
+
+Insureds:
+
+- already have a bonus discount with AXA Assurances
+
+- continue to be insured with AXA Assurances
+
+- have no more than two (2) losses (except DCA non-liabile losses and hit-and-run) in the past three (3) years, and
+
+- maintain their driving record at 3, 5 or UNIPERFORMANCE
+
+Forgivenss Clause Application
+
+To help you to determine the "forgivenss" your insured is entitled to if he has no more than two losses in the past three years, we have summed up the information in the following table.
+
+                                                            FORGIVENSS CLAUSE
+                  only avaliable if the insured maintains his driving record at 3,5 or Uniperformance
+                   
+                                                       FIRST LOSS                                                            SECOND LOSS
+ Current              If a Liabile Accident occurs      If, in the current term               If, in the current term, the insured
+ Term                  in the current term                   a loss occurs that                    has reached a total  of two (2) losses
+ Bonus                                                               involves Coverages B3            in three (3) years
+                                                                          or B4 only:
+                           -including a liable DCA                                                             (note 1)
+
+                                                       ON RENEWAL, THE BONUS WILL BE:
+                                                                                                                                  Classes (All territories)
+                                                                                                                          01,02,03,04 &amp; 07             Other
+Level                   Regular Rate                          Regular Rate                           Regular Rate             Regular Rate         
+Bonus 2               Regular Rate                          Regular Rate                           Regular Rate
+Bonus 3               Regular Rate                          A                                              Level                         Regular Rate
+B                          A                                            A                                               Level                         Regular Rate
+C                          B                                            B                                               Level                         Regular Rate
+D                          C                                           C                                                Leve                          Regular Rate
+E                           D                                          D                                               Level                          Regular Rate
+F                           E                                           E                                               Level                          Regular Rate
+
+Note 1  DCA* non-liable losses and hit-and-runs are precessed as a specific slass.
+
+If such an event occurs, the bonus discount will not be reduced at the next policy renewal but will remain at the same level as the previous term.
+
+*Direct Compensation Agreement</OtherDisc>
+                     <AntiTheft Name="Antitheft system discount">Eligibility 
+- The insured vehicle is a private passenger vehicle or a commerical vehicle equipped with a recognized antitheft system.
+
+- Proof of installation (specify the make and model of the vehicle and the antitheft system and montoring fee must be submitted to AXA Assurances.
+
+Approved Antitheft systems                                                           Discount (1)
+                                                                                                       on B3-B4
+- Electronic                                                                                         10%
+- Electromechanical                                                                            15%
+- Collar or Investiguard by Steadfast                                                   15%
+- Tracking systems used in conjunction with                                       30%
+an electrical mechanical antitherft system
+(in the event of theft, the cost of recovering the stolen 
+vehicle is refundable)                                                 
+                                                                                      (1)These discounts are not cumulative
+
+Important Notes
+1. Antitheft systems installed as standart equipment by the manufacturer of the vehicle (25I) have been approved, but the discount does not apply, as the basic rating already takes the improvement into account.
+
+2. No discount will be granted to commercial lines (fleet) policy holders; the rates are based on the 3-year/claim-free discount program.
+
+Intensive antitheft marking discount
+
+If theri vehicle is protected by Sherlock intensive antitheft marking, your insureds are eligible for a 10% discount on the Section B3 or B4 premium.  Add this discount to the one granted for any other type of anti-theft system recognized by AXA.
+
+For this discount to apply, you have to request it through an endorsement or indicate it on the insurance application by indicating the Sherlock identification number.</AntiTheft>
+                  </DiscountInfo>
+                  <SurchargeInfo>
+                     <Claims Name="Surcharges">The civil liability and collision premiums must be surcharged as outlined in the following schedule, based on the insured's driving record
+-or that of a driver of the vehicle - over the thirty-six (36) months preceding the insurance term concerened.
+
+a) More than two (2) responsible accidents:
+
+-Three (3) accidents................................................. 30%
+- Each additional accident........................................ 10%</Claims>
+                     <Convictions Name="Surcharges">The civil liability and collision premiums must be surcharged as outlined in the following schedule, based on the insured's driving record
+-or that of a driver of the vehicle - over the thirty-six (36) months preceding the insurance term concerened.
+
+Major Convictions
+- One Conviction................................................ 15%
+- Each additional conviction .............................. 10%
+
+Minor Convictions
+- Three (3) Convictions ...................................... 10%
+- Each additional conviction .............................. 15%
+
+Criminal Convictions
+- Each Conviction .............................................. 100%</Convictions>
+                  </SurchargeInfo>
+               </CarrierInfo>
+            </Value>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQFortus\bin\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 16</Info>
+      <Info>Legacy Auto Engine: C:\CQFortus\bin\cqae32.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 6</Info>
+      <Info LookupID="3">Ratebook File: c:\cqwin\auto\AP8GC.QUE</Info>
+      <Info LookupID="3">Discount/Surcharge Help File: c:\cqwin\auto\DS8GC.QUE</Info>
+      <Info LookupID="1">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="1">RateBook Index: 1</Info>
+      <Info LookupID="1">Discount/Surcharge Help File: c:\cqwin\auto\PAF\QC\07152006\DSPAF.QUE</Info>
+      <Info LookupID="2">Ratebook File: c:\cqwin\auto\AP7AXA.QUE</Info>
+      <Info LookupID="2">Discount/Surcharge Help File: c:\cqwin\auto\DS7AXA.QUE</Info>
+      <Info>FLookup Engine Info: Version 1 Build 3</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Mon Sep 11 14:14:55 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

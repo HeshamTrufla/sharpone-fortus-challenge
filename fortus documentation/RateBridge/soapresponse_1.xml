@@ -1,0 +1,874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <soap:Header>
+    <wsa:Action>http://www.compu-quote.com/RateBridge/Version1Response</wsa:Action>
+    <wsa:MessageID>uuid:e57fb1a8-0d77-49b2-abb2-78988581d7c5</wsa:MessageID>
+    <wsa:RelatesTo>uuid:1a6ea47c-1542-46e0-bb03-ef15b9827a8f</wsa:RelatesTo>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/03/addressing/role/anonymous</wsa:To>
+    <wsse:Security>
+      <wsu:Timestamp wsu:Id="Timestamp-5bf37673-aeab-45b4-94d7-c3ec86bd9bd0">
+        <wsu:Created>2009-03-31T18:48:06Z</wsu:Created>
+        <wsu:Expires>2009-03-31T18:53:06Z</wsu:Expires>
+      </wsu:Timestamp>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body>
+    <RateResponse xmlns="http://www.compu-quote.com/RateBridge/Version1">
+      <RateResult>
+        <FortusOutputXML>
+          <FortusTransaction xmlns="">
+            <Province>AB</Province>
+            <Renewal>NO</Renewal>
+            <EffDate>20090331</EffDate>
+            <Carriers>
+              <GRP>
+                <CodeNames>
+                  <Auto>
+                    <QuoteInfo>
+                      <CompanyCode>GRP</CompanyCode>
+                      <ContractNumber />
+                      <ExpiryDate>20100331</ExpiryDate>
+                      <GenerateVehDescr>N</GenerateVehDescr>
+                      <ID>00000243</ID>
+                      <Implementation>RBWS</Implementation>
+                      <Language />
+                      <NoFrills />
+                      <OriginalPolicyEffDate />
+                      <PolicyEffDate>20090331</PolicyEffDate>
+                      <PolicyTotal>
+                        <AdjustmentValue>0</AdjustmentValue>
+                        <AnnualPremium>1245</AnnualPremium>
+                        <BasePremium>1245</BasePremium>
+                        <FinalPremium>1245</FinalPremium>
+                        <PremiumWithDecimal>1245</PremiumWithDecimal>
+                        <TermPremium>1245</TermPremium>
+                        <TotalPremium>1245</TotalPremium>
+                      </PolicyTotal>
+                      <ProvinceCode>AB</ProvinceCode>
+                      <RateBookEffDate>20090331</RateBookEffDate>
+                      <Renewal>N</Renewal>
+                      <TermQuoted>12</TermQuoted>
+                      <TermRequested>12</TermRequested>
+                      <Transaction>New Business</Transaction>
+                      <CompanySpecificFields />
+                      <Message>
+                        <MessageText>W0004 - BROKER INSD DATE AND/OR COMPANY INSURED DATE LEFT BLANK</MessageText>
+                        <MessageID>0</MessageID>
+                        <Severity>100</Severity>
+                      </Message>
+                      <Vehicle>
+                        <AirBag />
+                        <Customized />
+                        <DistanceBusiness />
+                        <DistanceDaily>10</DistanceDaily>
+                        <ID>00000215</ID>
+                        <InspectionCode />
+                        <Location>EDMONTON</Location>
+                        <LocationIndex>04</LocationIndex>
+                        <MakeAndModel>ESCORT LX 4DR</MakeAndModel>
+                        <Manufacturer>FORD</Manufacturer>
+                        <nCylinders />
+                        <NumberOfCarPoolPassengers />
+                        <PostalCode>T6E1J1</PostalCode>
+                        <PurchaseDate>19000101</PurchaseDate>
+                        <PurchasedNew />
+                        <PurchasePrice />
+                        <RateBookEffDate>20090331</RateBookEffDate>
+                        <StatTerritory>04</StatTerritory>
+                        <Territory>04</Territory>
+                        <UnrepairedDamage />
+                        <ValueNew />
+                        <VehicleTotal>
+                          <FinalPremium>1245</FinalPremium>
+                        </VehicleTotal>
+                        <VehType>Private Passenger</VehType>
+                        <VehUse>Pleasure</VehUse>
+                        <VICCCode>3414</VICCCode>
+                        <VIN />
+                        <VRAB>04</VRAB>
+                        <VRColl>14</VRColl>
+                        <VRComp>04</VRComp>
+                        <VRGRateBookEffDate>20090331</VRGRateBookEffDate>
+                        <VRLiab />
+                        <Year>1999</Year>
+                        <Message>
+                          <MessageText>W0006 - null 7</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Message>
+                          <MessageText>W0012</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Message>
+                          <MessageText>W0042</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Coverage>
+                          <CSIOCode>TP</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>01</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>AB</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>02</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>COL</CSIOCode>
+                          <Deductible>250</Deductible>
+                          <DisplayDed>250</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>03</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>CMP</CSIOCode>
+                          <Deductible>250</Deductible>
+                          <DisplayDed>250</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>04</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>5A</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>05</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>44</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>10</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>ACCW</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>11</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>PAK8</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate />
+                          <ID>COV8</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                      </Vehicle>
+                      <DriverProfile>
+                        <Birthdate>19650101</Birthdate>
+                        <Desc />
+                        <DistanceSchool />
+                        <DriverTraining>Y</DriverTraining>
+                        <DriverTrainingDate>19940101</DriverTrainingDate>
+                        <Gender>M</Gender>
+                        <GridLevel />
+                        <GridLevelEffDate />
+                        <ID>00000216</ID>
+                        <MaritalStatus>S</MaritalStatus>
+                        <OccupationCode>999</OccupationCode>
+                        <RelationshipToApplicant />
+                        <ResidesWithParents />
+                        <DriverLicense>
+                          <Country>CA</Country>
+                          <ID>0001</ID>
+                          <LicenseClass>05</LicenseClass>
+                          <LicenseDate>19860101</LicenseDate>
+                          <ProvinceState>AB</ProvinceState>
+                        </DriverLicense>
+                        <GroupPlan>
+                          <DateMembership>20090101</DateMembership>
+                          <GroupPlanDescr />
+                          <ID>1</ID>
+                        </GroupPlan>
+                      </DriverProfile>
+                      <DriverProfile>
+                        <Birthdate>19650101</Birthdate>
+                        <Desc />
+                        <DistanceSchool />
+                        <DriverTraining>N</DriverTraining>
+                        <DriverTrainingDate />
+                        <Gender>F</Gender>
+                        <GridLevel />
+                        <GridLevelEffDate />
+                        <ID>00000217</ID>
+                        <MaritalStatus>S</MaritalStatus>
+                        <OccupationCode>999</OccupationCode>
+                        <RelationshipToApplicant />
+                        <ResidesWithParents />
+                        <DriverLicense>
+                          <Country>CA</Country>
+                          <ID>0001</ID>
+                          <LicenseClass>05</LicenseClass>
+                          <LicenseDate>19810101</LicenseDate>
+                          <ProvinceState>AB</ProvinceState>
+                        </DriverLicense>
+                      </DriverProfile>
+                      <VehLink>
+                        <AssignFlag>Y</AssignFlag>
+                        <CollDrRec />
+                        <DriverClass>02</DriverClass>
+                        <DriverID>00000216</DriverID>
+                        <DriverTotal>
+                          <FinalPremium>1245</FinalPremium>
+                          <PremiumWithDecimal>1245</PremiumWithDecimal>
+                          <TermPremium>1245</TermPremium>
+                          <TotalPremium>1245</TotalPremium>
+                        </DriverTotal>
+                        <ID>1</ID>
+                        <LiabDrRec />
+                        <Link>Prn</Link>
+                        <PercentUse>60</PercentUse>
+                        <PrincipalOwner>Y</PrincipalOwner>
+                        <VehicleID>00000215</VehicleID>
+                        <CoveragePremium>
+                          <AnnualPremium>630</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>630</BasePremium>
+                          <CarrierCovCode>TP</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>630</FinalPremium>
+                          <ID>01</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>630</PremiumWithDecimal>
+                          <SourceID>01</SourceID>
+                          <TermPremium>630</TermPremium>
+                          <TotalPremium>630</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>68</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>68</BasePremium>
+                          <CarrierCovCode>34</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>68</FinalPremium>
+                          <ID>02</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>68</PremiumWithDecimal>
+                          <SourceID>02</SourceID>
+                          <TermPremium>68</TermPremium>
+                          <TotalPremium>68</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>346</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>346</BasePremium>
+                          <CarrierCovCode>COL</CarrierCovCode>
+                          <Deductible>250</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>346</FinalPremium>
+                          <ID>03</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>346</PremiumWithDecimal>
+                          <SourceID>03</SourceID>
+                          <TermPremium>346</TermPremium>
+                          <TotalPremium>346</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>91</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>91</BasePremium>
+                          <CarrierCovCode>CMP</CarrierCovCode>
+                          <Deductible>250</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>91</FinalPremium>
+                          <ID>04</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>91</PremiumWithDecimal>
+                          <SourceID>04</SourceID>
+                          <TermPremium>91</TermPremium>
+                          <TotalPremium>91</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>0</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>0</BasePremium>
+                          <CarrierCovCode>5A</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>0</FinalPremium>
+                          <ID>05</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>0</PremiumWithDecimal>
+                          <SourceID>05</SourceID>
+                          <TermPremium>0</TermPremium>
+                          <TotalPremium>0</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>25</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>25</BasePremium>
+                          <CarrierCovCode>44</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>25</FinalPremium>
+                          <ID>10</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>25</PremiumWithDecimal>
+                          <SourceID>10</SourceID>
+                          <TermPremium>25</TermPremium>
+                          <TotalPremium>25</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>45</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>45</BasePremium>
+                          <CarrierCovCode>ACCW</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>45</FinalPremium>
+                          <ID>11</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>45</PremiumWithDecimal>
+                          <SourceID>11</SourceID>
+                          <TermPremium>45</TermPremium>
+                          <TotalPremium>45</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>40</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>40</BasePremium>
+                          <CarrierCovCode>PAK8</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate />
+                          <FinalPremium>40</FinalPremium>
+                          <ID>COV8</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>40</PremiumWithDecimal>
+                          <SourceID />
+                          <TermPremium>40</TermPremium>
+                          <TotalPremium>40</TotalPremium>
+                        </CoveragePremium>
+                      </VehLink>
+                      <VehLink>
+                        <AssignFlag>N</AssignFlag>
+                        <CollDrRec />
+                        <DriverClass>05</DriverClass>
+                        <DriverID>00000217</DriverID>
+                        <DriverTotal>
+                          <FinalPremium>0</FinalPremium>
+                          <PremiumWithDecimal>0</PremiumWithDecimal>
+                          <TermPremium>0</TermPremium>
+                          <TotalPremium>0</TotalPremium>
+                        </DriverTotal>
+                        <ID>2</ID>
+                        <LiabDrRec />
+                        <Link>Occ</Link>
+                        <PercentUse>40</PercentUse>
+                        <PrincipalOwner>N</PrincipalOwner>
+                        <VehicleID>00000215</VehicleID>
+                      </VehLink>
+                      <Claim>
+                        <AB>N</AB>
+                        <AmountTotal />
+                        <ClaimDate>20080101</ClaimDate>
+                        <ClaimType />
+                        <Collision>N</Collision>
+                        <Comprehensive>N</Comprehensive>
+                        <DriverID>DRV-00000216</DriverID>
+                        <Forgiven>N</Forgiven>
+                        <ID>LOSS-00000114</ID>
+                        <Liability>N</Liability>
+                        <PercentAtFault />
+                        <VehicleID>VEH-00000215</VehicleID>
+                      </Claim>
+                      <Claim>
+                        <AB>N</AB>
+                        <AmountTotal />
+                        <ClaimDate>20090101</ClaimDate>
+                        <ClaimType />
+                        <Collision>N</Collision>
+                        <Comprehensive>N</Comprehensive>
+                        <DriverID>DRV-00000216</DriverID>
+                        <Forgiven>N</Forgiven>
+                        <ID>LOSS-00000115</ID>
+                        <Liability>N</Liability>
+                        <PercentAtFault>100</PercentAtFault>
+                        <VehicleID>VEH-00000215</VehicleID>
+                      </Claim>
+                      <Incident>
+                        <ID />
+                        <DriverID>DRV-00000216</DriverID>
+                        <IncidentType>Lic Susp</IncidentType>
+                        <IncidentDate>20080101</IncidentDate>
+                        <DateReinstated>20080701</DateReinstated>
+                      </Incident>
+                    </QuoteInfo>
+                  </Auto>
+                </CodeNames>
+              </GRP>
+              <WU>
+                <CodeNames>
+                  <Auto>
+                    <QuoteInfo>
+                      <CompanyCode>WU</CompanyCode>
+                      <ContractNumber />
+                      <ExpiryDate>20100331</ExpiryDate>
+                      <GenerateVehDescr>N</GenerateVehDescr>
+                      <ID>00000243</ID>
+                      <Implementation>RBWS</Implementation>
+                      <Language />
+                      <NoFrills />
+                      <OriginalPolicyEffDate />
+                      <PolicyEffDate>20090331</PolicyEffDate>
+                      <PolicyTotal>
+                        <AdjustmentValue>0</AdjustmentValue>
+                        <AnnualPremium>1222</AnnualPremium>
+                        <BasePremium>1222</BasePremium>
+                        <FinalPremium>1222</FinalPremium>
+                        <PremiumWithDecimal>1222</PremiumWithDecimal>
+                        <TermPremium>1222</TermPremium>
+                        <TotalPremium>1222</TotalPremium>
+                      </PolicyTotal>
+                      <ProvinceCode>AB</ProvinceCode>
+                      <RateBookEffDate>20090331</RateBookEffDate>
+                      <Renewal>N</Renewal>
+                      <TermQuoted>12</TermQuoted>
+                      <TermRequested>12</TermRequested>
+                      <Transaction>New Business</Transaction>
+                      <CompanySpecificFields />
+                      <Message>
+                        <MessageText>W0004 - BROKER INSD DATE AND/OR COMPANY INSURED DATE LEFT BLANK</MessageText>
+                        <MessageID>0</MessageID>
+                        <Severity>100</Severity>
+                      </Message>
+                      <Vehicle>
+                        <AirBag />
+                        <Customized />
+                        <DistanceBusiness />
+                        <DistanceDaily>10</DistanceDaily>
+                        <ID>00000215</ID>
+                        <InspectionCode />
+                        <Location>EDMONTON</Location>
+                        <LocationIndex>04</LocationIndex>
+                        <MakeAndModel>ESCORT LX 4DR</MakeAndModel>
+                        <Manufacturer>FORD</Manufacturer>
+                        <nCylinders />
+                        <NumberOfCarPoolPassengers />
+                        <PostalCode>T6E1J1</PostalCode>
+                        <PurchaseDate>19000101</PurchaseDate>
+                        <PurchasedNew />
+                        <PurchasePrice />
+                        <RateBookEffDate>20090331</RateBookEffDate>
+                        <StatTerritory>04</StatTerritory>
+                        <Territory>04</Territory>
+                        <UnrepairedDamage />
+                        <ValueNew />
+                        <VehicleTotal>
+                          <FinalPremium>1222</FinalPremium>
+                        </VehicleTotal>
+                        <VehType>Private Passenger</VehType>
+                        <VehUse>Pleasure</VehUse>
+                        <VICCCode>3414</VICCCode>
+                        <VIN />
+                        <VRAB>04</VRAB>
+                        <VRColl>14</VRColl>
+                        <VRComp>04</VRComp>
+                        <VRGRateBookEffDate>20090331</VRGRateBookEffDate>
+                        <VRLiab />
+                        <Year>1999</Year>
+                        <Message>
+                          <MessageText>W0006 - null 7</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Message>
+                          <MessageText>W0012</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Message>
+                          <MessageText>W0042</MessageText>
+                          <MessageID>0</MessageID>
+                          <Severity>100</Severity>
+                        </Message>
+                        <Coverage>
+                          <CSIOCode>TP</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>01</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>AB</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>02</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>COL</CSIOCode>
+                          <Deductible>250</Deductible>
+                          <DisplayDed>250</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>03</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>CMP</CSIOCode>
+                          <Deductible>250</Deductible>
+                          <DisplayDed>250</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>04</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>5A</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>05</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>44</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>10</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>ACCW</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate>20090331</EffDate>
+                          <ID>11</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                        <Coverage>
+                          <CSIOCode>PAK8</CSIOCode>
+                          <Deductible>0</Deductible>
+                          <DisplayDed>0</DisplayDed>
+                          <Description />
+                          <EffDate />
+                          <ID>COV8</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                        </Coverage>
+                      </Vehicle>
+                      <DriverProfile>
+                        <Birthdate>19650101</Birthdate>
+                        <Desc />
+                        <DistanceSchool />
+                        <DriverTraining>Y</DriverTraining>
+                        <DriverTrainingDate>19940101</DriverTrainingDate>
+                        <Gender>M</Gender>
+                        <GridLevel />
+                        <GridLevelEffDate />
+                        <ID>00000216</ID>
+                        <MaritalStatus>S</MaritalStatus>
+                        <OccupationCode>999</OccupationCode>
+                        <RelationshipToApplicant />
+                        <ResidesWithParents />
+                        <DriverLicense>
+                          <Country>CA</Country>
+                          <ID>0001</ID>
+                          <LicenseClass>05</LicenseClass>
+                          <LicenseDate>19860101</LicenseDate>
+                          <ProvinceState>AB</ProvinceState>
+                        </DriverLicense>
+                        <GroupPlan>
+                          <DateMembership>20090101</DateMembership>
+                          <GroupPlanDescr />
+                          <ID>1</ID>
+                        </GroupPlan>
+                      </DriverProfile>
+                      <DriverProfile>
+                        <Birthdate>19650101</Birthdate>
+                        <Desc />
+                        <DistanceSchool />
+                        <DriverTraining>N</DriverTraining>
+                        <DriverTrainingDate />
+                        <Gender>F</Gender>
+                        <GridLevel />
+                        <GridLevelEffDate />
+                        <ID>00000217</ID>
+                        <MaritalStatus>S</MaritalStatus>
+                        <OccupationCode>999</OccupationCode>
+                        <RelationshipToApplicant />
+                        <ResidesWithParents />
+                        <DriverLicense>
+                          <Country>CA</Country>
+                          <ID>0001</ID>
+                          <LicenseClass>05</LicenseClass>
+                          <LicenseDate>19810101</LicenseDate>
+                          <ProvinceState>AB</ProvinceState>
+                        </DriverLicense>
+                      </DriverProfile>
+                      <VehLink>
+                        <AssignFlag>Y</AssignFlag>
+                        <CollDrRec />
+                        <DriverClass>02</DriverClass>
+                        <DriverID>00000216</DriverID>
+                        <DriverTotal>
+                          <FinalPremium>1222</FinalPremium>
+                          <PremiumWithDecimal>1222</PremiumWithDecimal>
+                          <TermPremium>1222</TermPremium>
+                          <TotalPremium>1222</TotalPremium>
+                        </DriverTotal>
+                        <ID>1</ID>
+                        <LiabDrRec />
+                        <Link>Prn</Link>
+                        <PercentUse>60</PercentUse>
+                        <PrincipalOwner>Y</PrincipalOwner>
+                        <VehicleID>00000215</VehicleID>
+                        <CoveragePremium>
+                          <AnnualPremium>630</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>630</BasePremium>
+                          <CarrierCovCode>TP</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>630</FinalPremium>
+                          <ID>01</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>630</PremiumWithDecimal>
+                          <SourceID>01</SourceID>
+                          <TermPremium>630</TermPremium>
+                          <TotalPremium>630</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>68</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>68</BasePremium>
+                          <CarrierCovCode>34</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>68</FinalPremium>
+                          <ID>02</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>68</PremiumWithDecimal>
+                          <SourceID>02</SourceID>
+                          <TermPremium>68</TermPremium>
+                          <TotalPremium>68</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>346</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>346</BasePremium>
+                          <CarrierCovCode>COL</CarrierCovCode>
+                          <Deductible>250</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>346</FinalPremium>
+                          <ID>03</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>346</PremiumWithDecimal>
+                          <SourceID>03</SourceID>
+                          <TermPremium>346</TermPremium>
+                          <TotalPremium>346</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>91</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>91</BasePremium>
+                          <CarrierCovCode>CMP</CarrierCovCode>
+                          <Deductible>250</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>91</FinalPremium>
+                          <ID>04</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>91</PremiumWithDecimal>
+                          <SourceID>04</SourceID>
+                          <TermPremium>91</TermPremium>
+                          <TotalPremium>91</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>0</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>0</BasePremium>
+                          <CarrierCovCode>5A</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>0</FinalPremium>
+                          <ID>05</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>0</PremiumWithDecimal>
+                          <SourceID>05</SourceID>
+                          <TermPremium>0</TermPremium>
+                          <TotalPremium>0</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>25</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>25</BasePremium>
+                          <CarrierCovCode>44</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>25</FinalPremium>
+                          <ID>10</ID>
+                          <Limit1>1000000</Limit1>
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>25</PremiumWithDecimal>
+                          <SourceID>10</SourceID>
+                          <TermPremium>25</TermPremium>
+                          <TotalPremium>25</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>45</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>45</BasePremium>
+                          <CarrierCovCode>ACCW</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate>20090331</EffDate>
+                          <FinalPremium>45</FinalPremium>
+                          <ID>11</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>45</PremiumWithDecimal>
+                          <SourceID>11</SourceID>
+                          <TermPremium>45</TermPremium>
+                          <TotalPremium>45</TotalPremium>
+                        </CoveragePremium>
+                        <CoveragePremium>
+                          <AnnualPremium>40</AnnualPremium>
+                          <Applied>Y</Applied>
+                          <BasePremium>40</BasePremium>
+                          <CarrierCovCode>PAK8</CarrierCovCode>
+                          <Deductible>0</Deductible>
+                          <EffDate />
+                          <FinalPremium>40</FinalPremium>
+                          <ID>COV8</ID>
+                          <Limit1 />
+                          <Limit2>0</Limit2>
+                          <PremiumWithDecimal>40</PremiumWithDecimal>
+                          <SourceID />
+                          <TermPremium>40</TermPremium>
+                          <TotalPremium>40</TotalPremium>
+                        </CoveragePremium>
+                      </VehLink>
+                      <VehLink>
+                        <AssignFlag>N</AssignFlag>
+                        <CollDrRec />
+                        <DriverClass>05</DriverClass>
+                        <DriverID>00000217</DriverID>
+                        <DriverTotal>
+                          <FinalPremium>0</FinalPremium>
+                          <PremiumWithDecimal>0</PremiumWithDecimal>
+                          <TermPremium>0</TermPremium>
+                          <TotalPremium>0</TotalPremium>
+                        </DriverTotal>
+                        <ID>2</ID>
+                        <LiabDrRec />
+                        <Link>Occ</Link>
+                        <PercentUse>40</PercentUse>
+                        <PrincipalOwner>N</PrincipalOwner>
+                        <VehicleID>00000215</VehicleID>
+                      </VehLink>
+                      <Claim>
+                        <AB>N</AB>
+                        <AmountTotal />
+                        <ClaimDate>20080101</ClaimDate>
+                        <ClaimType />
+                        <Collision>N</Collision>
+                        <Comprehensive>N</Comprehensive>
+                        <DriverID>DRV-00000216</DriverID>
+                        <Forgiven>N</Forgiven>
+                        <ID>LOSS-00000114</ID>
+                        <Liability>N</Liability>
+                        <PercentAtFault />
+                        <VehicleID>VEH-00000215</VehicleID>
+                      </Claim>
+                      <Claim>
+                        <AB>N</AB>
+                        <AmountTotal />
+                        <ClaimDate>20090101</ClaimDate>
+                        <ClaimType />
+                        <Collision>N</Collision>
+                        <Comprehensive>N</Comprehensive>
+                        <DriverID>DRV-00000216</DriverID>
+                        <Forgiven>N</Forgiven>
+                        <ID>LOSS-00000115</ID>
+                        <Liability>N</Liability>
+                        <PercentAtFault>100</PercentAtFault>
+                        <VehicleID>VEH-00000215</VehicleID>
+                      </Claim>
+                      <Incident>
+                        <ID />
+                        <DriverID>DRV-00000216</DriverID>
+                        <IncidentType>Lic Susp</IncidentType>
+                        <IncidentDate>20080101</IncidentDate>
+                        <DateReinstated>20080701</DateReinstated>
+                      </Incident>
+                    </QuoteInfo>
+                  </Auto>
+                </CodeNames>
+              </WU>
+            </Carriers>
+          </FortusTransaction>
+        </FortusOutputXML>
+        <FailedCarriers>
+          <Carriers xmlns="">
+            <AXA />
+          </Carriers>
+        </FailedCarriers>
+        <StatusCode>SUCCESS</StatusCode>
+        <Message />
+        <TrackingNumber>21043</TrackingNumber>
+      </RateResult>
+    </RateResponse>
+  </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,78 @@
+<LookupTransaction Type="Property">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <Province>QC</Province>
+      <Carrier>AXA</Carrier>
+   </Defaults>
+   <Lookups>
+      <Lookup Type="RatebookList" ID="0.3">
+         <CodeName>Condos</CodeName>
+      </Lookup>
+      <Lookup Type="CodeNameList" ID="0.5"/>
+      <Lookup Type="TableName" ID="1">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="TableName" ID="2">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="RatebookList" ID="3"/>
+      <Lookup Type="FloaterZone" ID="4">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="FloaterZone" ID="5">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="EarthquakeZone" ID="6">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="EarthquakeZone" ID="7">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="SewerBackupZone" ID="8">
+         <CodeName>Homeowners</CodeName>
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="SewerBackupZone" ID="9">
+         <TerrCode>9301</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+         <FHDist>3</FHDist>
+      </Lookup>
+      <Lookup Type="TableNameList" ID="10"/>
+      <Lookup Type="TableNameList" ID="11">
+         <CodeName>Homeowners</CodeName>
+      </Lookup>
+      <Lookup Type="FloaterZoneList" ID="12"/>
+      <Lookup Type="FloaterZoneList" ID="13">
+         <CodeName>SecHomeowners</CodeName>
+      </Lookup>
+      <Lookup Type="EarthquakeZoneList" ID="14"/>
+      <Lookup Type="EarthquakeZoneList" ID="15">
+         <CodeName>SASecHomeowners</CodeName>
+      </Lookup>
+      <Lookup Type="SewerBackupZoneList" ID="16"/>
+      <Lookup Type="SewerBackupZoneList" ID="17">
+         <CodeName>SASeasonal</CodeName>
+      </Lookup>
+      <Lookup Type="FormList" ID="18"/>
+      <Lookup Type="RatingList" ID="19"/>
+   </Lookups>
+</LookupTransaction>

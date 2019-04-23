@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20160829</EffDate>
+      <Province>QC</Province>
+      <VICCCode>0278</VICCCode>
+      <VICCCodeExt>027801</VICCCodeExt>
+      <VehYear>2004</VehYear>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="VRG">
+         <Carrier>GA</Carrier>
+      </Lookup>
+      <Lookup ID="2" Type="VRG">
+         <Carrier>UNCN</Carrier>
+      </Lookup>
+      <Lookup ID="3" Type="VRG">
+         <Carrier>GC</Carrier>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

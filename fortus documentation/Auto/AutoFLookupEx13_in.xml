@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+  <Defaults>
+    <ProductLine>Personal</ProductLine>
+    <Province>ON</Province>
+    <VehType>Private Passenger</VehType>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="1" Type="TelematProgList">
+      <Carrier>CIC</Carrier>
+      <Renewal>N</Renewal>
+    </Lookup>
+    <Lookup ID="2" Type="TelematProgList">
+      <Carrier>DOC</Carrier>
+      <Renewal>N</Renewal>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

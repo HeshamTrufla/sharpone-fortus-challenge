@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="TerritoryList">
+         <Carrier>GA</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>14</Value>
+            <Value>15</Value>
+            <Value>16</Value>
+            <Value>17</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+            <Value>20</Value>
+            <Value>21</Value>
+            <Value>22</Value>
+            <Value>23</Value>
+            <Value>24</Value>
+            <Value>25</Value>
+            <Value>26</Value>
+            <Value>27</Value>
+            <Value>28</Value>
+            <Value>29</Value>
+            <Value>30</Value>
+            <Value>31</Value>
+            <Value>32</Value>
+            <Value>33</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="TerritoryList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>1A</Value>
+            <Value>1B</Value>
+            <Value>1C</Value>
+            <Value>1D</Value>
+            <Value>1E</Value>
+            <Value>1F</Value>
+            <Value>1G</Value>
+            <Value>1H</Value>
+            <Value>02</Value>
+            <Value>2A</Value>
+            <Value>2B</Value>
+            <Value>2C</Value>
+            <Value>03</Value>
+            <Value>4A</Value>
+            <Value>4B</Value>
+            <Value>4D</Value>
+            <Value>05</Value>
+            <Value>5A</Value>
+            <Value>5B</Value>
+            <Value>6A</Value>
+            <Value>6B</Value>
+            <Value>6C</Value>
+            <Value>6D</Value>
+            <Value>6E</Value>
+            <Value>7A</Value>
+            <Value>7B</Value>
+            <Value>7C</Value>
+            <Value>08</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="3" Type="TerritoryList">
+         <Carrier>GC</Carrier>
+         <Results>
+            <Value>1A</Value>
+            <Value>1B</Value>
+            <Value>1C</Value>
+            <Value>1D</Value>
+            <Value>1F</Value>
+            <Value>2A</Value>
+            <Value>2B</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>6A</Value>
+            <Value>6B</Value>
+            <Value>6C</Value>
+            <Value>7A</Value>
+            <Value>7B</Value>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQWIN\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Auto Engine: C:\CQWIN\cqae32r.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 5</Info>
+      <Info LookupID="1">Ratebook File: c:\cqwin\auto\AP8GA.QUE</Info>
+      <Info LookupID="2">Ratebook File: c:\cqwin\auto\AP7AXA.QUE</Info>
+      <Info LookupID="3">Ratebook File: c:\cqwin\auto\AP8GC.QUE</Info>
+      <Info>FLookup Engine Info: Version 1 Build 2</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Tue Aug 29 09:03:47 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

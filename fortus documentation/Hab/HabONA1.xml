@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FortusTransaction Type="Property" xmlns="">
+   <Carriers>
+      <Carrier>TEST</Carrier>
+      <Carrier>TES2</Carrier>
+   </Carriers>
+   <Province>ON</Province>
+   <Renewal>NO</Renewal>
+   <CodeNames>
+      <SASecRentalDwellings>
+         <QuoteInfo>
+            <Language>English</Language>
+            <Dwelling>
+               <AutoCo>NBUS</AutoCo>
+               <AutoCoDate>20010101</AutoCoDate>
+               <BurgAlarm>NONE</BurgAlarm>
+               <CityName>KITCHENER</CityName>
+               <Construction>BRICK</Construction>
+               <Coverage>124000</Coverage>
+               <DeadBolt>1</DeadBolt>
+               <Ded>-1</Ded>
+               <DobCoIns>19690101</DobCoIns>
+               <DobIns>19690101</DobIns>
+               <DwellingDate>19940101</DwellingDate>
+               <DwellingType>A</DwellingType>
+               <ElectDate>19940101</ElectDate>
+               <ElectServ>100 AMP</ElectServ>
+               <ElectType>COPPER</ElectType>
+               <FHDist>8</FHDist>
+               <FireAlarm>NONE</FireAlarm>
+               <FireExt>2</FireExt>
+               <FormType>0</FormType>
+               <HabCo>NBUS</HabCo>
+               <HabCoDate>20010101</HabCoDate>
+               <InsSince>19940101</InsSince>
+               <Liab>-1</Liab>
+               <NumFam>1</NumFam>
+               <NumMortgage>1</NumMortgage>
+               <NumUnits>1</NumUnits>
+               <OB>-1</OB>
+               <OccSince>19940101</OccSince>
+               <PlumbDate>19940101</PlumbDate>
+               <PlumbType>COPPER</PlumbType>
+               <PostalCode>N2M3E4</PostalCode>
+               <PP>-1</PP>
+               <PrmHeatApproved>1</PrmHeatApproved>
+               <PrmHeatChimneyType>BRICK</PrmHeatChimneyType>
+               <PrmHeatDate>19940101</PrmHeatDate>
+               <PrmHeatType>CENTRAL FURNACE - GAS</PrmHeatType>
+               <ProtectionClass>U</ProtectionClass>
+               <Prov>ON</Prov>
+               <RoofDate>19940101</RoofDate>
+               <RoofType>ASPHALT SHINGLES</RoofType>
+               <SmokeDetectors>2</SmokeDetectors>
+               <Sprinkler>NONE</Sprinkler>
+               <Structure>DETACHED</Structure>
+               <TerrCode>1182</TerrCode>
+               <Value>124000</Value>
+               <WithBroker>19940101</WithBroker>
+            </Dwelling>
+         </QuoteInfo>
+      </SASecRentalDwellings>
+   </CodeNames>
+</FortusTransaction>

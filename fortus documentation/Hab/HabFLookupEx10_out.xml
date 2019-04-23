@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Property">
+  <Defaults>
+    <CodeName>Homeowners</CodeName>
+    <Province>QC</Province>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="2"
+            Type="RenewalCodeList">
+      <Carrier>PROM</Carrier>
+      <Results>
+        <Value>PRAS</Value>
+        <Value>PRBC</Value>
+        <Value>PRBE</Value>
+        <Value>PRBF</Value>
+        <Value>PRBR</Value>
+        <Value>PRCM</Value>
+        <Value>PRCS</Value>
+        <Value>PRDM</Value>
+        <Value>PRDR</Value>
+        <Value>PRHL</Value>
+        <Value>PRM1</Value>
+        <Value>PRM3</Value>
+        <Value>PRMI</Value>
+        <Value>PRML</Value>
+        <Value>PRMV</Value>
+        <Value>PROM</Value>
+        <Value>PRPC</Value>
+        <Value>PRSO</Value>
+      </Results>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

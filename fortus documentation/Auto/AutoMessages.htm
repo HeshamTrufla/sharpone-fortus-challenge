@@ -1,0 +1,2395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Messages</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkMessages">Messages</a></li>
+<li><a href="#Table1">Message Ranges</a></li>
+<li><a href="#Table2">Individual IDs</a></li>
+</ul>
+</div><a name="lnkMessages"></a><h1>Messages</h1>
+<p><a href="../MapErrors.htm">Errors and Warnings</a> relate to the 
+                'process of quoting', whereas messages relate to the actual quote itself. 
+                Messages can be good, bad, or neutral. Some messages might simply be a means of 
+                relaying additional carrier specific information about the quote. Other messages 
+                might be intended on alerting the user to problems with the quote, and thus indicating 
+                unreliable quote results. Messages have been lumped together ambiguously like 
+                this to allow for flexibility. Each user implementing the FORTUS&#8482; rating 
+                engine can then make their own decision on the severity and reaction to each individual message.</p>
+<hr>
+<h2>Auto Messages</h2>
+<p>Traditionally, common messages have been shared between all carriers.  If a carrier-specific 
+                description was necessary then either message code 0 or 999 would have been used.  Message functionality has now 
+                been expanded to allow for improved messaging as well as improved interpretation of those messages and rating 
+                situations.  <a href="#Table1">Table 1</a> describes messages in terms of what range they fall within.  
+                <a href="#Table2">Table 2</a> provides the list of common messages used by all carriers.</p>
+<hr><a name="Table1"></a><h2>Auto Message - Ranges</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td width="70">Number</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td><span style="color:#993300">Informational Messages - should not hinder quoting</span><p>A message with this code could represent anything of a purely informational nature.</p>
+</td>
+</tr>
+<tr>
+<td>1 - 399</td>
+<td><span style="color:#993300">These could be informational, concern, do not bind; anything</span><p>Messages found in this range are common underwriting situations found in many carriers.  These message CANNOT be interpreted 
+                         based on their position within a range.  Instead, it is up to the program interpreting the quote results to decide how it 
+                         wishes to react to each individual message with a code between 1-399.  <a href="#Table2">Table 2</a> lists suggested interpretations.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>400 - 420</td>
+<td><span style="color:#993300">Un-confirmable Items - items that we do not support, but that the carrier might.<br>
+                        Informational Messages - Should not hinder quoting</span><p>Messages found in this range indicate a situation that cannot be confirmed because the necessary information is 
+                         not collected. However, this does not hinder the quote results given.  For example, these messages could indicate:
+                        <ul>
+<li>Coverages whose eligibility cannot be fully confirmed due to missing information not captured through FORTUS&#8482;.</li>
+<li>Discounts/Surcharges whose eligibility cannot be fully confirmed due to missing information not captured through FORTUS&#8482;.</li>
+<li>Other times whose eligibility cannot be confirmed due to missing information not captured through FORTUS&#8482;.</li>
+</ul>
+</p>
+<p><strong><u>Examples:</u></strong><br><ul>
+<li>SEF 48 Premium must be determined manually see Rate Pages</li>
+<li>There must be supporting automobile business from the parents</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr>
+<td>421 - 440</td>
+<td><span style="color:#993300">Coverage Details (ex: PAK limits, endorsement included for free, etc.)<br>
+                        Informational Messages - should not hinder quoting</span><p>Messages found in this range provide further information about coverages.  They should not hinder the quote results.</p>
+<p><strong><u>Examples:</u></strong><br><ul>
+<li>Endorsement 34 is now Passeport Acciroute.</li>
+<li>Endorsement #2 is included with Inov Package.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr>
+<td>441 - 460</td>
+<td><span style="color:#993300">Purely a statement<br>
+                        Informational Messages - Should not hinder quoting</span><p>Messages found in this range simply relay additional information.  They should not hinder the quote results.</p>
+<p><strong><u>Examples:</u></strong><br><ul>
+<li>Commercial Quick Quote: Check Binding Authority.</li>
+<li>Ce v‚hicule est muni d'un antid‚marreur de s‚rie</li>
+<li>Synchro Insurance</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr>
+<td>461 - 549</td>
+<td><span style="color:#993300">Future Use.<br>
+                        Informational Messages - should not hinder quoting</span><p>This range is for future use. However, this range of message can still be programmed for and interpreted as 
+                        informational-only messages.  They should not hinder quote results.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>550 - 589</td>
+<td><span style="color:#993300">Premium / coverage related<br>
+                        Do not bind messages. Should not quote.</span><p>Messages found in this range represent situations with premiums and/or coverages that indicate that quote 
+                        results are not accurate, and should not be used.
+                      </p>
+<p><strong><u>Examples:</u></strong><br><ul>
+<li>Vehicles value required for correct rate group and premiums</li>
+<li>Purchase date required for replacement cost.</li>
+<li>Package not supported with diamond-flagged vehicles.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr>
+<td>590 - 599</td>
+<td><span style="color:#993300">Internal<br>
+                        Should not hinder quoting.</span><p>Messages found in this range are used for special purposes internally.  They should not hinder quote results.</p>
+</td>
+</tr>
+<tr>
+<td>600 - 699</td>
+<td><span style="color:#993300">Carrier informational messages.<br>
+                        Should not hinder quoting.</span><p>Messages found in this range represent carrier specific information.  These messages often appear with no text.  
+                        This is because these messages can be used by certain products (Rating Services, etc) as a mechanism for triggering 
+                        desired post-quote functionality, rather than simply relaying message text to the end-user.  Messages in this range 
+                        without text can safely be ignored.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>700 - 750</td>
+<td><span style="color:#993300">Validation Failures<br>
+                        Do not bind messages. Should not quote.</span><p>Messages found in this range represent a failure to validate certain necessary conditions.  Their existence marks 
+                        the quote results as not accurate or not complete.
+                      </p>
+<p><strong><u>Examples:</u></strong><br><ul>
+<li>Refer to company for VRGs prior to binding.</li>
+<li>The principal operator should be the highest rated operator</li>
+<li>Does not qualify for special program.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr>
+<td>751 - 899</td>
+<td><span style="color:#993300">Future use.<br>
+                        Do not bind messages. Should not quote.</span><p>This range is for future use. However, this range of message can still be programmed for and interpreted as 
+                        do not bind messages.  Quote results should not be used.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>900 - 921<br>
+                        923 - 998<br><span style="color:#808080">(922 is below)</span></td>
+<td><span style="color:#993300">Engine error messages.<br>
+                        Should not quote.</span><p>Messages found in this range represent errors incurred by the rating engines while quoting.  Quote results should not be used.</p>
+</td>
+</tr>
+<tr>
+<td>922</td>
+<td><span style="color:#993300">Invalid Coverage</span><p>A message with this code can be generated for certain coverages that are not supported by the carrier.  If all coverages 
+                        requested on the quote are considered essential, then the quote results should not be used because not all coverages were 
+                        quoted. Otherwise, the quote results can be used, with the caveat that not all requested coverages were quoted.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>999</td>
+<td><span style="color:#993300">Do not bind message. Should not quote.</span><p>A message with this code could represent anything of a nature that hinders the quote results.  Quote results should not be used.</p>
+</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="Table2"></a><h2>Auto Message - Individual IDs</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Action Types</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Action</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Informational Message for broker/customer. No action required.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Underwriting Concern. May violate binding authority restrictions. 
+                          Should be reviewed before issuing a policy.</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Likely a rating error due to unsupported rating information or erroneous input. 
+                          Should not be considered as a valid quote.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="10%">
+<col align="left" width="10%">
+<col align="left" width="40%">
+<col align="left" width="40%">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Messages</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">ID</td>
+<td class="txtTableColumnTitle">Action</td>
+<td class="txtTableColumnTitle">English Message</td>
+<td class="txtTableColumnTitle">French Message</td>
+</tr>
+<tr>
+<td>1</td>
+<td>E</td>
+<td>Risk does not meet acceptability criteria.</td>
+<td>Le risque ne répond pas aux critères d'admissibilité.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>C</td>
+<td>Driver has had Non Payment Cancellation.</td>
+<td>Le conducteur a eu une annulation pour non paiement.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C</td>
+<td>Driver has committed Insurance Fraud.</td>
+<td>Le conducteur a commis une fraude d'assurance.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>C</td>
+<td>Driver has given Material Misrepresentation.</td>
+<td>Le conducteur a donné une fausse déclaration matérielle.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>C</td>
+<td>Non Canadian driver not accepted.</td>
+<td>Conducteur sans expérience de conduite au Canada refusé.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>C</td>
+<td>Continuous insurance required.</td>
+<td>Assurance continuelle requise.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>C</td>
+<td>Insurance lapse too large.</td>
+<td>Interruption d'assurance trop longue.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>C</td>
+<td>Maximum vehicle age exceeded.</td>
+<td>Age maximum du véhicule dépassé.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>C</td>
+<td>Maximum vehicle value exceeded.</td>
+<td>Valeur maximum du véhicule dépassée.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C</td>
+<td>Maximum vehicle weight exceeded.</td>
+<td>Poids maximum du véhicule dépassé.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>C</td>
+<td>Vehicle fuel not accepted.</td>
+<td>Carburant du véhicule refusé.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>C</td>
+<td>Ineligible vehicle.</td>
+<td>Véhicule non éligible.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>C</td>
+<td>Maximum VRG exceeded.</td>
+<td>Groupe du véhicule maximum dépassé.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>C</td>
+<td>Number of vehicles per policy exceeded.</td>
+<td>Nombre de véhicules par police dépassé.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>C</td>
+<td>Number of drivers per vehicle exceeded.</td>
+<td>Nombre de conducteurs par véhicule dépassé.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>C</td>
+<td>Number of Classed occasionals per vehicle exceeded.</td>
+<td>Nombre de conducteurs occasionnels par véhicule dépassé.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>C</td>
+<td>Number of All Occasionals per vehicle exceeded.</td>
+<td>Nombre de conducteurs occasionnels par véhicule dépassé.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>C</td>
+<td>Number of underaged drivers per veh. exceeded.</td>
+<td>Nombre de jeunes conducteurs par véhicule dépassé.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>C</td>
+<td>Maximum daily km exceeded.</td>
+<td>Kilométrage maximum par jour dépassé.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>C</td>
+<td>Maximum annual km exceeded.</td>
+<td>Kilométrage maximum annuel dépassé.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>C</td>
+<td>Business driver not accepted.</td>
+<td>Conducteur pour affaire non accepté.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>C</td>
+<td>Minimum annual business km required for underaged drivers.</td>
+<td>Kilo. annuel pour affaire requis pour jeune conducteur.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>C</td>
+<td>Annual business km exceeded.</td>
+<td>Kilométrage annuel pour affaire dépassé.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>C</td>
+<td>Percentage of business km exceeded.</td>
+<td>Pourcentage du Kilométrage pour affaire dépassé.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>C</td>
+<td>Maximum surcharge exceeded.</td>
+<td>Surprime maximum dépassée.</td>
+</tr>
+<tr>
+<td>26</td>
+<td>C</td>
+<td>Minimum surcharge required.</td>
+<td>Surprime minimum requise.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>C</td>
+<td>Number of months suspended exceeded.</td>
+<td>Nombre de mois suspendus dépassé.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>C</td>
+<td>Minimum number of months suspension free required.</td>
+<td>Nombre de mois minimum sans suspension requis.</td>
+</tr>
+<tr>
+<td>29</td>
+<td>C</td>
+<td>Maximum number of At-fault claims exceeded.</td>
+<td>Nombre maximum de réclamation responsable dépassé.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>C</td>
+<td>Maximum number of Non At-fault claims exceeded.</td>
+<td>Nombre maximum de réclamation non responsables dépassé.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>C</td>
+<td>Maximum number of Comprehensive claims exceeded.</td>
+<td>Nb maximum de réclamation accident sans collision dépassé.</td>
+</tr>
+<tr>
+<td>32</td>
+<td>C</td>
+<td>Maximum number of Combination claims exceeded.</td>
+<td>Nombre maximum de réclamations combinées dépassé.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>C</td>
+<td>Maximum number of Criminal code convictions exceeded.</td>
+<td>Nb maximum de condamnations criminelles dépassé.</td>
+</tr>
+<tr>
+<td>34</td>
+<td>C</td>
+<td>Maximum number of Major convictions exceeded.</td>
+<td>Nombre maximum de condamnations majeures dépassé.</td>
+</tr>
+<tr>
+<td>35</td>
+<td>C</td>
+<td>Maximum number of Minor convictions exceeded.</td>
+<td>Nombre maximum de condamnations mineures dépassé.</td>
+</tr>
+<tr>
+<td>36</td>
+<td>C</td>
+<td>Maximum number of Minor/Major convictions exceeded.</td>
+<td>Nombre maximum de condamnations mineures/majeures dépassé.</td>
+</tr>
+<tr>
+<td>37</td>
+<td>C</td>
+<td>Maximum number of At-fault claims exceeded.</td>
+<td>Nombre maximum de réclamation responsable dépassé.</td>
+</tr>
+<tr>
+<td>38</td>
+<td>C</td>
+<td>Maximum number of Combination claims exceeded.</td>
+<td>Nombre maximum de réclamations combinées dépassé.</td>
+</tr>
+<tr>
+<td>39</td>
+<td>C</td>
+<td>Maximum number of Minor convictions exceeded.</td>
+<td>Nombre maximum de condamnations mineures dépassé.</td>
+</tr>
+<tr>
+<td>40</td>
+<td>C</td>
+<td>Maximum number or Minor/Major convictions exceeded.</td>
+<td>Nombre maximum de condamnations mineures/majeures dépassé.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>C</td>
+<td>Minimum Liability limit required.</td>
+<td>Limite minimum pour responsabilité civile requise.</td>
+</tr>
+<tr>
+<td>42</td>
+<td>C</td>
+<td>Maximum Liability limit exceeded.</td>
+<td>Limite maximum pour responsabilité civile dépassé.</td>
+</tr>
+<tr>
+<td>43</td>
+<td>C</td>
+<td>Minimum Collision deductible required.</td>
+<td>Franchise minimum pour collision requise.</td>
+</tr>
+<tr>
+<td>44</td>
+<td>C</td>
+<td>Maximum Collision deductible exceeded.</td>
+<td>Franchise maximum pour collision requise.</td>
+</tr>
+<tr>
+<td>45</td>
+<td>C</td>
+<td>Minimum All Perils deductible required.</td>
+<td>Franchise minimum pour tous risques requise.</td>
+</tr>
+<tr>
+<td>46</td>
+<td>C</td>
+<td>Maximum All Perils deductible exceeded.</td>
+<td>Franchise maximum pour tous risques requise.</td>
+</tr>
+<tr>
+<td>47</td>
+<td>C</td>
+<td>Minimum Comprehensive deductible required.</td>
+<td>Franchise minimum pour accident sans collision requise.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>C</td>
+<td>Maximum Comprehensive deductible exceeded.</td>
+<td>Franchise maximum pour accident sans collision requise.</td>
+</tr>
+<tr>
+<td>49</td>
+<td>C</td>
+<td>Minimum Specified Perils deductible required.</td>
+<td>Franchise minimum pour risques spécifiés requise.</td>
+</tr>
+<tr>
+<td>50</td>
+<td>C</td>
+<td>Maximum Specified Perils deductible exceeded.</td>
+<td>Franchise maximum pour risques spécifiés requise.</td>
+</tr>
+<tr>
+<td>51</td>
+<td>C</td>
+<td>Occasional driver exceeds age requirement.</td>
+<td>Conducteur occasionnel excède l'âge requis.</td>
+</tr>
+<tr>
+<td>52</td>
+<td>C</td>
+<td>Occasional driver does not meet minimum age requirement.</td>
+<td>Conducteur occasionnel ne rencontre pas l'âge minimum.</td>
+</tr>
+<tr>
+<td>53</td>
+<td>C</td>
+<td>Occasional driver - Gender.</td>
+<td>Occasionnel - Genre.</td>
+</tr>
+<tr>
+<td>54</td>
+<td>C</td>
+<td>Occasional driver - Marital Status.</td>
+<td>Occasionnel - état civil.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>C</td>
+<td>Occasional driver - Driver's Training required.</td>
+<td>Occasionnel - Cours de conduite requis.</td>
+</tr>
+<tr>
+<td>56</td>
+<td>C</td>
+<td>Occasional driver - Licence requirements exceeded.</td>
+<td>Occasionnel - exigence pour permis de conduire dépassée.</td>
+</tr>
+<tr>
+<td>57</td>
+<td>C</td>
+<td>Occasional driver - Under licensed.</td>
+<td>Occasionnel - Sous licencié.</td>
+</tr>
+<tr>
+<td>58</td>
+<td>C</td>
+<td>Occasional driver has had an at-fault claim.</td>
+<td>Occasionnel a eu une réclamation responsable.</td>
+</tr>
+<tr>
+<td>59</td>
+<td>C</td>
+<td>Continuous non Canadian insurance/licensed required.</td>
+<td>Assurance/permis continues pour non Canadien requises.</td>
+</tr>
+<tr>
+<td>60</td>
+<td>C</td>
+<td>Principal driver exceeds age requirement.</td>
+<td>Conducteur principal dépasse l'âge requis.</td>
+</tr>
+<tr>
+<td>61</td>
+<td>C</td>
+<td>Principal driver does not meet minimum age requirement.</td>
+<td>Principal ne rencontre pas l'âge minimum.</td>
+</tr>
+<tr>
+<td>62</td>
+<td>C</td>
+<td>Principal driver - Gender.</td>
+<td>Principal - Genre.</td>
+</tr>
+<tr>
+<td>63</td>
+<td>C</td>
+<td>Principal driver - Marital Status.</td>
+<td>Principal - état civil.</td>
+</tr>
+<tr>
+<td>64</td>
+<td>C</td>
+<td>Principal driver - Driver's Training required.</td>
+<td>Principal - Cours de conduite requis.</td>
+</tr>
+<tr>
+<td>65</td>
+<td>C</td>
+<td>Principal driver - Licence requirements exceeded.</td>
+<td>Principal - exigence pour permis de conduire dépassé.</td>
+</tr>
+<tr>
+<td>66</td>
+<td>C</td>
+<td>Principal driver - Under licensed.</td>
+<td>Principal - Sous licencié.</td>
+</tr>
+<tr>
+<td>67</td>
+<td>C</td>
+<td>Principal driver has had an at-fault claim.</td>
+<td>Principal a eu une réclamation responsable.</td>
+</tr>
+<tr>
+<td>68</td>
+<td>C</td>
+<td>Refer due to suspensions.</td>
+<td>Référer aux cause de la suspension.</td>
+</tr>
+<tr>
+<td>69</td>
+<td>I</td>
+<td>Using VR from Prior Year</td>
+<td>Groupe de véhicule de l'année précédente.</td>
+</tr>
+<tr>
+<td>70</td>
+<td>C</td>
+<td>Refer this vehicle.</td>
+<td>Référer ce véhicule à la compagnie.</td>
+</tr>
+<tr>
+<td>71</td>
+<td>C</td>
+<td>Principal driver - G1 under licensed.</td>
+<td>Principal - permis au-dessous de G1.</td>
+</tr>
+<tr>
+<td>72</td>
+<td>C</td>
+<td>Principal driver - G2 under licensed.</td>
+<td>Principal - permis au-dessous de G2.</td>
+</tr>
+<tr>
+<td>73</td>
+<td>C</td>
+<td>Occasional driver - G1 under licensed.</td>
+<td>Occasionnel - permis au-dessous de G1.</td>
+</tr>
+<tr>
+<td>74</td>
+<td>C</td>
+<td>Occasional driver - G2 under licensed.</td>
+<td>Occasionnel - permis au-dessous de G2.</td>
+</tr>
+<tr>
+<td>75</td>
+<td>C</td>
+<td>Maximum number of convictions exceeded.</td>
+<td>Nombre maximum de condamnations dépassé.</td>
+</tr>
+<tr>
+<td>76</td>
+<td>C</td>
+<td>Ineligible driver occupation.</td>
+<td>Occupation du conducteur inadmissible.</td>
+</tr>
+<tr>
+<td>77</td>
+<td>C</td>
+<td>Applicant must be a homeowner.</td>
+<td>Appliquant doit être propriétaire d'une maison.</td>
+</tr>
+<tr>
+<td>78</td>
+<td>C</td>
+<td>Collision base deductible = $300</td>
+<td>Franchise de base pour collision, $300.</td>
+</tr>
+<tr>
+<td>79</td>
+<td>C</td>
+<td>Minimum deductible required on vehicle</td>
+<td>Franchise minimum requise pour ce véhicule.</td>
+</tr>
+<tr>
+<td>80</td>
+<td>I</td>
+<td>Applicant must be a member of ATA/ACIFA.</td>
+<td>Appliquant doit être membre du ATA/ACIFA.</td>
+</tr>
+<tr>
+<td>81</td>
+<td>C</td>
+<td>Minimum TPDC deductible required.</td>
+<td>Franchise minimum pour indemnisation directe requise.</td>
+</tr>
+<tr>
+<td>82</td>
+<td>C</td>
+<td>Maximum TPDC deductible exceeded.</td>
+<td>Franchise maximum pour indemnisation directe dépassée.</td>
+</tr>
+<tr>
+<td>83</td>
+<td>C</td>
+<td>TPDC deductible not supported.</td>
+<td>Franchise pour indemnisation directe non supportée.</td>
+</tr>
+<tr>
+<td>84</td>
+<td>C</td>
+<td>Minimum Comp/SP deductible required.</td>
+<td>Franchise minimum pour accident sans collision/R.S. requise.</td>
+</tr>
+<tr>
+<td>85</td>
+<td>C</td>
+<td>Maximum Comp/SP deductible exceeded.</td>
+<td>Franchise maximum pour accident sans collision/R.S.</td>
+</tr>
+<tr>
+<td>86</td>
+<td>C</td>
+<td>Minimum Comp/SP $250 deductible required.</td>
+<td>Franchise min. de $250 pour accident sans coll/R.S. requise.</td>
+</tr>
+<tr>
+<td>87</td>
+<td>C</td>
+<td>Minimum Collision $500 deductible required.</td>
+<td>Franchise minimum de $500 pour collision requise.</td>
+</tr>
+<tr>
+<td>88</td>
+<td>I</td>
+<td>Risk may qualify for Renewal Discount.</td>
+<td>Le risque peut-être éligible pour un rabais renouvellement.</td>
+</tr>
+<tr>
+<td>89</td>
+<td>I</td>
+<td>Occasional must reside with parents.</td>
+<td>Conducteur occasionnel doit demeurer avec ses parents.</td>
+</tr>
+<tr>
+<td>90</td>
+<td>I</td>
+<td>Refer for Bonus Discount</td>
+<td>Référer pour rabais boni.</td>
+</tr>
+<tr>
+<td>91</td>
+<td>C</td>
+<td>Refer due to insurance lapse.</td>
+<td>Référer pour interruption d'assurance.</td>
+</tr>
+<tr>
+<td>92</td>
+<td>C</td>
+<td>Driver is Not a Residual Market Risk.</td>
+<td>Le conducteur n'est pas éligible au marché résiduel.</td>
+</tr>
+<tr>
+<td>93</td>
+<td>I</td>
+<td>Driver training conditions.</td>
+<td>Conditions - cours de conduite.</td>
+</tr>
+<tr>
+<td>94</td>
+<td>I</td>
+<td>Driver age conditions.</td>
+<td>Conditions - âge du conducteur.</td>
+</tr>
+<tr>
+<td>95</td>
+<td>C</td>
+<td>Refer for further requirements.</td>
+<td>Référer pour autres conditions.</td>
+</tr>
+<tr>
+<td>96</td>
+<td>C</td>
+<td>Renewal rating should be reviewed.</td>
+<td>Les taux de renouvellement doivent être révisé.</td>
+</tr>
+<tr>
+<td>97</td>
+<td>E</td>
+<td>Driver Class not found.</td>
+<td>Classe du conducteur introuvable.</td>
+</tr>
+<tr>
+<td>98</td>
+<td>E</td>
+<td>Driving Record not found.</td>
+<td>Dossier du conducteur introuvable.</td>
+</tr>
+<tr>
+<td>99</td>
+<td>E</td>
+<td>Underwriting file not found - Contact Applied.</td>
+<td>Fichier des règles de souscription manquant. Avisé Applied.</td>
+</tr>
+<tr>
+<td>100</td>
+<td>E</td>
+<td>Liability Limit not supported.</td>
+<td>Limite responsabilité civile non supportée.</td>
+</tr>
+<tr>
+<td>101</td>
+<td>E</td>
+<td>Accident Benefits not supported.</td>
+<td>Assurance individuelle non supportée.</td>
+</tr>
+<tr>
+<td>102</td>
+<td>E</td>
+<td>All Perils Deductible not supported.</td>
+<td>Franchise tous risques non supportée.</td>
+</tr>
+<tr>
+<td>103</td>
+<td>E</td>
+<td>Collision Deductible not supported.</td>
+<td>Franchise collision non supportée.</td>
+</tr>
+<tr>
+<td>104</td>
+<td>E</td>
+<td>Comprehensive Deductible not supported.</td>
+<td>Franchise accident sans collision non supportée.</td>
+</tr>
+<tr>
+<td>105</td>
+<td>E</td>
+<td>Specified Perils Deductible not supported.</td>
+<td>Franchise risques spécifiés non supportée.</td>
+</tr>
+<tr>
+<td>106</td>
+<td>E</td>
+<td>Uninsured Motorist not supported.</td>
+<td>Franchise conducteur non assuré non supportée.</td>
+</tr>
+<tr>
+<td>107</td>
+<td>E</td>
+<td>Hospital Levy not supported.</td>
+<td>Franchise prélèvement de santé non supportée.</td>
+</tr>
+<tr>
+<td>108</td>
+<td>E</td>
+<td>Coverage not supported.</td>
+<td>Garanties non supportée.</td>
+</tr>
+<tr>
+<td>109</td>
+<td>E</td>
+<td>Coverage not supported.</td>
+<td>Garanties non supportée.</td>
+</tr>
+<tr>
+<td>110</td>
+<td>E</td>
+<td>Endorsement Package not supported.</td>
+<td>Pacte d'avenants non supporté.</td>
+</tr>
+<tr>
+<td>111</td>
+<td>E</td>
+<td>Endorsement #13c/d deductible not supported.</td>
+<td>Avenant #13c/d non supporté.</td>
+</tr>
+<tr>
+<td>112</td>
+<td>E</td>
+<td>Endorsement #20 limit not supported.</td>
+<td>Avenant #20, limite non supporté.</td>
+</tr>
+<tr>
+<td>113</td>
+<td>E</td>
+<td>Endorsement #27 limit not supported.</td>
+<td>Avenant #27, limite non supporté.</td>
+</tr>
+<tr>
+<td>114</td>
+<td>E</td>
+<td>Endorsement #35 not supported.</td>
+<td>Avenant #35 non supporté.</td>
+</tr>
+<tr>
+<td>115</td>
+<td>E</td>
+<td>Endorsement #43 not supported.</td>
+<td>Avenant #43 non supporté.</td>
+</tr>
+<tr>
+<td>116</td>
+<td>E</td>
+<td>Endorsement #44 limit not supported.</td>
+<td>Avenant #44, limite non supporté.</td>
+</tr>
+<tr>
+<td>117</td>
+<td>E</td>
+<td>Endorsement #45 not supported.</td>
+<td>Avenant #45 non supporté.</td>
+</tr>
+<tr>
+<td>118</td>
+<td>E</td>
+<td>Premium too large to quote.</td>
+<td>Prime trop élevée pour faire une cotation.</td>
+</tr>
+<tr>
+<td>119</td>
+<td>E</td>
+<td>Unknown Territory.</td>
+<td>Territoire inconnu.</td>
+</tr>
+<tr>
+<td>120</td>
+<td>E</td>
+<td>Unknown Driver's Class.</td>
+<td>Classe du conducteur inconnue.</td>
+</tr>
+<tr>
+<td>121</td>
+<td>E</td>
+<td>Unknown Driving Record.</td>
+<td>Dossier de conduite inconnu.</td>
+</tr>
+<tr>
+<td>122</td>
+<td>E</td>
+<td>Model Year VR not available.</td>
+<td>Grp du véh. non disponible pour ce modèle et cette année.</td>
+</tr>
+<tr>
+<td>123</td>
+<td>E</td>
+<td>Unknown Vehicle Rate Group.</td>
+<td>Groupe de véhicule inconnu.</td>
+</tr>
+<tr>
+<td>124</td>
+<td>I</td>
+<td>AB Crunch Factor may not be correct.</td>
+<td>Le facteur AB peut-être incorrect.</td>
+</tr>
+<tr>
+<td>125</td>
+<td>E</td>
+<td>Rating File Not Found.</td>
+<td>Fichier de cotation introuvable.</td>
+</tr>
+<tr>
+<td>126</td>
+<td>E</td>
+<td>Rating File requires updating.</td>
+<td>Fichier de cotation doit être mis à jour.</td>
+</tr>
+<tr>
+<td>127</td>
+<td>E</td>
+<td>VRG File Not Found.</td>
+<td>Fichier du groupe de véhicule introuvable.</td>
+</tr>
+<tr>
+<td>128</td>
+<td>I</td>
+<td>34/PasAc</td>
+<td>34 Passeport AcciRoute.</td>
+</tr>
+<tr>
+<td>129</td>
+<td>I</td>
+<td>Applicant must be known to broker.</td>
+<td>Appliquant doit être connu par le courtier.</td>
+</tr>
+<tr>
+<td>130</td>
+<td>E</td>
+<td>Indexation not supported.</td>
+<td>Indexation non supportée.</td>
+</tr>
+<tr>
+<td>131</td>
+<td>E</td>
+<td>Multi-Vehicle Discount requires updating.</td>
+<td>Rabais pluralité doit être mis à jour.</td>
+</tr>
+<tr>
+<td>132</td>
+<td>E</td>
+<td>Endorsement #2 not supported.</td>
+<td>Avenant #2 non supporté.</td>
+</tr>
+<tr>
+<td>133</td>
+<td>E</td>
+<td>Endorsement #5/5a not supported.</td>
+<td>Avenant #5/5a non supporté.</td>
+</tr>
+<tr>
+<td>134</td>
+<td>E</td>
+<td>Endorsement #6a not supported.</td>
+<td>Avenant #6a non supporté.</td>
+</tr>
+<tr>
+<td>135</td>
+<td>E</td>
+<td>Endorsement #8a not supported.</td>
+<td>Avenant #8a non supporté.</td>
+</tr>
+<tr>
+<td>136</td>
+<td>E</td>
+<td>Endorsement #19 not supported.</td>
+<td>Avenant #19 non supporté.</td>
+</tr>
+<tr>
+<td>137</td>
+<td>E</td>
+<td>Endorsement #23a not supported.</td>
+<td>Avenant #23a non supporté.</td>
+</tr>
+<tr>
+<td>138</td>
+<td>E</td>
+<td>Endorsement #26 not supported.</td>
+<td>Avenant #26 non supporté.</td>
+</tr>
+<tr>
+<td>139</td>
+<td>E</td>
+<td>Endorsement 43r not supported.</td>
+<td>Avenant #43r non supporté.</td>
+</tr>
+<tr>
+<td>140</td>
+<td>E</td>
+<td>Endorsement 43l not supported.</td>
+<td>Avenant #43l non supporté.</td>
+</tr>
+<tr>
+<td>141</td>
+<td>C</td>
+<td>Pak7 &amp; Pak8 Not Available.</td>
+<td>Pacte7 et pacte8 non disponibles.</td>
+</tr>
+<tr>
+<td>142</td>
+<td>C</td>
+<td>All Perils - Refer to Head Office.</td>
+<td>Tous risques - Référer à l'assureur.</td>
+</tr>
+<tr>
+<td>143</td>
+<td>C</td>
+<td>Refer to company.</td>
+<td>Référer à la compagnie.</td>
+</tr>
+<tr>
+<td>144</td>
+<td>C</td>
+<td>Refer due to conviction.</td>
+<td>Référer à cause de l'infraction.</td>
+</tr>
+<tr>
+<td>145</td>
+<td>I</td>
+<td>OPCF #20 is only available in #20/27 package.</td>
+<td>FAQ #20 est seulement disponible avec le pacte #20/27.</td>
+</tr>
+<tr>
+<td>146</td>
+<td>C</td>
+<td>Minimum Comp/SP $100 deductible required.</td>
+<td>Franchise min de $100 requise pour accident sans coll/R.S.</td>
+</tr>
+<tr>
+<td>147</td>
+<td>C</td>
+<td>Minimum Comp/SP $300 deductible required.</td>
+<td>Franchise min de $300 requise pour accident sans coll/R.S.</td>
+</tr>
+<tr>
+<td>148</td>
+<td>C</td>
+<td>Minimum Comp/SP $500 deductible required.</td>
+<td>Franchise min de $500 requise pour accident sans coll/R.S.</td>
+</tr>
+<tr>
+<td>149</td>
+<td>C</td>
+<td>Not eligible for Comprehensive coverage.</td>
+<td>Non éligible pour accident sans collision.</td>
+</tr>
+<tr>
+<td>150</td>
+<td>I</td>
+<td>10% Multi-Vehicle Discount applied</td>
+<td>Rabais pluralité 10% appliqué.</td>
+</tr>
+<tr>
+<td>151</td>
+<td>I</td>
+<td>15% Multi-Vehicle Discount applied</td>
+<td>Rabais pluralité 15% appliqué.</td>
+</tr>
+<tr>
+<td>152</td>
+<td>C</td>
+<td>Risk ineligible for 2M Liab. limit.</td>
+<td>Risque non éligible pour responsabilité civile 2M.</td>
+</tr>
+<tr>
+<td>153</td>
+<td>I</td>
+<td>Risk qualifies for Fallen Angel Program</td>
+<td>Risque éligible pour le programme Fallen Angel.</td>
+</tr>
+<tr>
+<td>154</td>
+<td>C</td>
+<td>Coverage limit exceeded</td>
+<td>Limite des garanties dépassée.</td>
+</tr>
+<tr>
+<td>155</td>
+<td>C</td>
+<td>Maximum number of Claims exceeded.</td>
+<td>Nombre de réclamations maximum dépassé.</td>
+</tr>
+<tr>
+<td>156</td>
+<td>C</td>
+<td>Maximum number of Collision Claims exceeded.</td>
+<td>Nombre de réclamations collision maximum dépassé.</td>
+</tr>
+<tr>
+<td>157</td>
+<td>C</td>
+<td>Ineligible driver - do not bind</td>
+<td>Conducteur non éligible - ne pas assurer.</td>
+</tr>
+<tr>
+<td>158</td>
+<td>I</td>
+<td>Maximum discount cap of 200% applied</td>
+<td>Rabais maximum limite %200 appliqué.</td>
+</tr>
+<tr>
+<td>159</td>
+<td>I</td>
+<td>Risk may be eligible for a 5 Star rating.</td>
+<td>Risque peut-être éligible à une cotation 5 étoiles.</td>
+</tr>
+<tr>
+<td>160</td>
+<td>I</td>
+<td>Surcharge cap applied.</td>
+<td>Surcharge limite appliquée.</td>
+</tr>
+<tr>
+<td>161</td>
+<td>C</td>
+<td>Physical Damage coverage required on vehicle.</td>
+<td>Garantie pour perte ou dommage requise pour ce véhicule.</td>
+</tr>
+<tr>
+<td>162</td>
+<td>C</td>
+<td>Refer due to claims.</td>
+<td>Référer à cause des réclamations.</td>
+</tr>
+<tr>
+<td>163</td>
+<td>C</td>
+<td>$250 Comp/SP deductible required.</td>
+<td>Franchise $250 pour accident sans collision/R.S. requises.</td>
+</tr>
+<tr>
+<td>164</td>
+<td>I</td>
+<td>Health Levy added to AB</td>
+<td>Prélèvement de santé ajouté à AB.</td>
+</tr>
+<tr>
+<td>165</td>
+<td>I</td>
+<td>SEF 20 &amp; 27 supported in PAK6</td>
+<td>FAQ #20 et #27 supportés dans le pacte6.</td>
+</tr>
+<tr>
+<td>166</td>
+<td>I</td>
+<td>250% Surcharge cap applied.</td>
+<td>Surcharge limite %250 appliquée.</td>
+</tr>
+<tr>
+<td>167</td>
+<td>I</td>
+<td>Quoted using Full Clear VRG.</td>
+<td>Cotation avec groupe de véhicule C.L.E.A.R.</td>
+</tr>
+<tr>
+<td>168</td>
+<td>C</td>
+<td>Collision NOT supported.</td>
+<td>Collision non supportée.</td>
+</tr>
+<tr>
+<td>169</td>
+<td>C</td>
+<td>Physical Damage coverage not available.</td>
+<td>Les chapitres coll. &amp; acc sans coll. /R.S. non disponibles.</td>
+</tr>
+<tr>
+<td>170</td>
+<td>C</td>
+<td>Minimum Comp/SP $1000 deductible required.</td>
+<td>Franchise min $1000 pour accident sans coll/R.S. requise.</td>
+</tr>
+<tr>
+<td>171</td>
+<td>C</td>
+<td>Minimum Comp/SP $1500 deductible required.</td>
+<td>Franchise min $1500 pour accident sans coll/R.S. requise.</td>
+</tr>
+<tr>
+<td>172</td>
+<td>C</td>
+<td>Minimum Coll/AP $1000 deductible required.</td>
+<td>Franchise minimum $1000 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>173</td>
+<td>C</td>
+<td>Minimum Coll/AP $1500 deductible required.</td>
+<td>Franchise minimum $1500 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>174</td>
+<td>I</td>
+<td>An Anti-theft device is recommended</td>
+<td>Un système antivol est recommandé.</td>
+</tr>
+<tr>
+<td>175</td>
+<td>I</td>
+<td>Vehicle Model May Not Qualify for Discount</td>
+<td>Le modèle du véh. peut ne pas être éligible pour le rabais.</td>
+</tr>
+<tr>
+<td>176</td>
+<td>I</td>
+<td>Duoflex Coverage is applicable.</td>
+<td>Garantie Duoflex est appliquée.</td>
+</tr>
+<tr>
+<td>177</td>
+<td>C</td>
+<td>Alarm system required</td>
+<td>Système antivol requis.</td>
+</tr>
+<tr>
+<td>178</td>
+<td>I</td>
+<td>Refer to manual for endorsement 19.</td>
+<td>Référer au manuel pour FAQ #19.</td>
+</tr>
+<tr>
+<td>179</td>
+<td>C</td>
+<td>Endorsement #44 required.</td>
+<td>FAQ #44 requis.</td>
+</tr>
+<tr>
+<td>180</td>
+<td>I</td>
+<td>Principal driver also qualifies for Premier.</td>
+<td>Conducteur principal éligible aussi pour Premier.</td>
+</tr>
+<tr>
+<td>181</td>
+<td>I</td>
+<td>Risk does not qualify for Gateway.</td>
+<td>Risque non éligible pour Gateway.</td>
+</tr>
+<tr>
+<td>182</td>
+<td>I</td>
+<td>Risk qualifies for Gateway program.</td>
+<td>Risque éligible pour Gateway.</td>
+</tr>
+<tr>
+<td>183</td>
+<td>I</td>
+<td>Minimum 2 yrs in Gateway required.</td>
+<td>Minimum de 2 ans avec Gateway requis.</td>
+</tr>
+<tr>
+<td>184</td>
+<td>C</td>
+<td>Max. of 3 of same kind of minors.</td>
+<td>Maximum de 3 infractions mineurs de même genre.</td>
+</tr>
+<tr>
+<td>185</td>
+<td>I</td>
+<td>Risk does not qualify for Royal or RAAP.</td>
+<td>Risque non éligible pour Royal ou RAAP.</td>
+</tr>
+<tr>
+<td>186</td>
+<td>I</td>
+<td>Risk qualifies for RAAP - 6mth term only.</td>
+<td>Risque éligible pour RAAP - 6 mois seulement.</td>
+</tr>
+<tr>
+<td>187</td>
+<td>I</td>
+<td>Not employee or member of Broadmarket.</td>
+<td>N'est pas un employé ou membre de Broadmarket.</td>
+</tr>
+<tr>
+<td>188</td>
+<td>I</td>
+<td>Basic Tier</td>
+<td>Tiers de base.</td>
+</tr>
+<tr>
+<td>189</td>
+<td>I</td>
+<td>Surcharged Tier</td>
+<td>Tiers surchargé.</td>
+</tr>
+<tr>
+<td>190</td>
+<td>I</td>
+<td>Discounted Tier</td>
+<td>Tiers escompté.</td>
+</tr>
+<tr>
+<td>191</td>
+<td>I</td>
+<td>Could qualify for FA Basic Tier.</td>
+<td>Peut-être éligible pour FA tiers de base.</td>
+</tr>
+<tr>
+<td>192</td>
+<td>I</td>
+<td>Could qualify for FA Surcharged Tier.</td>
+<td>Peut-être éligible pour FA tiers surchargé.</td>
+</tr>
+<tr>
+<td>193</td>
+<td>I</td>
+<td>Could qualify for FA Discounted Tier.</td>
+<td>Peut-être éligible pour FA tiers escompté.</td>
+</tr>
+<tr>
+<td>194</td>
+<td>I</td>
+<td>Excluded Driver.</td>
+<td>Conducteur exclus.</td>
+</tr>
+<tr>
+<td>195</td>
+<td>C</td>
+<td>Vehicle is Driven daily in USA.</td>
+<td>Véhicule est conduit quotidiennement au État-Unis.</td>
+</tr>
+<tr>
+<td>196</td>
+<td>C</td>
+<td>Vehicle used to Carry Passengers for Compensation.</td>
+<td>Véhicule transporteur de passagers avec compensation.</td>
+</tr>
+<tr>
+<td>197</td>
+<td>C</td>
+<td>Minimum Physical Damage deductibles required.</td>
+<td>Franchise pour perte ou dommage requis.</td>
+</tr>
+<tr>
+<td>198</td>
+<td>I</td>
+<td>Must be 5* or better with prior carrier</td>
+<td>Doit être 5* ou mieux avec assureur précédent.</td>
+</tr>
+<tr>
+<td>199</td>
+<td>I</td>
+<td>* Discount CAP Applied.</td>
+<td>* Rabais CAP appliqué.</td>
+</tr>
+<tr>
+<td>200</td>
+<td>E</td>
+<td>Error Determining RateBook.</td>
+<td>Erreur à déterminer la table de facteur.</td>
+</tr>
+<tr>
+<td>201</td>
+<td>E</td>
+<td>Discount file may require updating.</td>
+<td>Fichier de rabais doit être mis à jour.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>I</td>
+<td>Discounts exceed maximum - Cap applied</td>
+<td>Rabais dépasse maximum - Limite appliquée.</td>
+</tr>
+<tr>
+<td>203</td>
+<td>I</td>
+<td>Discounts exceed maximum - Cap not applied</td>
+<td>Rabais dépasse maximum - Limite non appliquée.</td>
+</tr>
+<tr>
+<td>204</td>
+<td>I</td>
+<td>Discounts exceed 30% maximum - Apply Cap</td>
+<td>Rabais dépasse maximum de 30% - Appliquez la limite.</td>
+</tr>
+<tr>
+<td>205</td>
+<td>I</td>
+<td>Driver may qualify for MVD</td>
+<td>Conducteur peut-être éligible au rabais pluralité.</td>
+</tr>
+<tr>
+<td>206</td>
+<td>E</td>
+<td>Endorsement #16 not supported.</td>
+<td>Avenant #16 non supporté.</td>
+</tr>
+<tr>
+<td>207</td>
+<td>E</td>
+<td>Endorsement #17 not supported.</td>
+<td>Avenant #17 non supporté.</td>
+</tr>
+<tr>
+<td>208</td>
+<td>E</td>
+<td>Endorsement #28 not supported.</td>
+<td>Avenant #28 non supporté.</td>
+</tr>
+<tr>
+<td>209</td>
+<td>E</td>
+<td>Endorsement #32 not supported.</td>
+<td>Avenant #32 non supporté.</td>
+</tr>
+<tr>
+<td>210</td>
+<td>E</td>
+<td>Endorsement #33 not supported.</td>
+<td>Avenant #33 non supporté.</td>
+</tr>
+<tr>
+<td>211</td>
+<td>E</td>
+<td>Medical Death Dismemberment not supported.</td>
+<td>Médical, décès et mutilation non supporté.</td>
+</tr>
+<tr>
+<td>212</td>
+<td>E</td>
+<td>Endorsement #43a not supported.</td>
+<td>Avenant #43a non supporté.</td>
+</tr>
+<tr>
+<td>213</td>
+<td>E</td>
+<td>Endorsement #40 not supported.</td>
+<td>Avenant #40 non supporté.</td>
+</tr>
+<tr>
+<td>214</td>
+<td>E</td>
+<td>Endorsement #34 limit not supported.</td>
+<td>Avenant #34, limite non supporté.</td>
+</tr>
+<tr>
+<td>215</td>
+<td>E</td>
+<td>Endorsement #4B not supported.</td>
+<td>Avenant #4B non supporté.</td>
+</tr>
+<tr>
+<td>216</td>
+<td>E</td>
+<td>Weekly Indemnity not supported.</td>
+<td>Indemnité hebdomadaire non supporté.</td>
+</tr>
+<tr>
+<td>217</td>
+<td>E</td>
+<td>Principal Sum not supported.</td>
+<td>Capital assuré non supporté.</td>
+</tr>
+<tr>
+<td>218</td>
+<td>E</td>
+<td>Road Side Assistance not supported.</td>
+<td>Assistance routière non supporté.</td>
+</tr>
+<tr>
+<td>219</td>
+<td>E</td>
+<td>Extra Value Endorsement not supported.</td>
+<td>Avenant Valeur Extra non supporté.</td>
+</tr>
+<tr>
+<td>220</td>
+<td>E</td>
+<td>Endorsement #3 not supported.</td>
+<td>Avenant #3 non supporté.</td>
+</tr>
+<tr>
+<td>221</td>
+<td>E</td>
+<td>Death &amp; Funeral Benefit not supported.</td>
+<td>Indemnité de décès et d'obsèques non supporté.</td>
+</tr>
+<tr>
+<td>222</td>
+<td>E</td>
+<td>Income Replacement Benefit not supported.</td>
+<td>Remplacement du revenu non supporté.</td>
+</tr>
+<tr>
+<td>223</td>
+<td>E</td>
+<td>Weekly Caregiver Benefit not supported.</td>
+<td>Indemnité des soins hebdomadaire non supporté.</td>
+</tr>
+<tr>
+<td>224</td>
+<td>E</td>
+<td>Medical, Rehab. &amp; Att. Care Benefit not supported.</td>
+<td>Indem. méd., de réadap. &amp; de soins auxiliaires non supportés</td>
+</tr>
+<tr>
+<td>225</td>
+<td>I</td>
+<td>Guaranteed Rates</td>
+<td>Taux garantis</td>
+</tr>
+<tr>
+<td>226</td>
+<td>I</td>
+<td>Limit and/or ded. modified due to underwriting criteria.</td>
+<td>Lim./franchise modifié à cause des critères de souscription</td>
+</tr>
+<tr>
+<td>227</td>
+<td>E</td>
+<td>Invalid limit(s) and/or deductible(s).</td>
+<td>Limite(s) et/ou franchise(s) invalide.</td>
+</tr>
+<tr>
+<td>228</td>
+<td>I</td>
+<td>Endorsement #43a included with Endorsement #43d/e.</td>
+<td>L'avenant #43a inclus avec l'avenant #43d/e.</td>
+</tr>
+<tr>
+<td>229</td>
+<td>C</td>
+<td>Limited Waiver of Deductible not supported.</td>
+<td>Modification d'indem. de franchise non supporté.</td>
+</tr>
+<tr>
+<td>230</td>
+<td>I</td>
+<td>Vehicle Tracking System required.</td>
+<td>Système de répérage est requis.</td>
+</tr>
+<tr>
+<td>231</td>
+<td>C</td>
+<td>Endorsement 43(A-D) does not meet requirements.</td>
+<td>FAQ 43(A-D) ne répond pas aux conditions d'admissibilité.</td>
+</tr>
+<tr>
+<td>232</td>
+<td>C</td>
+<td>Endorsement 43(A-E) does not meet requirements.</td>
+<td>FAQ 43(A-E) ne répond pas aux conditions d'admissibilité.</td>
+</tr>
+<tr>
+<td>233</td>
+<td>I</td>
+<td>Premiums have been overridden by user.</td>
+<td>Les primes ont été ajustées par l'utilisateur.</td>
+</tr>
+<tr>
+<td>234</td>
+<td>I</td>
+<td>Driver is a Residual Market risk.</td>
+<td>Le conducteur est un risque appartenant au Residual Market</td>
+</tr>
+<tr>
+<td>235</td>
+<td>I</td>
+<td>Vehicle Cap applied.</td>
+<td>Taux plafond appliqué au véhicule.</td>
+</tr>
+<tr>
+<td>236</td>
+<td>I</td>
+<td>Severity changed.</td>
+<td>Sévérité ajustée.</td>
+</tr>
+<tr>
+<td>237</td>
+<td>I</td>
+<td>No-frills policy.</td>
+<td>Police sans superflu.</td>
+</tr>
+<tr>
+<td>238</td>
+<td>C</td>
+<td>Minimum Comp/SP $750 deductible required.</td>
+<td>Franchise min. de $750 pour accident sans coll/R.S. requise.</td>
+</tr>
+<tr>
+<td>239</td>
+<td>C</td>
+<td>Minimum Comp/SP $2500 deductible required.</td>
+<td>Franchise min. de $2500 pour accident sans coll/R.S. requise</td>
+</tr>
+<tr>
+<td>240</td>
+<td>C</td>
+<td>Minimum Comp/SP $5000 deductible required.</td>
+<td>Franchise min. de $5000 pour accident sans coll/R.S. requise</td>
+</tr>
+<tr>
+<td>241</td>
+<td>C</td>
+<td>Minimum Coll/AP $250 deductible required.</td>
+<td>Franchise minimum $250 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>242</td>
+<td>C</td>
+<td>Minimum Coll/AP $300 deductible required.</td>
+<td>Franchise minimum $300 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>243</td>
+<td>C</td>
+<td>Minimum Coll/AP $500 deductible required.</td>
+<td>Franchise minimum $500 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>244</td>
+<td>C</td>
+<td>Minimum Coll/AP $750 deductible required.</td>
+<td>Franchise minimum $750 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>245</td>
+<td>C</td>
+<td>Minimum Coll/AP $2500 deductible required.</td>
+<td>Franchise minimum $2500 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>246</td>
+<td>C</td>
+<td>Minimum Coll/AP $5000 deductible required.</td>
+<td>Franchise minimum $5000 pour collision/tous risques requise.</td>
+</tr>
+<tr>
+<td>247</td>
+<td>C</td>
+<td>Minimum Coll $250 deductible required.</td>
+<td>Franchise minimum $250 pour collision requise.</td>
+</tr>
+<tr>
+<td>248</td>
+<td>C</td>
+<td>Minimum Coll $300 deductible required.</td>
+<td>Franchise minimum $300 pour collision requise.</td>
+</tr>
+<tr>
+<td>249</td>
+<td>C</td>
+<td>Minimum Coll $500 deductible required.</td>
+<td>Franchise minimum $500 pour collision requise.</td>
+</tr>
+<tr>
+<td>250</td>
+<td>C</td>
+<td>Minimum Coll $750 deductible required.</td>
+<td>Franchise minimum $750 pour collision requise.</td>
+</tr>
+<tr>
+<td>251</td>
+<td>C</td>
+<td>Minimum Coll $1000 deductible required.</td>
+<td>Franchise minimum $1000 pour collision requise.</td>
+</tr>
+<tr>
+<td>252</td>
+<td>C</td>
+<td>Minimum Coll $1500 deductible required.</td>
+<td>Franchise minimum $1500 pour collision requise.</td>
+</tr>
+<tr>
+<td>253</td>
+<td>C</td>
+<td>Minimum Coll $2500 deductible required.</td>
+<td>Franchise minimum $2500 pour collision requise.</td>
+</tr>
+<tr>
+<td>254</td>
+<td>C</td>
+<td>Minimum Coll $5000 deductible required.</td>
+<td>Franchise minimum $5000 pour collision requise.</td>
+</tr>
+<tr>
+<td>255</td>
+<td>C</td>
+<td>Minimum Comp $250 deductible required.</td>
+<td>Franchise min. de $250 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>256</td>
+<td>C</td>
+<td>Minimum Comp $300 deductible required.</td>
+<td>Franchise min. de $300 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>257</td>
+<td>C</td>
+<td>Minimum Comp $500 deductible required.</td>
+<td>Franchise min. de $500 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>258</td>
+<td>C</td>
+<td>Minimum Comp $750 deductible required.</td>
+<td>Franchise min. de $750 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>259</td>
+<td>C</td>
+<td>Minimum Comp $1000 deductible required.</td>
+<td>Franchise min. de $1000 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>260</td>
+<td>C</td>
+<td>Minimum Comp $1500 deductible required.</td>
+<td>Franchise min. de $1500 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>261</td>
+<td>C</td>
+<td>Minimum Comp $2500 deductible required.</td>
+<td>Franchise min. de $2500 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>262</td>
+<td>C</td>
+<td>Minimum Comp $5000 deductible required.</td>
+<td>Franchise min. de $5000 pour accident sans coll requise.</td>
+</tr>
+<tr>
+<td>263</td>
+<td>C</td>
+<td>Minimum All Perils $250 deductible required.</td>
+<td>Franchise minimum $250 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>264</td>
+<td>C</td>
+<td>Minimum All Perils $300 deductible required.</td>
+<td>Franchise minimum $300 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>265</td>
+<td>C</td>
+<td>Minimum All Perils $500 deductible required.</td>
+<td>Franchise minimum $500 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>266</td>
+<td>C</td>
+<td>Minimum All Perils $750 deductible required.</td>
+<td>Franchise minimum $750 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>267</td>
+<td>C</td>
+<td>Minimum All Perils $1000 deductible required.</td>
+<td>Franchise minimum $1000 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>268</td>
+<td>C</td>
+<td>Minimum All Perils $1500 deductible required.</td>
+<td>Franchise minimum $1500 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>269</td>
+<td>C</td>
+<td>Minimum All Perils $2500 deductible required.</td>
+<td>Franchise minimum $2500 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>270</td>
+<td>C</td>
+<td>Minimum All Perils $5000 deductible required.</td>
+<td>Franchise minimum $5000 pour Tous risques requise.</td>
+</tr>
+<tr>
+<td>271</td>
+<td>C</td>
+<td>Minimum SP $500 deductible required.</td>
+<td>Franchise min. de $500 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>272</td>
+<td>C</td>
+<td>Minimum SP $750 deductible required.</td>
+<td>Franchise min. de $750 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>273</td>
+<td>C</td>
+<td>Minimum SP $1000 deductible required.</td>
+<td>Franchise min. de $1000 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>274</td>
+<td>C</td>
+<td>Minimum SP $1500 deductible required.</td>
+<td>Franchise min. de $1500 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>275</td>
+<td>C</td>
+<td>Minimum SP $2500 deductible required.</td>
+<td>Franchise min. de $2500 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>276</td>
+<td>C</td>
+<td>Minimum SP $5000 deductible required.</td>
+<td>Franchise min. de $5000 pour R.Spécifiés requise.</td>
+</tr>
+<tr>
+<td>277</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $250 deductible required.</td>
+<td>Franchise min. de $250 pour accident sans ASC/RS/TR requise.</td>
+</tr>
+<tr>
+<td>278</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $300 deductible required.</td>
+<td>Franchise min. de $300 pour accident sans ASC/RS/TR requise.</td>
+</tr>
+<tr>
+<td>279</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $500 deductible required.</td>
+<td>Franchise min. de $500 pour accident sans ASC/RS/TR requise.</td>
+</tr>
+<tr>
+<td>280</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $750 deductible required.</td>
+<td>Franchise min. de $750 pour accident sans ASC/RS/TR requise.</td>
+</tr>
+<tr>
+<td>281</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $1000 deductible required.</td>
+<td>Franchise min. de $1000 pour accident sans ASC/RS/TR requise</td>
+</tr>
+<tr>
+<td>282</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $1500 deductible required.</td>
+<td>Franchise min. de $1500 pour accident sans ASC/RS/TR requise</td>
+</tr>
+<tr>
+<td>283</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $2500 deductible required.</td>
+<td>Franchise min. de $2500 pour accident sans ASC/RS/TR requise</td>
+</tr>
+<tr>
+<td>284</td>
+<td>C</td>
+<td>Minimum Comp/SP/AP $5000 deductible required.</td>
+<td>Franchise min. de $5000 pour accident sans ASC/RS/TR requise</td>
+</tr>
+<tr>
+<td>285</td>
+<td>E</td>
+<td>Endorsement #48 not supported.</td>
+<td>Avenant #48 non supporté.</td>
+</tr>
+<tr>
+<td>286</td>
+<td>C</td>
+<td>Higher GRID PREMIUM APPLIED due to Insurance Act Regulation</td>
+<td>Higher GRID PREMIUM APPLIED due to Insurance Act Regulation</td>
+</tr>
+<tr>
+<td>287</td>
+<td>C</td>
+<td>MVR/AutoPlus Report not sponsored by carrier.</td>
+<td>Le rapport MVR/AutoPlus est non commandité par cet assureur.</td>
+</tr>
+<tr>
+<td>288</td>
+<td>C</td>
+<td>Endorsement #43o not supported.</td>
+<td>Avenant #43o non supporté.</td>
+</tr>
+<tr>
+<td>289</td>
+<td>E</td>
+<td>Endorsement #43s not supported.</td>
+<td>Avenant #43s non supporté.</td>
+</tr>
+<tr>
+<td>290</td>
+<td>E</td>
+<td>Endorsement #25 not supported.</td>
+<td>Avenant #25 non supporté.</td>
+</tr>
+<tr>
+<td>291</td>
+<td>E</td>
+<td>Endorsement #25a not supported.</td>
+<td>Avenant #25a non supporté.</td>
+</tr>
+<tr>
+<td>292</td>
+<td>E</td>
+<td>Attendant Care Benefit not supported.</td>
+<td>Indemnités de soins auxiliaires non supportés.</td>
+</tr>
+<tr>
+<td>293</td>
+<td>E</td>
+<td>Dependant Care Benefit not supported.</td>
+<td>Indemnités pour personnes à charge non supportés.</td>
+</tr>
+<tr>
+<td>294</td>
+<td>E</td>
+<td>Medical &amp; Rehabilitation Benefit not supported.</td>
+<td>Indemnité pour réhabilitation médical non supporté.</td>
+</tr>
+<tr>
+<td>295</td>
+<td>E</td>
+<td>Fire Apparatus not supported.</td>
+<td>Matériel de lutte contre l'incendie non supporté.</td>
+</tr>
+<tr>
+<td>296</td>
+<td>E</td>
+<td>Endorsement #27B not supported.</td>
+<td>Avenant #27B non supporté.</td>
+</tr>
+<tr>
+<td>297</td>
+<td>E</td>
+<td>Caregiver, Housekeeping &amp; Home Maint. Benefit not supported.</td>
+<td>Soins inf., ass. à domicile &amp; aide ménagère non supporté.</td>
+</tr>
+<tr>
+<td>298</td>
+<td>E</td>
+<td>Endorsement #21B not supported.</td>
+<td>Avenant #21B non supporté.</td>
+</tr>
+<tr>
+<td>299</td>
+<td>E</td>
+<td>Endorsement #33 not supported.</td>
+<td>Avenant #33 non supporté.</td>
+</tr>
+<tr>
+<td>300</td>
+<td>E</td>
+<td>Endorsement #6b not supported.</td>
+<td>Avenant #6b non supporté.</td>
+</tr>
+<tr>
+<td>301</td>
+<td>E</td>
+<td>Endorsement #6d not supported.</td>
+<td>Avenant #6d non supporté.</td>
+</tr>
+<tr>
+<td>302</td>
+<td>C</td>
+<td>Graduated licensing wait time has been overridden.</td>
+<td>Le délai entre les permis gradués a été outrepassé.</td>
+</tr>
+<tr>
+<td>303</td>
+<td>C</td>
+<td>Refer as rating may be affected.</td>
+<td>Veuillez référer car la tarification pourrait être affectée.</td>
+</tr>
+<tr>
+<td>304</td>
+<td>C</td>
+<td>Endorsement #43 term not supported.</td>
+<td>Terme de l'avenant #43 non supporté.</td>
+</tr>
+<tr>
+<td>305</td>
+<td>C</td>
+<td>Minor Conviction Protection not supported.</td>
+<td>Protection condamnation mineure non supportée.</td>
+</tr>
+<tr>
+<td>306</td>
+<td>E</td>
+<td>Touring Protection not supported.</td>
+<td>Protection Touring non supportée.</td>
+</tr>
+<tr>
+<td>307</td>
+<td>E</td>
+<td>Endorsement #20a not supported.</td>
+<td>Avenant #20a non supporté.</td>
+</tr>
+<tr>
+<td>308</td>
+<td>C</td>
+<td>Accident Waiver not supported.</td>
+<td>Renonciation d'accident non supporté.</td>
+</tr>
+<tr>
+<td>309</td>
+<td>E</td>
+<td>Waiver of Deductible - Claim Specific not supported.</td>
+<td>Suppression franchise - sinistre particulier non supporté.</td>
+</tr>
+<tr>
+<td>310</td>
+<td>C</td>
+<td>Hail Deductible not supported.</td>
+<td>Franchise - grêle non supporté.</td>
+</tr>
+<tr>
+<td>311</td>
+<td>C</td>
+<td>Deletion of Hail Coverage not supported.</td>
+<td>Suppression de la garantie contre la grêle non supporté.</td>
+</tr>
+<tr>
+<td>312</td>
+<td>E</td>
+<td>Endorsement #6tn not supported.</td>
+<td>Avenant #6tn non supporté.</td>
+</tr>
+<tr>
+<td>313</td>
+<td>E</td>
+<td>Extended VICC code required for accurate rating.</td>
+<td>Code CIVC étendu requis pour cotation précise.</td>
+</tr>
+<tr>
+<td>314</td>
+<td>C</td>
+<td>Assignment overridden by Grid. Capping may be inaccurate.</td>
+<td>Assignment overridden by Grid. Capping may be inaccurate.</td>
+</tr>
+<tr>
+<td>315</td>
+<td>C</td>
+<td>Refer to company - Paper application required.</td>
+<td>Référer à la compagnie - Proposition écrite requise.</td>
+</tr>
+<tr>
+<td>590</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>591</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>592</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>593</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>594</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>595</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>596</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>597</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>598</td>
+<td>C</td>
+<td>Alberta Reform message</td>
+<td>Alberta Reform message</td>
+</tr>
+<tr>
+<td>599</td>
+<td>C</td>
+<td>Confirm with the insurance company before binding this risk</td>
+<td>Confirmer avec la compagnie avant de couvrir ce risque</td>
+</tr>
+<tr>
+<td>601</td>
+<td>I</td>
+<td>12 month policy - 1 installment only</td>
+<td>Police 12 mois - 1 versement seulement</td>
+</tr>
+<tr>
+<td>602</td>
+<td>C</td>
+<td>Technical difficulty. If problem persists contact Applied.</td>
+<td>Problème technique. Si le problème persiste, avisé Applied.</td>
+</tr>
+<tr>
+<td>603</td>
+<td>I</td>
+<td>Consent not obtained - 12 month policy - 1 installment only</td>
+<td>Consentement non obtenu-Police 12 mois-1 versement seulement</td>
+</tr>
+<tr>
+<td>604</td>
+<td>C</td>
+<td>No hit-Client not found. Verify client info. and resubmit</td>
+<td>Client non trouvé. Vérifier info. client et relancer</td>
+</tr>
+<tr>
+<td>606</td>
+<td>C</td>
+<td>Invalid Applied user name and/or password.</td>
+<td>Nom utilisateur et/ou mot de passe invalide pour Applied.</td>
+</tr>
+<tr>
+<td>607</td>
+<td>C</td>
+<td>Technical difficulty. Please contact Applied.</td>
+<td>Problème technique. SVP, avisé Applied.</td>
+</tr>
+<tr>
+<td>701</td>
+<td>E</td>
+<td>Intact rates not available. Stability info. not provided</td>
+<td>Tarif. Intact non disponible. Info Stabilité non fournie</td>
+</tr>
+<tr>
+<td>922</td>
+<td>E</td>
+<td>Invalid Coverage.</td>
+<td>Protection invalide.</td>
+</tr>
+<tr>
+<td>940</td>
+<td>E</td>
+<td>Unknown Factor.</td>
+<td>Facteur inconnue.</td>
+</tr>
+<tr>
+<td>941</td>
+<td>E</td>
+<td>Rating Error - Group Info.</td>
+<td>Erreur de cotation - Information du groupe.</td>
+</tr>
+<tr>
+<td>942</td>
+<td>E</td>
+<td>Rating Error - Factor Description.</td>
+<td>Erreur de cotation - Description du facteur.</td>
+</tr>
+<tr>
+<td>943</td>
+<td>E</td>
+<td>Rating Error - Invalid Instruction.</td>
+<td>Erreur de cotation - Instruction invalide.</td>
+</tr>
+<tr>
+<td>944</td>
+<td>E</td>
+<td>Unknown Coverage.</td>
+<td>Garanties inconnues.</td>
+</tr>
+<tr>
+<td>950</td>
+<td>E</td>
+<td>Could Not Find RateBook Control File.</td>
+<td>Pas pu trouver le fichier de controle des tables de facteur</td>
+</tr>
+<tr>
+<td>951</td>
+<td>E</td>
+<td>Could Not Determine Rate Book based on Effective Date.</td>
+<td>Pas pu déterminer la table de facteur de la date éffective.</td>
+</tr>
+<tr>
+<td>952</td>
+<td>E</td>
+<td>Desired Rate Book not Found.</td>
+<td>Table de facteur désirée non trouvée.</td>
+</tr>
+<tr>
+<td>953</td>
+<td>E</td>
+<td>General File IO.</td>
+<td>Fichier général IO.</td>
+</tr>
+<tr>
+<td>954</td>
+<td>E</td>
+<td>Error Loading Underwriting For RateBook.</td>
+<td>Err de chargement de règle de souscription/tables de facteur</td>
+</tr>
+<tr>
+<td>955</td>
+<td>E</td>
+<td>Unrecoverable Rating Error During Underwriting Phase.</td>
+<td>Err-tble de facteur pas récouvert durant phase règle de sous</td>
+</tr>
+<tr>
+<td>956</td>
+<td>E</td>
+<td>QECVG.TXT Not Found.</td>
+<td>QECVG.TXT Non trouvée.</td>
+</tr>
+<tr>
+<td>957</td>
+<td>E</td>
+<td>Failed to Open QECVG.TXT.</td>
+<td>Imcapable d'ouvrir QECVG.TXT.</td>
+</tr>
+<tr>
+<td>958</td>
+<td>E</td>
+<td>Insufficient Memory. Quote may not be accurate.</td>
+<td>Mémoire insuffisante, la cotation peut-être erroné.</td>
+</tr>
+<tr>
+<td>959</td>
+<td>E</td>
+<td>General Error.</td>
+<td>Erreur générale.</td>
+</tr>
+<tr>
+<td>960</td>
+<td>E</td>
+<td>QECVG.TXT - Incompatible version or corrupt.</td>
+<td>QECVG.TXT - Version incompatible ou altérée.</td>
+</tr>
+<tr>
+<td>961</td>
+<td>E</td>
+<td>Recursive algorithm detected.</td>
+<td>Algorithme récursif détecté.</td>
+</tr>
+<tr>
+<td>962</td>
+<td>E</td>
+<td>Vehicle has not been assigned a principal operator.</td>
+<td>Un conducteur principal n'a pas été assigné au véhicule.</td>
+</tr>
+<tr>
+<td>963</td>
+<td>E</td>
+<td>Vehicle has been assigned more than one principal operator.</td>
+<td>Plus d'un conducteur principal a été assigné au véhicule.</td>
+</tr>
+<tr>
+<td>964</td>
+<td>E</td>
+<td>Error with carrier extension library.</td>
+<td>Error with carrier extension library.</td>
+</tr>
+<tr>
+<td>965</td>
+<td>E</td>
+<td>Error in carrier extension library.</td>
+<td>Error in carrier extension library.</td>
+</tr>
+<tr>
+<td>966</td>
+<td>E</td>
+<td>Error loading data.</td>
+<td>Error loading data.</td>
+</tr>
+<tr>
+<td>967</td>
+<td>E</td>
+<td>Unsupported data format.</td>
+<td>Unsupported data format.</td>
+</tr>
+</table><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

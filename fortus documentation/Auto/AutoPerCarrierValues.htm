@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Per Carrier Values</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#descPerCarrierValues">Per Carrier Values</a></li>
+<li><span class="subtitle">Common Value Overrides</span><ul>
+<li><a href="#descRenewalQuote">Renewal Quote</a></li>
+<li><a href="#descUserGuidedQuote">User Guided Quote</a></li>
+</ul>
+</li>
+</ul>
+</div><a name="descPerCarrierValues"></a><h2>Per Carrier Values</h2>
+<p>FORTUS&#8482; is designed to be a comparitive rating engine, evaluating a risk 
+                for multiple insurance companies. Ideally, this design dictates the need for only one set 
+                of input data to be used by each insurance company's underwriting rules. For example, the 
+                VICC code for the vehicle is not going to change from one insurance company to another. 
+                In practice however, there are situations where information specific to the insurance company being 
+                evaluated is required. To accomplish this, <strong>Value Overrides</strong> are used. To
+                specify a Value Override, add an attribute to the element. The name of the attribute must be 
+                "vor" (accronym for Value OverRide) plus the CSIO Company Code of the insurance company.</p>
+<h4>Example</h4>
+<p>Assume we're quoting ECON and DOC.  To indicate a different &lt;QuoteInfo&gt;&lt;ID&gt; value for each use the following:</p>
+<div class="sourcecodebox">
+    &lt;QuoteInfo&gt;
+      &lt;ID vorECON="QuoteInfoECON" vorDOC="QuoteInfoDOC"&gt;QuoteInfoDefault&lt;/ID&gt;
+    &lt;/QuoteInfo&gt;
+                </div>
+<hr><a name="descRenewalQuote"></a><h2>Common Value Overrides - Renewal Quote</h2>
+<p>For a typical renewal quote, the risk would be a renewal with one carrier (the carrier where the policy 
+                currently resides) and the other carriers would consider it new business.</p>
+<h4>Example</h4>
+<p>Assume the policy is currently with ECON, then you would have the example given below.<br>
+                Note: Other Renewal fields exist at lower levels (ie VehLink, etc) but if they are omitted, then FORTUS&#8482; will 
+                take on the responsibility of populating them properly.</p>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Renewal vorECON="YES"&gt;NO&lt;/Renewal&gt;
+      ...
+    &lt;/FortusTransaction&gt;
+                </div>
+<hr><a name="descUserGuidedQuote"></a><h2>Common Value Overrides - User Guided Quote</h2>
+<p>Depending on the scope and intent of the program calling FORTUS&#8482;, it may be desirable 
+                to have the user directly indicate values that are typically determined by the rating engine. In 
+                Automobile, there are two methods of overriding values such as VRGs and Territories.</p><a name="descFirstMethod"></a><h3>First Method</h3>
+<p>This method should be used when the override is a special case, an uncommon situtation. In this case, you would populate
+                one of the Adjusted fields listed below. Using these fields will cause a message to be generated stating that the value was overriden.</p>
+<ul>
+<li>AdjustedClass</li>
+<li>AdjustedCollDR</li>
+<li>AdjustedLiabDR</li>
+<li>AdjustedSubClass</li>
+<li>AdjustedTerritory</li>
+<li>AdjustedVRAB</li>
+<li>AdjustedVRColl</li>
+<li>AdjustedVRComp</li>
+<li>AdjustedVRLiab</li>
+</ul>
+<h4>Example</h4>
+<p>Assume the program calling FORTUS&#8482; allows the user to choose the 
+                rated Territory for each carrier being quoted, instead of choosing the city and postal code. 
+                In the following example, ECON would get rated with a territory of 1B and DOC with 1A, while the rest of 
+                the carriers being quoted would have their Territory determined by the rating engine as usual by using the
+                LocationIndex, Location, and Postal Code.</p>
+<div class="sourcecodebox">
+    &lt;Vehicle&gt;
+      &lt;AdjustedTerritory vorECON="1B" vorDOC="1A" /&gt;
+    &lt;/Vehicle&gt;
+                </div><a name="descSecondMethod"></a><h3>Second Method</h3>
+<p>This method should be used when it is the intention of the application calling Fortus to pass in these values all the time. In this case, 
+                you would populate the Passed fields listed below.  The Adjusted fields discussed in the First Method should NOT be used in conjunction 
+                with this method. The difference between this method and the First Method is that the engine will assume the values passed in 
+                are always correct.  It will not even bother looking up other values.  It will not generate any messages about values being overriden.</p>
+<ul>
+<li>RateBookPassed</li>
+<li>TerritoryPassed</li>
+<li>VRGPassed</li>
+</ul>
+<h4>Example</h4>
+<p>Assume the program calling FORTUS&#8482; chooses the territory itself, passing this value to FORTUS&#8482; every time.</p>
+<div class="sourcecodebox">
+    &lt;QuoteInfo&gt;
+      &lt;TerritoryPassed&gt;Y&lt;/TerritoryPassed&gt;
+      ...
+      &lt;Vehicle&gt;
+      &lt;Territory&gt;1A&lt;/Territory&gt;
+      ...
+      &lt;/Vehicle&gt;
+    &lt;/QuoteInfo&gt;
+                </div>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

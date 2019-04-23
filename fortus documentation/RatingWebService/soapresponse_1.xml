@@ -1,0 +1,584 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/03/addressing"
+  xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+  <soap:Header>
+    <wsa:Action>http://www.compu-quote.com/RatingWebService/Version1/QuoteResponse</wsa:Action>
+    <wsa:MessageID>uuid:714b55e5-822c-484e-b44e-ffe936380733</wsa:MessageID>
+    <wsa:RelatesTo>uuid:d71c888d-473b-4d99-9230-6ff95ec63f33</wsa:RelatesTo>
+    <wsa:To>http://schemas.xmlsoap.org/ws/2004/03/addressing/role/anonymous</wsa:To>
+    <wsse:Security>
+      <wsu:Timestamp wsu:Id="Timestamp-2888dbf0-4ddb-46dc-be38-77e531992f7e">
+        <wsu:Created>2007-01-17T16:46:31Z</wsu:Created>
+        <wsu:Expires>2007-01-17T16:51:31Z</wsu:Expires>
+      </wsu:Timestamp>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body>
+    <QuoteResponse xmlns="http://www.compu-quote.com/RatingWebService/Version1">
+      <QuoteResult>
+        <QuoteResponse xmlns="http://www.compu-quote.com/RatingWebService/QuoteResponse.xsd">
+          <StatusCode>SUCCESS</StatusCode>
+          <TrackingNumber>10230052</TrackingNumber>
+          <Message />
+          <ReceiverResponse>
+            <FortusTransaction Type="Automobile" xmlns="">
+              <RegistryOverrides>
+                <Fortus>c:\CQFortus\bin\Fortus.dll</Fortus>
+                <DataPath>C:\CQFortus\Data\Auto\</DataPath>
+                <Engine>C:\CQFortus\bin\cqe20.dll</Engine>
+                <LegacyAutoEngine>C:\CQFortus\bin\cqae32.dll</LegacyAutoEngine>
+              </RegistryOverrides>
+              <Province>ON</Province>
+              <Renewal>NO</Renewal>
+              <Carriers>
+                <DEMA>
+                  <CodeNames>
+                    <Auto>
+                      <QuoteInfo>
+                        <ID>Q3740625</ID>
+                        <AssumeMultiLine>N</AssumeMultiLine>
+                        <CoverageOverride>None</CoverageOverride>
+                        <DateAdded/>
+                        <Language>English</Language>
+                        <NoMVD>N</NoMVD>
+                        <ProvinceCode>ON</ProvinceCode>
+                        <TerritoryPassed>N</TerritoryPassed>
+                        <VRGPassed>Y</VRGPassed>
+                        <ProductName>Web</ProductName>
+                        <Transaction>New Business</Transaction>
+                        <TransactionDate>20051107</TransactionDate>
+                        <PolicyEffDate>20051107</PolicyEffDate>
+                        <RateBookEffDate>20050901</RateBookEffDate>
+                        <RateBookPassed>N</RateBookPassed>
+                        <Vehicle>
+                          <ID>V3116128</ID>
+                          <ABS>N</ABS>
+                          <AirBag>None</AirBag>
+                          <DistanceYearly>20000</DistanceYearly>
+                          <EffDate>20051107</EffDate>
+                          <Location>MISSISSAUGA</Location>
+                          <LocationIndex>638</LocationIndex>
+                          <PostalCode>L5M3C8</PostalCode>
+                          <VehType>Private Passenger</VehType>
+                          <VehUse>Pleasure</VehUse>
+                          <VICCCode>8889</VICCCode>
+                          <Year>2003</Year>
+                          <MVDOverride>N</MVDOverride>
+                          <AntitheftDevice>
+                            <ID>AntitheftV3116128</ID>
+                            <DeviceType>Monitored</DeviceType>
+                            <Manufacturer>OnStar</Manufacturer>
+                            <BrandName />
+                          </AntitheftDevice>
+                          <Coverage>
+                            <ID>V3116128-TPBI</ID>
+                            <CSIOCode>TPBI</CSIOCode>
+                            <Limit1>1000000</Limit1>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Deductible>0</Deductible>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-UA</ID>
+                            <CSIOCode>UA</CSIOCode>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Deductible>0</Deductible>
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-AB</ID>
+                            <CSIOCode>AB</CSIOCode>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Deductible>0</Deductible>
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-TPDC</ID>
+                            <CSIOCode>TPDC</CSIOCode>
+                            <Deductible>0</Deductible>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-TPPD</ID>
+                            <CSIOCode>TPPD</CSIOCode>
+                            <Limit1>1000000</Limit1>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Deductible>0</Deductible>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-COL</ID>
+                            <CSIOCode>COL</CSIOCode>
+                            <Deductible>500</Deductible>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-CMP</ID>
+                            <CSIOCode>CMP</CSIOCode>
+                            <Deductible>300</Deductible>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Coverage>
+                            <ID>V3116128-44</ID>
+                            <CSIOCode>44</CSIOCode>
+                            <Limit1>1000000</Limit1>
+                            <EffDate>0</EffDate>
+                            <Description />
+                            <Deductible>0</Deductible>
+                            <Limit2>0</Limit2>
+                          </Coverage>
+                          <Territory>S4</Territory>
+                          <StatTerritory />
+                          <VRLiab>25</VRLiab>
+                          <VRAB>05</VRAB>
+                          <VRColl>25</VRColl>
+                          <VRComp>10</VRComp>
+                          <VehFlag />
+                          <VRGAssumed>N</VRGAssumed>
+                          <DistanceDaily>0</DistanceDaily>
+                          <USADistanceDaily>0</USADistanceDaily>
+                          <DistanceBusiness>0</DistanceBusiness>
+                          <PriorVehExperience>0</PriorVehExperience>
+                          <CurrentValue>0</CurrentValue>
+                          <ValueNew>0</ValueNew>
+                          <PurchasePrice>0</PurchasePrice>
+                          <PurchasedNew>N</PurchasedNew>
+                          <PurchaseDate>0</PurchaseDate>
+                          <EngineDispl>0</EngineDispl>
+                          <nCylinders>0</nCylinders>
+                          <UnrepairedDamage>N</UnrepairedDamage>
+                          <Customized>N</Customized>
+                          <InspectionCode>N</InspectionCode>
+                          <RateBookEffDate>20050901</RateBookEffDate>
+                          <VRGRateBookEffDate>20050901</VRGRateBookEffDate>
+                          <Renewal>N</Renewal>
+                          <DateAdded>0</DateAdded>
+                          <SourceFlags>0</SourceFlags>
+                          <CarryExplosives>N</CarryExplosives>
+                          <CarryRadioActive>N</CarryRadioActive>
+                          <TransportGoods>N</TransportGoods>
+                          <PassengersCompensation>N</PassengersCompensation>
+                          <NumberOfCarPoolPassengers>0</NumberOfCarPoolPassengers>
+                          <AdjustedTerritory />
+                          <ScoringConstant>0</ScoringConstant>
+                          <VehicleTotal>
+                            <ID>V3116128</ID>
+                            <SourceID />
+                            <EffDate>20051107</EffDate>
+                            <RateBookEffDate>0</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode />
+                            <Deductible>0</Deductible>
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                            <BasePremium>8213</BasePremium>
+                            <FinalPremium>8203</FinalPremium>
+                            <PremiumWithDecimal>8203</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>8203</AnnualPremium>
+                            <TermPremium>8203</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </VehicleTotal>
+                          <FacilityPoints>0</FacilityPoints>
+                          <ProductLine />
+                          <GVW>0</GVW>
+                          <CommercialUse />
+                          <DeliveryType />
+                          <Owned>Y</Owned>
+                          <Radius>0</Radius>
+                        </Vehicle>
+                        <DriverProfile>
+                          <ID>D3121201</ID>
+                          <Birthdate>19730914</Birthdate>
+                          <DateContinuousInsurance>20051107</DateContinuousInsurance>
+                          <DriverTraining>N</DriverTraining>
+                          <Gender>M</Gender>
+                          <RelationshipToApplicant>Insured</RelationshipToApplicant>
+                          <MaritalStatus>S</MaritalStatus>
+                          <Retired>N</Retired>
+                          <OccupationCode>999</OccupationCode>
+                          <DriverLicense>
+                            <ID>License3142954</ID>
+                            <Country>CA</Country>
+                            <LicenseClass>G</LicenseClass>
+                            <LicenseDate>19901101</LicenseDate>
+                            <ProvinceState>ON</ProvinceState>
+                            <Category />
+                          </DriverLicense>
+                          <EffDate>20070117</EffDate>
+                          <Age>33</Age>
+                          <DateWithCompany>0</DateWithCompany>
+                          <DateWithBroker>0</DateWithBroker>
+                          <FacilityPoints>0</FacilityPoints>
+                          <DistanceSchool>0</DistanceSchool>
+                          <DriverTrainingDate>0</DriverTrainingDate>
+                          <RemedialTrainingDate>0</RemedialTrainingDate>
+                          <AffectedRatingClass />
+                          <DateAdded>0</DateAdded>
+                          <ResidesWithParents>N</ResidesWithParents>
+                          <NonCanDrvExpRegion />
+                          <NonCanDrvExpMonths>0</NonCanDrvExpMonths>
+                          <GridLevelGiven>N</GridLevelGiven>
+                          <GridLevel>0</GridLevel>
+                          <GridLevelEffDate>0</GridLevelEffDate>
+                        </DriverProfile>
+                        <VehLink>
+                          <ID>LinkD3121201V3116128</ID>
+                          <DriverID>D3121201</DriverID>
+                          <VehicleID>V3116128</VehicleID>
+                          <Link>Prn</Link>
+                          <Message>
+                            <MessageText>Vehicle inspection within 30 days may be required</MessageText>
+                            <MessageID>0</MessageID>
+                            <Severity>100</Severity>
+                          </Message>
+                          <Message>
+                            <MessageText>Refer - Prior insurance required</MessageText>
+                            <MessageID>0</MessageID>
+                            <Severity>100</Severity>
+                          </Message>
+                          <Message>
+                            <MessageText>Vehicle must also have an immobilizer for the Theft discount</MessageText>
+                            <MessageID>0</MessageID>
+                            <Severity>100</Severity>
+                          </Message>
+                          <EffDate>0</EffDate>
+                          <RateBookEffDate>20050901</RateBookEffDate>
+                          <Renewal>N</Renewal>
+                          <DateAdded>0</DateAdded>
+                          <PercentUse>0</PercentUse>
+                          <AssignFlag>Y</AssignFlag>
+                          <YouthfulDriver>N</YouthfulDriver>
+                          <PrincipalOwner>N</PrincipalOwner>
+                          <DateOwnerPrincipal>0</DateOwnerPrincipal>
+                          <DriverClass>02</DriverClass>
+                          <LiabDrRec>0</LiabDrRec>
+                          <CollDrRec>0</CollDrRec>
+                          <AdjustedClass />
+                          <AdjustedLiabDR />
+                          <AdjustedCollDR />
+                          <SPF1>32</SPF1>
+                          <SPF2>**</SPF2>
+                          <SPF3 />
+                          <SPF4 />
+                          <SPF5 />
+                          <CoveragePremium>
+                            <ID>1</ID>
+                            <SourceID>V3116128-TPBI</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>TPBI</CarrierCovCode>
+                            <Deductible>-1</Deductible>
+                            <Limit1>1000000</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>1351</BasePremium>
+                            <FinalPremium>1351</FinalPremium>
+                            <PremiumWithDecimal>1351</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>1351</AnnualPremium>
+                            <TermPremium>1351</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>2</ID>
+                            <SourceID>V3116128-UA</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>UA</CarrierCovCode>
+                            <Deductible>-1</Deductible>
+                            <Limit1>-1</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>0</BasePremium>
+                            <FinalPremium>0</FinalPremium>
+                            <PremiumWithDecimal>0</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>0</AnnualPremium>
+                            <TermPremium>0</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>3</ID>
+                            <SourceID>V3116128-AB</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>AB</CarrierCovCode>
+                            <Deductible>-1</Deductible>
+                            <Limit1>-1</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>3493</BasePremium>
+                            <FinalPremium>3493</FinalPremium>
+                            <PremiumWithDecimal>3493</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>3493</AnnualPremium>
+                            <TermPremium>3493</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>4</ID>
+                            <SourceID>V3116128-TPDC</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>TPDC</CarrierCovCode>
+                            <Deductible>0</Deductible>
+                            <Limit1>-1</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>1638</BasePremium>
+                            <FinalPremium>1638</FinalPremium>
+                            <PremiumWithDecimal>1638</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>1638</AnnualPremium>
+                            <TermPremium>1638</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>5</ID>
+                            <SourceID>V3116128-TPPD</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>TPPD</CarrierCovCode>
+                            <Deductible>-1</Deductible>
+                            <Limit1>1000000</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>0</BasePremium>
+                            <FinalPremium>0</FinalPremium>
+                            <PremiumWithDecimal>0</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>0</AnnualPremium>
+                            <TermPremium>0</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>6</ID>
+                            <SourceID>V3116128-COL</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>COL</CarrierCovCode>
+                            <Deductible>500</Deductible>
+                            <Limit1>-1</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>1620</BasePremium>
+                            <FinalPremium>1620</FinalPremium>
+                            <PremiumWithDecimal>1620</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>1620</AnnualPremium>
+                            <TermPremium>1620</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>7</ID>
+                            <SourceID>V3116128-CMP</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>CMP</CarrierCovCode>
+                            <Deductible>300</Deductible>
+                            <Limit1>-1</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>96</BasePremium>
+                            <FinalPremium>86</FinalPremium>
+                            <PremiumWithDecimal>86</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>86</AnnualPremium>
+                            <TermPremium>86</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <CoveragePremium>
+                            <ID>8</ID>
+                            <SourceID>V3116128-44</SourceID>
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>20050901</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode>44</CarrierCovCode>
+                            <Deductible>-1</Deductible>
+                            <Limit1>1000000</Limit1>
+                            <Limit2>-1</Limit2>
+                            <BasePremium>15</BasePremium>
+                            <FinalPremium>15</FinalPremium>
+                            <PremiumWithDecimal>15</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>15</AnnualPremium>
+                            <TermPremium>15</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </CoveragePremium>
+                          <DriverTotal>
+                            <ID>LinkD3121201V3116128</ID>
+                            <SourceID />
+                            <EffDate>0</EffDate>
+                            <RateBookEffDate>0</RateBookEffDate>
+                            <Renewal>N</Renewal>
+                            <DateAdded>0</DateAdded>
+                            <Applied>Y</Applied>
+                            <CarrierCovCode />
+                            <Deductible>0</Deductible>
+                            <Limit1>0</Limit1>
+                            <Limit2>0</Limit2>
+                            <BasePremium>8213</BasePremium>
+                            <FinalPremium>8203</FinalPremium>
+                            <PremiumWithDecimal>8203</PremiumWithDecimal>
+                            <AdjustmentValue>0</AdjustmentValue>
+                            <AdjustmentType />
+                            <AnnualPremium>8203</AnnualPremium>
+                            <TermPremium>8203</TermPremium>
+                            <NetPremium>0</NetPremium>
+                            <Tax1>0</Tax1>
+                            <Tax2>0</Tax2>
+                            <Fee1>0</Fee1>
+                            <TotalPremium>0</TotalPremium>
+                          </DriverTotal>
+                          <Discount>
+                            <ID>1</ID>
+                            <Applied>Y</Applied>
+                            <DiscountCode>Theft</DiscountCode>
+                            <Percentage>10</Percentage>
+                            <Descript />
+                            <UserInitiated>N</UserInitiated>
+                            <RequestedAmount>0</RequestedAmount>
+                          </Discount>
+                          <FacilityPoints>0</FacilityPoints>
+                          <SubClass />
+                          <AdjustedSubClass />
+                        </VehLink>
+                        <OriginalPolicyEffDate>0</OriginalPolicyEffDate>
+                        <OriginalQuoteDate>0</OriginalQuoteDate>
+                        <Renewal>N</Renewal>
+                        <CompanyCode>DEMA</CompanyCode>
+                        <HabPolicyType />
+                        <HabCompanyCode />
+                        <HabDateCompany>0</HabDateCompany>
+                        <PolicyFlag>0</PolicyFlag>
+                        <PolicyTotal>
+                          <ID>Q3740625</ID>
+                          <SourceID />
+                          <EffDate>20051107</EffDate>
+                          <RateBookEffDate>0</RateBookEffDate>
+                          <Renewal>N</Renewal>
+                          <DateAdded>0</DateAdded>
+                          <Applied>Y</Applied>
+                          <CarrierCovCode />
+                          <Deductible>0</Deductible>
+                          <Limit1>0</Limit1>
+                          <Limit2>0</Limit2>
+                          <BasePremium>8213</BasePremium>
+                          <FinalPremium>8203</FinalPremium>
+                          <PremiumWithDecimal>8203</PremiumWithDecimal>
+                          <AdjustmentValue>0</AdjustmentValue>
+                          <AdjustmentType />
+                          <AnnualPremium>8203</AnnualPremium>
+                          <TermPremium>8203</TermPremium>
+                          <NetPremium>0</NetPremium>
+                          <Tax1>0</Tax1>
+                          <Tax2>0</Tax2>
+                          <Fee1>0</Fee1>
+                          <TotalPremium>0</TotalPremium>
+                        </PolicyTotal>
+                        <SubTransaction />
+                        <Debug>N</Debug>
+                        <GenerateVehDescr>N</GenerateVehDescr>
+                        <BrokerTier>0</BrokerTier>
+                        <GuaranteedRates>N</GuaranteedRates>
+                        <ExpiryDate>20061107</ExpiryDate>
+                        <HabOccSinceDate>0</HabOccSinceDate>
+                        <DisableGridLevel>N</DisableGridLevel>
+                        <TermRequested>12</TermRequested>
+                        <TermQuoted>12</TermQuoted>
+                        <NoFrills>N</NoFrills>
+                        <Implementation />
+                        <ContractNumber />
+                      </QuoteInfo>
+                    </Auto>
+                  </CodeNames>
+                </DEMA>
+              </Carriers>
+              <EffDate>20070117</EffDate>
+            </FortusTransaction>
+          </ReceiverResponse>
+        </QuoteResponse>
+      </QuoteResult>
+    </QuoteResponse>
+  </soap:Body>
+</soap:Envelope>

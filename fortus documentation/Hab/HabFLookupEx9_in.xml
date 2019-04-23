@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LookupTransaction Type="Property">
+  <RegistryOverrides>
+    <Diagnostics>1</Diagnostics>
+  </RegistryOverrides>
+  <Defaults>
+    <Province>QC</Province>
+    <CodeName>Homeowners</CodeName>
+    <Language>French</Language>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="1" Type="UserInit">
+      <Carrier>MR</Carrier>
+    </Lookup>
+    <Lookup ID="2" Type="UserInit">
+      <Carrier>GA</Carrier>
+    </Lookup>
+    <Lookup ID="3" Type="UserInit">
+      <Carrier>TRG</Carrier>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

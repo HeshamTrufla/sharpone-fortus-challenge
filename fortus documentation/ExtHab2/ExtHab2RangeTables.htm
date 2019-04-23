@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm" class="active">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../Hab2/HabGeneral.htm">Hab2</a></li>
+<li><span>›</span>Extended Hab2 Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table1">Table 1: Province Codes</a></li>
+<li><a href="#Table2">Table 2: Personal Identity Classifications</a></li>
+<li><a href="#Table3">Table 3: Telephone Classifications</a></li>
+<li><a href="#Table4">Table 4: Address Classification</a></li>
+<li><a href="#Table5">Table 5: Party Type</a></li>
+<li><a href="#Table6">Table 6: Consent Types</a></li>
+<li><a href="#Table7">Table 7: Credit Score Current Insurer List</a></li>
+<li><a href="#Table8">Table 8: Contact Language</a></li>
+<li><a href="#Table9">Table 9: Contact Method</a></li>
+<li><a href="#Table10">Table 10: Contact Time</a></li>
+</ul>
+</div>
+<a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 1:  Province Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ON</td>
+<td>Ontario</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>Alberta</td>
+</tr>
+<tr>
+<td>BC</td>
+<td>British Columbia</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>Newfoundland and Labrador</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Nova Scotia</td>
+</tr>
+<tr>
+<td>PE</td>
+<td>Prince Edward Island</td>
+</tr>
+<tr>
+<td>NB</td>
+<td>New Brunswick</td>
+</tr>
+<tr>
+<td>QC</td>
+<td>Quebec</td>
+</tr>
+<tr>
+<td>MB</td>
+<td>Manitoba</td>
+</tr>
+<tr>
+<td>SK</td>
+<td>Saskatchewan</td>
+</tr>
+<tr>
+<td>NT</td>
+<td>Northwest Territories</td>
+</tr>
+<tr>
+<td>YT</td>
+<td>Yukon Territories</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 2:  Personal Identity Classifications</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Client Names</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Client</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 2:  Personal Identity Classifications</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Credit Score Names</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Insured</td>
+</tr>
+<tr>
+<td>CoInsured</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 2:  Personal Identity Classifications</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Insured Names</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Insured</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table3"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 3:  Telephone Classifications</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Client</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>Business</td>
+<td>Work or business</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Mobile device</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 3:  Telephone Classifications</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Credit Score</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Insured</td>
+</tr>
+<tr>
+<td>CoInsured</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table4"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 4:  Address Classification</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Client Addresses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Client</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 4:  Address Classification</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Credit Score Addresses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Insured</td>
+</tr>
+<tr>
+<td>CoInsured</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 4:  Address Classification</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Dwelling Addresses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<th>Range</th>
+</tr>
+<tr>
+<td>Validated</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table5"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 5:  Party Type</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>Individual</td>
+</tr>
+<tr>
+<td>IC</td>
+<td>Corporation</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table6"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 6:  Consent Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Verbal</td>
+<td>Verbal</td>
+<td>Verbal</td>
+</tr>
+<tr>
+<td>Written</td>
+<td>Written</td>
+<td>Écrit</td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table7"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 7:  Credit Score Current Insurer List</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>Aviva Group of Insurers (Represented by Broker)</td>
+</tr>
+<tr>
+<td>CAA</td>
+<td>CAA Insurance</td>
+</tr>
+<tr>
+<td>CNS</td>
+<td>Canadian Northern Shield</td>
+</tr>
+<tr>
+<td>COA</td>
+<td>Coachman Insurance</td>
+</tr>
+<tr>
+<td>ECON</td>
+<td>Economical Mutual Insurance Company and its subsidaries</td>
+</tr>
+<tr>
+<td>GORE</td>
+<td>Gore Mutual Sophisticated Rating</td>
+</tr>
+<tr>
+<td>PROM</td>
+<td>Groupe Promutuel</td>
+</tr>
+<tr>
+<td>NWFM</td>
+<td>Heartland - Waterloo</td>
+</tr>
+<tr>
+<td>ICPE</td>
+<td>Insurance Company of PEI</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Intact</td>
+</tr>
+<tr>
+<td>HAL</td>
+<td>Intact</td>
+</tr>
+<tr>
+<td>GRP</td>
+<td>Intact</td>
+</tr>
+<tr>
+<td>UNI</td>
+<td>L'Unique</td>
+</tr>
+<tr>
+<td>MR</td>
+<td>Missisquoi</td>
+</tr>
+<tr>
+<td>LOMI</td>
+<td>Northbridge Personal Insurance Corp</td>
+</tr>
+<tr>
+<td>NATS</td>
+<td>Optimum</td>
+</tr>
+<tr>
+<td>NATF</td>
+<td>Optimum Insurance Company</td>
+</tr>
+<tr>
+<td>BCIC</td>
+<td>Optimum West Insurance</td>
+</tr>
+<tr>
+<td>PAFM</td>
+<td>Pafco</td>
+</tr>
+<tr>
+<td>PEM</td>
+<td>Pembridge</td>
+</tr>
+<tr>
+<td>PORT</td>
+<td>Portage La Prairie Mutual</td>
+</tr>
+<tr>
+<td>ROY</td>
+<td>Royal &amp; SunAlliance</td>
+</tr>
+<tr>
+<td>UNCN</td>
+<td>RSA</td>
+</tr>
+<tr>
+<td>SGI</td>
+<td>SGI CANADA</td>
+</tr>
+<tr>
+<td>DOC</td>
+<td>The Dominion of Canada</td>
+</tr>
+<tr>
+<td>YORK</td>
+<td>Unica</td>
+</tr>
+<tr>
+<td>WAWA</td>
+<td>Wawanesa</td>
+</tr>
+<tr>
+<td>WEST</td>
+<td>Western Assurance</td>
+</tr>
+<tr>
+<td>DGIG</td>
+<td>Western Direct Insurance</td>
+</tr>
+<tr>
+<td>ZENI</td>
+<td>Zenith Insurance Company</td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table8"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 8:  Contact Language</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>E</td>
+<td>English</td>
+</tr>
+<tr>
+<td>F</td>
+<td>French</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 9:  Contact Method</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Phone</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Text Message</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table10"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 10:  Contact Time</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Morning</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Afternoon</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Evening</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

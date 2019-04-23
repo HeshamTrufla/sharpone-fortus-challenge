@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkCommercial">Commercial</a></li>
+<li><span>›</span>Map Definition</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#tblQuoteInfo">QuoteInfo</a></li>
+<li><a href="#tblVehLink">VehLink</a></li>
+<li><a href="#tblVehicle">Vehicle</a></li>
+<li><a href="#tblDriverProfile">DriverProfile</a></li>
+<li><a href="#tblDriverLicense">DriverLicense</a></li>
+</ul>
+</div><a name="descOverview"></a><h1>Overview</h1>
+<p>Rating Commercial Vehicles is built on top of the normal Automobile hierarchy.  Therefore, to 
+            construct quote input for Commercial Vehicles, first begin by referring to the normal 
+            <a href="../AutoMap.htm">Automobile Map Definition</a> and constructing input based on this information.  
+            However, there are a few pieces of data that are different for Commercial Vehicles.  These details have been listed below.</p>
+<a name="tblQuoteInfo"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">QuoteInfo</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>CommAssumeMultiLine</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Works the same way as AssumeMultiLine, except that it works with CommHabCompanyCode. Default: 'N'.  See <a href="..\AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>CommHabCompanyCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td> </td>
+<td>The CSIO code for the company with whom commercial property insurance is held.</td>
+</tr>
+<tr>
+<td>CommHabDateCompany</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>The inception date of the insured's commercial property insurance policy with the company specified in ComHabCompanyCode.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblVehLink"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">VehLink</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AdjustedSubClass</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Adjusted commercial subclass/code. This field is blank unless the engine data is required to be overridden due to download dislocation or user requested override.  See <a href="..\AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>SubClass</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Commercial rating subclass/code.  This is an output field.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblVehicle"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Vehicle</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AccessoriesValue</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Value of attached machinery, apparatus or equipment (excluding tax)</td>
+</tr>
+<tr>
+<td>AmountAbnormalTrips</td>
+<td>LONG</td>
+<td> </td>
+<td>0-99</td>
+<td> </td>
+<td>Number of trips per month vehicle is operated beyond the normal radius from place usually kept.</td>
+</tr>
+<tr>
+<td>AmountLongerTrips</td>
+<td>LONG</td>
+<td> </td>
+<td>0-31</td>
+<td> </td>
+<td>The number of days per month that the vehicle is used for trips over 80 kms.</td>
+</tr>
+<tr>
+<td>AmountPleasureUse</td>
+<td>LONG</td>
+<td> </td>
+<td>0-100</td>
+<td> </td>
+<td>The percentage of use of the vehicle for pleasure.</td>
+</tr>
+<tr>
+<td>AmountTrips160</td>
+<td>LONG</td>
+<td> </td>
+<td>0-31</td>
+<td> </td>
+<td>The number of days per month that the vehicle is used for trips over 160 kms.</td>
+</tr>
+<tr>
+<td>CommercialUse</td>
+<td>STRING</td>
+<td>60</td>
+<td><a href="I_PPRangeTables.htm#Table29" target="Tables">Table 29</a></td>
+<td>Y</td>
+<td>Categorization of the use of the vehicle.</td>
+</tr>
+<tr>
+<td>Customized</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Has the vehicle been customized or modified?</td>
+</tr>
+<tr>
+<td>DeliveryFrequency</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="I_PPRangeTables.htm#Table37" target="Tables">Table 37</a></td>
+<td> </td>
+<td>The category of delivery frequency.</td>
+</tr>
+<tr>
+<td>DeliveryType</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="I_PPRangeTables.htm#Table30" target="Tables">Table 30</a></td>
+<td>Y</td>
+<td>Classification of the type of delivery offered by the commercial business.</td>
+</tr>
+<tr>
+<td>DistanceIntoUSA</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>The number of kilometres into the United States the vehicle is regularly operated.</td>
+</tr>
+<tr>
+<td>FuelTruck</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is the vehicle used as a fuel truck for the insured's own use?  For example, farmers and contactors will often convert or use pick-up trucks to carry fuel for their own use in servicing their off-road tractors or equipment.</td>
+</tr>
+<tr>
+<td>FuelType</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="I_PPRangeTables.htm#Table38" target="Tables">Table 38</a></td>
+<td> </td>
+<td>The type of fuel used to power vehicle.</td>
+</tr>
+<tr>
+<td>GVW</td>
+<td>LONG</td>
+<td> </td>
+<td>0-999999</td>
+<td>Y</td>
+<td>Gross Vehicle Weight (in kilograms).</td>
+</tr>
+<tr>
+<td>HaulForOthers</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is the vehicle used to haul goods for others?</td>
+</tr>
+<tr>
+<td>MaxRadius</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Maximum radius of operation (in kilometres).</td>
+</tr>
+<tr>
+<td>NumDaysOutProv</td>
+<td>LONG</td>
+<td> </td>
+<td>0-365</td>
+<td> </td>
+<td> The number of days (in a year) the vehicle spends outside the province for consecutive periods of time. For example, 'snowbirds' who spend the winter in warmer climates.  This does NOT include vehicle usage out of the province in a non-consecutive manner, such as cross-border work commuting.</td>
+</tr>
+<tr>
+<td>OwnedLeasedSince</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date of ownership or lease commencement for this vehicle or one similar to it. </td>
+</tr>
+<tr>
+<td>PriorVehExperience</td>
+<td>DATE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Earliest date of prior experience (of principal driver) with this vehicle or one similar to it.</td>
+</tr>
+<tr>
+<td>ProductLine</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="I_PPRangeTables.htm#Table39" target="Tables">Table 39</a></td>
+<td>Y</td>
+<td>Product line for purposes of rating.  Must be set to 'IRCA'.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Radius of normal operation (in kilometres).</td>
+</tr>
+<tr>
+<td>SnowploughBlade</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Does the vehicle have a snow plough blade attached at any time during the year?</td>
+</tr>
+<tr>
+<td>TempControl</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is the vehicle equipped with refrigeration/heating for the transported goods?</td>
+</tr>
+<tr>
+<td>UnrepairedDamage</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Does the vehicle have unrepaired damage?</td>
+</tr>
+<tr>
+<td>USAAmountYearly</td>
+<td>LONG</td>
+<td> </td>
+<td>0-100</td>
+<td> </td>
+<td>The percentage of annual use of the vehicle in the United States.</td>
+</tr>
+<tr>
+<td>USANumDays</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>The number of consecutive days the vehicle is regularly operated within the United States.</td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="I_PPRangeTables.htm#Table9" target="Tables">Table 9</a></td>
+<td> </td>
+<td>Type of Vehicle. Must be set to 'Private Passenger'.</td>
+</tr>
+<tr>
+<td>VICCCodeExt</td>
+<td>STRING</td>
+<td>6</td>
+<td>6 characters</td>
+<td>Y</td>
+<td>Extended VICC car code.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDriverProfile"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">DriverProfile</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AirBrake</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates that the driver has an air brake endorsement.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDriverLicense"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">DriverLicense</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>LicenseClass</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="I_PPRangeTables.htm#Table17" target="Tables">Table 17</a></td>
+<td>Y</td>
+<td>Driver license class.</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

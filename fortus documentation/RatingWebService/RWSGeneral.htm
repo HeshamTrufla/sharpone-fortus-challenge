@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div id="pagePaper">
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm" class="active">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+<li><span>›</span>Rating Web Service</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkOverview">Overview</a></li>
+<li><a href="#lnkWSDL">Service Description (WSDL)</a></li>
+<li><a href="#lnkQuoteWebMethod">Quote() Web Method</a><ul>
+<li><span class="subtitle">Request</span><ul>
+<li><a href="#lnkQWMSOAPHeaders">SOAP Headers</a></li>
+<li><a href="#lnkQWMSOAPBody">SOAP Body</a></li>
+<li><a href="#lnkQWMReqEx">Example</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Response</span><ul>
+<li><a href="#lnkQWMResInt">Interpretation of Results</a></li>
+<li><a href="#lnkQWMResEx">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><a name="lnkOverview"></a><h1>Rating Web Service</h1>
+<p>Applied hosts an XML web service<a class="txtBodyFootNoteMarker" href="#anchorFootNote1">1</a> to produce 
+        Automobile and Habitation quotes. The medium for this XML web service, coined Rating Web Service, is 
+        SOAP<a class="txtBodyFootNoteMarker" href="#anchorFootNote2">2</a>.  The XML format of the risk information delivered is 
+        the FORTUS&#8482; data model herein documented. This web service offers many benefits for clients as compared to 
+        maintaining a local installation of FORTUS&#8482;:
+        </p>
+<ul>
+<li>Company rate data is updated daily. The worry of providing the most up-to-date quotes and the effort of downloading and updating company data is gone.</li>
+<li>The Rating Web Service maintains multiple versions of the backend FORTUS&#8482; rating engine. This gives you control over when to use new updates, thus giving you time to review changes, update your system, and test.</li>
+<li>The Rating Web Service has been setup and configured to provide improved performance in a scalable, server environment.</li>
+</ul>
+<hr>
+<h2 id="lnkWSDL">Service Description (WSDL)</h2>
+<p>For a formal definition of this web service, please review the <a href="RatingWebService_Version1.wsdl">Service Description</a>.</p>
+<hr>
+<h2 id="lnkQuoteWebMethod">Quote() Web Method - Request</h2>
+<p>The Quote() web method requires two SOAP headers to be passed, Caller and CQCredentials.  There are 3 parameters for the Quote() web method: quote GUID, quote 
+        iteration GUID, and the FORTUS&#8482; input XML.  The FORTUS&#8482; input XML is the same XML that would be passed to FORTUS&#8482; normally, wrapped up for SOAP.
+        </p>
+<h3 id="lnkQWMSOAPHeaders">SOAP Headers</h3>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">CQCredentials SOAP Header</td>
+</tr>
+<tr>
+<td colspan="2">This SOAP header is meant to provide credentials to validate authentication and authorization for the Applied service.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>UserName</td>
+<td>Username associated with authorization for Applied services. Provided by Applied.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Base64<a class="txtBodyFootNoteMarker" href="#anchorFootNote3">3</a> encoded password associated with authorization for Applied services. Provided by Applied.</td>
+</tr>
+</table><a href="#">top</a><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Caller SOAP Header</td>
+</tr>
+<tr>
+<td colspan="3">This SOAP header is meant to relay contextual information about the web service caller.</td>
+</tr>
+<tr>
+<td colspan="2" class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td colspan="2">Name</td>
+<td>The name of the program/product/service/etc calling the web method. This is expected to be unique and valid.</td>
+</tr>
+<tr>
+<td colspan="2">Version</td>
+<td>The version of the program/product/service/etc calling the web method. This is expected to be maintained when caller is updated/enhanced/modified.</td>
+</tr>
+<tr>
+<td colspan="2">Product</td>
+<td>(  <strong>ThirdParty_Web</strong> )</td>
+</tr>
+<tr>
+<td colspan="2">LineOfBusiness</td>
+<td>Line of business of risk to be quoted.<br>
+        One of (  <strong>AUTO</strong>,  <strong>HAB</strong> )
+		  </td>
+</tr>
+<tr>
+<td colspan="2">Province</td>
+<td>Province of risk to be quoted.<br>
+		    When LineOfBusiness is 'AUTO', one of ( <strong>AB</strong>,  <strong>NB</strong>,  <strong>NF</strong>,  <strong>NS</strong>,  <strong>NT</strong>,  <strong>ON</strong>,  <strong>PE</strong>,  <strong>QC</strong>,  <strong>YT</strong> )<br>
+		    When LineOfBusiness is 'HAB', one of ( <strong>AB</strong>,  <strong>BC</strong>,  <strong>MB</strong>,  <strong>NB</strong>,  <strong>NF</strong>,  <strong>NS</strong>,  <strong>NT</strong>,  <strong>ON</strong>,  <strong>PE</strong>,  <strong>QC</strong>,  <strong>SK</strong>,  <strong>YT</strong> )<br></td>
+</tr>
+<tr>
+<td colspan="2">Language</td>
+<td>Optional.<br>
+        One of (  <strong>EN</strong>,  <strong>FR</strong> )<br>
+		    Defaults to 'EN' if not specified. Note that this field does not guarantee any functionality and is not currently functional.
+		  </td>
+</tr>
+<tr>
+<td rowspan="4">FortusVersion</td>
+<td>MajorVersion</td>
+<td>Major Version of FORTUS&#8482; to use.  XML is expected to comply with data model associated with the FORTUS&#8482; version requested.</td>
+</tr>
+<tr>
+<td>MinorVersion</td>
+<td>Minor Version of FORTUS&#8482; to use.  XML is expected to comply with data model associated with the FORTUS&#8482; version requested.</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Build of FORTUS&#8482; to use.  XML is expected to comply with data model associated with the FORTUS&#8482; version requested.</td>
+</tr>
+<tr>
+<td>Deviation</td>
+<td>Deviation of FORTUS&#8482; version to use. This would normally be indicated as a blank string. XML is expected to comply with data model associated with the FORTUS&#8482; version requested.</td>
+</tr>
+</table><a href="#">top</a><br><h3 id="lnkQWMSOAPBody">SOAP Body</h3>
+<p>The SOAP Body of the Quote() web method contains an element for the name of the method.  Inside this element, each parameter to this 
+   web method is indicated by a child element.  In the case of this web method, there are 3 parameters, the quote GUID, the quote iteration GUID, 
+   and the input XML.</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">SOAP Body</td>
+</tr>
+<tr>
+<td colspan="2">The Quote GUID and Quote Iteration GUID are needed to identify the evolution of a quote through changing and tweaking values as opposed to completely 
+different quotes.  Let us examine an example to more clearly define the GUID behaviours.  Let us assume our example system allows the user to create, save 
+and manage quotes.  We create a new quote.  The system creates a Quote GUID and saves it along with the other quote data.  This Quote GUID uniquely 
+identifies this quote and will never change. The user enters in the quote data (ie drivers, vehicles, etc) and then requests a quotation.  The system 
+generates another GUID, this one to identify this iteration (ie request for a quotation) and calls the Rating Web Service Quote() Web Method.  The Quote 
+Iteration GUID generated is not saved by the system as this doesn't need to persist and should only ever be used once.  Assume now that the user realizes 
+that they forgot to enter in a speeding conviction.  They do this and re-request a quotation.  The system generates another Quote Iteration GUID as this is 
+another quote iteration, ie a new call to the Quote() Web Method.
+<br><br>
+GUIDs are more fully explained at many locations on the web, such as Wikipedia.<a class="txtBodyFootNoteMarker" href="#anchorFootNote4">4</a></td>
+</tr>
+<tr>
+<td>QuoteGUID</td>
+<td>A quote GUID must be sent to the Rating Web Service.  This value is meant to identify a quote from the caller.  
+			    If the calling system allows the quote to be saved to persistent storage for referral later on, then that system 
+					should save this Quote GUID to identify this quote. The GUID should be an hexadecimal string with exactly 32 characters.</td>
+</tr>
+<tr>
+<td>QuoteIterationGUID</td>
+<td>A Quote Iteration GUID must be sent to the Rating Web Service.  This value is meant to identify a particular 
+			    iteration of a quote. The GUID should be an hexadecimal string with exactly 32 characters.</td>
+</tr>
+<tr>
+<td>xmlparam_FortusTransaction</td>
+<td>This parameter is the input XML that the Fortus rating engine expects.  The XML content here is explicitly left unconstrained 
+          mainly to provide the flexibility of changing the content without the need to re-define the interface, ie the WSDL.  Normal 
+					Fortus input XML begins with a root node of FortusTransaction.  Here however, this node is buffered by a xmlparam_FortusTransaction.  
+					This is done because the web method parameter must carry the same namespace as the web method itself, but we want FortusTransaction 
+					to have an empty namespace.</td>
+</tr>
+</table><a href="#">top</a><h3>Example SOAP Body</h3>
+<div class="sourcecodebox">
+    &lt;soap:Body&gt;
+      &lt;Quote xmlns="http://www.compu-quote.com/RatingWebService/Version1"&gt;
+        &lt;QuoteGUID&gt;D726BAB974B747FBA24E321B0B9737F2&lt;/QuoteGUID&gt;
+        &lt;QuoteIterationGUID&gt;03F7A2ACCF9E481AB790Da34BA183EF3&lt;/QuoteIterationGUID&gt;
+        &lt;xmlparam_FortusTransaction&gt;
+          &lt;FortusTransaction xmlns="" Type=". . ."&gt;
+            . . .
+          &lt;/FortusTransaction&gt;
+        &lt;/xmlparam_FortusTransaction&gt;
+      &lt;/Quote&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+  </div><a href="#">top</a><h3 id="lnkQWMReqEx">Example Request</h3>
+<p>Below is an example HTTP POST request.  <a href="soaprequest_1.xml">Click here</a> for the full XML content of this HTTP POST example.</p>
+<div class="sourcecodebox">
+  POST /RatingWebService/Version1.asmx HTTP/1.1
+  Host: localhost
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: 4254
+  SOAPAction: "http://www.compu-quote.com/RatingWebService/Version1/Quote"
+
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+      &lt;Caller xmlns="http://www.compu-quote.com/RatingWebService/Version1"&gt;
+        &lt;Name&gt;mycallingapp.dll&lt;/Name&gt;
+        &lt;Version&gt;1.0.1.54&lt;/Version&gt;
+        &lt;Product&gt;ThirdParty_Web&lt;/Product&gt;
+        &lt;LineOfBusiness&gt;AUTO&lt;/LineOfBusiness&gt;
+        &lt;Province&gt;ON&lt;/Province&gt;
+        &lt;Language&gt;EN&lt;/Language&gt;
+        &lt;FortusVersion&gt;
+          &lt;MajorVersion&gt;5&lt;/MajorVersion&gt;
+          &lt;MinorVersion&gt;8&lt;/MinorVersion&gt;
+          &lt;Build&gt;2&lt;/Build&gt;
+          &lt;Deviation /&gt;
+        &lt;/FortusVersion&gt;
+      &lt;/Caller&gt;
+      &lt;CQCredentials xmlns="http://www.compu-quote.com/RatingWebService/Version1"&gt;
+        &lt;UserName&gt;Username1&lt;/UserName&gt;
+        &lt;Password&gt;UGFzc3dvcmQx&lt;/Password&gt;
+      &lt;/CQCredentials&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+      &lt;Quote xmlns="http://www.compu-quote.com/RatingWebService/Version1"&gt;
+        &lt;QuoteGUID&gt;D726BAB974B747FBA24E321B0B9737F2&lt;/QuoteGUID&gt;
+        &lt;QuoteIterationGUID&gt;03F7A2ACCF9E481AB790Da34BA183EF3&lt;/QuoteIterationGUID&gt;
+        &lt;xmlparam_FortusTransaction&gt;
+          . . .
+        &lt;/xmlparam_FortusTransaction&gt;
+      &lt;/Quote&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+  </div><a href="#">top</a><hr>
+<h2>Quote() Web Method - Response</h2>
+<h3 id="lnkQWMResInt">Interpretation of Results</h3>
+<p>The return value for the Quote() web method is XML. The first 2 elements exist because of automatic mechanismed used in our development 
+   environment. The real response begins at the second instance of the 'QuoteResponse' element (the one with a namespace of 
+   "http://www.compu-quote.com/RatingWebService/QuoteResponse.xsd"). From there, the following elements are described in the table below.</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">XML Response</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>The status code indicates the state of execution within the Rating Web Service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the Rating Web Service.  It does not indicate, for example, a successful quote.<br>
+		    Possible values:<br>
+		       <strong>SUCCESS</strong> - The Rating Web Service performed successfully.<br>
+		       <strong>ERROR</strong> - The Rating Web Service encountered an error. Context information is usually passed in the Message element.<br>
+		       <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+		       <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br>
+		       <strong>NOTAUTHORIZED</strong> - The CQ credentials provided do not authorize the use of this product for the requested Line-of-business/province/carriers/etc.<br>
+		       <strong>USERDISABLED</strong> - The CQ credentials indicate a CQ account that has been disabled.<br>
+		       <strong>WEBSERVICETIMEOUT</strong> - The backend rating system has taken too long to produce quote results.<br>
+		       <strong>WEBSERVICEERROR</strong> - The backend rating system has encountered an error.<br>
+		       <strong>WEBSERVICEINTERNALERROR</strong> - The backend rating system has encountered an error.
+		    </td>
+</tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This is a 32-bit integer, used as a unique identifier to help with transaction tracibility. Programs calling the Rating Web Service should record this tracking number.</td>
+</tr>
+<tr>
+<td>Message</td>
+<td>This message text is intended as programmer-level contextual information to help identify and track down potential problems.  It is  <strong>NOT</strong> intended 
+		    to be used as information relay to the end-user and should never be used as such.</td>
+</tr>
+<tr>
+<td>ReceiverResponse</td>
+<td>The XML contained within this element is the FORTUS&#8482; response.</td>
+</tr>
+</table><a href="#">top</a><h3 id="lnkQWMResEx">Response Example</h3>
+<p>Below is an example HTTP POST reply. <a href="soapresponse_1.xml">Click here</a> for the full XML content of this HTTP POST reply example.</p>
+<div class="sourcecodebox">
+  HTTP/1.1 200 OK
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: 12345
+
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Body&gt;
+      &lt;QuoteResponse xmlns="http://www.compu-quote.com/RatingWebService/Version1"&gt;
+        &lt;QuoteResult&gt;
+          &lt;QuoteResponse xmlns="http://www.compu-quote.com/RatingWebService/QuoteResponse.xsd"&gt;
+            &lt;StatusCode&gt;SUCCESS&lt;/StatusCode&gt;
+            &lt;TrackingNumber&gt;10230052&lt;/TrackingNumber&gt;
+            &lt;Message /&gt;
+            &lt;ReceiverResponse&gt;
+              &lt;FortusTransaction Type=". . ." xmlns=""&gt;
+                . . .
+              &lt;/FortusTransaction&gt;
+            &lt;/ReceiverResponse&gt;
+          &lt;/QuoteResponse&gt;
+        &lt;/QuoteResult&gt;
+      &lt;/QuoteResponse&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+  </div><a href="#">top</a></div>
+</div>
+</div>
+<div class="footer"><div class="container">
+<p id="anchorFootNote1">[1] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/XML_Web_Services">XML Web Services</a>.</p>
+<p id="anchorFootNote2">[2] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/SOAP">SOAP</a>.</p>
+<p id="anchorFootNote3">[3] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/Base64">Base64</a>.</p>
+<p id="anchorFootNote4">[4] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/GUID">Globally Unique Identifier (GUID)</a>.</p>
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

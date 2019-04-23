@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkCommercial">Commercial</a></li>
+<li><span>›</span>VICC</li>
+</ul>
+</div>
+<div class="section">
+<div class="container"><a name="descTitle"></a><h1>Commercial VICC Information</h1>
+<p>Each carrier defines their own set of VICC Vehicle Rate Groups.  
+            However, before calculation of the quote, there is a need to guide the user to the selection of the proper vehicle and 
+            collect known details about the vehicle to help ensure accurate rating.  For example, did the Mazda MPV 2WD exist in 2001, 
+            and if so, what was the size of the engine?  The following files are provided to provide this functionality:</p>
+<ul>
+<li><a href="#descVICC">ICVICC_BI.TXT</a></li>
+<li><a href="#descBASEYEAR">ICBASEYEAR.DAT</a></li>
+<li><a href="#descDESCRIPT">ICDESCRIPT_BI.TXT</a></li>
+</ul><a name="descVICC"></a><hr>
+<h2>ICVICC_BI.TXT</h2>
+<p>This file can be used to validate up-front what vehicles existed in what years.  
+            NOTE that this file is only accurate for the last 14 years; 15 years and older are grouped into one column.
+            The first line (or record) contains the field names. The second line is an empty line/record.
+            These two lines should be deleted before or after the data is imported into the database.
+            Each field is delimited by a pipe ('|') character, and each line (or record) is seperated by a carriage return and a line feed.
+            The fields are defined in <a href="#Table1">Table 1</a> below.</p><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Table 1: ICVICC_BI.TXT Fields</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Width</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>EXT_VICC_CODE</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Extended VICC Code</td>
+</tr>
+<tr>
+<td>VICC_COD</td>
+<td>CHAR</td>
+<td>4</td>
+<td>VICC Code</td>
+</tr>
+<tr>
+<td>MAKE_AND_M</td>
+<td>CHAR</td>
+<td>35</td>
+<td>Make and model Name</td>
+</tr>
+<tr>
+<td>MANUFAC</td>
+<td>CHAR</td>
+<td>20</td>
+<td>Manufacturer Name</td>
+</tr>
+<tr>
+<td>SHORT_FO</td>
+<td>CHAR</td>
+<td>20</td>
+<td>Short form of MANUFAC and MAKE_AND_M</td>
+</tr>
+<tr>
+<td>YEAR_15</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR</td>
+</tr>
+<tr>
+<td>YEAR_14</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 1</td>
+</tr>
+<tr>
+<td>YEAR_13</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 2</td>
+</tr>
+<tr>
+<td>YEAR_12</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 3</td>
+</tr>
+<tr>
+<td>YEAR_11</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 4</td>
+</tr>
+<tr>
+<td>YEAR_10</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 5</td>
+</tr>
+<tr>
+<td>YEAR_9</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 6</td>
+</tr>
+<tr>
+<td>YEAR_8</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 7</td>
+</tr>
+<tr>
+<td>YEAR_7</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 8</td>
+</tr>
+<tr>
+<td>YEAR_6</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 9</td>
+</tr>
+<tr>
+<td>YEAR_5</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 10</td>
+</tr>
+<tr>
+<td>YEAR_4</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 11</td>
+</tr>
+<tr>
+<td>YEAR_3</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 12</td>
+</tr>
+<tr>
+<td>YEAR_2</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 13</td>
+</tr>
+<tr>
+<td>YEAR_1</td>
+<td>CHAR</td>
+<td>2</td>
+<td>BASEYEAR - 14</td>
+</tr>
+<tr>
+<td>YEAR_0</td>
+<td>CHAR</td>
+<td>2</td>
+<td>(BASEYEAR - 15) or prior</td>
+</tr>
+<tr>
+<td>DELFLAG</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Ignore</td>
+</tr>
+</table><a href="#">top</a><br><br><ul>
+<li>YEAR_?? can contain any of the following:
+                  <ul>
+<li>1 or 2 digit number, or 'A'.  This means that this Manufac/Make combination existed for this Year.</li>
+<li>' ','-', or other.  This means that this Manufac/Make combination did not exist for this Year.</li>
+</ul>
+</li>
+<li>For model years dated after BASEYEAR use BASEYEAR.</li>
+<li>For model years dated before BASEYEAR-15 use BASEYEAR-15</li>
+</ul><a name="descBASEYEAR"></a><hr>
+<h2>ICBASEYEAR.DAT</h2>
+<p>ICBASEYEAR.DAT contains only 4 characters.  These 4 characters form the BASEYEAR
+            described in <a href="#Table1">Table 1</a>.</p><a name="descDESCRIPT"></a><hr>
+<h2>ICDESCRIPT_BI.TXT</h2>
+<p>This file should be used to populate additional information about the vehicle.
+            The first line (or record) contains the field names.
+            This line should be deleted before or after the data is imported into the database.
+            Each field is delimited by a pipe ('|') character, and each line (or record) is seperated by a carriage return and a line feed.
+            The fields are defined in <a href="#Table1">Table 2</a> below.</p><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="5" align="left">Table 2: ICDESCRIPT_BI.TXT Fields</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Width</td>
+<td class="txtTableColumnTitle">Description</td>
+<td class="txtTableColumnTitle">Corresponding Map Field</td>
+</tr>
+<tr>
+<td>VICC_CODE</td>
+<td>CHAR</td>
+<td>4</td>
+<td>VICC Code</td>
+<td>&lt;Vehicle&gt;&lt;VICCCode&gt;</td>
+</tr>
+<tr>
+<td>EXT_VICC_CODE</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Extended VICC Code</td>
+<td>&lt;Vehicle&gt;&lt;VICCCodeExt&gt;</td>
+</tr>
+<tr>
+<td>MODEL_YEAR</td>
+<td>LONG</td>
+<td></td>
+<td>Year</td>
+<td>&lt;Vehicle&gt;&lt;Year&gt;</td>
+</tr>
+<tr>
+<td>WHEELBASE</td>
+<td>CHAR</td>
+<td>4</td>
+<td>Wheelbase (mm)</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>WEIGHT</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Gross Vehicle Weight (kg)</td>
+<td>&lt;Vehicle&gt;&lt;GVW&gt;</td>
+</tr>
+<tr>
+<td>HORSEPOWER</td>
+<td>CHAR</td>
+<td>3</td>
+<td>Horsepower</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>PRICE</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Value of vehicle when it was new, i.e. MSRP</td>
+<td>&lt;Vehicle&gt;&lt;ValueNew&gt;</td>
+</tr>
+<tr>
+<td>AIRBAGS</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Airbags</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>CHAR</td>
+<td>1</td>
+<td>ABS</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ALM_AUDIBLE</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-Deterent Device - Audible Alarm</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ALM_CUTOFF</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-Deterent Device - Fuel/Ignition/Electrical Cut-off System</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ALM_SECURITYKEY</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-Deterent Device - Security Key System</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ENGINE_CYL</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Number of engine cylinders</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ENGINE_FUEL</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine fuel type</td>
+<td>&lt;Vehicle&gt;&lt;FuelType&gt;</td>
+</tr>
+<tr>
+<td>ENGINE_INDUCT</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine - Forced Induction</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>ENGINE_HYBRID</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine - Hybrid</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>TRACTION_CTRL</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Traction Control</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>STABILITY_CTRL</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Stability Control</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>BODY_STYLE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Body Class/Style</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>DRIVE_TRAIN</td>
+<td>CHAR</td>
+<td>3</td>
+<td>Drive Train</td>
+<td>Not used.</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

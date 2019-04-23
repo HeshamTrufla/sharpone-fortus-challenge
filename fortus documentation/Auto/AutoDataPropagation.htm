@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Data Propagation</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table1">Data Propagation</a></li>
+<li><span class="subtitle">Examples</span><ul>
+<li><a href="#lnkXMLBefore">Before</a></li>
+<li><a href="#lnkXMLAfter">After</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1>Data Propagation</h1>
+<p>
+            Since FORTUS&#8482; can be used on a policy management level, it contains
+            flexibility to define information at very specific level. However, under the most common 
+            quoting situation, a New Business quote, this adds unnecessary complexity. Therefore, FORTUS&#8482;
+            takes steps to propagate higher level data to lower level structures. This simplifies input
+            creation and increases profile reusability. <a href="#Table1">Table 1</a> below describes 
+            the data propagation logic that FORTUS&#8482; uses:
+            </p><a name="Table1"></a><ul>
+<li><strong>Element</strong> refers to the element to be tested. It's parent element is also 
+                   included to clarify which element is being referred to.</li>
+<li><strong>Condition</strong> represents the conditions that must be met for propagation to take place.
+                   Codes are used to unclutted the table:
+                   <ul>
+<li><strong>B</strong> - Blank. Value of XML tag is a blank.</li>
+<li><strong>N</strong> - Non-existent. XML tag does not exist.</li>
+<li><strong>Z</strong> - Zero. Value of XML tag is 0 (zero).</li>
+</ul>
+</li>
+<li><strong>Data Propagation</strong> refers to the element whose value will be evaluted to determine the population of <strong>Element</strong>.</li>
+</ul>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Table 1: Propagation</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Element</td>
+<td class="txtTableColumnTitle">Condition</td>
+<td class="txtTableColumnTitle">Data Propagation</td>
+</tr>
+<tr>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+<td>B, N, Z</td>
+<td>System Date</td>
+</tr>
+<tr>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+<td>B, N, or is not 'NO' or 'YES'</td>
+<td>'NO'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;ProvinceCode&gt;</td>
+<td>B, N</td>
+<td>&lt;FortusTransaction&gt;&lt;Province&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;PolicyEffDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;Renewal&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;Transaction&gt;</td>
+<td>B, N and &lt;QuoteInfo&gt;&lt;Renewal&gt; = B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;Language&gt;</td>
+<td>B, N</td>
+<td>'English'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;ProductName&gt;</td>
+<td>B, N</td>
+<td>'Web'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;CoverageOverride&gt;</td>
+<td>B, N</td>
+<td>'None'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;TermRequested&gt;</td>
+<td>B, N, Z</td>
+<td>12</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;ExpiryDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;QuoteInfo&gt;&lt;PolicyEffDate&gt; + (&lt;QuoteInfo&gt;&lt;TermRequested&gt; in days)</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;AssumeMultiLine&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;CommAssumeMultiLine&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;DisableGridLevel&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;GuaranteedRates&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;NoFrills&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;NoMVD&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;RateBookPassed&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;TerritoryPassed&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;VRGPassed&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;CombinedPolicy&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;EffDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;OccupationCode&gt;</td>
+<td>B, N</td>
+<td>'999'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;DateContinuousInsurance&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;DateContinuousMotoInsurance&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;GridLevelEffDate&gt; *</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;DriverTraining&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;GridLevelGiven&gt; *</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;ResidesWithParents&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;Retired&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;PhysImpaired&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;AirBrake&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;DriverProfile&gt;&lt;OccupFullTime&gt;</td>
+<td>B, N, Z</td>
+<td>'Y'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;EffDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;Renewal&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;VehUse&gt;</td>
+<td>B, N</td>
+<td>'Pleasure'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;VehType&gt;</td>
+<td>B, N</td>
+<td>'Private Passenger'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;ProductLine&gt;</td>
+<td>B, N</td>
+<td>'Personal'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;Owned&gt;</td>
+<td>B, N, Z</td>
+<td>'Y'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;ABS&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;MVDOverride&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;PurchasedNew&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;VRGAssumed&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;AirBag&gt;</td>
+<td>B, N</td>
+<td>'None'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;PurchaseCondition&gt;</td>
+<td>B, N, Z</td>
+<td>'U'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;FuelTruck&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;SnowploughBlade&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;TempControl&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Vehicle&gt;&lt;TowingVehType&gt;</td>
+<td>IF (&lt;Vehicle&gt;&lt;VehType&gt; is 'Personal Trailer' or 'Camper Unit')<br> AND (&lt;Vehicle&gt;&lt;TowingVehicleID&gt; is B, N, or invalid)<br> AND (&lt;Vehicle&gt;&lt;TowingVehType&gt; is B, N)</td>
+<td>'Private Passenger'</td>
+</tr>
+<tr>
+<td>&lt;VehLink&gt;&lt;Renewal&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+</tr>
+<tr>
+<td>&lt;VehLink&gt;&lt;AssignFlag&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;VehLink&gt;&lt;YouthfulDriver&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Incident&gt;&lt;Forgiven&gt;</td>
+<td>B, N, Z</td>
+<td>'N'</td>
+</tr>
+<tr>
+<td>&lt;Conviction&gt;&lt;Chargeable&gt;</td>
+<td>B, N, Z</td>
+<td>'Y'</td>
+</tr>
+</table>
+            * - Data propagation for GridLevelEffDate only occur if the province in Alberta.<br><a href="#">top</a><hr>
+<h2>Examples</h2><a name="lnkXMLBefore"></a><h3>XML Input</h3>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;DOC&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;CodeNames&gt;
+        &lt;Auto&gt;
+          &lt;QuoteInfo&gt;
+            &lt;ID&gt;QuoteInfo1&lt;/ID&gt;
+            &lt;CoverageOverride /&gt;
+            &lt;DriverProfile&gt;
+              ...
+            &lt;DriverProfile&gt;
+            &lt;Vehicle&gt;
+              ...
+            &lt;/Vehicle&gt;
+            &lt;VehLink&gt;
+              ...
+            &lt;/VehLink&gt;
+          &lt;/QuoteInfo&gt;
+        &lt;/Auto&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+                </div><a name="lnkXMLAfter"></a><h3>XML Input after propagation</h3>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;DOC&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;EffDate&gt;<strong>20030614</strong>&lt;/EffDate&gt;
+      &lt;Renewal&gt;<strong>NO</strong>&lt;/Renewal&gt;
+      &lt;CodeNames&gt;
+        &lt;Auto&gt;
+          &lt;QuoteInfo&gt;
+            &lt;CoverageOverride&gt;<strong>None</strong>&lt;CoverageOverride&gt;
+            &lt;ID&gt;QuoteInfo1&lt;/ID&gt;
+            &lt;Language&gt;<strong>English</strong>&lt;/Language&gt;
+            &lt;PolicyEffDate&gt;<strong>20030614</strong>&lt;/PolicyEffDate&gt;
+            &lt;ProductName&gt;<strong>Web</strong>&lt;/ProductName&gt;
+            &lt;ProvinceCode&gt;<strong>ON</strong>&lt;/ProvinceCode&gt;
+            &lt;Renewal&gt;<strong>N</strong>&lt;/Renewal&gt;
+            &lt;Transaction&gt;<strong>New Business</strong>&lt;/Transaction&gt;
+            &lt;DriverProfile&gt;
+              ...
+            &lt;/DriverProfile&gt;
+            &lt;Vehicle&gt;
+              ...
+            &lt;/Vehicle&gt;
+            &lt;VehLink&gt;
+              ...
+            &lt;/VehLink&gt;
+          &lt;/QuoteInfo&gt;
+        &lt;/Auto&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+                  </div><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

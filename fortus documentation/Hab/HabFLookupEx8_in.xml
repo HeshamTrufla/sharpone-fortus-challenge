@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LookupTransaction Type="Property">
+  <RegistryOverrides>
+    <Diagnostics>1</Diagnostics>
+  </RegistryOverrides>
+  <Defaults>
+    <Province>QC</Province>
+    <CodeName>Homeowners</CodeName>
+    <Carrier>MR</Carrier>
+  </Defaults>
+  <Lookups>
+    <Lookup Type="TerrCodeList" ID="1">
+      <Location>Classe 2A</Location>
+      <ProtectionClass>P</ProtectionClass>
+    </Lookup>
+    <Lookup Type="TerrCodeList" ID="2">
+      <Location>Zone 1</Location>
+      <LocationType>EarthquakeZone</LocationType>
+    </Lookup>
+    <Lookup Type="TerrCodeList" ID="3">
+      <Location>Zone 1</Location>
+      <LocationType>FloaterZone</LocationType>
+    </Lookup>
+    <Lookup Type="TerrCodeList" ID="4">
+      <Location>Verte</Location>
+      <LocationType>SewerBackupZone</LocationType>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

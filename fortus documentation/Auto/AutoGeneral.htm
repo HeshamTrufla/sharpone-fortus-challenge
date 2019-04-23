@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><span class="active">Auto</span></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkAuto">Auto</a></li>
+<li><a href="#lnkMotorcycle">Motorcycle</a></li>
+<li><a href="#lnkSnowVehicle">Snow Vehicle</a></li>
+<li><a href="#lnkATV">ATV</a></li>
+<li><a href="#lnkCamperUnit">Camper Unit</a></li>
+<li><a href="#lnkPersonalTrailer">Personal Trailer</a></li>
+<li><a href="#lnkCommercial">Commercial</a></li>
+<li><a href="#lnkCommercialTrailer">Commercial Trailer</a></li>
+</ul>
+</div><a name="lnkAuto"></a><h1>Auto</h1>
+<ul class="liMain">
+<li><a href="AutoStructDesc.htm">Structure Descriptions</a><br></li>
+<li><a href="AutoMap.htm">Map Definition</a><br></li>
+<li><a href="AutoRangeTables.htm">Range Tables</a><br></li>
+<li><a href="AutoEndPack.htm">Endorsement Packages</a><br></li>
+<li><a href="AutoDataPropagation.htm">Data Propagation</a><br></li>
+<li><a href="AutoPerCarrierValues.htm">Per Carrier Values</a><br></li>
+<li><a href="AutoMessages.htm">Messages</a><br></li>
+<li><a href="../MapErrors.htm">Errors and Warnings</a><br></li>
+<li><a href="../Territory.htm">Territory Information</a><br></li>
+<li><a href="AutoVICC.htm">VICC Information</a><br></li>
+<li>Ontario Auto Reform
+                  <ul>
+<li><a href="AutoONReform.htm#desc2016">2016 Ontario Reform</a></li>
+<li><a href="AutoONReform.htm#desc2010">2010 Ontario Reform</a></li>
+</ul>
+</li>
+<li>XML Input: Minimum Auto Quote Examples
+                   <ol>
+<li><a href="AutoProfile9.xml">Alberta</a></li>
+<li><a href="AutoProfile3.xml">New Brunswick</a></li>
+<li><a href="AutoProfile4.xml">Newfoundland and Labrador</a></li>
+<li><a href="AutoProfile7.xml">Northwest Territories</a></li>
+<li><a href="AutoProfile5.xml">Nova Scotia</a></li>
+<li><a href="AutoProfile1.xml">Ontario</a></li>
+<li><a href="AutoProfile6.xml">Prince Edward Island</a></li>
+<li><a href="AutoProfile2.xml">Quebec</a></li>
+<li><a href="AutoProfile8.xml">Yukon</a></li>
+</ol>
+</li>
+<li>XML Input: Other Examples
+                  <ol>
+<li><a href="AutoProfile10.xml">Ontario, Underage Occasional Male, Claims, Convictions</a></li>
+<li><a href="AutoProfile11.xml">Quebec, Underage Occasional Male, Claims, Convictions, Lapse, Anti-Theft Devices</a></li>
+</ol>
+</li>
+</ul>
+<ul class="liMain"><a name="lnkExtended"></a><li>Extended Data Model
+                  <ul class="liMain">
+<li>Extended Data Model: Used by <a href="../RateBridge/RBGeneral.htm">RateBridge&#8482; Web Service</a> and <a href="../Leads/LeadsGeneral.htm">Leads Web Service</a><ol>
+<li><a href="../ExtAuto/ExtAutoMap.htm">Extended Map Definition</a><br></li>
+<li><a href="../ExtAuto/ExtAutoRangeTables.htm">Extended Range Tables</a><br></li>
+</ol>
+</li>
+<li>XML Input: Extended
+                        <ol>
+<li><a href="AutoProfile12.xml">Normal Fortus Input XML, for quoting.</a></li>
+<li><a href="AutoProfile12Ext.xml">Extended Fortus Input XML, corresponding to above Normal Fortus Input XML.</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul><a name="lnkMotorcycle"></a><h2>Motorcycle</h2>
+<ul class="liMain">
+<li><a href="Moto/MotoMap.htm">Map Definition</a><br></li>
+<li><a href="Moto/MotoRangeTables.htm">Range Tables</a><br></li>
+<li><a href="Moto/MotoVICC.htm">VICC Information</a><br></li>
+<li>XML Input: Motorcycle Quote Examples
+                   <ol>
+<li><a href="Moto/MotoProfile1.xml">Example 1</a></li>
+<li><a href="Moto/MotoProfile2.xml">Example 2</a></li>
+<li><a href="Moto/MotoProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkSnowVehicle"></a><h2>Snow Vehicle</h2>
+<ul class="liMain">
+<li><a href="Snow/SnowMap.htm">Map Definition</a><br></li>
+<li><a href="Snow/SnowRangeTables.htm">Range Tables</a><br></li>
+<li><a href="Snow/SnowVICC.htm">VICC Information</a><br></li>
+<li>XML Input: Snow Vehicle Quote Examples
+                   <ol>
+<li><a href="Snow/SnowProfile1.xml">Example 1</a></li>
+<li><a href="Snow/SnowProfile2.xml">Example 2</a></li>
+<li><a href="Snow/SnowProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkATV"></a><h2>ATV</h2>
+<ul class="liMain">
+<li><a href="ATV/ATVMap.htm">Map Definition</a><br></li>
+<li><a href="ATV/ATVRangeTables.htm">Range Tables</a><br></li>
+<li><a href="ATV/ATVVICC.htm">VICC Information</a><br></li>
+<li>XML Input: ATV Quote Examples
+                   <ol>
+<li><a href="ATV/ATVProfile1.xml">Example 1</a></li>
+<li><a href="ATV/ATVProfile2.xml">Example 2</a></li>
+<li><a href="ATV/ATVProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkCamperUnit"></a><h2>Camper Unit</h2>
+<ul class="liMain">
+<li><a href="Camp/CampMap.htm">Map Definition</a><br></li>
+<li><a href="Camp/CampRangeTables.htm">Range Tables</a><br></li>
+<li>XML Input: Camper Unit Quote Examples
+                   <ol>
+<li><a href="Camp/CampProfile1.xml">Example 1</a></li>
+<li><a href="Camp/CampProfile2.xml">Example 2</a></li>
+<li><a href="Camp/CampProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkPersonalTrailer"></a><h2>Personal Trailer</h2>
+<ul class="liMain">
+<li><a href="Trlr/TrlrMap.htm">Map Definition</a><br></li>
+<li><a href="Trlr/TrlrRangeTables.htm">Range Tables</a><br></li>
+<li>XML Input: Personal Trailer Quote Examples
+                   <ol>
+<li><a href="Trlr/TrlrProfile1.xml">Example 1</a></li>
+<li><a href="Trlr/TrlrProfile2.xml">Example 2</a></li>
+<li><a href="Trlr/TrlrProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkCommercial"></a><h2>Commercial</h2>
+<ul class="liMain">
+<li><a href="I_PP/I_PPMap.htm">Map Definition</a><br></li>
+<li><a href="I_PP/I_PPRangeTables.htm">Range Tables</a><br></li>
+<li><a href="I_PP/I_PPVICC.htm">VICC Information</a><br></li>
+<li>XML Input: Commercial Quote Examples
+                   <ol>
+<li><a href="I_PP/I_PPProfile1.xml">Example 1</a></li>
+<li><a href="I_PP/I_PPProfile2.xml">Example 2</a></li>
+<li><a href="I_PP/I_PPProfile3.xml">Example 3</a></li>
+</ol>
+</li>
+</ul><a name="lnkCommercialTrailer"></a><h2>Commercial Trailer</h2>
+<ul class="liMain">
+<li><a href="I_TR/I_TRMap.htm">Map Definition</a><br></li>
+<li><a href="I_TR/I_TRRangeTables.htm">Range Tables</a><br></li>
+<li>XML Input: Commercial Trailer Quote Examples
+                   <ol>
+<li><a href="I_TR/I_TRProfile1.xml">Example 1</a></li>
+<li><a href="I_TR/I_TRProfile2.xml">Example 2</a></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Data Propagation</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table1">Data Propagation</a></li>
+<li><span class="subtitle">Examples</span><ul>
+<li><a href="#lnkXMLBefore">Before</a></li>
+<li><a href="#lnkXMLAfter">After</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1>Data Propagation</h1>
+<p>
+            Since FORTUS&#8482; can be used on a policy management level, it contains
+            flexibility to define information at very specific level. However, under the most common 
+            quoting situation, a New Business quote, this adds unnecessary complexity. Therefore, FORTUS&#8482;
+            takes steps to propagate higher level data to lower level structures. This simplifies input
+            creation and increases profile reusability. <a href="#Table1">Table 1</a> below describes 
+            the data propagation logic that FORTUS&#8482; uses:
+            </p><a name="Table1"></a><ul>
+<li><strong>Element</strong> refers to the element to be tested. It's parent element is also 
+                   included to clarify which element is being referred to.</li>
+<li><strong>Condition</strong> represents the conditions that must be met for propagation to take place.
+                   Codes are used to unclutted the table:
+                   <ul>
+<li><strong>B</strong> - Blank. Value of XML tag is a blank.</li>
+<li><strong>N</strong> - Non-existent. XML tag does not exist.</li>
+<li><strong>Z</strong> - Zero. Value of XML tag is 0 (zero).</li>
+</ul>
+</li>
+<li><strong>Data Propagation</strong> refers to the element whose value will be evaluted to determine the population of <strong>Element</strong>.</li>
+</ul>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Table 1: Propagation</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Element</td>
+<td class="txtTableColumnTitle">Condition</td>
+<td class="txtTableColumnTitle">Data Propagation</td>
+</tr>
+<tr>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+<td>B, N, Z</td>
+<td>System Date</td>
+</tr>
+<tr>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+<td>B, N, or is not 'NO' or 'YES'</td>
+<td>'NO'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;EffDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;EffDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;Business&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;FortusTransaction&gt;&lt;Renewal&gt;</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;Language&gt;</td>
+<td>B, N</td>
+<td>'English'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;ProductName&gt;</td>
+<td>B, N</td>
+<td>'Web'</td>
+</tr>
+<tr>
+<td>&lt;QuoteInfo&gt;&lt;TermRequested&gt;</td>
+<td>B, N, Z</td>
+<td>12</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;Prov&gt;</td>
+<td>B, N</td>
+<td>&lt;FortusTransaction&gt;&lt;Province&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;PlumbDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;ElectDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;RoofDate&gt;</td>
+<td>B, N, Z</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;PoolDate&gt;</td>
+<td>B, N, Z and &lt;Dwelling&gt;&lt;PoolType&gt; is not B or N</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;PrmHeatDate&gt;</td>
+<td>B, N, Z and &lt;Dwelling&gt;&lt;PrmHeatType&gt; is not B, N, or 'NONE'</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeatDate1&gt;</td>
+<td>B, N, Z and &lt;Dwelling&gt;&lt;AuxHeatType1&gt; is not B, N, or 'NONE'</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeatDate2&gt;</td>
+<td>B, N, Z and &lt;Dwelling&gt;&lt;AuxHeatType2&gt; is not B, N, or 'NONE'</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeatDate3&gt;</td>
+<td>B, N, Z and &lt;Dwelling&gt;&lt;AuxHeatType3&gt; is not B, N, or 'NONE'</td>
+<td>&lt;Dwelling&gt;&lt;DwellingDate&gt;</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat1Type&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat1ChimneyType&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat2Type&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat2ChimneyType&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat3Type&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AuxHeat3ChimneyType&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;BurgAlarm&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;FireAlarm&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;Sprinkler&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;Occupation&gt;</td>
+<td>B, N</td>
+<td>'UNK'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;AutoCo&gt;</td>
+<td>B, N and &lt;FortusTransaction&gt;&lt;Renewal&gt; is not 'YES'</td>
+<td>'NBUS'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;HabCo&gt;</td>
+<td>B, N and &lt;FortusTransaction&gt;&lt;Renewal&gt; is not 'YES'</td>
+<td>'NBUS'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;HabCo&gt;</td>
+<td>B, N and &lt;FortusTransaction&gt;&lt;Renewal&gt; is 'YES'</td>
+<td>Carrier code of carrier being quoted</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;BackflowValve&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;SumpPumpType&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;SumpPumpAuxPower&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;OccupFullTime&gt;</td>
+<td>B, N</td>
+<td>1</td>
+</tr>
+<tr>
+<td>&lt;WaterCraft&gt;&lt;AuxPower&gt;</td>
+<td>B, N</td>
+<td>'NONE'</td>
+</tr>
+<tr>
+<td>&lt;SolarExt&gt;&lt;PercentIns&gt;</td>
+<td>B, N, Z</td>
+<td>100</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;HailDeduct&gt;</td>
+<td>N</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;WindDeduct&gt;</td>
+<td>N</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>&lt;Dwelling&gt;&lt;WaterDeduct&gt;</td>
+<td>N</td>
+<td>-1</td>
+</tr>
+</table><a href="#">top</a><hr>
+<h2>Examples</h2><a name="lnkXMLBefore"></a><h3>XML Input</h3>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;DOC&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;CodeNames&gt;
+        &lt;Homeowners&gt;
+          &lt;QuoteInfo&gt;
+            &lt;ID&gt;QuoteInfo1&lt;/ID&gt;
+            &lt;Language /&gt;
+            &lt;ProductName /&gt;
+            &lt;TermRequested&gt;
+            &lt;Dwelling&gt;
+              &lt;Province /&gt;
+              &lt;AuxHeat1Type /&gt;
+              &lt;AuxHeat1ChimneyType /&gt;
+              &lt;AuxHeat2Type /&gt;
+              &lt;AuxHeat2ChimneyType /&gt;
+              &lt;AuxHeat3Type /&gt;
+              &lt;AuxHeat3ChimneyType /&gt;
+              &lt;BurgAlarm /&gt;
+              &lt;FireAlarm /&gt;
+              &lt;Sprinkler /&gt;
+              &lt;Occupation /&gt;
+              &lt;AutoCo /&gt;
+              &lt;HabCo /&gt;
+              ...
+            &lt;Dwelling&gt;
+          &lt;/QuoteInfo&gt;
+        &lt;/Homeowners&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+                </div><a name="lnkXMLAfter"></a><h3>XML Input after propagation</h3>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;DOC&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;EffDate&gt;<strong>20030614</strong>&lt;/EffDate&gt;
+      &lt;Renewal&gt;<strong>NO</strong>&lt;/Renewal&gt;
+      &lt;CodeNames&gt;
+        &lt;Homeowners&gt;
+          &lt;QuoteInfo&gt;
+            &lt;ID&gt;QuoteInfo1&lt;/ID&gt;
+            &lt;Language&gt;<strong>English</strong>&lt;/Language&gt;
+            &lt;ProductName&gt;<strong>Web</strong>&lt;/ProductName&gt;
+            &lt;TermRequested&gt;<strong>12</strong>&lt;/TermRequested&gt;
+            &lt;EffDate&gt;<strong>20061024</strong>&lt;/EffDate&gt;
+            &lt;Business&gt;<strong>N</strong>&lt;/Business&gt;
+            &lt;Dwelling&gt;
+              &lt;Province&gt;ON&lt;/Province&gt;
+              &lt;AuxHeat1Type&gt;<strong>NONE</strong>&lt;/AuxHeat1Type&gt;
+              &lt;AuxHeat1ChimneyType&gt;<strong>NONE</strong>&lt;/AuxHeat1ChimneyType&gt;
+              &lt;AuxHeat2Type&gt;<strong>NONE</strong>&lt;/AuxHeat2Type&gt;
+              &lt;AuxHeat2ChimneyType&gt;<strong>NONE</strong>&lt;/AuxHeat2ChimneyType&gt;
+              &lt;AuxHeat3Type&gt;<strong>NONE</strong>&lt;/AuxHeat3Type&gt;
+              &lt;AuxHeat3ChimneyType&gt;<strong>NONE</strong>&lt;/AuxHeat3ChimneyType&gt;
+              &lt;BurgAlarm&gt;<strong>NONE</strong>&lt;/BurgAlarm&gt;
+              &lt;FireAlarm&gt;<strong>NONE</strong>&lt;/FireAlarm&gt;
+              &lt;Sprinkler&gt;<strong>NONE</strong>&lt;/Sprinkler&gt;
+              &lt;Occupation&gt;<strong>UNK</strong>&lt;/Occupation&gt;
+              &lt;AutoCo&gt;<strong>NBUS</strong>&lt;/AutoCo&gt;
+              &lt;HabCo&gt;<strong>NBUS</strong>&lt;/HabCo&gt;
+              ...
+            &lt;Dwelling&gt;
+          &lt;/QuoteInfo&gt;
+        &lt;/Homeowners&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+                  </div><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

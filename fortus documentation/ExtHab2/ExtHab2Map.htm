@@ -1,0 +1,1290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm" class="active">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../Hab2/HabGeneral.htm">Hab2</a></li>
+<li><span>›</span>Extended Map Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#tblQuoteInfo">QuoteInfo</a></li>
+<li><a href="#tblDwelling">Dwelling</a></li>
+<li><a href="#tblWatercraft">Watercraft</a></li>
+<li><a href="#tblInsured">Insured</a></li>
+<li><a href="#tblStdCov">StdCov</a></li>
+<li><a href="#tblExtCov">ExtCov</a></li>
+<li><a href="#tblHeating">Heating</a></li>
+<li><a href="#tblDiscount">Discount</a></li>
+<li><a href="#tblSurcharge">Surcharge</a></li>
+<li><a href="#tblFloater">Floater</a></li>
+<li><a href="#tblClaim">Claim</a></li>
+<li><a href="#tblCreditScore">CreditScore</a></li>
+<li><a href="#tblPremium">Premium</a></li>
+<li><a href="#tblAddress">Address</a></li>
+<li><a href="#tblTelephone">Telephone</a></li>
+<li><a href="#tblClient">Client</a></li>
+<li><a href="#tblPersonalIdentity">PersonalIdentity</a></li>
+<li><a href="#tblNote">Note</a></li>
+<li><a href="#tblLeadDetail">LeadDetail</a></li>
+</ul>
+</div>
+<a name="tblQuoteInfo"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">QuoteInfo</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AutoPolicyNum</td>
+<td>STRING</td>
+<td>25</td>
+<td> </td>
+<td> </td>
+<td>Automobile insurance policy number.</td>
+</tr>
+<tr>
+<td>Client</td>
+<td><a href="#tblClient" type="">Pointer to Client</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CompanyQuoteNum</td>
+<td>STRING</td>
+<td>36</td>
+<td> </td>
+<td> </td>
+<td>Insurance company quote ID number, so that company could quickly locate in its records.</td>
+</tr>
+<tr>
+<td>CriminalHistory</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if anyone in the household has a criminal record.</td>
+</tr>
+<tr>
+<td>Dwelling</td>
+<td><a href="#tblDwelling" type="">Pointer to Dwelling</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td> </td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>Insured</td>
+<td><a href="#tblInsured" type="">Pointer to Insured</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td> </td>
+</tr>
+<tr>
+<td>LeadDetail</td>
+<td><a href="#tblLeadDetail" type="">Pointer to LeadDetail</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Note</td>
+<td><a href="#tblNote" type="">Pointer to Note</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Notes about the quote.</td>
+</tr>
+<tr>
+<td>Origin</td>
+<td>STRING</td>
+<td>30</td>
+<td> </td>
+<td> </td>
+<td>Quote origin.  Indicates the program/product which initially generated the quote.</td>
+</tr>
+<tr>
+<td>PolicyTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Total Premium of Policy and Associated Details. Created by the engine.</td>
+</tr>
+<tr>
+<td>Remarket</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the quote is remarketing.</td>
+</tr>
+<tr>
+<td>Watercraft</td>
+<td><a href="#tblWatercraft" type="">Pointer to Watercraft</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDwelling"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Dwelling</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Address</td>
+<td><a href="#tblAddress" type="">Pointer to Address</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Address associated with this Dwelling.  Not meant to replace address related fields directly on structure, but to provide additional address data.</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td><a href="#tblClaim" type="">Pointer to Claim</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Claims associated with this Dwelling.</td>
+</tr>
+<tr>
+<td>CreditScore</td>
+<td><a href="#tblCreditScore" type="">Pointer to CreditScore</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Discount</td>
+<td><a href="#tblDiscount" type="">Pointer to Discount</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Discounts associated with this Dwelling.</td>
+</tr>
+<tr>
+<td>DwellingTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ExtCov</td>
+<td><a href="#tblExtCov" type="">Pointer to ExtCov</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of ExtCovs associated with this Dwelling.</td>
+</tr>
+<tr>
+<td>Floater</td>
+<td><a href="#tblFloater" type="">Pointer to Floater</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Floater associated with this Dwelling.</td>
+</tr>
+<tr>
+<td>Heating</td>
+<td><a href="#tblHeating" type="">Pointer to Heating</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>List of Heating elements associated with this Dwelling.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>StdCov</td>
+<td><a href="#tblStdCov" type="">Pointer to StdCov</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of StdCovs associated with this Dwelling.  Created by the engine.</td>
+</tr>
+<tr>
+<td>StreetAddress</td>
+<td>STRING</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td>Street address for dwelling.</td>
+</tr>
+<tr>
+<td>Surcharge</td>
+<td><a href="#tblSurcharge" type="">Pointer to Surcharge</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Surcharges associated with this Dwelling.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblWatercraft"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Watercraft</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td><a href="#tblClaim" type="">Pointer to Claim</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Claims associated with this Watercraft.</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td><a href="#tblDiscount" type="">Pointer to Discount</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Discounts associated with this Watercraft.</td>
+</tr>
+<tr>
+<td>ExtCov</td>
+<td><a href="#tblExtCov" type="">Pointer to ExtCov</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of ExtCovs associated with this Watercraft.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>StdCov</td>
+<td><a href="#tblStdCov" type="">Pointer to StdCov</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of StdCovs associated with this Watercraft.  Created by the engine.</td>
+</tr>
+<tr>
+<td>Surcharge</td>
+<td><a href="#tblSurcharge" type="">Pointer to Surcharge</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Surcharges associated with this Watercraft.</td>
+</tr>
+<tr>
+<td>WatercraftTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblInsured"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Insured</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>GroupPlanNum1</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Member's identifying number.</td>
+</tr>
+<tr>
+<td>GroupPlanNum2</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Member's identifying number.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td><a href="#tblPersonalIdentity" type="">Pointer to PersonalIdentity</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblStdCov"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">StdCov</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblExtCov"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">ExtCov</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblHeating"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Heating</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDiscount"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Discount</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblSurcharge"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Surcharge</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblFloater"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Floater</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblClaim"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Claim</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblCreditScore"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">CreditScore</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Address</td>
+<td><a href="#tblAddress" type="">Pointer to Address</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Birthdate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date of birth of the applicant</td>
+</tr>
+<tr>
+<td>Consent</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the consent has been given to use personal information for the purposes of, and related to, credit score assessment.</td>
+</tr>
+<tr>
+<td>ConsentType</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="ExtHab2RangeTables.htm#Table6" target="Tables">Table 6</a></td>
+<td> </td>
+<td>The type of consent provided.</td>
+</tr>
+<tr>
+<td>CurrentInsurer</td>
+<td>STRING</td>
+<td>50</td>
+<td><a href="ExtHab2RangeTables.htm#Table7" target="Tables">Table 7</a></td>
+<td> </td>
+<td>Current insurance company.  List is similar to company codes used elsewhere, but not competely the same.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td><a href="#tblPersonalIdentity" type="">Pointer to PersonalIdentity</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PartyType</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="ExtHab2RangeTables.htm#Table5" target="Tables">Table 5</a></td>
+<td> </td>
+<td>Is the credit score applicant an individual or a corporation?</td>
+</tr>
+<tr>
+<td>Telephone</td>
+<td><a href="#tblPhone" type="">Pointer to Phone</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Telephone information</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblPremium"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Premium</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblAddress"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Address</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Address1</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>Address line 1.  Not applicable when Classification = Validated.</td>
+</tr>
+<tr>
+<td>Address2</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>Address line 2.  Not applicable when Classification = Validated.</td>
+</tr>
+<tr>
+<td>City</td>
+<td>STRING</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td>City, town, village, etc.</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="ExtHab2RangeTables.htm#Table4" target="Tables">Table 4</a></td>
+<td>Y</td>
+<td>Classification or categorization of address.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>PostalCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td> </td>
+<td>Canada Post postal code, without a space divider.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="ExtHab2RangeTables.htm#Table1" target="Tables">Table 1</a></td>
+<td> </td>
+<td>Canada Post province code.</td>
+</tr>
+<tr>
+<td>StreetDirection</td>
+<td>STRING</td>
+<td>25</td>
+<td> </td>
+<td> </td>
+<td>Street direction.  Only applicable when Classification = Validated.</td>
+</tr>
+<tr>
+<td>StreetName</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Street name.  Only applicable when Classification = Validated.</td>
+</tr>
+<tr>
+<td>StreetNumber</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Street number.  Only applicable when Classification = Validated.</td>
+</tr>
+<tr>
+<td>StreetType</td>
+<td>STRING</td>
+<td>25</td>
+<td> </td>
+<td> </td>
+<td>Street type.  Only applicable when Classification = Validated.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblTelephone"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Telephone</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AreaCode</td>
+<td>LONG</td>
+<td> </td>
+<td>###</td>
+<td> </td>
+<td>Area code</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="ExtHab2RangeTables.htm#Table3" target="Tables">Table 3</a></td>
+<td>Y</td>
+<td>Classification or categorization of number</td>
+</tr>
+<tr>
+<td>Comments</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Comments assocation with number</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Extension</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>LONG</td>
+<td> </td>
+<td>#######</td>
+<td> </td>
+<td>Main 7-digit number; without area code or extension</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblClient"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Client</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Address</td>
+<td><a href="#tblAddress" type="">Pointer to Address</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Address information</td>
+</tr>
+<tr>
+<td>ClientCode</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CoApplicantName</td>
+<td><a href="#tblPersonalIdentity" type="">Pointer to PersonalIdentity</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Break down of the name of the co-applicant</td>
+</tr>
+<tr>
+<td>CompanyName</td>
+<td>STRING</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td>Name of the company</td>
+</tr>
+<tr>
+<td>CompanyWebsite</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>Website of the company</td>
+</tr>
+<tr>
+<td>CSRCode</td>
+<td>STRING</td>
+<td>8</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>EmailAddress</td>
+<td>STRING</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Fax</td>
+<td><a href="#tblPhone" type="">Pointer to Phone</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Fax information</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>MarketingCode</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Marketing code assigned to client.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td><a href="#tblPersonalIdentity" type="">Pointer to PersonalIdentity</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Break down of the name of the applicant</td>
+</tr>
+<tr>
+<td>Note</td>
+<td><a href="#tblNote" type="">Pointer to Note</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Notes about the client.</td>
+</tr>
+<tr>
+<td>Telephone</td>
+<td><a href="#tblPhone" type="">Pointer to Phone</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Telephone information</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblPersonalIdentity"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">PersonalIdentity</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Classification or categorization of person being named.</td>
+</tr>
+<tr>
+<td>FirstName</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>LastName</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MiddleName</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Salutation</td>
+<td>STRING</td>
+<td>8</td>
+<td> </td>
+<td> </td>
+<td>Mr, Mrs, Mme, Dr, etc.</td>
+</tr>
+<tr>
+<td>Suffix</td>
+<td>STRING</td>
+<td>8</td>
+<td> </td>
+<td> </td>
+<td>Jr, Sr, III, etc.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblNote"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Note</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Contents</td>
+<td>STRING</td>
+<td>240</td>
+<td> </td>
+<td>Y</td>
+<td>Note contents.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>Subject</td>
+<td>STRING</td>
+<td>25</td>
+<td> </td>
+<td>Y</td>
+<td>Subject of note.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblLeadDetail"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">LeadDetail</td>
+</tr>
+<tr>
+<td colspan="6">
+                      <strong>·</strong> 
+                  <a href="../Auto/AutoStructDesc.htm#descLeadDetail">More Info</a>
+                         - 
+                     Glossary of lead terms (Submitter, Recipient, Client, Referrer), along with further detail.<br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>CompanyCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td> </td>
+<td>The code of the insurance company associated with lead results.</td>
+</tr>
+<tr>
+<td>ContactLanguage</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="ExtHab2RangeTables.htm#Table8" target="Tables">Table 8</a></td>
+<td> </td>
+<td>The client's preferred contact language.</td>
+</tr>
+<tr>
+<td>ContactMethod</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="ExtHab2RangeTables.htm#Table9" target="Tables">Table 9</a></td>
+<td> </td>
+<td>The client's preferred contact method.</td>
+</tr>
+<tr>
+<td>ContactTime</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="ExtHab2RangeTables.htm#Table10" target="Tables">Table 10</a></td>
+<td> </td>
+<td>The client's preferred contact time of day.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String.</td>
+</tr>
+<tr>
+<td>LeadTypeEn</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>English description of the type of lead.  This is open text, and values relevant to the lead submitter can be used.</td>
+</tr>
+<tr>
+<td>LeadTypeFr</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>French description of the type of lead.  This is open text, and values relevant to the lead submitter can be used.</td>
+</tr>
+<tr>
+<td>Premium</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>The total premium associated with lead results.</td>
+</tr>
+<tr>
+<td>RecipientAccountCode</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>The account code of the lead recipient, within the lead submitter's system.  This is open text, and values relevant to the lead submitter can be used.</td>
+</tr>
+<tr>
+<td>RecipientAccountName</td>
+<td>STRING</td>
+<td>80</td>
+<td> </td>
+<td> </td>
+<td>The full display name of the account of the lead recipient. </td>
+</tr>
+<tr>
+<td>Referrer</td>
+<td>STRING</td>
+<td>180</td>
+<td> </td>
+<td> </td>
+<td>Web site or system which referred the client to the lead submitter (ex: Facebook)</td>
+</tr>
+<tr>
+<td>SubmitterLeadID</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td> </td>
+<td>The ID of the lead within the lead submitter's system.</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

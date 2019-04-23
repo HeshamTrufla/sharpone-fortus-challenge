@@ -1,0 +1,5142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Auto Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table1">Table 1: Province Codes</a></li>
+<li><a href="#Table2">Table 2: Hab Policy Types</a></li>
+<li><a href="#Table3">Table 3: Language</a></li>
+<li><a href="#Table4">Table 4: Coverage Override Methods</a></li>
+<li><a href="#Table5">Table 5: Product Names</a></li>
+<li><a href="#Table6">Table 6: Transaction Types</a></li>
+<li><a href="#Table7">Table 7: Subtransaction Types</a></li>
+<li><a href="#Table8">Table 8: Vehicle Uses</a></li>
+<li><a href="#Table9">Table 9: Vehicle Types</a></li>
+<li><a href="#Table10">Table 10: Air Bag Types</a></li>
+<li><a href="#Table11">Table 11: Anti-theft Device Types</a></li>
+<li><a href="#Table12">Table 12: Anti-theft Manufacturers</a></li>
+<li><a href="#Table13">Table 13: Discount Codes</a></li>
+<li><a href="#Table14">Table 14: Surcharge Codes</a></li>
+<li><a href="#Table15">Table 15: Driver Link to Vehicle</a></li>
+<li><a href="#Table16">Table 16: Group Plan Codes</a></li>
+<li><a href="#Table17">Table 17: License Classes</a></li>
+<li><a href="#Table18">Table 18: Conviction Offense Codes</a></li>
+<li><a href="#Table19">Table 19: Conviction Severities</a></li>
+<li><a href="#Table20">Table 20: Claim Types</a></li>
+<li><a href="#Table21">Table 21: Incident Types</a></li>
+<li><a href="#Table22">Table 22: Reason Codes</a></li>
+<li><a href="#Table23">Table 23: Valid Coverages</a></li>
+<li><a href="#Table24">Table 24: Valid Coverage Levels</a></li>
+<li><a href="#Table25">Table 25: Relationships to Applicant</a></li>
+<li><a href="#Table26">Table 26: Occupation Codes</a></li>
+<li><a href="#Table27">Table 27: Line Of Business</a></li>
+<li><a href="#Table28">Table 28: Renewal of Policy</a></li>
+<li><a href="#Table31">Table 31: Adjustment Types</a></li>
+<li><a href="#Table33">Table 33: Purchase Conditions</a></li>
+<li><a href="#Table36">Table 36: Vehicle Types - Group Plans</a></li>
+<li><a href="#Table38">Table 38: Fuel Types</a></li>
+<li><a href="#Table39">Table 39: Product Line</a></li>
+<li><a href="#Table41">Table 41: Parking Locations</a></li>
+<li><a href="#Table43">Table 43: CSIO Body Types</a></li>
+</ul>
+</div>
+<a name="Table1"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 1:  Province Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ON</td>
+<td>Ontario</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>Alberta</td>
+</tr>
+<tr>
+<td>BC</td>
+<td>British Columbia</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>Newfoundland and Labrador</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Nova Scotia</td>
+</tr>
+<tr>
+<td>PE</td>
+<td>Prince Edward Island</td>
+</tr>
+<tr>
+<td>NB</td>
+<td>New Brunswick</td>
+</tr>
+<tr>
+<td>QC</td>
+<td>Quebec</td>
+</tr>
+<tr>
+<td>MB</td>
+<td>Manitoba</td>
+</tr>
+<tr>
+<td>SK</td>
+<td>Saskatchewan</td>
+</tr>
+<tr>
+<td>NT</td>
+<td>Northwest Territories</td>
+</tr>
+<tr>
+<td>YT</td>
+<td>Yukon Territories</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table2"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 2:  Hab Policy Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Homeowners</td>
+</tr>
+<tr>
+<td>Condominium</td>
+</tr>
+<tr>
+<td>Tenants</td>
+</tr>
+<tr>
+<td>Seasonal</td>
+</tr>
+<tr>
+<td>Mobile Home</td>
+</tr>
+<tr>
+<td>Holiday Trailers</td>
+</tr>
+<tr>
+<td>Boatowners</td>
+</tr>
+<tr>
+<td>Mini-Mobile Homes</td>
+</tr>
+<tr>
+<td>Other</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table3"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 3:  Language</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>English</td>
+</tr>
+<tr>
+<td>French</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table4"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 4:  Coverage Override Methods</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Closest</td>
+<td>Closest coverage level to that requested will be used</td>
+</tr>
+<tr>
+<td>Less</td>
+<td>The next coverage level that offers less coverage will be used .If one cannot be found, then it will attempt to find a level that offers more coverage.</td>
+</tr>
+<tr>
+<td>More</td>
+<td>The next coverage level that offers more coverage will be used. If one cannot be found, then it will attempt to find a level that offers less coverage</td>
+</tr>
+<tr>
+<td>None</td>
+<td>No coverage level substitution will be used</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table5"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 5:  Product Names</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Web</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table6"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 6:  Transaction Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>New Business</td>
+</tr>
+<tr>
+<td>Renewal</td>
+</tr>
+<tr>
+<td>Endorsement</td>
+</tr>
+<tr>
+<td>Cancellation</td>
+</tr>
+<tr>
+<td>Re-instatement</td>
+</tr>
+<tr>
+<td>Lapse</td>
+</tr>
+<tr>
+<td>Unlapse</td>
+</tr>
+<tr>
+<td>Reissue</td>
+</tr>
+<tr>
+<td>Portfolio</td>
+</tr>
+<tr>
+<td>Re-write</td>
+</tr>
+<tr>
+<td>Change</td>
+</tr>
+<tr>
+<td>None</td>
+</tr>
+<tr>
+<td>Susp. Renewal</td>
+</tr>
+<tr>
+<td>Billing Adjust.</td>
+</tr>
+<tr>
+<td>Advanced Notice</td>
+</tr>
+<tr>
+<td>Renewal Inquiry</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table7"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 7:  Subtransaction Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Endorsement</td>
+</tr>
+<tr>
+<td>Product Change</td>
+</tr>
+<tr>
+<td>Company</td>
+</tr>
+<tr>
+<td>Broker</td>
+</tr>
+<tr>
+<td>Agent</td>
+</tr>
+<tr>
+<td>Insured</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table8"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 8:  Vehicle Uses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Pleasure</td>
+</tr>
+<tr>
+<td>Business</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 9:  Vehicle Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Private Passenger</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table10"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 10:  Air Bag Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>None</td>
+</tr>
+<tr>
+<td>Driver</td>
+</tr>
+<tr>
+<td>Passenger</td>
+</tr>
+<tr>
+<td>Side Impact</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table11"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 11:  Anti-theft Device Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Audible</td>
+<td>Audible</td>
+<td>Sonore</td>
+</tr>
+<tr>
+<td>Factory</td>
+<td>Factory</td>
+<td>Manufacturier</td>
+</tr>
+<tr>
+<td>Fuel Disable</td>
+<td>Fuel Disable</td>
+<td>Coupe de ligne de gaz</td>
+</tr>
+<tr>
+<td>Ignition Disable</td>
+<td>Ignition Disable</td>
+<td>Coupe ignition (anti-démarreur)</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>Impact</td>
+<td>Impacte</td>
+</tr>
+<tr>
+<td>Manual Arming</td>
+<td>Manual Arming</td>
+<td>Armement manuel</td>
+</tr>
+<tr>
+<td>Monitored</td>
+<td>Monitored</td>
+<td>Repérage par transmetteur</td>
+</tr>
+<tr>
+<td>Starter Disable</td>
+<td>Starter Disable</td>
+<td>Coupe allumage</td>
+</tr>
+<tr>
+<td>Steering bar</td>
+<td>Steering bar</td>
+<td>Barre pour volant</td>
+</tr>
+<tr>
+<td>Engraving</td>
+<td>Engraving</td>
+<td>Marquage</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table12"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 12:  Anti-theft Manufacturers</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Engraving</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Autograph</td>
+<td>Autograph</td>
+<td>Autograph</td>
+</tr>
+<tr>
+<td>Autoluck</td>
+<td>Autoluck</td>
+<td>Autoluck</td>
+</tr>
+<tr>
+<td>Automobile Manufacturer</td>
+<td>Automobile Manufacturer</td>
+<td>Fabricant de l'automobile</td>
+</tr>
+<tr>
+<td>DataDot</td>
+<td>DataDot</td>
+<td>DataDot</td>
+</tr>
+<tr>
+<td>Globali</td>
+<td>Globali</td>
+<td>Globali</td>
+</tr>
+<tr>
+<td>Guardian</td>
+<td>Guardian</td>
+<td>Guardian</td>
+</tr>
+<tr>
+<td>Intracep</td>
+<td>Intracep</td>
+<td>Intracep</td>
+</tr>
+<tr>
+<td>Larlock</td>
+<td>Larlock</td>
+<td>Larlock</td>
+</tr>
+<tr>
+<td>Otoprotec</td>
+<td>Otoprotec</td>
+<td>Otoprotec</td>
+</tr>
+<tr>
+<td>Protector Plus</td>
+<td>Protector Plus</td>
+<td>Protector Plus</td>
+</tr>
+<tr>
+<td>Sherlock</td>
+<td>Sherlock</td>
+<td>Sherlock</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td>Vin Lock</td>
+<td>Vin Lock</td>
+<td>Vin Lock</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>Microdot</td>
+<td>Microdot</td>
+<td>Microdot</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 12:  Anti-theft Manufacturers</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: NOT Engraving</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>3rd Eye Tracking</td>
+<td>3rd Eye Tracking</td>
+<td>3rd Eye Tracking</td>
+</tr>
+<tr>
+<td>Alpine</td>
+<td>Alpine</td>
+<td>Alpine</td>
+</tr>
+<tr>
+<td>Apple</td>
+<td>Apple</td>
+<td>Apple</td>
+</tr>
+<tr>
+<td>Aprillia</td>
+<td>Aprillia</td>
+<td>Aprillia</td>
+</tr>
+<tr>
+<td>Armed Guard</td>
+<td>Armed Guard</td>
+<td>Armed Guard</td>
+</tr>
+<tr>
+<td>Astrolock</td>
+<td>Astrolock</td>
+<td>Astrolock</td>
+</tr>
+<tr>
+<td>Astus</td>
+<td>Astus</td>
+<td>Astus</td>
+</tr>
+<tr>
+<td>Audiovox</td>
+<td>Audiovox</td>
+<td>Audiovox</td>
+</tr>
+<tr>
+<td>Auto Gravure</td>
+<td>Auto Gravure</td>
+<td>Auto Gravure</td>
+</tr>
+<tr>
+<td>Auto Tatou</td>
+<td>Auto Tatou</td>
+<td>Auto Tatou</td>
+</tr>
+<tr>
+<td>Autoblock</td>
+<td>Autoblock</td>
+<td>Autoblock</td>
+</tr>
+<tr>
+<td>Auto-Garde</td>
+<td>Auto-Garde</td>
+<td>Auto-Garde</td>
+</tr>
+<tr>
+<td>Autographe</td>
+<td>Autographe</td>
+<td>Autographe</td>
+</tr>
+<tr>
+<td>Autoluck</td>
+<td>Autoluck</td>
+<td>Autoluck</td>
+</tr>
+<tr>
+<td>Automobile Manufacturer</td>
+<td>Automobile Manufacturer</td>
+<td>Fabricant de l'automobile</td>
+</tr>
+<tr>
+<td>Autotrack</td>
+<td>Autotrack</td>
+<td>Autotrack</td>
+</tr>
+<tr>
+<td>Autowatch 500 RLi</td>
+<td>Autowatch 500 RLi</td>
+<td>Autowatch 500 RLi</td>
+</tr>
+<tr>
+<td>Autowatch 500</td>
+<td>Autowatch 500</td>
+<td>Autowatch 500</td>
+</tr>
+<tr>
+<td>Autowatch</td>
+<td>Autowatch</td>
+<td>Autowatch</td>
+</tr>
+<tr>
+<td>Banshee</td>
+<td>Banshee</td>
+<td>Banshee</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>BMW</td>
+<td>BMW</td>
+</tr>
+<tr>
+<td>Boomerang</td>
+<td>Boomerang</td>
+<td>Boomerang</td>
+</tr>
+<tr>
+<td>Boomerang2</td>
+<td>Boomerang2</td>
+<td>Boomerang2</td>
+</tr>
+<tr>
+<td>Boomerang Espion</td>
+<td>Boomerang Espion</td>
+<td>Boomerang Espion</td>
+</tr>
+<tr>
+<td>Boomerang Espion Alert</td>
+<td>Boomerang Espion Alert</td>
+<td>Boomerang Espion Alerte</td>
+</tr>
+<tr>
+<td>Boomerang Xpress</td>
+<td>Boomerang Xpress</td>
+<td>Boomerang Xpress</td>
+</tr>
+<tr>
+<td>Canam</td>
+<td>Canam</td>
+<td>Canam</td>
+</tr>
+<tr>
+<td>Carbine</td>
+<td>Carbine</td>
+<td>Carbine</td>
+</tr>
+<tr>
+<td>CelluTrak Bikeguard</td>
+<td>CelluTrak Bikeguard</td>
+<td>CelluTrak Bikeguard</td>
+</tr>
+<tr>
+<td>CelluTrak Control</td>
+<td>CelluTrak Control</td>
+<td>CelluTrak Control</td>
+</tr>
+<tr>
+<td>CelluTrak Peace</td>
+<td>CelluTrak Peace</td>
+<td>CelluTrak Peace</td>
+</tr>
+<tr>
+<td>CelluTrak Recovery</td>
+<td>CelluTrak Recovery</td>
+<td>CelluTrak Recovery</td>
+</tr>
+<tr>
+<td>Centraxx</td>
+<td>Centraxx</td>
+<td>Centraxx</td>
+</tr>
+<tr>
+<td>Clifford</td>
+<td>Clifford</td>
+<td>Clifford</td>
+</tr>
+<tr>
+<td>Club</td>
+<td>Club</td>
+<td>Club</td>
+</tr>
+<tr>
+<td>Collard Steadfast</td>
+<td>Collard Steadfast</td>
+<td>Collard Steadfast</td>
+</tr>
+<tr>
+<td>Doc 1000 / 2000</td>
+<td>Doc 1000 / 2000</td>
+<td>Doc 1000 / 2000</td>
+</tr>
+<tr>
+<td>Doc X000</td>
+<td>Doc X000</td>
+<td>Doc X000</td>
+</tr>
+<tr>
+<td>Ducati</td>
+<td>Ducati</td>
+<td>Ducati</td>
+</tr>
+<tr>
+<td>Duro Garde</td>
+<td>Duro Garde</td>
+<td>Duro Garde</td>
+</tr>
+<tr>
+<td>Duro V.I.P.</td>
+<td>Duro V.I.P.</td>
+<td>Duro V.I.P.</td>
+</tr>
+<tr>
+<td>Econotrack</td>
+<td>Econotrack</td>
+<td>Econotrack</td>
+</tr>
+<tr>
+<td>Espion - Lojack</td>
+<td>Espion - Lojack</td>
+<td>Espion - Lojack</td>
+</tr>
+<tr>
+<td>Espion Alert - Lojack</td>
+<td>Espion Alert - Lojack</td>
+<td>Espion Alerte - Lojack</td>
+</tr>
+<tr>
+<td>Espion Alert Plus - Lojack</td>
+<td>Espion Alert Plus - Lojack</td>
+<td>Espion Alerte Plus - Lojack</td>
+</tr>
+<tr>
+<td>Excel 300</td>
+<td>Excel 300</td>
+<td>Excel 300</td>
+</tr>
+<tr>
+<td>Factory</td>
+<td>Factory</td>
+<td>Manufacturier</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>Gemini</td>
+<td>Gemini</td>
+</tr>
+<tr>
+<td>Gorilla</td>
+<td>Gorilla</td>
+<td>Gorilla</td>
+</tr>
+<tr>
+<td>Guardian</td>
+<td>Guardian</td>
+<td>Guardian</td>
+</tr>
+<tr>
+<td>Guardian Cadenas</td>
+<td>Guardian Cadenas</td>
+<td>Guardian Cadenas</td>
+</tr>
+<tr>
+<td>Harisson Starter</td>
+<td>Harisson Starter</td>
+<td>Harisson Starter</td>
+</tr>
+<tr>
+<td>Harley without siren</td>
+<td>Harley without siren</td>
+<td>Harley sans sirène</td>
+</tr>
+<tr>
+<td>Harley-Davidson</td>
+<td>Harley-Davidson</td>
+<td>Harley-Davidson</td>
+</tr>
+<tr>
+<td>Hawk 100</td>
+<td>Hawk 100</td>
+<td>Hawk 100</td>
+</tr>
+<tr>
+<td>Hawk 200</td>
+<td>Hawk 200</td>
+<td>Hawk 200</td>
+</tr>
+<tr>
+<td>Hornet</td>
+<td>Hornet</td>
+<td>Hornet</td>
+</tr>
+<tr>
+<td>Icalock</td>
+<td>Icalock</td>
+<td>Icalock</td>
+</tr>
+<tr>
+<td>Intercepter</td>
+<td>Intercepter</td>
+<td>Intercepter</td>
+</tr>
+<tr>
+<td>Investiguard</td>
+<td>Investiguard</td>
+<td>Investiguard</td>
+</tr>
+<tr>
+<td>Invisiguard</td>
+<td>Invisiguard</td>
+<td>Invisiguard</td>
+</tr>
+<tr>
+<td>Kill</td>
+<td>Kill</td>
+<td>Kill</td>
+</tr>
+<tr>
+<td>Kolombo</td>
+<td>Kolombo</td>
+<td>Kolombo</td>
+</tr>
+<tr>
+<td>KTM</td>
+<td>KTM</td>
+<td>KTM</td>
+</tr>
+<tr>
+<td>Larlock</td>
+<td>Larlock</td>
+<td>Larlock</td>
+</tr>
+<tr>
+<td>LoJack</td>
+<td>LoJack</td>
+<td>LoJack</td>
+</tr>
+<tr>
+<td>LoJack Alert</td>
+<td>LoJack Alert</td>
+<td>LoJack Alerte</td>
+</tr>
+<tr>
+<td>LoJack C</td>
+<td>LoJack C</td>
+<td>LoJack C</td>
+</tr>
+<tr>
+<td>Lynx</td>
+<td>Lynx</td>
+<td>Lynx</td>
+</tr>
+<tr>
+<td>Magtec</td>
+<td>Magtec</td>
+<td>Magtec</td>
+</tr>
+<tr>
+<td>MasterGard M6000</td>
+<td>MasterGard M6000</td>
+<td>MasterGard M6000</td>
+</tr>
+<tr>
+<td>MasterGard TK</td>
+<td>MasterGard TK</td>
+<td>MasterGard TK</td>
+</tr>
+<tr>
+<td>Merlin</td>
+<td>Merlin</td>
+<td>Merlin</td>
+</tr>
+<tr>
+<td>Micro-Protec</td>
+<td>Micro-Protec</td>
+<td>Micro-Protec</td>
+</tr>
+<tr>
+<td>M-link</td>
+<td>M-link</td>
+<td>M-link</td>
+</tr>
+<tr>
+<td>Mobicom</td>
+<td>Mobicom</td>
+<td>Mobicom</td>
+</tr>
+<tr>
+<td>Mobiguard</td>
+<td>Mobiguard</td>
+<td>Mobiguard</td>
+</tr>
+<tr>
+<td>Mobilus</td>
+<td>Mobilus</td>
+<td>Mobilus</td>
+</tr>
+<tr>
+<td>Mul-T-Lock</td>
+<td>Mul-T-Lock</td>
+<td>Mul-T-Lock</td>
+</tr>
+<tr>
+<td>NavLynx</td>
+<td>NavLynx</td>
+<td>NavLynx</td>
+</tr>
+<tr>
+<td>OnStar</td>
+<td>OnStar</td>
+<td>OnStar</td>
+</tr>
+<tr>
+<td>Orca</td>
+<td>Orca</td>
+<td>Orca</td>
+</tr>
+<tr>
+<td>Otomax</td>
+<td>Otomax</td>
+<td>Otomax</td>
+</tr>
+<tr>
+<td>Otoprotec</td>
+<td>Otoprotec</td>
+<td>Otoprotec</td>
+</tr>
+<tr>
+<td>Pass-Key</td>
+<td>Pass-Key</td>
+<td>Pass-Key</td>
+</tr>
+<tr>
+<td>PFK Autowatch 329 Ti</td>
+<td>PFK Autowatch 329 Ti</td>
+<td>PFK Autowatch 329 Ti</td>
+</tr>
+<tr>
+<td>Phantom X</td>
+<td>Phantom X</td>
+<td>Phantom X</td>
+</tr>
+<tr>
+<td>Powerlock-Canada</td>
+<td>Powerlock-Canada</td>
+<td>Powerlock-Canada</td>
+</tr>
+<tr>
+<td>Pro-Guard</td>
+<td>Pro-Guard</td>
+<td>Pro-Guard</td>
+</tr>
+<tr>
+<td>PRO-TG</td>
+<td>PRO-TG</td>
+<td>PRO-TG</td>
+</tr>
+<tr>
+<td>PRO-TG 3XT</td>
+<td>PRO-TG 3XT</td>
+<td>PRO-TG 3XT</td>
+</tr>
+<tr>
+<td>Pro-TG X000</td>
+<td>Pro-TG X000</td>
+<td>Pro-TG X000</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python</td>
+<td>Python</td>
+</tr>
+<tr>
+<td>RAMCO</td>
+<td>RAMCO</td>
+<td>RAMCO</td>
+</tr>
+<tr>
+<td>Ranger</td>
+<td>Ranger</td>
+<td>Ranger</td>
+</tr>
+<tr>
+<td>RLiBB</td>
+<td>RLiBB</td>
+<td>RLiBB</td>
+</tr>
+<tr>
+<td>Scorpio</td>
+<td>Scorpio</td>
+<td>Scorpio</td>
+</tr>
+<tr>
+<td>Sherlock</td>
+<td>Sherlock</td>
+<td>Sherlock</td>
+</tr>
+<tr>
+<td>Snyper MX-7</td>
+<td>Snyper MX-7</td>
+<td>Snyper MX-7</td>
+</tr>
+<tr>
+<td>Spav 06</td>
+<td>Spav 06</td>
+<td>Spav 06</td>
+</tr>
+<tr>
+<td>SPAV</td>
+<td>SPAV</td>
+<td>SPAV</td>
+</tr>
+<tr>
+<td>Spavtrak</td>
+<td>Spavtrak</td>
+<td>Spavtrak</td>
+</tr>
+<tr>
+<td>StealStopper</td>
+<td>StealStopper</td>
+<td>StealStopper</td>
+</tr>
+<tr>
+<td>Super Duro-Garde</td>
+<td>Super Duro-Garde</td>
+<td>Super Duro-Garde</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>Tag</td>
+<td>Tag</td>
+</tr>
+<tr>
+<td>Theftbuster TB300V</td>
+<td>Theftbuster TB300V</td>
+<td>Theftbuster TB300V</td>
+</tr>
+<tr>
+<td>Tiger 1000</td>
+<td>Tiger 1000</td>
+<td>Tiger 1000</td>
+</tr>
+<tr>
+<td>Triumph</td>
+<td>Triumph</td>
+<td>Triumph</td>
+</tr>
+<tr>
+<td>Vigil</td>
+<td>Vigil</td>
+<td>Vigil</td>
+</tr>
+<tr>
+<td>Vin-Lock</td>
+<td>Vin-Lock</td>
+<td>Vin-Lock</td>
+</tr>
+<tr>
+<td>Viper</td>
+<td>Viper</td>
+<td>Viper</td>
+</tr>
+<tr>
+<td>Yamaha</td>
+<td>Yamaha</td>
+<td>Yamaha</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table13"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 13:  Discount Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>DISAA</td>
+<td>Abstain from Alcohol</td>
+</tr>
+<tr>
+<td>DISAL</td>
+<td>Alarm System</td>
+</tr>
+<tr>
+<td>DISAM</td>
+<td>Association/Membership</td>
+</tr>
+<tr>
+<td>DISAS</td>
+<td>Away - at - School</td>
+</tr>
+<tr>
+<td>DISBM</td>
+<td>Broker Multi Line</td>
+</tr>
+<tr>
+<td>DISBP</td>
+<td>Basic Policy (No Frills)</td>
+</tr>
+<tr>
+<td>DISBS</td>
+<td>Broker Self Service</td>
+</tr>
+<tr>
+<td>DISCF</td>
+<td>Conviction Free</td>
+</tr>
+<tr>
+<td>DISCL</td>
+<td>Religious Clerical</td>
+</tr>
+<tr>
+<td>DISCM</td>
+<td>No. of Comprehensive Claims</td>
+</tr>
+<tr>
+<td>DISCO</td>
+<td>Conviction Free (Occasional Driver)</td>
+</tr>
+<tr>
+<td>DISDA</td>
+<td>Driver Age</td>
+</tr>
+<tr>
+<td>DISDR</td>
+<td>Insured&#8217;s Driving Record</td>
+</tr>
+<tr>
+<td>DISDS</td>
+<td>Driving Simulator</td>
+</tr>
+<tr>
+<td>DISDT</td>
+<td>Driver Training</td>
+</tr>
+<tr>
+<td>DISED</td>
+<td>Experienced Driver</td>
+</tr>
+<tr>
+<td>DISEM</td>
+<td>Employee</td>
+</tr>
+<tr>
+<td>DISFA</td>
+<td>Facility</td>
+</tr>
+<tr>
+<td>DISFM</td>
+<td>Female</td>
+</tr>
+<tr>
+<td>DISFO</td>
+<td>Claims Forgiveness</td>
+</tr>
+<tr>
+<td>DISFR</td>
+<td>Farm</td>
+</tr>
+<tr>
+<td>DISGD</td>
+<td>Group Rate Applied</td>
+</tr>
+<tr>
+<td>DISGO</td>
+<td>Graduated License for an Occasional Driver</td>
+</tr>
+<tr>
+<td>DISGR</td>
+<td>Graduated License Holder</td>
+</tr>
+<tr>
+<td>DISGS</td>
+<td>Good Student</td>
+</tr>
+<tr>
+<td>DISHY</td>
+<td>Hybrid</td>
+</tr>
+<tr>
+<td>DISIP</td>
+<td>I Promise Program-Parent/Teen Mutual Safe Driving Contract</td>
+</tr>
+<tr>
+<td>DISLC</td>
+<td>Low Commute Distance</td>
+</tr>
+<tr>
+<td>DISLM</td>
+<td>Low Annual Mileage</td>
+</tr>
+<tr>
+<td>DISMC</td>
+<td>Miscellaneous</td>
+</tr>
+<tr>
+<td>DISMG</td>
+<td>Mortgage Free Home/Condominium</td>
+</tr>
+<tr>
+<td>DISMH</td>
+<td>Motor Home</td>
+</tr>
+<tr>
+<td>DISMI</td>
+<td>Mature Driver</td>
+</tr>
+<tr>
+<td>DISMP</td>
+<td>Multiple Line</td>
+</tr>
+<tr>
+<td>DISMS</td>
+<td>Marital Status</td>
+</tr>
+<tr>
+<td>DISMV</td>
+<td>Multi Vehicle</td>
+</tr>
+<tr>
+<td>DISNB</td>
+<td>New Business</td>
+</tr>
+<tr>
+<td>DISNC</td>
+<td>No Claims</td>
+</tr>
+<tr>
+<td>DISND</td>
+<td>New Driver</td>
+</tr>
+<tr>
+<td>DISNO</td>
+<td>No Claims (Occasional Driver)</td>
+</tr>
+<tr>
+<td>DISNS</td>
+<td>Non-smoker</td>
+</tr>
+<tr>
+<td>DISNV</td>
+<td>New Vehicle</td>
+</tr>
+<tr>
+<td>DISOC</td>
+<td>Occupation</td>
+</tr>
+<tr>
+<td>DISOD</td>
+<td>Occasional Driver</td>
+</tr>
+<tr>
+<td>DISOF</td>
+<td>Facility (Occasional Driver)</td>
+</tr>
+<tr>
+<td>DISOP</td>
+<td>Out of Province</td>
+</tr>
+<tr>
+<td>DISOR</td>
+<td>Facility-Occasional Driver (Remedial Driver Improvement Course)</td>
+</tr>
+<tr>
+<td>DISOW</td>
+<td>Owner of Vehicle</td>
+</tr>
+<tr>
+<td>DISPR</td>
+<td>Professional</td>
+</tr>
+<tr>
+<td>DISRD</td>
+<td>Retiree</td>
+</tr>
+<tr>
+<td>DISRM</td>
+<td>Facility-Regular Driver(Remedial Driver Improvement Course)</td>
+</tr>
+<tr>
+<td>DISRN</td>
+<td>Renewal</td>
+</tr>
+<tr>
+<td>DISSC</td>
+<td>Senior Citizen (Age Related)</td>
+</tr>
+<tr>
+<td>DISST</td>
+<td>Stability</td>
+</tr>
+<tr>
+<td>DISTP</td>
+<td>Trail Permit</td>
+</tr>
+<tr>
+<td>DISTX</td>
+<td>Total Discount Applied</td>
+</tr>
+<tr>
+<td>DISVO</td>
+<td>Vehicle to Operator Ratio</td>
+</tr>
+<tr>
+<td>DISVC</td>
+<td>Valued/Preferred Customer</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table14"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 14:  Surcharge Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>SURBU</td>
+<td>Business Use</td>
+</tr>
+<tr>
+<td>SURCA</td>
+<td>Prior Policy Cancellation</td>
+</tr>
+<tr>
+<td>SURCC</td>
+<td>Claims for Occasional Driver (class 06/05)</td>
+</tr>
+<tr>
+<td>SURCD</td>
+<td>Convictions for Occasional Driver (class 06/05)</td>
+</tr>
+<tr>
+<td>SURCE</td>
+<td>Commercial Exposure</td>
+</tr>
+<tr>
+<td>SURCL</td>
+<td>Claims</td>
+</tr>
+<tr>
+<td>SURCM</td>
+<td>No. of Comprehensive Claims</td>
+</tr>
+<tr>
+<td>SURCN</td>
+<td>Convictions</td>
+</tr>
+<tr>
+<td>SURCP</td>
+<td>Car Pooling</td>
+</tr>
+<tr>
+<td>SURER</td>
+<td>Explosive/Radioactive Material</td>
+</tr>
+<tr>
+<td>SURFA</td>
+<td>Facility</td>
+</tr>
+<tr>
+<td>SURFC</td>
+<td>Filing Certificate</td>
+</tr>
+<tr>
+<td>SURHK</td>
+<td>High Kilometres Driven</td>
+</tr>
+<tr>
+<td>SURHP</td>
+<td>High Performance</td>
+</tr>
+<tr>
+<td>SURIH</td>
+<td>Inconsistent Insurance History</td>
+</tr>
+<tr>
+<td>SURLS</td>
+<td>License Suspension</td>
+</tr>
+<tr>
+<td>SURLV</td>
+<td>Leased Vehicle</td>
+</tr>
+<tr>
+<td>SURMC</td>
+<td>Miscellaneous</td>
+</tr>
+<tr>
+<td>SURML</td>
+<td>Mono-line Policy</td>
+</tr>
+<tr>
+<td>SURMO</td>
+<td>Multiple Operators</td>
+</tr>
+<tr>
+<td>SURNP</td>
+<td>Non Payment</td>
+</tr>
+<tr>
+<td>SUROE</td>
+<td>Oversize Engine</td>
+</tr>
+<tr>
+<td>SUROF</td>
+<td>Facility (Occasional Driver)</td>
+</tr>
+<tr>
+<td>SUROP</td>
+<td>Out of Province</td>
+</tr>
+<tr>
+<td>SURPR</td>
+<td>No Previous Insurance</td>
+</tr>
+<tr>
+<td>SURUS</td>
+<td>U.S. &amp; Non-Canadian Exposure</td>
+</tr>
+<tr>
+<td>ZSRMX</td>
+<td>Maximum Surcharge</td>
+</tr>
+<tr>
+<td>ZSRVL</td>
+<td>High Vehicle Value</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table15"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 15:  Driver Link to Vehicle</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Prn</td>
+<td>Principal Driver</td>
+</tr>
+<tr>
+<td>Occ</td>
+<td>Occasional Driver</td>
+</tr>
+<tr>
+<td>Exc</td>
+<td>Excluded Driver</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table16"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 16:  Group Plan Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>ACQ</td>
+<td>ACQ</td>
+<td></td>
+</tr>
+<tr>
+<td>AMVOQ</td>
+<td>AMVOQ</td>
+<td></td>
+</tr>
+<tr>
+<td>APCHQ</td>
+<td>APCHQ</td>
+<td></td>
+</tr>
+<tr>
+<td>ASPPCQ</td>
+<td>ASPPCQ</td>
+<td></td>
+</tr>
+<tr>
+<td>ATEQ</td>
+<td>ATEQ</td>
+<td></td>
+</tr>
+<tr>
+<td>ATU</td>
+<td>Club Age d'Or d'Abit.,Témis.,Ungava</td>
+<td></td>
+</tr>
+<tr>
+<td>CAA</td>
+<td>CAA</td>
+<td></td>
+</tr>
+<tr>
+<td>CAJ</td>
+<td>Club des Ainés de Jonquière</td>
+<td></td>
+</tr>
+<tr>
+<td>CHA</td>
+<td>Club Age d'Or - Chaudière-Appalaches</td>
+<td></td>
+</tr>
+<tr>
+<td>CRICH</td>
+<td>Club de l&#8217;âge d&#8217;or de Saint-Marc-sur Richelieu Inc.</td>
+<td></td>
+</tr>
+<tr>
+<td>EST</td>
+<td>Club Age d'Or de Windsor</td>
+<td></td>
+</tr>
+<tr>
+<td>FADEQ</td>
+<td>Club Age d'Or (FADEQ)</td>
+<td></td>
+</tr>
+<tr>
+<td>FADOQ</td>
+<td>Club Age d'Or (FADOQ)</td>
+<td></td>
+</tr>
+<tr>
+<td>MCM</td>
+<td>Club de l&#8217;âge d&#8217;or de McMasterville</td>
+<td></td>
+</tr>
+<tr>
+<td>PRMV</td>
+<td>Club de l'Amitié de l'âge d'or de Beloeil</td>
+<td></td>
+</tr>
+<tr>
+<td>QSBA</td>
+<td>Quebec School Bus Association</td>
+<td></td>
+</tr>
+<tr>
+<td>RPHL</td>
+<td>RPHL</td>
+<td></td>
+</tr>
+<tr>
+<td>SPCFP</td>
+<td>SPCFP-Monteregie</td>
+<td></td>
+</tr>
+<tr>
+<td>SPGQ</td>
+<td>SPGQ</td>
+<td></td>
+</tr>
+<tr>
+<td>VRICH</td>
+<td>Les Amis de la Vallée du Richelieu</td>
+<td></td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table17"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Ontario</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Commercial license Class A.</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>Commercial license Class A with condition (R).</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Commercial license Class B.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Commercial license Class C.</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Commercial license Class D.</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Commercial license Class E.</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Commercial license Class F.</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>First level motorcycle license, often referred to as a learner's permit.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Second level motorcycle license, often referred to as a probationary license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Heavy vehicle</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Straight truck</td>
+</tr>
+<tr>
+<td>4A</td>
+<td>4A - Emergency vehicle</td>
+</tr>
+<tr>
+<td>4B</td>
+<td>4B - Small bus or minibus</td>
+</tr>
+<tr>
+<td>4C</td>
+<td>4C - taxicab</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+<tr>
+<td>M0</td>
+<td>First level motorcycle license, often referred to as a learner's permit.  This license is much like the M1 license, except that a further restriction is placed on the driver, that they can only drive in a closed circuit training course and not the open road.  In Quebec, this is license 6R. NOTE: The license is M0 (a zero, not the letter 'O')</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>First level motorcycle license, often referred to as a learner's permit.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Second level motorcycle license, often referred to as a probationary license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: New Brunswick</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>A1 - PPV class 2, 3, 4, 5, truck tractor, semi, semi with trailer, truck towing trailer, air brakes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A2 - PPV class 3, 4, or 5 and bus with &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A3 - PPV, 2 axle vehicle, 3 axle vehicle</td>
+</tr>
+<tr>
+<td>3/</td>
+<td>A3/4 - PPV holding class 3 or 4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - ambulance, PPV, taxicab, bus with &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9 - Motor driven cycle and farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Alberta</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Any vehicle</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - 3 axle plus</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi / ambulance</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Prince Edward Island</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Truck over 14,000 kg</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Nova Scotia</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailers and tractor trailer combo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Vehicle trailer combo weighing more than 14,000 kg</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Small buses, vans with more than 24 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Newfoundland &amp; Labrador</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Traction engine vehicles only</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Northwest Territories</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Yukon</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table18"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 18:  Conviction Offense Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Severity - Minor</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>DS</td>
+<td>Crowding Drivers Seat</td>
+<td>Passagers trop nombreux sur la banquette avant</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>Defective Brakes</td>
+<td>Freins défectueux</td>
+</tr>
+<tr>
+<td>LIC</td>
+<td>Drivers License Violations</td>
+<td>Violations du permis de conduire</td>
+</tr>
+<tr>
+<td>FCIC</td>
+<td>Failure to carry or have insurance card</td>
+<td>Défaut de transporter carte d&#8217;assurance</td>
+</tr>
+<tr>
+<td>FPEI</td>
+<td>Failure to produce evidence of insurance</td>
+<td>Défaut de fournir preuve d&#8217;assurance</td>
+</tr>
+<tr>
+<td>FSR</td>
+<td>Failing to share road</td>
+<td>Défaut de partager la voie</td>
+</tr>
+<tr>
+<td>FTS</td>
+<td>Failing to signal</td>
+<td>Défaut de signaler</td>
+</tr>
+<tr>
+<td>SB</td>
+<td>Failure to use seatbelts</td>
+<td>Défaut de porter la ceinture de sécurité</td>
+</tr>
+<tr>
+<td>FTY</td>
+<td>Failing to yield</td>
+<td>Défaut de céder</td>
+</tr>
+<tr>
+<td>PX</td>
+<td>Failing to yield to pedestrian</td>
+<td>Défaut de céder le passage à un piéton</td>
+</tr>
+<tr>
+<td>FTC</td>
+<td>Following too closely</td>
+<td>Conduite sans distance prudente et raisonnable</td>
+</tr>
+<tr>
+<td>HL</td>
+<td>Headlight Offenses</td>
+<td>Défaut de diminuer l'intensité de ses phares</td>
+</tr>
+<tr>
+<td>BL</td>
+<td>Improper driving in a Bus Lane</td>
+<td>Conduite imprudente et interdite dans une voie réservée aux autobus</td>
+</tr>
+<tr>
+<td>ILC</td>
+<td>Improper lane change</td>
+<td>Changement de voie imprudent ou interdit</td>
+</tr>
+<tr>
+<td>IOD</td>
+<td>Improper opening of door</td>
+<td>Ouverture imprudente d'une portière</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>Improper passing</td>
+<td>Dépassement imprudent ou interdit</td>
+</tr>
+<tr>
+<td>TW</td>
+<td>Improper towing, persons on sled, bicycle, etc.</td>
+<td>Remorquage imprudent ou interdit</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Improper turn</td>
+<td>Virage imprudent ou interdit</td>
+</tr>
+<tr>
+<td>DH</td>
+<td>Improper use of divided highway</td>
+<td>Conduite imprudente ou interdite sur une route divisée</td>
+</tr>
+<tr>
+<td>LD</td>
+<td>Insecure load</td>
+<td>Chargement non sécuritaire</td>
+</tr>
+<tr>
+<td>MINOR</td>
+<td>Minor Conviction (not specified)</td>
+<td>Condamnation mineure (non spécifiée)</td>
+</tr>
+<tr>
+<td>OT</td>
+<td>Obstructing traffic</td>
+<td>Entrave à la circulation</td>
+</tr>
+<tr>
+<td>OLO</td>
+<td>Overload</td>
+<td>Surchargement/Surcharge</td>
+</tr>
+<tr>
+<td>CPV</td>
+<td>Prohibited use of hand-held device</td>
+<td>Utilisation d&#8217;un appareil mobile interdite</td>
+</tr>
+<tr>
+<td>RRX</td>
+<td>Railway crossing</td>
+<td>Traverse de chemin de fer</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>Speeding</td>
+<td>Excès de vitesse</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Stop sign</td>
+<td>Panneau d'arrêt</td>
+</tr>
+<tr>
+<td>TSL</td>
+<td>Traffic light</td>
+<td>Feux de signalisation</td>
+</tr>
+<tr>
+<td>TP</td>
+<td>Trailer passenger</td>
+<td>Passager dans une remorque</td>
+</tr>
+<tr>
+<td>UN</td>
+<td>Unnecessary noise</td>
+<td>Bruit inutile</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>Unnecessary slow driving</td>
+<td>Conduite inutilement lente</td>
+</tr>
+<tr>
+<td>UM</td>
+<td>Unsafe move</td>
+<td>Déplacement dangeureux</td>
+</tr>
+<tr>
+<td>UT</td>
+<td>Unsafe or prohibited turn</td>
+<td>Virage dangeureux ou prohibé</td>
+</tr>
+<tr>
+<td>UV</td>
+<td>Unsafe Vehicle</td>
+<td>Véhicule dangeureux</td>
+</tr>
+<tr>
+<td>WIN</td>
+<td>View obstructed</td>
+<td>Vision obstruée</td>
+</tr>
+<tr>
+<td>OW</td>
+<td>Wrong way on one way</td>
+<td>Conduite en sens inverse dans un chemin à sens unique</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 18:  Conviction Offense Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Severity - Major</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>Careless Driving, undue care or attention (Alberta Only)</td>
+<td>Conduite inattentive (Alberta Seulement)</td>
+</tr>
+<tr>
+<td>FRA</td>
+<td>Failing to report accident</td>
+<td>Défaut de déclarer un accident</td>
+</tr>
+<tr>
+<td>FDH</td>
+<td>Failure to report damage to highway property</td>
+<td>Défaut de déclarer des dommages causés à un autoroute</td>
+</tr>
+<tr>
+<td>FALST</td>
+<td>False statement re insurance</td>
+<td>Fausse déclaration reliée à l&#8217;assurance</td>
+</tr>
+<tr>
+<td>INS</td>
+<td>Formerly Insurance Offences. Use specific code.</td>
+<td>Anciennement Infractions reliées aux assurances. Utiliser un code spécifique.</td>
+</tr>
+<tr>
+<td>MAJOR</td>
+<td>Major Conviction (not specified)</td>
+<td>Condamnation majeure (non spécifiée)</td>
+</tr>
+<tr>
+<td>OMVNI</td>
+<td>Operate motor vehicle - no insurance</td>
+<td>Conduite d&#8217;un véhicule à moteur sans assurance</td>
+</tr>
+<tr>
+<td>PFI</td>
+<td>Produce false insurance</td>
+<td>Falsification de papiers d&#8217;assurance</td>
+</tr>
+<tr>
+<td>PSB</td>
+<td>School bus improper passing or fail to stop</td>
+<td>Autobus scolaire - Dépassement interdit ou défaut d'arrêter</td>
+</tr>
+<tr>
+<td>PSG</td>
+<td>School playground improper passing</td>
+<td>Zone scolaire - dépassement interdit</td>
+</tr>
+<tr>
+<td>STN</td>
+<td>Stunting</td>
+<td>Cascades/acrobaties avec véhicule</td>
+</tr>
+<tr>
+<td>RAC</td>
+<td>Racing (Alberta Only)</td>
+<td>Course (Alberta Seulement)</td>
+</tr>
+<tr>
+<td>VOWI</td>
+<td>Vehicle owner without insurance</td>
+<td>Propriétaire du véhicule sans assurance</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 18:  Conviction Offense Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Severity - Criminal</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>ALC</td>
+<td>Blood Alcohol over .08</td>
+<td>Taux d'alcoolémie dépassant .08</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>Careless Driving, undue care or attention (Not Alberta)</td>
+<td>Conduite inattentive (Pas Alberta)</td>
+</tr>
+<tr>
+<td>CN</td>
+<td>Criminal Negligence</td>
+<td>Négligeance criminelle</td>
+</tr>
+<tr>
+<td>DD</td>
+<td>Dangerous Driving</td>
+<td>Conduite dangeureuse</td>
+</tr>
+<tr>
+<td>DUS</td>
+<td>Driving while under suspension</td>
+<td>Conduite malgré une suspension de permis de conduire</td>
+</tr>
+<tr>
+<td>DRK</td>
+<td>Drunk Driving</td>
+<td>Conduite en état d'ébriété</td>
+</tr>
+<tr>
+<td>FP</td>
+<td>Failing to obey police</td>
+<td>Défaut d'obéïr à un agent de police</td>
+</tr>
+<tr>
+<td>FTR</td>
+<td>Failing to remain</td>
+<td>Défaut de rester sur les lieux</td>
+</tr>
+<tr>
+<td>IMP</td>
+<td>Impaired driving</td>
+<td>Conduite avec facultés affaiblies</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>Motor manslaughter</td>
+<td>Homicide involontaire coupable relatif à un véhicule</td>
+</tr>
+<tr>
+<td>RAC</td>
+<td>Racing (Not Alberta)</td>
+<td>Course (Pas Alberta)</td>
+</tr>
+<tr>
+<td>RB</td>
+<td>Refuse breathalyzer</td>
+<td>Refus d'analyse d'haleine</td>
+</tr>
+<tr>
+<td>SECTD</td>
+<td>Serious Conviction (not specified)</td>
+<td>Condamnation grave (non spéficiée)</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table19"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 19:  Conviction Severities</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Minor</td>
+</tr>
+<tr>
+<td>Major</td>
+</tr>
+<tr>
+<td>Criminal</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table20"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 20:  Claim Types</td>
+</tr>
+<tr>
+<td colspan="3">
+			NOTE:  Minor At-Fault Collision should only be used in Ontario, and only after June 1, 2016.  In addition, all the requirements must be met as defined in the 2016 Ontario Auto Reform.  See
+			<a href="AutoONReform.htm#desc2016">2016 Ontario Auto Reform</a>
+			for more information
+		</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Hail</td>
+<td>Hail</td>
+<td>Grêle</td>
+</tr>
+<tr>
+<td>Vandalism</td>
+<td>Vandalism</td>
+<td>Vandalisme</td>
+</tr>
+<tr>
+<td>Fire</td>
+<td>Fire</td>
+<td>Feu</td>
+</tr>
+<tr>
+<td>Theft</td>
+<td>Theft</td>
+<td>Vol</td>
+</tr>
+<tr>
+<td>Glass Breakage</td>
+<td>Glass Breakage</td>
+<td>Bris de glace</td>
+</tr>
+<tr>
+<td>Glass Repair</td>
+<td>Glass Repair</td>
+<td>Réparation de glace</td>
+</tr>
+<tr>
+<td>Other non-responsible Comp/SP</td>
+<td>Other non-responsible Comp/SP</td>
+<td>Autre non-resp. B3/B4</td>
+</tr>
+<tr>
+<td>Non-responsible Collision</td>
+<td>Non-responsible Collision</td>
+<td>Non-responsable Collision</td>
+</tr>
+<tr>
+<td>Non-responsible Accident Ben.</td>
+<td>Non-responsible Accident Ben.</td>
+<td>Non-resp. Ass. individuelle</td>
+</tr>
+<tr>
+<td>Non-resp Direct Compensation</td>
+<td>Non-resp Direct Compensation</td>
+<td>Non-resp. indem. directe</td>
+</tr>
+<tr>
+<td>Liability &amp; Collision</td>
+<td>Liability &amp; Collision</td>
+<td>R.C. &amp; Collision</td>
+</tr>
+<tr>
+<td>Collision</td>
+<td>Collision</td>
+<td>Collision</td>
+</tr>
+<tr>
+<td>Liability</td>
+<td>Liability</td>
+<td>Responsabilité Civile</td>
+</tr>
+<tr>
+<td>Theft - Entire Vehicle</td>
+<td>Theft - Entire Vehicle</td>
+<td>Vol - Total</td>
+</tr>
+<tr>
+<td>Minor At-Fault Collision</td>
+<td>Minor At-Fault Collision</td>
+<td>Collision mineure avec responsabilité</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table21"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 21:  Incident Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Ins Lapse</td>
+<td>Insurance Lapse (General)</td>
+</tr>
+<tr>
+<td>Lic Susp</td>
+<td>License Suspension</td>
+</tr>
+<tr>
+<td>Ins Fraud</td>
+<td>Insurance Fraud</td>
+</tr>
+<tr>
+<td>Mat Misrep</td>
+<td>Insurance Material Misrepresentation</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table22"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 22:  Reason Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Incident Type - Ins Lapse</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>NotReqrd</td>
+<td>No Vehicle Hence No Insurance Required</td>
+<td>Aucun véhicule, donc l&#8217;assurance n&#8217;est pas requise</td>
+</tr>
+<tr>
+<td>DWOI</td>
+<td>Driving without Insurance</td>
+<td>Conduite sans assurance</td>
+</tr>
+<tr>
+<td>LicSusp</td>
+<td>Ins. Cancelled due to License Suspension</td>
+<td>Canceller à cause d' une suspension de permis de conduire</td>
+</tr>
+<tr>
+<td>NonDiscl</td>
+<td>Ins. Cancelled due to Non Disclosure of Information</td>
+<td>Canceller à cause de défaut de divulgation</td>
+</tr>
+<tr>
+<td>MatMisrep</td>
+<td>Material Misrepresentation</td>
+<td>Canceller à cause de fausse déclaration</td>
+</tr>
+<tr>
+<td>NonPay</td>
+<td>Ins. Cancelled due to Defaulting Policy Payment</td>
+<td>Canceller à cause de non paiement</td>
+</tr>
+<tr>
+<td>OtherLapse</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 22:  Reason Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Incident Type - Lic Susp</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Alcohol</td>
+<td>Alcohol related license suspension</td>
+<td>Suspension de permis liée à l'alcool</td>
+</tr>
+<tr>
+<td>Crim</td>
+<td>Criminal related (Non Alcohol) License Suspension</td>
+<td>Suspension criminel (non liée à l'alcool)</td>
+</tr>
+<tr>
+<td>Points</td>
+<td>Too many convictions</td>
+<td>Il y a trop de condamnations (Points accumulés)</td>
+</tr>
+<tr>
+<td>Fine</td>
+<td>Suspension due to non payment of fines</td>
+<td>Suspension à cause non paiements d'amendes</td>
+</tr>
+<tr>
+<td>OtherSusp</td>
+<td>Other - Administrative</td>
+<td>Autre - administratif</td>
+</tr>
+<tr>
+<td>OtherNonAdmin</td>
+<td>Other - Non-administrative</td>
+<td>Autre - non-administratif</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table23"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 23: Valid Coverages</td>
+</tr>
+<tr>
+<td colspan="3">
+			See
+			<a href="AutoStructDesc.htm#descCoverage">Coverages</a>
+			for instructions on how to use this table.
+		</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>CSIO</td>
+<td>Coverage Type</td>
+<td>Full Description</td>
+</tr>
+<tr>
+<td>TP</td>
+<td>LIMIT</td>
+<td>Third Party Liability</td>
+</tr>
+<tr>
+<td>TPBI</td>
+<td>LIMIT</td>
+<td>Third Party Liability - Bodily Injury</td>
+</tr>
+<tr>
+<td>TPPD</td>
+<td>LIMIT</td>
+<td>Third Party Liability - Property Damage</td>
+</tr>
+<tr>
+<td>TPDC</td>
+<td>DEDUCTDCA</td>
+<td>Third Party Liability - Direct Compensation</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>YES_NO</td>
+<td>Accident Benefits</td>
+</tr>
+<tr>
+<td>AP</td>
+<td>DEDUCT</td>
+<td>All Perils</td>
+</tr>
+<tr>
+<td>COL</td>
+<td>DEDUCT</td>
+<td>Collision or Upset</td>
+</tr>
+<tr>
+<td>CMP</td>
+<td>DEDUCTCOMP</td>
+<td>Comprehensive</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>DEDUCTCOMP</td>
+<td>Specified Perils</td>
+</tr>
+<tr>
+<td>UA</td>
+<td>YES_NO</td>
+<td>Uninsured Automobile</td>
+</tr>
+<tr>
+<td>UM</td>
+<td>YES_NO</td>
+<td>Uninsured Motorist</td>
+</tr>
+<tr>
+<td>HL</td>
+<td>YES_NO</td>
+<td>Hospital Levy</td>
+</tr>
+<tr>
+<td>PAK</td>
+<td>PACK</td>
+<td>Package Endorsements</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LIMIT</td>
+<td>Drive Other Automobiles (Named Persons)</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>LIMIT</td>
+<td>Drive Other Automobiles (Blanket Coverage)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>YES_NO</td>
+<td>Permission to Drive Government Vehicles</td>
+</tr>
+<tr>
+<td>4A</td>
+<td>YES_NO</td>
+<td>Permission to Carry Explosives</td>
+</tr>
+<tr>
+<td>4B</td>
+<td>YES_NO</td>
+<td>Permission to Carry Radioactive Material</td>
+</tr>
+<tr>
+<td>5</td>
+<td>YES_NO</td>
+<td>Permission to Rent or Lease</td>
+</tr>
+<tr>
+<td>5A</td>
+<td>YES_NO</td>
+<td>Permission to Rent or Lease</td>
+</tr>
+<tr>
+<td>5C</td>
+<td>YES_NO</td>
+<td>Permission to Rent or Lease(Unspecified Lessees)</td>
+</tr>
+<tr>
+<td>5D</td>
+<td>YES_NO</td>
+<td>Conversion Coverage</td>
+</tr>
+<tr>
+<td>6A</td>
+<td>YES_NO</td>
+<td>Permission to Carry Passengers for Compensation</td>
+</tr>
+<tr>
+<td>6B</td>
+<td>YES_NO</td>
+<td>School Bus</td>
+</tr>
+<tr>
+<td>6D</td>
+<td>YES_NO</td>
+<td>Driver Training School</td>
+</tr>
+<tr>
+<td>6TN</td>
+<td>HOURS</td>
+<td>Permission to Carry Paying Passengers for a Transportation Network</td>
+</tr>
+<tr>
+<td>7</td>
+<td>YES_NO</td>
+<td>Separate Limits</td>
+</tr>
+<tr>
+<td>8</td>
+<td>YES_NO</td>
+<td>Property Damage Reimbursement</td>
+</tr>
+<tr>
+<td>8A</td>
+<td>YES_NO</td>
+<td>Property Damage Reimbursement For Op By Named Persons</td>
+</tr>
+<tr>
+<td>9</td>
+<td>YES_NO</td>
+<td>Marine Use Excluded</td>
+</tr>
+<tr>
+<td>13C</td>
+<td>YES_NO</td>
+<td>Comprehensive Cover - Deletion of Glass</td>
+</tr>
+<tr>
+<td>13D</td>
+<td>YES_NO</td>
+<td>Comprehensive Cover - Limited Glass</td>
+</tr>
+<tr>
+<td>13H</td>
+<td>YES_NO</td>
+<td>Deletion Of Hail Coverage</td>
+</tr>
+<tr>
+<td>HDE</td>
+<td>YES_NO</td>
+<td>Hail Deductible</td>
+</tr>
+<tr>
+<td>DHC</td>
+<td>YES_NO</td>
+<td>Deletion Of Hail Coverage (w/o pre-existing damage)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>YES_NO</td>
+<td>Agreement for Suspension of Coverage</td>
+</tr>
+<tr>
+<td>17</td>
+<td>YES_NO</td>
+<td>Reinstatement of Coverage</td>
+</tr>
+<tr>
+<td>19</td>
+<td>YES_NO</td>
+<td>Limitation of Amount</td>
+</tr>
+<tr>
+<td>19A</td>
+<td>YES_NO</td>
+<td>Valued Automobile(s)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>INDEMNITY</td>
+<td>Loss of Use</td>
+</tr>
+<tr>
+<td>20A</td>
+<td>INDEMN20A</td>
+<td>Loss of Use</td>
+</tr>
+<tr>
+<td>21B</td>
+<td>YES_NO</td>
+<td>Blanket Basis Fleet Coverage</td>
+</tr>
+<tr>
+<td>22</td>
+<td>YES_NO</td>
+<td>Damage to Property of Passengers</td>
+</tr>
+<tr>
+<td>23A</td>
+<td>YES_NO</td>
+<td>Mortgage</td>
+</tr>
+<tr>
+<td>23B</td>
+<td>YES_NO</td>
+<td>Creditor Coverage</td>
+</tr>
+<tr>
+<td>24</td>
+<td>YES_NO</td>
+<td>Fire Apparatus</td>
+</tr>
+<tr>
+<td>25</td>
+<td>YES_NO</td>
+<td>Alteration</td>
+</tr>
+<tr>
+<td>25A</td>
+<td>YES_NO</td>
+<td>Alteration</td>
+</tr>
+<tr>
+<td>26</td>
+<td>YES_NO</td>
+<td>Disappearing Deductible (All Perils of Collision)</td>
+</tr>
+<tr>
+<td>27</td>
+<td>LIMIT27</td>
+<td>Legal Liability for Damage to Non-Owned Automobile</td>
+</tr>
+<tr>
+<td>27B</td>
+<td>LIMIT27B</td>
+<td>Legal Liability for Damage to Non-Owned Automobile</td>
+</tr>
+<tr>
+<td>28</td>
+<td>YES_NO</td>
+<td>Reduction of Coverage for Named Persons</td>
+</tr>
+<tr>
+<td>28A</td>
+<td>YES_NO</td>
+<td>Excluded Driver</td>
+</tr>
+<tr>
+<td>29</td>
+<td>YES_NO</td>
+<td>Additional Coverage for Named Persons</td>
+</tr>
+<tr>
+<td>30</td>
+<td>YES_NO</td>
+<td>Excluding Operation of Attached Machinery</td>
+</tr>
+<tr>
+<td>31</td>
+<td>YES_NO</td>
+<td>Non-Owned Equipment</td>
+</tr>
+<tr>
+<td>32</td>
+<td>YES_NO</td>
+<td>Motorized Recreational Vehicle</td>
+</tr>
+<tr>
+<td>33</td>
+<td>YES_NO</td>
+<td>Emergency Service Expense (Quebec)</td>
+</tr>
+<tr>
+<td>34</td>
+<td>MED_LIMIT</td>
+<td>Injured Persons - Accident Benefits</td>
+</tr>
+<tr>
+<td>34B</td>
+<td>MED_LIMIT</td>
+<td>Injured Persons - Accident Benefits Amount Change</td>
+</tr>
+<tr>
+<td>34C</td>
+<td>WI_LIMIT</td>
+<td>Total Disability</td>
+</tr>
+<tr>
+<td>35</td>
+<td>YES_NO</td>
+<td>Emergency Service Expense</td>
+</tr>
+<tr>
+<td>35T</td>
+<td>YES_NO</td>
+<td>Touring Protection</td>
+</tr>
+<tr>
+<td>37</td>
+<td>YES_NO</td>
+<td>Limitation for Automobile Electronic Accessories</td>
+</tr>
+<tr>
+<td>38</td>
+<td>YES_NO</td>
+<td>Agreed Limit for Automobile Electronic Accessories</td>
+</tr>
+<tr>
+<td>40</td>
+<td>YES_NO</td>
+<td>Fire and Theft Deductible</td>
+</tr>
+<tr>
+<td>41</td>
+<td>YES_NO</td>
+<td>Waiver of Deductible (Claim Specific)</td>
+</tr>
+<tr>
+<td>43</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43A</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43B</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43C</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43D</td>
+<td>YEARS</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43E</td>
+<td>YEARS</td>
+<td>Replacement Cost</td>
+</tr>
+<tr>
+<td>43RL</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation (Leased)</td>
+</tr>
+<tr>
+<td>43O</td>
+<td>YES_NO</td>
+<td>Replacement Cost (Owned)</td>
+</tr>
+<tr>
+<td>43S</td>
+<td>YES_NO</td>
+<td>Replacement Cost (Leased)</td>
+</tr>
+<tr>
+<td>43X</td>
+<td>MONTHS</td>
+<td>Months for Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>43R</td>
+<td>YES_NO</td>
+<td>Limited Waiver of Depreciation</td>
+</tr>
+<tr>
+<td>44</td>
+<td>LIMIT</td>
+<td>Family Protection</td>
+</tr>
+<tr>
+<td>45</td>
+<td>YES_NO</td>
+<td>Warranty to Theft of Entire Auto</td>
+</tr>
+<tr>
+<td>46</td>
+<td>YES_NO</td>
+<td>Pre-determined Income from Self-Employment</td>
+</tr>
+<tr>
+<td>47</td>
+<td>YES_NO</td>
+<td>Agreement Not to Rely On SABS Priority of Payment</td>
+</tr>
+<tr>
+<td>48</td>
+<td>YES_NO</td>
+<td>Optional Supplementary Benefits</td>
+</tr>
+<tr>
+<td>DFB</td>
+<td>YES_NO</td>
+<td>Death and Funeral Benefits</td>
+</tr>
+<tr>
+<td>IDB</td>
+<td>YES_NO</td>
+<td>Indexation Benefit (Consumer Price Index)</td>
+</tr>
+<tr>
+<td>WIB</td>
+<td>WIB_LIMIT</td>
+<td>Income Replacement Benefit</td>
+</tr>
+<tr>
+<td>WCB</td>
+<td>YES_NO</td>
+<td>Weekly Caregiver Benefit (Deprecated. Do not use)</td>
+</tr>
+<tr>
+<td>CHHM</td>
+<td>YES_NO</td>
+<td>Caregiver, Housekeeping &amp; Home Maintenance Benefit</td>
+</tr>
+<tr>
+<td>MRB</td>
+<td>MRB_LIMIT</td>
+<td>Medical, Rehabilitation and Attendant Care</td>
+</tr>
+<tr>
+<td>ACB</td>
+<td>YES_NO</td>
+<td>Attendant Care Benefit (Deprecated. Do not use)</td>
+</tr>
+<tr>
+<td>MEDR</td>
+<td>YES_NO</td>
+<td>Medical &amp; Rehabilitation Benefits (Deprecated. Do not use)</td>
+</tr>
+<tr>
+<td>MRBC</td>
+<td>YES_NO</td>
+<td>Catastrophic Impairment - Medical, Rehabilitation and Attendant Care (Increased)</td>
+</tr>
+<tr>
+<td>DCB</td>
+<td>YES_NO</td>
+<td>Dependant Care Benefits</td>
+</tr>
+<tr>
+<td>MED</td>
+<td>MED_LIMIT</td>
+<td>Medical &amp; Rehabilitation Expenses</td>
+</tr>
+<tr>
+<td>PS</td>
+<td>PS_LIMIT</td>
+<td>Principal Sum</td>
+</tr>
+<tr>
+<td>WI</td>
+<td>WI_LIMIT</td>
+<td>Weekly Indemnity</td>
+</tr>
+<tr>
+<td>PDIS</td>
+<td>YES_NO</td>
+<td>General Policy Discount</td>
+</tr>
+<tr>
+<td>PSUR</td>
+<td>YES_NO</td>
+<td>General Policy Surcharge</td>
+</tr>
+<tr>
+<td>VDIS</td>
+<td>YES_NO</td>
+<td>General Vehicle Discount</td>
+</tr>
+<tr>
+<td>VSUR</td>
+<td>YES_NO</td>
+<td>General Vehicle Surcharge</td>
+</tr>
+<tr>
+<td>EVO</td>
+<td>YES_NO</td>
+<td>"Extra Value Option End't 2, 20, 43R"</td>
+</tr>
+<tr>
+<td>PRO</td>
+<td>YES_NO</td>
+<td>Nine/Six Star Protector</td>
+</tr>
+<tr>
+<td>LWD</td>
+<td>YES_NO</td>
+<td>Limited waiver of Deductible (Claims Forgiveness)</td>
+</tr>
+<tr>
+<td>ACCW</td>
+<td>YES_NO</td>
+<td>Accident Waiver - Premium Protector</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>YES_NO</td>
+<td>Minor Conviction Protection</td>
+</tr>
+<tr>
+<td>CSA</td>
+<td>CSA_LIMIT</td>
+<td>Autoguarde Replacement Cost Coverage</td>
+</tr>
+<tr>
+<td>FEE</td>
+<td>YES_NO</td>
+<td>Service Fee</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table24"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="25">Table 24: Valid Coverage Levels</td>
+</tr>
+<tr>
+<td colspan="25">
+			See
+			<a href="AutoStructDesc.htm#descCoverage">Coverages</a>
+			for instructions on how to use this table.
+		</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Coverage Type</td>
+<td>Field</td>
+<td colspan="23">Valid Levels for Coverage Type</td>
+</tr>
+<tr>
+<td>YES_NO</td>
+<td> </td>
+<td>Yes</td>
+<td>No</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td>Limit1</td>
+<td>50000</td>
+<td>100000</td>
+<td>200000</td>
+<td>300000</td>
+<td>500000</td>
+<td>750000</td>
+<td>1000000</td>
+<td>2000000</td>
+<td>3000000</td>
+<td>4000000</td>
+<td>5000000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>DEDUCT</td>
+<td>Deductible</td>
+<td>0</td>
+<td>25</td>
+<td>50</td>
+<td>100</td>
+<td>250</td>
+<td>300</td>
+<td>500</td>
+<td>750</td>
+<td>1000</td>
+<td>1250</td>
+<td>1500</td>
+<td>1750</td>
+<td>2000</td>
+<td>2250</td>
+<td>2500</td>
+<td>3000</td>
+<td>3500</td>
+<td>4000</td>
+<td>4500</td>
+<td>5000</td>
+<td>7500</td>
+<td>10000</td>
+<td>15000</td>
+</tr>
+<tr>
+<td>INDEMNITY</td>
+<td>Limit2</td>
+<td>300</td>
+<td>450</td>
+<td>600</td>
+<td>750</td>
+<td>900</td>
+<td>1000</td>
+<td>1050</td>
+<td>1200</td>
+<td>1350</td>
+<td>1500</td>
+<td>1800</td>
+<td>2000</td>
+<td>2250</td>
+<td>2500</td>
+<td>2700</td>
+<td>3000</td>
+<td>4000</td>
+<td>5000</td>
+<td>7500</td>
+<td>10000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PACK</td>
+<td> </td>
+<td>PAK01</td>
+<td>PAK02</td>
+<td>PAK03</td>
+<td>PAK04</td>
+<td>PAK05</td>
+<td>PAK06</td>
+<td>PAK07</td>
+<td>PAK08</td>
+<td>PAK09</td>
+<td>PAK10</td>
+<td>PAK11</td>
+<td>PAK12</td>
+<td>PAK13</td>
+<td>PAK14</td>
+<td>PAKC1</td>
+<td>PAKC2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>DEDUCTCOMP</td>
+<td>Deductible</td>
+<td>0</td>
+<td>25</td>
+<td>50</td>
+<td>100</td>
+<td>250</td>
+<td>300</td>
+<td>500</td>
+<td>750</td>
+<td>1000</td>
+<td>1250</td>
+<td>1500</td>
+<td>1750</td>
+<td>2000</td>
+<td>2250</td>
+<td>2500</td>
+<td>3000</td>
+<td>3500</td>
+<td>4000</td>
+<td>4500</td>
+<td>5000</td>
+<td>7500</td>
+<td>10000</td>
+<td>15000</td>
+</tr>
+<tr>
+<td>LIMIT27</td>
+<td>Limit1</td>
+<td>20000</td>
+<td>25000</td>
+<td>30000</td>
+<td>35000</td>
+<td>40000</td>
+<td>45000</td>
+<td>50000</td>
+<td>55000</td>
+<td>60000</td>
+<td>65000</td>
+<td>70000</td>
+<td>75000</td>
+<td>80000</td>
+<td>85000</td>
+<td>90000</td>
+<td>95000</td>
+<td>100000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>DEDUCTDCA</td>
+<td>Deductible</td>
+<td>0</td>
+<td>25</td>
+<td>100</td>
+<td>250</td>
+<td>300</td>
+<td>500</td>
+<td>750</td>
+<td>1000</td>
+<td>1500</td>
+<td>2000</td>
+<td>2500</td>
+<td>3000</td>
+<td>3500</td>
+<td>4000</td>
+<td>5000</td>
+<td>7500</td>
+<td>10000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>WIB_LIMIT</td>
+<td>Limit1</td>
+<td>600</td>
+<td>800</td>
+<td>1000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MED_LIMIT</td>
+<td>Limit1</td>
+<td>5000</td>
+<td>10000</td>
+<td>15000</td>
+<td>20000</td>
+<td>25000</td>
+<td>30000</td>
+<td>35000</td>
+<td>40000</td>
+<td>50000</td>
+<td>60000</td>
+<td>70000</td>
+<td>80000</td>
+<td>90000</td>
+<td>100000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>WI_LIMIT</td>
+<td>Limit1</td>
+<td>25</td>
+<td>50</td>
+<td>75</td>
+<td>100</td>
+<td>150</td>
+<td>200</td>
+<td>250</td>
+<td>300</td>
+<td>400</td>
+<td>500</td>
+<td>600</td>
+<td>700</td>
+<td>900</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PS_LIMIT</td>
+<td>Limit1</td>
+<td>5000</td>
+<td>10000</td>
+<td>15000</td>
+<td>20000</td>
+<td>25000</td>
+<td>30000</td>
+<td>40000</td>
+<td>50000</td>
+<td>60000</td>
+<td>70000</td>
+<td>80000</td>
+<td>90000</td>
+<td>100000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>YEARS</td>
+<td>Limit1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CSA_LIMIT</td>
+<td>Limit1</td>
+<td>24</td>
+<td>36</td>
+<td>42</td>
+<td>48</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>LIMIT27B</td>
+<td>Limit1</td>
+<td>20000</td>
+<td>25000</td>
+<td>30000</td>
+<td>35000</td>
+<td>40000</td>
+<td>45000</td>
+<td>50000</td>
+<td>55000</td>
+<td>60000</td>
+<td>65000</td>
+<td>70000</td>
+<td>75000</td>
+<td>80000</td>
+<td>85000</td>
+<td>90000</td>
+<td>95000</td>
+<td>100000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>INDEMN20A</td>
+<td>Limit2</td>
+<td>300</td>
+<td>450</td>
+<td>600</td>
+<td>750</td>
+<td>900</td>
+<td>1000</td>
+<td>1050</td>
+<td>1200</td>
+<td>1350</td>
+<td>1500</td>
+<td>1800</td>
+<td>2000</td>
+<td>2250</td>
+<td>2500</td>
+<td>2700</td>
+<td>3000</td>
+<td>4000</td>
+<td>5000</td>
+<td>7500</td>
+<td>10000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MONTHS</td>
+<td>Limit1</td>
+<td>12</td>
+<td>18</td>
+<td>24</td>
+<td>30</td>
+<td>36</td>
+<td>42</td>
+<td>48</td>
+<td>54</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MRB_LIMIT</td>
+<td>Limit1</td>
+<td>130000</td>
+<td>1000000</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>HOURS</td>
+<td>Limit1</td>
+<td>5</td>
+<td>10</td>
+<td>15</td>
+<td>20</td>
+<td>25</td>
+<td>30</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table25"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 25:  Relationships to Applicant</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Applicant</td>
+<td>Applicant</td>
+<td>Proposant</td>
+</tr>
+<tr>
+<td>Spouse</td>
+<td>Spouse</td>
+<td>Conjoint</td>
+</tr>
+<tr>
+<td>Co-habitant</td>
+<td>Co-habitant</td>
+<td>Co-locataire</td>
+</tr>
+<tr>
+<td>Child</td>
+<td>Child</td>
+<td>Enfant</td>
+</tr>
+<tr>
+<td>Sibling</td>
+<td>Sibling</td>
+<td>Frère/Soeur</td>
+</tr>
+<tr>
+<td>Parent</td>
+<td>Parent</td>
+<td>Mère/Père</td>
+</tr>
+<tr>
+<td>Relative</td>
+<td>Relative</td>
+<td>Parent</td>
+</tr>
+<tr>
+<td>Employee</td>
+<td>Employee</td>
+<td>Employé</td>
+</tr>
+<tr>
+<td>Insured</td>
+<td>Insured</td>
+<td>Assuré</td>
+</tr>
+<tr>
+<td>Lessee</td>
+<td>Lessee</td>
+<td>Locataire à bail</td>
+</tr>
+<tr>
+<td>Third Party</td>
+<td>Third Party</td>
+<td>Tiers</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>Common Law</td>
+<td>Common Law</td>
+<td>Conjoint de fait</td>
+</tr>
+<tr>
+<td>Same Sex</td>
+<td>Same Sex Partner</td>
+<td>Partenaire du même sexe</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table26"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 26:  Occupation Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>020</td>
+<td>Accountant - General</td>
+<td>Comptable - Général</td>
+</tr>
+<tr>
+<td>021</td>
+<td>Accountant - Spouse</td>
+<td>Comptable - Conjoint</td>
+</tr>
+<tr>
+<td>030</td>
+<td>Actuary</td>
+<td>Actuaire</td>
+</tr>
+<tr>
+<td>040</td>
+<td>Administrator/Director</td>
+<td>Administrateur/Directeur</td>
+</tr>
+<tr>
+<td>090</td>
+<td>Science - Agronomist</td>
+<td>Science - Agronome</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Airline Personnel - General</td>
+<td>Personnel aérien - général</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Airline Personnel - Flight Attendants</td>
+<td>Personnel aérien - hôtesse de l'air</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Airline Personnel - Pilots</td>
+<td>Personnel aérien - pilote</td>
+</tr>
+<tr>
+<td>121</td>
+<td>APAVQ</td>
+<td>APAVQ</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Architect</td>
+<td>Architecte</td>
+</tr>
+<tr>
+<td>170</td>
+<td>Artist - Commercial, Professional, Semi-Professional or Freelance without another profession.</td>
+<td>Artiste - Commercial, professionnel, semi-prof., indépendant, etc.</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Science - Astronomer</td>
+<td>Science - Astronome</td>
+</tr>
+<tr>
+<td>180</td>
+<td>Athlete - Professional</td>
+<td>Athlète - Professionnel</td>
+</tr>
+<tr>
+<td>190</td>
+<td>Automobile Garage (service station) Employee including Mechanics</td>
+<td>Garage pour automobiles (station service) - Employé, mécanicien</td>
+</tr>
+<tr>
+<td>195</td>
+<td>Automobile Dealer</td>
+<td>Concessionnaire</td>
+</tr>
+<tr>
+<td>196</td>
+<td>Bakery - Personnel</td>
+<td>Boulanger - personnel</td>
+</tr>
+<tr>
+<td>197</td>
+<td>Banking / Clerical</td>
+<td>Banque - employé de bureau</td>
+</tr>
+<tr>
+<td>198</td>
+<td>Banking / Administration</td>
+<td>Banque - administration</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Banking / Management</td>
+<td>Banque - directeur</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Bar (Owner, Manager, Employee)</td>
+<td>Bar- Propriétaire, gérant, employé</td>
+</tr>
+<tr>
+<td>230</td>
+<td>Cashier</td>
+<td>Caissier</td>
+</tr>
+<tr>
+<td>238</td>
+<td>Accountant - Chartered - C.A., R.G.A., C.G.A., R.I.A.</td>
+<td>Comptable agréés - C.A., C.G.A., C.M.A., R.I.A.</td>
+</tr>
+<tr>
+<td>240</td>
+<td>Chartered Administrator</td>
+<td>Administrateur agréés</td>
+</tr>
+<tr>
+<td>250</td>
+<td>Civil Service - General</td>
+<td>Fonction publique - Général</td>
+</tr>
+<tr>
+<td>260</td>
+<td>Civil Service - Armed Forces</td>
+<td>Fonction publique - Services militaires</td>
+</tr>
+<tr>
+<td>270</td>
+<td>Civil Service - Postal Worker</td>
+<td>Fonction publique - Services postaux</td>
+</tr>
+<tr>
+<td>280</td>
+<td>Clergy</td>
+<td>Le clergé</td>
+</tr>
+<tr>
+<td>285</td>
+<td>Construction - Carpenter</td>
+<td>Construction - Menuisier</td>
+</tr>
+<tr>
+<td>287</td>
+<td>Construction - Electrician</td>
+<td>Construction - Électricien</td>
+</tr>
+<tr>
+<td>290</td>
+<td>Construction - Manager</td>
+<td>Construction - Gérant</td>
+</tr>
+<tr>
+<td>295</td>
+<td>Construction - Other Trades</td>
+<td>Construction - Autres professions</td>
+</tr>
+<tr>
+<td>297</td>
+<td>Construction - Paint (Plasterer, Decorator, Painter, Wallpaperer)</td>
+<td>Construction - peinture (peintre, décorateur, etc.)</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Construction - Foreman</td>
+<td>Construction - Contremaître</td>
+</tr>
+<tr>
+<td>310</td>
+<td>Construction - Labourer</td>
+<td>Construction - Ouvrier</td>
+</tr>
+<tr>
+<td>315</td>
+<td>Craftsman</td>
+<td>Artisan</td>
+</tr>
+<tr>
+<td>316</td>
+<td>Crown Corporation</td>
+<td>Sociétés D'Etat</td>
+</tr>
+<tr>
+<td>317</td>
+<td>Medical Profession - Dental Hygenist</td>
+<td>Profession médicale - Hygiéniste dentaire</td>
+</tr>
+<tr>
+<td>320</td>
+<td>Medical Profession - Dentist</td>
+<td>Profession médicale - Dentiste</td>
+</tr>
+<tr>
+<td>323</td>
+<td>Medical Profession - Denturologist</td>
+<td>Profession médicale - Denturologiste</td>
+</tr>
+<tr>
+<td>330</td>
+<td>Medical Profession - Chiropractor</td>
+<td>Profession médicale - Chiropraticien</td>
+</tr>
+<tr>
+<td>332</td>
+<td>Medical Profession - Dietician</td>
+<td>Profession médicale - Diététiste</td>
+</tr>
+<tr>
+<td>335</td>
+<td>Medical Profession - Doctor - Medical</td>
+<td>Profession médicale - Docteur - Médical</td>
+</tr>
+<tr>
+<td>340</td>
+<td>Veterinarian</td>
+<td>Vétérinaire</td>
+</tr>
+<tr>
+<td>350</td>
+<td>Driver - Chauffeur, Driving School Instructor, Taxi</td>
+<td>Conducteur - Chauffeur, instructeur, taxi</td>
+</tr>
+<tr>
+<td>355</td>
+<td>Driver - Delivery (Local)</td>
+<td>Conducteur - Livraison (locale)</td>
+</tr>
+<tr>
+<td>360</td>
+<td>Driver - Delivery (Long Haul, Mover)</td>
+<td>Conducteur - Livraison (long voyage, déménagement)</td>
+</tr>
+<tr>
+<td>365</td>
+<td>Driver - Public Transportation</td>
+<td>Conducteur - Transport public</td>
+</tr>
+<tr>
+<td>375</td>
+<td>Economist</td>
+<td>Économiste</td>
+</tr>
+<tr>
+<td>379</td>
+<td>Education - Day Care</td>
+<td>Éducation - Garderie</td>
+</tr>
+<tr>
+<td>380</td>
+<td>Education - General</td>
+<td>Éducation - Général</td>
+</tr>
+<tr>
+<td>385</td>
+<td>Education - Teacher/Professional</td>
+<td>Éducation - Professeur/professionnel</td>
+</tr>
+<tr>
+<td>390</td>
+<td>Education - Principal</td>
+<td>Éducation - Directeur</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Engineer</td>
+<td>Ingénieur</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Forestry Engineer</td>
+<td>Ingénieur forestier</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Entertainer - help (Cameraman, Projectionist, Stagehand, Researcher)</td>
+<td>Artiste (Cameraman, projectionniste, recherchiste, etc.)</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Entertainer including actor/actress, announcers, musicians, etc.</td>
+<td>Artiste (Acteur, annonceur, musicien, etc.)</td>
+</tr>
+<tr>
+<td>430</td>
+<td>Esthetic (Barber, Hairdresser, Esthetician, Masseur)</td>
+<td>Esthétique (Barbier, coiffeur, estéticien, masseur)</td>
+</tr>
+<tr>
+<td>450</td>
+<td>Farm Employee</td>
+<td>Employé de ferme</td>
+</tr>
+<tr>
+<td>455</td>
+<td>Farm Labourer</td>
+<td>Ouvrier de ferme</td>
+</tr>
+<tr>
+<td>460</td>
+<td>Farmer</td>
+<td>Fermier</td>
+</tr>
+<tr>
+<td>461</td>
+<td>Federation, Conf., Ins. &amp; Corporation</td>
+<td>Fédération, Conf., Ins., &amp; Corporation</td>
+</tr>
+<tr>
+<td>463</td>
+<td>Finance (Agent, Stock Market, Financial Advisor, Financial Broker)</td>
+<td>Finance (Agent, conseiller financier, courtier financier)</td>
+</tr>
+<tr>
+<td>465</td>
+<td>Fisherman</td>
+<td>Pêcheur</td>
+</tr>
+<tr>
+<td>470</td>
+<td>Food Industry - Cook, Chef or Caterer</td>
+<td>Industrie alimentaire - Cuisinier, chef ou traîteur</td>
+</tr>
+<tr>
+<td>472</td>
+<td>Food Industry - Other (Slaughterer, Butcher)</td>
+<td>Industrie alimentaire - Autre (Abatteur, boucher)</td>
+</tr>
+<tr>
+<td>475</td>
+<td>Firefighter</td>
+<td>Pompier</td>
+</tr>
+<tr>
+<td>478</td>
+<td>Horticulture (Orchardist, Botanist, Florist, Floriculturist, Horticulturist, gardener, landscaper, nurseryman)</td>
+<td>Horticulteur (Botaniste, fleuriste, jardinier, paysagiste)</td>
+</tr>
+<tr>
+<td>480</td>
+<td>Hotel/Motel - Proprietor</td>
+<td>Hôtel/Motel - Proprietaire</td>
+</tr>
+<tr>
+<td>481</td>
+<td>Restaurant - Proprietor</td>
+<td>Restaurant - Propriétaire</td>
+</tr>
+<tr>
+<td>485</td>
+<td>Hotel/Motel - General</td>
+<td>Hôtel/Motel - Général</td>
+</tr>
+<tr>
+<td>486</td>
+<td>Restaurant - General</td>
+<td>Restaurant - Général</td>
+</tr>
+<tr>
+<td>490</td>
+<td>Housewife</td>
+<td>Femme au foyer</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Insurance - General</td>
+<td>Assurance - Général</td>
+</tr>
+<tr>
+<td>505</td>
+<td>Insurance - Agent/Broker</td>
+<td>Assurance - Agent/Courtier</td>
+</tr>
+<tr>
+<td>506</td>
+<td>Insurance - Agent/Broker - Personnel</td>
+<td>Assurance - Agent/Courtier - Employé de bureau</td>
+</tr>
+<tr>
+<td>510</td>
+<td>Insurance - Adjuster</td>
+<td>Assurance - Ajusteur</td>
+</tr>
+<tr>
+<td>514</td>
+<td>Keeper, Night-Watchman</td>
+<td>Gardien / Gardien de nuit</td>
+</tr>
+<tr>
+<td>515</td>
+<td>Labourer - Inside</td>
+<td>Ouvrier - Intérieur</td>
+</tr>
+<tr>
+<td>520</td>
+<td>Labourer - Outside</td>
+<td>Ouvrier - Extérieur</td>
+</tr>
+<tr>
+<td>524</td>
+<td>Land-Surveyor</td>
+<td>Géomètre</td>
+</tr>
+<tr>
+<td>525</td>
+<td>Land &amp; Forest Employee</td>
+<td>Ressources naturelles - Employé</td>
+</tr>
+<tr>
+<td>530</td>
+<td>Lawyer</td>
+<td>Avocat</td>
+</tr>
+<tr>
+<td>540</td>
+<td>Maintenance - Building Superintendent, Janitor, Cleaner</td>
+<td>Entretien - concièrge, nettoyeur, laveur</td>
+</tr>
+<tr>
+<td>545</td>
+<td>Marketing (Technical or Administration, Publicist, communications advisor)</td>
+<td>Marketing (Technicien ou administration, publiciste, relationniste)</td>
+</tr>
+<tr>
+<td>547</td>
+<td>Medical Profession - Radiology Technician</td>
+<td>Profession médicale - Technicien en radiographie</td>
+</tr>
+<tr>
+<td>548</td>
+<td>Medical Profession - Other Technician</td>
+<td>Profession médicale - Autre technicien</td>
+</tr>
+<tr>
+<td>549</td>
+<td>Medical Profession - Orthodontist</td>
+<td>Profession médicale - Orthodontiste</td>
+</tr>
+<tr>
+<td>550</td>
+<td>Medical Profession - Nurse</td>
+<td>Profession médicale - Infirmier</td>
+</tr>
+<tr>
+<td>551</td>
+<td>Medical Profession - Nutritionist</td>
+<td>Profession médicale - Nutritionniste</td>
+</tr>
+<tr>
+<td>552</td>
+<td>Medical Profession - Optometrist</td>
+<td>Profession médicale - Optométriste</td>
+</tr>
+<tr>
+<td>553</td>
+<td>Medical Profession - Optician</td>
+<td>Profession médicale - Opticien</td>
+</tr>
+<tr>
+<td>554</td>
+<td>Medical Profession - Physiotherapist</td>
+<td>Profession médicale - Physiothérapeute</td>
+</tr>
+<tr>
+<td>555</td>
+<td>Medical Profession - Research/Lab Tech.</td>
+<td>Profession médicale - Rechercheur, technicien de laboratoire</td>
+</tr>
+<tr>
+<td>556</td>
+<td>Medical Profession - Gynaecologist</td>
+<td>Profession médicale - Gynécologue</td>
+</tr>
+<tr>
+<td>557</td>
+<td>Medical Profession - Inhalotherapist</td>
+<td>Profession médicale - Inhalothérapeute</td>
+</tr>
+<tr>
+<td>559</td>
+<td>Medical Profession - Ophthalmologist</td>
+<td>Profession médicale - Ophtalmologiste</td>
+</tr>
+<tr>
+<td>560</td>
+<td>Medical Profession - General</td>
+<td>Profession médicale - Général</td>
+</tr>
+<tr>
+<td>561</td>
+<td>Medical Profession - Anaesthetist</td>
+<td>Profession médicale - Anesthésiste</td>
+</tr>
+<tr>
+<td>562</td>
+<td>Medical Profession - Podiatrist</td>
+<td>Profession médicale - Podologue</td>
+</tr>
+<tr>
+<td>563</td>
+<td>Medical Profession - Electrophysiologist</td>
+<td>Profession médicale - Électrophysiologiste</td>
+</tr>
+<tr>
+<td>564</td>
+<td>Medical Profession - Dermatologist</td>
+<td>Profession médicale - Dermatologue</td>
+</tr>
+<tr>
+<td>565</td>
+<td>Medical Profession - Hearing Aid Technician</td>
+<td>Profession médicale - Technicien de l'appareil accoustique</td>
+</tr>
+<tr>
+<td>566</td>
+<td>Medical Profession - Ergotherapist</td>
+<td>Profession médicale - Ergothérapie</td>
+</tr>
+<tr>
+<td>567</td>
+<td>Miner</td>
+<td>Mineur</td>
+</tr>
+<tr>
+<td>568</td>
+<td>Notary</td>
+<td>Notaire</td>
+</tr>
+<tr>
+<td>570</td>
+<td>Office Worker</td>
+<td>Travailleur de bureau</td>
+</tr>
+<tr>
+<td>580</td>
+<td>Medical Profession - Pharmacist</td>
+<td>Profession médicale - Pharmacien</td>
+</tr>
+<tr>
+<td>581</td>
+<td>Municipality - Office Staff</td>
+<td>Municipalité - Employé de bureau</td>
+</tr>
+<tr>
+<td>582</td>
+<td>National Association of Retirees</td>
+<td>Association Nationale des Retraités</td>
+</tr>
+<tr>
+<td>583</td>
+<td>Medical Profession - Psychologist</td>
+<td>Profession médicale - Psychologue</td>
+</tr>
+<tr>
+<td>584</td>
+<td>Phone Company</td>
+<td>Compagnie de téléphone</td>
+</tr>
+<tr>
+<td>585</td>
+<td>Medical Profession - Physician</td>
+<td>Profession médicale - Médecin</td>
+</tr>
+<tr>
+<td>586</td>
+<td>Medical Profession - Physician - Office Staff</td>
+<td>Profession médicale - Médecin - Employé de bureau</td>
+</tr>
+<tr>
+<td>587</td>
+<td>Private Sector - Office Staff</td>
+<td>Secteur privé - Employé de bureau</td>
+</tr>
+<tr>
+<td>588</td>
+<td>R.C.M.P.</td>
+<td>G.R.C.</td>
+</tr>
+<tr>
+<td>590</td>
+<td>Police Officer</td>
+<td>Policier</td>
+</tr>
+<tr>
+<td>593</td>
+<td>Printing (Designer, Graphic Artist, Printer, Presser, Bookbinder, Typographer)</td>
+<td>Impression (Désigner, graphiste, imprimeur, typographe)</td>
+</tr>
+<tr>
+<td>600</td>
+<td>Race Car Driver</td>
+<td>Conducteur d'automobile de course</td>
+</tr>
+<tr>
+<td>610</td>
+<td>Real Estate Agent</td>
+<td>Agent immobilier</td>
+</tr>
+<tr>
+<td>620</td>
+<td>Retail Store - Employee (e.g. hairdresser, barber, butcher, drycleaner, department store)</td>
+<td>Détaillant - Employé (Coiffeur, boucher, nettoyeur, etc...)</td>
+</tr>
+<tr>
+<td>625</td>
+<td>Retail Store - Proprietor</td>
+<td>Détaillant - Propriétaire</td>
+</tr>
+<tr>
+<td>640</td>
+<td>Retired</td>
+<td>Retraité</td>
+</tr>
+<tr>
+<td>660</td>
+<td>Sales Person - Inside Sales</td>
+<td>Vendeur - Dans un commerce</td>
+</tr>
+<tr>
+<td>665</td>
+<td>Sales Person - Outside Sales</td>
+<td>Vendeur itinérant</td>
+</tr>
+<tr>
+<td>666</td>
+<td>School Board - Office Staff</td>
+<td>Commission scolaire-Employé de bureau</td>
+</tr>
+<tr>
+<td>673</td>
+<td>Science - Microbiologist</td>
+<td>Science - Microbiologiste</td>
+</tr>
+<tr>
+<td>674</td>
+<td>Science - Biochemist</td>
+<td>Science - Biochimiste</td>
+</tr>
+<tr>
+<td>675</td>
+<td>Science - Biologist</td>
+<td>Science - Biologiste</td>
+</tr>
+<tr>
+<td>678</td>
+<td>Science - Chemist</td>
+<td>Science - Chimiste</td>
+</tr>
+<tr>
+<td>680</td>
+<td>Science - Computer (Analyst, Programmer, technician)</td>
+<td>Science - Informatique (Analiste, programmeur, technicien)</td>
+</tr>
+<tr>
+<td>683</td>
+<td>Science - Literary (Writer, Interpreter, Linguist, Translator, Archivist, Librarian, Journalist, Relationist, Newspaper Staff)</td>
+<td>Science - Littéraire (Écrivain, interrprète, linguiste, journaliste, etc.)</td>
+</tr>
+<tr>
+<td>690</td>
+<td>Science - Others (Map-Maker, Historian, Meteorologist, geographer, Anthropologist, Archaeologist, geologist)</td>
+<td>Science - Autre (Cartographe, historien, métérologue, géographe, etc.)</td>
+</tr>
+<tr>
+<td>695</td>
+<td>Seamstress</td>
+<td>Couturier</td>
+</tr>
+<tr>
+<td>700</td>
+<td>Student</td>
+<td>Étudiant</td>
+</tr>
+<tr>
+<td>701</td>
+<td>Medical Profession - Surgeon - Dentist</td>
+<td>Profession médicale - Chirurgien - Dentiste</td>
+</tr>
+<tr>
+<td>750</td>
+<td>Tradesman</td>
+<td>Commerçant</td>
+</tr>
+<tr>
+<td>800</td>
+<td>Unemployed</td>
+<td>Sans emploi</td>
+</tr>
+<tr>
+<td>801</td>
+<td>U/I Recipient</td>
+<td>Bénéficiaire d'assurance chomage</td>
+</tr>
+<tr>
+<td>823</td>
+<td>Translator</td>
+<td>Traducteur</td>
+</tr>
+<tr>
+<td>824</td>
+<td>Medical Profession - Speech Therapist</td>
+<td>Profession médicale - Orthophoniste</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Hydro-Quebec</td>
+<td>Hydro-Québec</td>
+</tr>
+<tr>
+<td>901</td>
+<td>Caisse Populaire - Personnel</td>
+<td>Caisse Populaire - Personnel</td>
+</tr>
+<tr>
+<td>902</td>
+<td>Government - Provincial</td>
+<td>Gouvernement - Provincial</td>
+</tr>
+<tr>
+<td>903</td>
+<td>Government - Federal</td>
+<td>Gouvernement - Fédéral</td>
+</tr>
+<tr>
+<td>904</td>
+<td>Business of 25 or more employees - Office Staff</td>
+<td>Entreprise de 25 employés et plus - Employé de bureau</td>
+</tr>
+<tr>
+<td>905</td>
+<td>Business of 5 or more employees - Office Staff</td>
+<td>Entreprise de 5 employés et plus - Employé de bureau</td>
+</tr>
+<tr>
+<td>906</td>
+<td>Quebec Telephone</td>
+<td>Québec Téléphone</td>
+</tr>
+<tr>
+<td>907</td>
+<td>Telebec</td>
+<td>Télébec</td>
+</tr>
+<tr>
+<td>908</td>
+<td>University - Office Staff</td>
+<td>Université - Employé de bureau</td>
+</tr>
+<tr>
+<td>911</td>
+<td>Bachelor's Degree and working full time</td>
+<td>Baccalauréat et employé à temps plein</td>
+</tr>
+<tr>
+<td>912</td>
+<td>Bell Canada</td>
+<td>Bell Canada</td>
+</tr>
+<tr>
+<td>913</td>
+<td>Centre Hospitalier Honore Mercier</td>
+<td>Centre Hospitalier Honore Mercier</td>
+</tr>
+<tr>
+<td>914</td>
+<td>Northern Telecom</td>
+<td>Northern Telecom</td>
+</tr>
+<tr>
+<td>918</td>
+<td>Hospital - Staff</td>
+<td>Hôpital - Employé</td>
+</tr>
+<tr>
+<td>919</td>
+<td>Trust Company</td>
+<td>Sociétés de Fiducie</td>
+</tr>
+<tr>
+<td>920</td>
+<td>College - Office Staff</td>
+<td>Collège - Employé de bureau</td>
+</tr>
+<tr>
+<td>921</td>
+<td>Caisse Economie - Office Staff</td>
+<td>Caisse Economie - Employés de bureau</td>
+</tr>
+<tr>
+<td>922</td>
+<td>Government - Municipal</td>
+<td>Gouvernement - Municipal</td>
+</tr>
+<tr>
+<td>923</td>
+<td>Accountant - Chartered - Office Staff</td>
+<td>Comptable agréés - Employé de bureau</td>
+</tr>
+<tr>
+<td>924</td>
+<td>Insurance - Office Staff</td>
+<td>Compagnie d'assurance - Employé de bureau</td>
+</tr>
+<tr>
+<td>925</td>
+<td>Actuary - Office Staff</td>
+<td>Actuaire - Employé de bureau</td>
+</tr>
+<tr>
+<td>926</td>
+<td>Science - Agronomist - Office Staff</td>
+<td>Science - Agronome - Employé de bureau</td>
+</tr>
+<tr>
+<td>927</td>
+<td>Architect - Office Staff</td>
+<td>Architecte - Employé de bureau</td>
+</tr>
+<tr>
+<td>928</td>
+<td>Lawyer - Office Staff</td>
+<td>Avocat - Employé de bureau</td>
+</tr>
+<tr>
+<td>929</td>
+<td>Science - Chemist - Office Staff</td>
+<td>Science - Chimiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>930</td>
+<td>Medical Profession - Chiropractor - Office Staff</td>
+<td>Profession médicale - Chiropraticien - Employé de bureau</td>
+</tr>
+<tr>
+<td>931</td>
+<td>Accountant - General - Office Staff</td>
+<td>Comptable - Général - Employé de bureau</td>
+</tr>
+<tr>
+<td>932</td>
+<td>Medical Profession - Dentist - Office Staff</td>
+<td>Profession médicale - Dentiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>933</td>
+<td>Medical Profession - Denturologist - Office Staff</td>
+<td>Profession médicale - Denturologiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>934</td>
+<td>Engineer - Office Staff</td>
+<td>Ingénieur - Employé de bureau</td>
+</tr>
+<tr>
+<td>935</td>
+<td>Medical Profession - Doctor - Medical - Office Staff</td>
+<td>Profession médicale - Docteur - Médical - Employé de bureau</td>
+</tr>
+<tr>
+<td>936</td>
+<td>Notary - Office Staff</td>
+<td>Notaire - Employé de bureau</td>
+</tr>
+<tr>
+<td>937</td>
+<td>Medical Profession - Ophthalmologist - Office Staff</td>
+<td>Profession médicale - Ophtalmologiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>938</td>
+<td>Medical Profession - Optician - Office Staff</td>
+<td>Profession médicale - Opticien - Employé de bureau</td>
+</tr>
+<tr>
+<td>939</td>
+<td>Medical Profession - Optometrist - Office Staff</td>
+<td>Profession médicale - Optométriste - Employé de bureau</td>
+</tr>
+<tr>
+<td>940</td>
+<td>Medical Profession - Orthodontist - Office Staff</td>
+<td>Profession médicale - Orthodontiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>941</td>
+<td>Medical Profession - Pharmacist - Personnel</td>
+<td>Profession médicale - Pharmacien - Personnel</td>
+</tr>
+<tr>
+<td>942</td>
+<td>Nortel</td>
+<td>Nortel</td>
+</tr>
+<tr>
+<td>943</td>
+<td>CLSC - Staff</td>
+<td>CLSC - Employé(e)</td>
+</tr>
+<tr>
+<td>998</td>
+<td>Other employment not described</td>
+<td>Autre emploi non défini</td>
+</tr>
+<tr>
+<td>999</td>
+<td>Not Known</td>
+<td>Inconnu</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table27"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 27:  Line Of Business</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AUTO</td>
+<td>Private Passenger Automobile</td>
+</tr>
+<tr>
+<td>PROP</td>
+<td>Residential Property</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table28"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 28:  Renewal of Policy</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>YES</td>
+</tr>
+<tr>
+<td>NO</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table31"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 31:  Adjustment Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Adjust FinalPremium by the percentage given in AdjustmentValue.</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Adjust FinalPremium by adding the dollar amount given in AdjustmentValue.</td>
+</tr>
+<tr>
+<td>$</td>
+<td>Adjust FinalPremium by setting it to the dollar amount given in AdjustmentValue.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table33"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 33:  Purchase Conditions</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>N</td>
+<td>New vehicle</td>
+<td>Nouveau véhicule</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Used vehicle</td>
+<td>Véhicule d'occasion</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Demo vehicle</td>
+<td>Véhicule de démonstration</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table36"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 36:  Vehicle Types - Group Plans</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Private Passenger</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table38"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 38:  Fuel Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Diesel</td>
+<td>Diesel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Electric / Battery</td>
+<td>Électrique / Pile</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gas</td>
+<td>Gazoline</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Natural Gas</td>
+<td>Gaz naturel</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Propane</td>
+<td>Propane</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Propane (Factory)</td>
+<td>Propane (usine)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Solar</td>
+<td>Solaire</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Alcohol</td>
+<td>Alcool</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Electric / Fuel Cell</td>
+<td>Électrique / Pile à combustible</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Gas and Electric</td>
+<td>Gaz et Électrique</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table39"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 39:  Product Line</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Personal</td>
+<td>Personal use.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table41"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 41:  Parking Locations</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Carport</td>
+<td>Carport</td>
+<td>Abri d'auto</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>Lot</td>
+<td>Parking Lot</td>
+<td>Parc de stationnement</td>
+</tr>
+<tr>
+<td>Driveway</td>
+<td>Private Driveway</td>
+<td>Entrée privée</td>
+</tr>
+<tr>
+<td>Garage</td>
+<td>Private Garage</td>
+<td>Garage privé</td>
+</tr>
+<tr>
+<td>Secure</td>
+<td>Secure Condo/Apt Garage</td>
+<td>Copropriétaire/App. garage sécurisé</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Storage</td>
+<td>Entreposage</td>
+</tr>
+<tr>
+<td>Street</td>
+<td>Street</td>
+<td>Rue</td>
+</tr>
+<tr>
+<td>Underground</td>
+<td>Underground Parking</td>
+<td>Stationnement souterrain</td>
+</tr>
+<tr>
+<td>Unsecure</td>
+<td>Unsecured Condo/Apt Garage or Lot</td>
+<td>Copropriétaire/App. garage ou lot non sécurisé</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table43"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 43:  CSIO Body Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>Jeep</td>
+<td>Jeep</td>
+</tr>
+<tr>
+<td>MV</td>
+<td>Mini Van</td>
+<td>Mini-fourgonnette</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Convertible</td>
+<td>Décapotable</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>2 Door Sedan/Hard Top</td>
+<td>Berline 2 portes/toit rigide</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>3 Door Hatchback</td>
+<td>3 portes hatchback</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>4 Door Sedan/Hard Top</td>
+<td>Berline 4 portes/toit rigide</td>
+</tr>
+<tr>
+<td>P5</td>
+<td>4 Door Hatchback</td>
+<td>4 portes hatchback</td>
+</tr>
+<tr>
+<td>P6</td>
+<td>Station Wagon</td>
+<td>Familiale</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>Pickup Truck</td>
+<td>Camionette</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>SUV - Small Convertible (Soft Top)</td>
+<td>VUS petit décapotable (toit souple)</td>
+</tr>
+<tr>
+<td>SU</td>
+<td>SUV - Small and Medium (Hard Top)</td>
+<td>VUS - petit et moyen (toit rigide)</td>
+</tr>
+<tr>
+<td>SW</td>
+<td>SUV - Large</td>
+<td>VUS - Grand</td>
+</tr>
+<tr>
+<td>VL</td>
+<td>Van - Light</td>
+<td>Fourgonnette</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

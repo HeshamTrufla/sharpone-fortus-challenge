@@ -1,0 +1,1997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Messages</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkMessages">Messages</a></li>
+<li><a href="#Table1">Message Ranges</a></li>
+<li><a href="#Table2">Individual IDs</a></li>
+</ul>
+</div><a name="lnkMessages"></a><h1>Messages</h1>
+<p><a href="../MapErrors.htm">Errors and Warnings</a> relate to the 
+                'process of quoting', whereas messages relate to the actual quote itself. 
+                Messages can be good, bad, or neutral. Some messages might simply be a means of 
+                relaying additional carrier specific information about the quote. Other messages 
+                might be intended on alerting the user to problems with the quote, and thus indicating 
+                unreliable quote results. Messages have been lumped together ambiguously like 
+                this to allow for flexibility. Each user implementing the FORTUS&#8482; rating 
+                engine can then make their own decision on the severity and reaction to each individual message.</p>
+<hr>
+<h2>Hab Messages</h2>
+<p>Traditionally, common messages have been shared between all carriers.  If a carrier-specific 
+                description was necessary then either message code 0 or 999 would have been used.  Message functionality has now 
+                been expanded to allow for improved messaging as well as improved interpretation of those messages and rating 
+                situations.  <a href="#Table1">Table 1</a> describes messages in terms of what range they fall within.  
+                <a href="#Table2">Table 2</a> provides the list of common messages used by all carriers.</p>
+<hr><a name="Table1"></a><h2>Hab Message - Ranges</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td width="70">Number</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td><span style="color:#993300">Informational Messages - should not hinder quoting</span><p>A message with this code could represent anything of a purely informational nature.</p>
+</td>
+</tr>
+<tr>
+<td>1 - 399</td>
+<td><span style="color:#993300">These could be informational, concern, do not bind; anything</span><p>Messages found in this range are common underwriting situations found in many carriers.  These message CANNOT be interpreted 
+                         based on their position within a range.  Instead, it is up to the program interpreting the quote results to decide how it 
+                         wishes to react to each individual message with a code between 1-399.  See <a href="#Table2">Table 2</a> for the list of these messages.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>400 - 499</td>
+<td><span style="color:#993300">Informational Messages - Should not hinder quoting</span></td>
+</tr>
+<tr>
+<td>500 - 501</td>
+<td><span style="color:#993300">Do not bind messages. Should not quote.</span></td>
+</tr>
+<tr>
+<td>502 - 506</td>
+<td><span style="color:#993300">Informational Messages - Should not hinder quoting</span></td>
+</tr>
+<tr>
+<td>507</td>
+<td><span style="color:#993300">Do not bind messages. Should not quote.</span></td>
+</tr>
+<tr>
+<td>508 - 549</td>
+<td><span style="color:#993300">Informational Messages - Should not hinder quoting</span></td>
+</tr>
+<tr>
+<td>550 - 599</td>
+<td><span style="color:#993300">Do not bind messages. Should not quote.</span></td>
+</tr>
+<tr>
+<td>600 - 699</td>
+<td><span style="color:#993300">Carrier informational messages.<br>
+                        Should not hinder quoting.</span><p>Messages found in this range represent carrier specific information.  These messages often appear with no text.  
+                        This is because these messages can be used by certain products (Rating Services, etc) as a mechanism for triggering 
+                        desired post-quote functionality, rather than simply relaying message text to the end-user.  Messages in this range 
+                        without text can safely be ignored.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>700 - 799</td>
+<td><span style="color:#993300">Carrier do not bind messages. Should not quote.</span><p>Messages found in this range represent carrier specific do not bind messages.  Quotes results should not be used.</p>
+</td>
+</tr>
+<tr>
+<td>800 - 899</td>
+<td><span style="color:#993300">Future use.<br>
+                        Do not bind messages. Should not quote.</span><p>This range is for future use. However, this range of message can still be programmed for and interpreted as 
+                        do not bind messages.  Quote results should not be used.
+                      </p>
+</td>
+</tr>
+<tr>
+<td>900 - 998</td>
+<td><span style="color:#993300">Engine error messages.<br>
+                        Should not quote.</span><p>Messages found in this range represent errors incurred by the rating engines while quoting.  Quote results should not be used.</p>
+</td>
+</tr>
+<tr>
+<td>999</td>
+<td><span style="color:#993300">Do not bind message. Should not quote.</span><p>A message with this code could represent anything of a nature that hinders the quote results.  Quote results should not be used.</p>
+</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="Table2"></a><h2>Hab Message - Individual IDs</h2>
+<table class="txtTableBody" cellSpacing="0">
+<col align="left" width="10%">
+<col align="left" width="45%">
+<col align="left" width="45%">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Messages</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">ID</td>
+<td class="txtTableColumnTitle">English Message</td>
+<td class="txtTableColumnTitle">French Message</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Number of claims exceeded, refer prior to binding</td>
+<td>Nombre de sinistres dépassés, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Number of mortgages exceeded, refer prior to binding</td>
+<td>Trop de créanciers, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Previous insurance required, refer prior to binding</td>
+<td>Assureur antérieur requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Town grade not available</td>
+<td>Territoire non disponible</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Number of families exceeded, refer prior to binding</td>
+<td>Nombre de familles inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Age limit exceeded, refer prior to binding</td>
+<td>Limite d'âge maximum dépassée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Minimum outbuildings coverage required, amount substituted</td>
+<td>Montant des dépendances sous les limites du mandate, montant substitué</td>
+</tr>
+<tr>
+<td>8</td>
+<td>First time buyer, refer prior to binding</td>
+<td>Premier acheteur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Form not supported</td>
+<td>Formule non disponible</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Structure not acceptable, refer prior to binding</td>
+<td>Structure inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Rates not available</td>
+<td>Taux non disponible</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Age of hot water tank may affect deductible, refer prior to binding</td>
+<td>Âge réservoir eau chaude peut influencer la franchise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Construction not acceptable, refer prior to binding</td>
+<td>Construction inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Must be owner occupied, refer prior to binding</td>
+<td>Doit être occupé par le propriétaire, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Must be tenant occupied, refer prior to binding</td>
+<td>Doit être occupé par un locataire, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Cannot contain a basement apartment, refer prior to binding</td>
+<td>N'accepte pas la présence d'un appartement au sous-sol, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Cannot contain an in-law suite, refer prior to binding</td>
+<td>Appartement des parents et/ou beaux-parents sujet à l'acceptation de l'assureur</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Minimum number of years insured required, refer prior to binding</td>
+<td>Nombre d'années d'assurances antérieures insuffisant, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Total amount of all floaters exceeded, refer prior to binding</td>
+<td>Montant total des assurances d'objets personnels trop élevé, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Minimum number of years occupied required, refer prior to binding</td>
+<td>Nombre d'années d'occupation insuffisant, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Contents coverage exceeded, refer prior to binding</td>
+<td>Montant des biens meubles trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Outbuildings coverage exceeded, refer prior to binding</td>
+<td>Montant des dépendances trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Rates subject to approval, refer prior to binding</td>
+<td>Taux sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Minimum age of insured required, refer prior to binding</td>
+<td>Âge minimum de l'assuré requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Number of units exceeded, refer prior to binding</td>
+<td>Nombre d'unités trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Claim amount exceeded, refer prior to binding</td>
+<td>Montant du sinistre trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>27</td>
+<td>First time buyer, do not bind</td>
+<td>Premier acheteur, ne pas souscrire</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Employer not acceptable, refer prior to binding</td>
+<td>L'employeur n'est pas acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Employer not acceptable, do not bind</td>
+<td>L'employeur n'est pas acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Insured does not meet age requirements</td>
+<td>L'assuré ne remplit pas les conditions d'âge</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Only one deductible and amount is applicable to Hail and Wind coverage</td>
+<td>Seulement une franchise et montant est applicable pour grêle et vent</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Number of mortgages exceeded, do not bind</td>
+<td>Trop de créanciers, ne pas souscrire</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Number of families exceeded, do not bind</td>
+<td>Nombre de familles inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Age limit exceeded, do not bind</td>
+<td>En raison du grand âge du bâtiment, ne pas souscrire</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Structure not acceptable, do not bind</td>
+<td>Structure inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Construction not acceptable, do not bind</td>
+<td>Construction inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Must be owner occupied, do not bind</td>
+<td>Doit être occupé par le propriétaire, ne pas souscrire</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Must be tenant occupied, do not bind</td>
+<td>Doit être occupé par un locataire, ne pas souscrire</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Cannot contain a basement apartment, do not bind</td>
+<td>N'accepte pas la présence d'un appartement au sous-sol, ne pas souscrire</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Cannot contain an in-law suite, do not bind</td>
+<td>Appartement des parents et/ou beaux-parents, ne pas souscrire</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Minimum number of years insured required, do not bind</td>
+<td>Nombre d'années d'assurances antérieures insuffisant, ne pas souscrire</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Minimum number of years occupied required, do not bind</td>
+<td>Nombre d'années d'occupation insuffisant, ne pas souscrire</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Rates subject to approval, do not bind</td>
+<td>Taux sujet à approbation, ne pas souscrire</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Minimum age of insured required, do not bind</td>
+<td>Âge minimum de l'assuré requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Number of units exceeded, do not bind</td>
+<td>Nombre d'unités trop élevé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Claim amount exceeded, do not bind</td>
+<td>Montant du sinistre trop élevé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Primary heat must meet company standards prior to binding</td>
+<td>Chauffage principal doit répondre aux normes de compagnie avant de souscrire</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Auxiliary heat must meet company standards prior to binding</td>
+<td>Chauffage auxiliaire doit répondre aux normes de compagnie avant de souscrire</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Electrical update required, do not bind</td>
+<td>Date de rénovation de l'électricité requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Roof update required, do not bind</td>
+<td>Date de rénovation de la toiture requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Plumbing update required, do not bind</td>
+<td>Date de rénovation de la plomberie requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Heating update required, do not bind</td>
+<td>Date de rénovation du chauffage requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Electrical service not supported, do not bind</td>
+<td>Capacité de l'installation électrique inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Electrical type not supported, do not bind</td>
+<td>Genre de fils électrique inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Plumbing type not supported, do not bind</td>
+<td>Genre de plomberie inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Roof type not supported, do not bind</td>
+<td>Genre de toiture inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Minimum number of smoke detectors required, do not bind</td>
+<td>Nombre minimum de détecteurs de fumée requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Auxiliary heat - number of cords of wood exceeded, do not bind</td>
+<td>Chauff. auxiliaire - Nbre. de cordes de bois trop élevé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Minimum building replacement cost required, do not bind</td>
+<td>Montant valeur de remplacement du bâtiment insuffisant, ne pas souscrire</td>
+</tr>
+<tr>
+<td>60</td>
+<td>100% replacement cost required, do not bind</td>
+<td>100% du coût de reconstruction du bâtiment requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Floor number not acceptable, refer prior to binding</td>
+<td>Numéro d'étage n'est pas acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Floor number not acceptable, do not bind</td>
+<td>Numéro d'étage n'est pas acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Coverage exceeds binding authority, do not bind</td>
+<td>Montant excède les limites du mandat, ne pas souscrire</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Minimum coverage required, do not bind</td>
+<td>Montant sous les limites du mandat, ne pas souscrire</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Burglary alarm required, do not bind</td>
+<td>Alarme contre le vol obligatoire, ne pas souscrire</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Fire alarm required, do not bind</td>
+<td>Alarme contre l'incendie obligatoire, ne pas souscrire</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Maximum distance from a firehall exceeded, do not bind</td>
+<td>A une grande distance d'un poste de pompiers, ne pas souscrire</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Protection class unacceptable, do not bind</td>
+<td>Classe de protection inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Premium assumes existence of principal residence with this carrier</td>
+<td>La prime de l'assureur présuppose qu'il assure la résidence principale</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Number of storeys not acceptable, do not bind</td>
+<td>Nombre d'étages n'est pas acceptables, ne pas souscrire</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Sprinkler system required, refer prior to binding</td>
+<td>Système de gicleurs est requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Home-based Business present, refer prior to binding</td>
+<td>Entreprise à domicile présente, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Commercial occupancy restrictions in effect, do not bind</td>
+<td>Affectation commerciale, ne pas souscrire</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Horsepower exceeded, do not bind</td>
+<td>Nombre de chevaux vapeur trop élevé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Speed exceeded, do not bind</td>
+<td>Vitesse maximale trop élevée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Length exceeded, do not bind</td>
+<td>Longueur maximale trop élevée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Home-based Business present, do not bind</td>
+<td>Entreprise à domicile présente, ne pas souscrire</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Inland waterways, do not bind</td>
+<td>Zone de navigation intérieure, ne pas souscrire</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Coastal waterways, do not bind</td>
+<td>Zone de navigation côtière, ne pas souscrire</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Number of NSFs exceeded, do not bind</td>
+<td>Nombre de NSFs excédé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Number of claims exceeded, do not bind</td>
+<td>Nombre de sinistres dépassés, ne pas souscrire</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Primary heat unacceptable, do not bind</td>
+<td>Chauffage principal inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Auxiliary heat unacceptable, do not bind</td>
+<td>Chauffage auxiliaire inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Minimum number of units required, refer prior to binding</td>
+<td>Nombre minimum d'unités requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Minimum number of units required, do not bind</td>
+<td>Nombre minimum d'unités requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Single Limit not available, refer prior to binding</td>
+<td>Montant global non disponible, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Single Limit coverage required, refer prior to binding</td>
+<td>Montant global requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Complete roof update required, refer prior to binding</td>
+<td>Rénovation complète du toit est requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Complete roof update required, do not bind</td>
+<td>Rénovation complète du toit est requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Complete plumbing update required, refer prior to binding</td>
+<td>Rénovation complète de la plomberie est requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Complete plumbing update required, do not bind</td>
+<td>Rénovation complète de la plomberie est requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Complete primary heating update required, refer prior to binding</td>
+<td>Rénovation complète du Chauffage principal requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Complete primary heating update required, do not bind</td>
+<td>Rénovation complète du Chauffage principal est requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Complete auxiliary heating update required, refer prior to binding</td>
+<td>Rénovation complète du Chauffage auxiliaire requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Complete auxiliary heating update required, do not bind</td>
+<td>Rénovation complète du Chauffage auxiliaire est requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Complete electrical update required, refer prior to binding</td>
+<td>Rénovation complète de l'électricité est requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Complete electrical update required, do not bind</td>
+<td>Rénovation complète de l'électricité est requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Dwelling under construction, refer prior to binding</td>
+<td>Résidence en construction, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Dwelling under construction, do not bind</td>
+<td>Résidence en construction, ne pas souscrire</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Dwelling under construction, rates not available</td>
+<td>Résidence en construction, taux non disponibles</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Primary heat unacceptable, refer prior to binding</td>
+<td>Chauffage principal inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Auxiliary heat unacceptable, refer prior to binding</td>
+<td>Chauffage auxiliaire inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Electrical update required, refer prior to binding</td>
+<td>Rénovation de l'électricité requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Roof update required, refer prior to binding</td>
+<td>Rénovation de la toiture requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Plumbing update required, refer prior to binding</td>
+<td>Rénovation de la plomberie requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Heating update required, refer prior to binding</td>
+<td>Rénovation du chauffage requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Electrical service not supported, refer prior to binding</td>
+<td>Capacité de l'installation électrique inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Electrical type not supported, refer prior to binding</td>
+<td>Genre de fils électrique inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Plumbing type not supported, refer prior to binding</td>
+<td>Genre de plomberie inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Roof type not supported, refer prior to binding</td>
+<td>Genre de toiture inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Security measures required, refer prior to binding</td>
+<td>Les mesures de sécurité sont requises, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Minimum number of smoke detectors required, refer prior to binding</td>
+<td>Nombre minimum de détecteurs de fumée requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Auxiliary heat - number of cords of wood exceeded, refer prior to binding</td>
+<td>Chauff. auxiliaire - Nbre. de cordes de bois trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Primary dwelling not required for secondary</td>
+<td>Résidence principale n'est pas requise pour secondaire</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Spa type not supported, refer prior to binding</td>
+<td>Genre de spa n'est pas supporté, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Spa type not supported, do not bind</td>
+<td>Genre de spa n'est pas supporté, ne pas souscrire</td>
+</tr>
+<tr>
+<td>117</td>
+<td>Security measures required, do not bind</td>
+<td>Les mesures de sécurité sont requises, ne pas souscrire</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Coverage type not supported, ACV rates applied</td>
+<td>Type de couverture n'est pas supporté, taux valeur réelle appliquer</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Coverage type not supported, Valued rates applied</td>
+<td>Type de couverture n'est pas supporté, taux valorisés appliquer</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Amount exceeds maximum coverage, amount substituted</td>
+<td>Montant excède la couverture maximale, le montant est substitué</td>
+</tr>
+<tr>
+<td>121</td>
+<td>Policy does not include any coverage, amount substituted</td>
+<td>Montant substitué, aucune protection incluse dans la police</td>
+</tr>
+<tr>
+<td>122</td>
+<td>Type not supported, amount substituted</td>
+<td>Montant substitué, genre non supporter</td>
+</tr>
+<tr>
+<td>123</td>
+<td>Rates not available in selected protection class</td>
+<td>Taux non disponible pour la classe de protection sélectionnée</td>
+</tr>
+<tr>
+<td>124</td>
+<td>Rates not available in selected zone</td>
+<td>Taux non disponible pour la zone sélectionnée</td>
+</tr>
+<tr>
+<td>125</td>
+<td>Minimum building replacement cost required, refer prior to binding</td>
+<td>Montant valeur de remplacement du bâtiment insuffisant, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>126</td>
+<td>100% replacement cost required, refer prior to binding</td>
+<td>100% du coût de reconstruction du bâtiment requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>127</td>
+<td>Maximum building coverage exceeded, refer prior to binding</td>
+<td>Montant du bâtiment trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>128</td>
+<td>Minimum building coverage required, refer prior to binding</td>
+<td>Montant du bâtiment sous les limites du mandat, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Outbuilding increase rates not available</td>
+<td>Dépendances: augmentation du montant, taux non disponible</td>
+</tr>
+<tr>
+<td>130</td>
+<td>Contents increase rates not available</td>
+<td>Biens Meubles: augmentation du montant, taux non disponible</td>
+</tr>
+<tr>
+<td>131</td>
+<td>Number of storeys not acceptable, refer prior to binding</td>
+<td>Nombre d'étages n'est pas acceptables, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>132</td>
+<td>Coverage exceeds binding authority, refer prior to binding</td>
+<td>Montant excède les limites du mandat, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>133</td>
+<td>Minimum coverage required, refer prior to binding</td>
+<td>Montant sous les limites du mandat, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>134</td>
+<td>Must have both building and contents coverage</td>
+<td>Montant sur le bâtiment et les biens meubles requis</td>
+</tr>
+<tr>
+<td>135</td>
+<td>Must have both vandalism coverage for building and contents</td>
+<td>Vandalisme sur le bâtiment et les biens meubles requis</td>
+</tr>
+<tr>
+<td>136</td>
+<td>Must have burglary, vandalism - building and vandalism - contents</td>
+<td>Le vol et vandalisme pour le bâtiment et les biens meubles requis</td>
+</tr>
+<tr>
+<td>137</td>
+<td>Dwelling coverage is less than dwelling amount</td>
+<td>Montant de la valeur désirée est inférieur au montant de remplacement</td>
+</tr>
+<tr>
+<td>138</td>
+<td>Sprinkler system required, do not bind</td>
+<td>Système de gicleurs est requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>139</td>
+<td>Burglary alarm required, refer prior to binding</td>
+<td>Alarme contre le vol obligatoire, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Fire alarm required, refer prior to binding</td>
+<td>Alarme contre l'incendie obligatoire, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>141</td>
+<td>GBRC coverage required, refer prior to binding</td>
+<td>Coût de remplacement garantie - bâtiment obligatoire, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>142</td>
+<td>Rates calculated using different territory than displayed</td>
+<td>Prime calculée avec un territoire différent que celui démontré</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Maximum distance from a firehall exceeded, refer prior to binding</td>
+<td>A une grande distance d'un poste de pompiers, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Protection class unacceptable, refer prior to binding</td>
+<td>Classe de protection inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>145</td>
+<td>Selected deductible not available, deductible substituted</td>
+<td>Franchise substituée, franchise demandée non disponible</td>
+</tr>
+<tr>
+<td>146</td>
+<td>Form available for renewal policies only</td>
+<td>Formule disponible pour renouvellement seulement</td>
+</tr>
+<tr>
+<td>147</td>
+<td>GBRC not available, refer prior to binding</td>
+<td>Coût de remplacement garanti non disponible, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>148</td>
+<td>Quote does not include replacement cost</td>
+<td>Valeur à neuf n'est pas compris dans la cotation</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Underwriting criteria not satisfied, refer prior to binding</td>
+<td>Les critères de souscriptions ne sont pas satisfaisants, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Underwriting criteria not satisfied, do not bind</td>
+<td>Les critères de souscriptions ne sont pas satisfaisants, ne pas souscrire</td>
+</tr>
+<tr>
+<td>151</td>
+<td>Liability rates not available</td>
+<td>Taux non disponible pour la responsabilité civile</td>
+</tr>
+<tr>
+<td>152</td>
+<td>Deductible rates not available</td>
+<td>Taux non disponible pour la franchise choisie</td>
+</tr>
+<tr>
+<td>153</td>
+<td>No rates available in selected zone</td>
+<td>Taux non disponible pour le territoire choisi</td>
+</tr>
+<tr>
+<td>154</td>
+<td>Rates not available in selected postal code</td>
+<td>Taux non disponible pour le code postal choisi</td>
+</tr>
+<tr>
+<td>155</td>
+<td>Rates not available in selected city</td>
+<td>Taux non disponible pour la ville choisie</td>
+</tr>
+<tr>
+<td>156</td>
+<td>Minimum contents coverage required, amount substituted</td>
+<td>Montant des biens meubles sous les limites du mandat, montant substitué</td>
+</tr>
+<tr>
+<td>157</td>
+<td>Minimum coverage required, rates not available</td>
+<td>Montant sous les limites du mandat, taux non disponible</td>
+</tr>
+<tr>
+<td>158</td>
+<td>Liability rates subject to approval, refer prior to binding</td>
+<td>Taux de responsabilité civile sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>159</td>
+<td>Proof of professional liability required, refer prior to binding</td>
+<td>Preuve de la responsabilité professionnelle est requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>162</td>
+<td>Rates subject to approval based on postal code, refer prior to binding</td>
+<td>Taux pour ce code postal sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>163</td>
+<td>Rates subject to approval based on city, refer prior to binding</td>
+<td>Taux pour cette ville sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Rates subject to approval based on zone, refer prior to binding</td>
+<td>Taux pour ce territoitre sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Deductible subject to approval, refer prior to binding</td>
+<td>Franchise sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>167</td>
+<td>Insured must have auto policy with company, refer prior to binding</td>
+<td>Assuré doit avoir une police courante avec compagnie, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>168</td>
+<td>TravelWell coverage available - See Extended Coverages section</td>
+<td>Protection TravelWell disponible - voir la section "assurances complémentaires"</td>
+</tr>
+<tr>
+<td>169</td>
+<td>Travelwell coverage - Additional charge may apply for non-dependents</td>
+<td>Protection TravelWell - les non dépendants sont sujets à une charge additionelle</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Fire, Smoke, or Explosion After Earthquake required, refer prior to binding.</td>
+<td>Incendie, Explosion, Fumée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>172</td>
+<td>Rates may be subject to approval based on postal code, refer prior to binding</td>
+<td>Taux pour ce code postal sujet à approbation, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>174</td>
+<td>Lower rates may be available for this sector, please refer prior to binding</td>
+<td>Tarification plus avantageuse pour certains secteurs, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>176</td>
+<td>Liability limit must be the same as the principal residence</td>
+<td>Limite responsibilité civile doit être la même que résidence principale</td>
+</tr>
+<tr>
+<td>177</td>
+<td>Deductible limit must be the same as the principal residence</td>
+<td>Franchise doit être la même que résidence principale</td>
+</tr>
+<tr>
+<td>178</td>
+<td>Deductible and Liability limits must be the same as the principal residence</td>
+<td>Franchise et Limite resp. civile doivent être la même que résidence principale</td>
+</tr>
+<tr>
+<td>180</td>
+<td>Refer to company</td>
+<td>Soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>181</td>
+<td>Valued Intact Customer</td>
+<td>Client privilégié Intact</td>
+</tr>
+<tr>
+<td>182</td>
+<td>**Valued Intact Customer**</td>
+<td>**Client privilégié Intact**</td>
+</tr>
+<tr>
+<td>183</td>
+<td>Risk and location characteristics indicate desirable risk</td>
+<td>Risk and location characteristics indicate desirable risk</td>
+</tr>
+<tr>
+<td>185</td>
+<td>Avantage 5/45 at no charge on request</td>
+<td>Avantage 5/45 sans frais sur demande</td>
+</tr>
+<tr>
+<td>186</td>
+<td>Primary Heating - Oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage principal - Réservoir d'huile non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>187</td>
+<td>Primary Heating - Oil tank not acceptable, do not bind</td>
+<td>Chauffage principal - Réservoir d'huile non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>188</td>
+<td>Auxiliary Heating - Oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage auxiliaire - Réservoir d'huile non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>189</td>
+<td>Auxiliary Heating - Oil tank not acceptable, do not bind</td>
+<td>Chauffage auxiliaire - Réservoir d'huile non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>190</td>
+<td>Minimum total living area required, refer prior to binding</td>
+<td>Total de la surface minimale habitable requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>191</td>
+<td>Maximum total living area required, refer prior to binding</td>
+<td>Total de la surface maximale habitable requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>192</td>
+<td>Number of oil tanks exceeded, refer prior to binding</td>
+<td>Nombre de réservoirs d'huile dépassé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>193</td>
+<td>Number of oil tanks exceeded, do not bind</td>
+<td>Nombre de réservoirs d'huile dépassé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>194</td>
+<td>Maximum number of kilowatthours exceeded, refer prior to binding</td>
+<td>Nombre maximum de kilowattheures dépassé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>195</td>
+<td>Maximum number of kilowatthours exceeded, do not bind</td>
+<td>Nombre maximum de kilowattheures dépassé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>196</td>
+<td>Maximum income replacement amount exceeded, refer prior to binding</td>
+<td>Montant maximum de remplacement de revenu dépassé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>197</td>
+<td>Maximum income replacement amount exceeded, do not bind</td>
+<td>Montant maximum de remplacement de revenu dépassé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Amount exceeds the maximum coverage, rates not available</td>
+<td>Montant excède la limite maximum permise, taux non disponible</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Amount exceeds the maximum coverage, refer prior to binding</td>
+<td>Montant excède la limite maximum permise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Item amount exceeds the maximum coverage, rates not available</td>
+<td>Montant de l'item excède la limite maximum permise, taux non disponible</td>
+</tr>
+<tr>
+<td>205</td>
+<td>Roof slope not supported, do not bind</td>
+<td>Genre de toit inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Roof slope not supported, refer prior to binding</td>
+<td>Genre de toit inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>207</td>
+<td>Insured cannot act as their own contractor, refer prior to binding</td>
+<td>Assuré ne peut agir comme leur propre entrepreneur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>208</td>
+<td>Insured cannot act as their own contractor, rates not available</td>
+<td>Assuré ne peut agir comme leur propre entrepreneur, taux non disponible</td>
+</tr>
+<tr>
+<td>209</td>
+<td>Project type not acceptable, rates not available</td>
+<td>Type de projet non acceptable, taux non disponible</td>
+</tr>
+<tr>
+<td>210</td>
+<td>Must be occupied during construction, rates not available</td>
+<td>Doit être occupé pendant la construction, taux non disponible</td>
+</tr>
+<tr>
+<td>211</td>
+<td>Must be occupied during construction, refer prior to binding</td>
+<td>Doit être occupé pendant la construction, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>212</td>
+<td>Number of children exceeded, refer prior to binding</td>
+<td>Nombre d'enfants inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>213</td>
+<td>Number of children exceeded, do not bind</td>
+<td>Nombre d'enfants inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>214</td>
+<td>Number of guests exceeded, refer prior to binding</td>
+<td>Nombre d'invités inacceptable, soumettre a l'assureur</td>
+</tr>
+<tr>
+<td>215</td>
+<td>Number of guests exceeded, do not bind</td>
+<td>Nombre d'invités inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>216</td>
+<td>Number of kennels exceeded, refer prior to binding</td>
+<td>Nombre de chenils inacceptable, soumettre a l'assureur</td>
+</tr>
+<tr>
+<td>217</td>
+<td>Number of kennels exceeded, do not bind</td>
+<td>Nombre de chenils inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>218</td>
+<td>Number of chairs exceeded, refer prior to binding</td>
+<td>Nombre de chaises inacceptable, soumettre a l'assureur</td>
+</tr>
+<tr>
+<td>219</td>
+<td>Number of chairs exceeded, do not bind</td>
+<td>Nombre de chaises inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>220</td>
+<td>Number of stylists exceeded, refer prior to binding</td>
+<td>Nombre de coiffeurs/coiffeuses inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>221</td>
+<td>Number of stylists exceeded, do not bind</td>
+<td>Nombre de coiffeurs/coiffeuses inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>222</td>
+<td>Number of students exceeded, refer prior to binding</td>
+<td>Nombre d'étudiants inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>223</td>
+<td>Number of students exceeded, do not bind</td>
+<td>Nombre d'étudiants inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>226</td>
+<td>Increase for betterments &amp; improvements rates not available</td>
+<td>Améliorations locatives - augmentation du montant, taux non disponible</td>
+</tr>
+<tr>
+<td>227</td>
+<td>Increase for loss assessment rates not available</td>
+<td>Ass. complémentaires parties immobilières - aug. du montant, taux non disponible</td>
+</tr>
+<tr>
+<td>228</td>
+<td>Increase for contingent rates not available</td>
+<td>Répartition - augmentation du montant, taux non disponible</td>
+</tr>
+<tr>
+<td>229</td>
+<td>Commercial occupancy restrictions in effect, refer prior to binding</td>
+<td>Affectation commerciale, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>251</td>
+<td>Burglary rates not available</td>
+<td>Taux pour le cambriolage non disponible</td>
+</tr>
+<tr>
+<td>252</td>
+<td>Malicious damage building rates not available</td>
+<td>Taux non disponible pour les actes malveillants - bâtiment</td>
+</tr>
+<tr>
+<td>253</td>
+<td>Malicious damage contents rates not available</td>
+<td>Taux non disponible pour les actes malveillants - biens meubles</td>
+</tr>
+<tr>
+<td>276</td>
+<td>Horsepower exceeded, refer prior to binding</td>
+<td>Nombre de chevaux vapeur trop élevé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>277</td>
+<td>Speed exceeded, refer prior to binding</td>
+<td>Vitesse maximale trop élevée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>278</td>
+<td>Length exceeded, refer prior to binding</td>
+<td>Longueur maximale trop élevée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>280</td>
+<td>Type not supported</td>
+<td>Genre prohibé</td>
+</tr>
+<tr>
+<td>281</td>
+<td>Horsepower exceeded, rates not available</td>
+<td>Nombre de chevaux vapeur trop élevé, taux non disponible</td>
+</tr>
+<tr>
+<td>282</td>
+<td>Speed exceeded, rates not available</td>
+<td>Vitesse maximale trop élevée, taux non disponible</td>
+</tr>
+<tr>
+<td>283</td>
+<td>Length exceeded, rates not available</td>
+<td>Longueur maximale trop élevée, taux non disponible</td>
+</tr>
+<tr>
+<td>285</td>
+<td>Trailer rates not available</td>
+<td>Taux non disponible pour la roulotte</td>
+</tr>
+<tr>
+<td>286</td>
+<td>Trailer contents rates not available</td>
+<td>Taux non disponible pour les biens meubles dans la roulotte</td>
+</tr>
+<tr>
+<td>287</td>
+<td>Premium includes Trailer premium</td>
+<td>Prime totale inclus la prime de la roulotte</td>
+</tr>
+<tr>
+<td>288</td>
+<td>Premium includes Trailer Contents premium</td>
+<td>Prime totale inclus la prime des biens meubles de la roulotte</td>
+</tr>
+<tr>
+<td>289</td>
+<td>Policy does not include any coverage</td>
+<td>Aucune protection inclus dans la police</td>
+</tr>
+<tr>
+<td>290</td>
+<td>Inland waterways, refer prior to binding</td>
+<td>Zone de navigation intérieure, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>291</td>
+<td>Coastal waterways, refer prior to binding</td>
+<td>Zone de navigation côtière, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>292</td>
+<td>Preventative measures required, refer prior to binding</td>
+<td>Mesures préventives exigées, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>293</td>
+<td>Preventative measures required, rates not available</td>
+<td>Mesures préventives exigées, taux non disponibles</td>
+</tr>
+<tr>
+<td>295</td>
+<td>Maximum total living area exceeded, refer prior to binding</td>
+<td>Total de la surface maximale habitable requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>296</td>
+<td>Evaluation requirements not satisfied, refer prior to binding</td>
+<td>Les critères d'évaluation ne sont pas satisfaisantes, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>297</td>
+<td>Occupation not acceptable, refer prior to binding</td>
+<td>Profession non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>298</td>
+<td>Occupation not acceptable, do not bind</td>
+<td>Profession non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>299</td>
+<td>Primary Heating - oil tank age exceeded, refer prior to binding</td>
+<td>Chauffage principale - année du réservoir d'huile excédée, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Primary Heating - oil tank age exceeded, do not bind</td>
+<td>Chauffage principal - année du réservoir d'huile excédée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Auxiliary Heating - oil tank age exceeded, refer prior to binding</td>
+<td>Chauffage auxiliaire - année du réservoir d'huile excédée, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Auxiliary Heating - oil tank age exceeded, do not bind</td>
+<td>Chauffage auxiliaire - année du réservoir d'huile excédée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>303</td>
+<td>Primary Heating - Underground oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage principal - Réservoir souterrain non acceptable, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Primary Heating - Underground oil tank not acceptable, do not bind</td>
+<td>Chauffage principal - Réservoir souterrain non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>305</td>
+<td>Auxiliary Heating - Underground oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage auxiliaire - Réservoir souterrain non acceptable, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>306</td>
+<td>Auxiliary Heating - Underground oil tank not acceptable, do not bind</td>
+<td>Chauffage auxiliaire - Réservoir souterrain non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>307</td>
+<td>Primary Heating - Above ground oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage principal - Réservoir hors-terre non acceptable, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>308</td>
+<td>Primary Heating - Above ground oil tank not acceptable, do not bind</td>
+<td>Chauffage principal - Réservoir hors-terre non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>309</td>
+<td>Auxiliary Heating - Above ground oil tank not acceptable, refer prior to binding</td>
+<td>Chauffage auxiliaire - Réservoir hors-terre non acceptable, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>310</td>
+<td>Auxiliary Heating - Above ground oil tank not acceptable, do not bind</td>
+<td>Chauffage auxiliaire - Réservoir hors-terre non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>311</td>
+<td>Primary Heating - Interior oil tank, refer prior to binding</td>
+<td>Chauffage principal - Réservoir d'huile intérieur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>312</td>
+<td>Primary Heating - Interior oil tank, do not bind</td>
+<td>Chauffage principal - Réservoir d'huile intérieur, ne pas souscrire</td>
+</tr>
+<tr>
+<td>313</td>
+<td>Auxiliary Heating - Interior oil tank, refer prior to binding</td>
+<td>Chauffage auxiliaire - Réservoir d'huile intérieur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>314</td>
+<td>Auxiliary Heating - Interior oil tank, do not bind</td>
+<td>Chauffage auxiliaire - Réservoir d'huile intérieur, ne pas souscrire</td>
+</tr>
+<tr>
+<td>315</td>
+<td>Primary Heating - Exterior oil tank, refer prior to binding</td>
+<td>Chauffage principal - Réservoir d'huile extérieur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>316</td>
+<td>Primary Heating - Exterior oil tank, do not bind</td>
+<td>Chauffage principal - Réservoir d'huile extérieur, ne pas souscrire</td>
+</tr>
+<tr>
+<td>317</td>
+<td>Auxiliary Heating - Exterior oil tank, refer prior to binding</td>
+<td>Chauffage auxiliaire - Réservoir d'huile extérieur, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>318</td>
+<td>Auxiliary Heating - Exterior oil tank, do not bind</td>
+<td>Chauffage auxiliaire - Réservoir d'huile extérieur, ne pas souscrire</td>
+</tr>
+<tr>
+<td>319</td>
+<td>Business type ineligible, refer prior to binding</td>
+<td>Type de risque non éligible, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>320</td>
+<td>Business type ineligible, do not bind</td>
+<td>Type de risque non éligible, ne pas souscrire</td>
+</tr>
+<tr>
+<td>321</td>
+<td>Gross annual income exceeded, refer prior to binding</td>
+<td>Revenu annuel brut est excédé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>322</td>
+<td>Gross annual income exceeded, do not bind</td>
+<td>Revenu annuel brut excédé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>323</td>
+<td>Minimum gross annual income required, refer prior to binding</td>
+<td>Minimum du revenu annuel brut requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>324</td>
+<td>Minimum gross annual income required, do not bind</td>
+<td>Minimum du revenu annuel brut requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>325</td>
+<td>Number of non-resident employees exceeded, refer prior to binding</td>
+<td>Nombre d'employés non-résidents excédés, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>326</td>
+<td>Number of non-resident employees exceeded, do not bind</td>
+<td>Nombre d'employés non-résidents excédés, ne pas souscrire</td>
+</tr>
+<tr>
+<td>327</td>
+<td>Minimum number of non-resident employees required, refer prior to binding</td>
+<td>Minimum du nombre d'employés non-résident requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>328</td>
+<td>Minimum number of non-resident employees required, do not bind</td>
+<td>Minimum du nombre d'employés non-résident requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>329</td>
+<td>Number of rooms exceeded, refer prior to binding</td>
+<td>Nombre de chambres excédés, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>330</td>
+<td>Number of rooms exceeded, do not bind</td>
+<td>Nombre de chambres excédés, ne pas souscrire</td>
+</tr>
+<tr>
+<td>333</td>
+<td>Internet sales not acceptable, refer prior to binding</td>
+<td>Ventes par Internet non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>334</td>
+<td>Internet sales not acceptable, do not bind</td>
+<td>Ventes par Internet non acceptable, ne pas souscrire </td>
+</tr>
+<tr>
+<td>335</td>
+<td>Sale of products outside Canada not acceptable, refer prior to binding</td>
+<td>Vente de produits hors Canada non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>336</td>
+<td>Sale of products outside Canada not acceptable, do not bind</td>
+<td>Vente de produits hors Canada non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>337</td>
+<td>Location not acceptable, refer prior to binding</td>
+<td>Location non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>338</td>
+<td>Location not acceptable, do not bind</td>
+<td>Location non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>340</td>
+<td>Earthquake deductibles must match</td>
+<td>Franchises du tremblement de terre doivent correspondre</td>
+</tr>
+<tr>
+<td>341</td>
+<td>Number of days exceeded, refer prior to binding</td>
+<td>Nombre de jours excédé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>342</td>
+<td>Number of days exceeded, do not bind</td>
+<td>Nombre de jours excédé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>343</td>
+<td>Minimum number of days required, refer prior to binding</td>
+<td>Minimum nombre de jours requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>344</td>
+<td>Minimum number of days required, do not bind</td>
+<td>Minimum nombre de jours requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>350</td>
+<td>Pool type not supported, refer prior to binding</td>
+<td>Type de piscine non supporté, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>351</td>
+<td>Pool type not supported, do not bind</td>
+<td>Type de piscine non supporté, ne pas souscrire</td>
+</tr>
+<tr>
+<td>352</td>
+<td>Amount exceeds the maximum coverage, do not bind</td>
+<td>Montant excédant la couverture maximale, ne pas souscrire</td>
+</tr>
+<tr>
+<td>353</td>
+<td>Increase rates not available</td>
+<td>Augmentation de taux non disponibles</td>
+</tr>
+<tr>
+<td>354</td>
+<td>Evaluation requirements not satisfied, do not bind</td>
+<td>Exigences d'évaluation non satisfaisants, ne pas souscrire</td>
+</tr>
+<tr>
+<td>355</td>
+<td>GBRC coverage required, do not bind</td>
+<td>Garantie valeur à neuf requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>356</td>
+<td>Previous insurance required, do not bind</td>
+<td>Assurance antérieure requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>357</td>
+<td>Selected liability not available, liability substituted</td>
+<td>Responsabilité civile sélectionnée non disponible, responsabilité substituée</td>
+</tr>
+<tr>
+<td>358</td>
+<td>Total amount of all floaters exceeded, do not bind</td>
+<td>Montant total de tous les effets personnels exceed, ne pas souscrire</td>
+</tr>
+<tr>
+<td>359</td>
+<td>Maximum total living area required, do not bind</td>
+<td>Aire habitable totale maximale requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>360</td>
+<td>Maximum total living area exceeded, do not bind</td>
+<td>Aire habitable totale maximale excédée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>361</td>
+<td>Minimum total living area required, do not bind</td>
+<td>Aire habitable totale minimale requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>362</td>
+<td>Electrical panel unacceptable, refer prior to binding</td>
+<td>Panneau électrique inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>363</td>
+<td>Electrical panel unacceptable, do not bind</td>
+<td>Panneau électrique inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>364</td>
+<td>Minimum Basement Area required, refer prior to binding</td>
+<td>Superficie minimum du bâtiment requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>365</td>
+<td>Minimum Basement Area required, do not bind</td>
+<td>Superficie minimum du bâtiment requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>366</td>
+<td>Maximum Basement Area exceeded, refer prior to binding</td>
+<td>Superficie maximum du bâtiment dépassée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>367</td>
+<td>Maximum Basement Area exceeded, do not bind</td>
+<td>Superficie maximum du bâtiment dépassée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>368</td>
+<td>Minimum Basement finished area required, refer prior to binding</td>
+<td>Superficie minimum du sous-sol aménagé requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>369</td>
+<td>Minimum Basement finished area required, do not bind</td>
+<td>Superficie minimum du sous-sol aménagé requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>370</td>
+<td>Maximum Basement finished area exceeded, refer prior to binding</td>
+<td>Superficie maximum du sous-sol aménagé dépassée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>371</td>
+<td>Maximum Basement finished area exceeded, do not bind</td>
+<td>Superficie maximum du sous-sol aménagé dépassée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>372</td>
+<td>Swimming Pool without fence, refer prior to binding</td>
+<td>Piscine non clôturée, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>373</td>
+<td>Swimming Pool without fence, do not bind</td>
+<td>Piscine non clôturée, ne pas souscrire</td>
+</tr>
+<tr>
+<td>374</td>
+<td>Age of hot water tank exceeded, refer prior to binding</td>
+<td>Âge du réservoir d'eau chaude dépassé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>375</td>
+<td>Age of hot water tank exceeded, do not bind</td>
+<td>Âge du réservoir d'eau chaude dépassé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>376</td>
+<td>Hot water tank update required, refer prior to binding</td>
+<td>Date de rénovation pour le réservoir d'eau chaude requise, soumettre à l'ass.</td>
+</tr>
+<tr>
+<td>377</td>
+<td>Hot water tank update required, do not bind</td>
+<td>Date de rénovation pour le réservoir d'eau chaude requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>378</td>
+<td>Water Main Shutoff type unacceptable, refer prior to binding</td>
+<td>Type d'arrêt d'eau principal inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>379</td>
+<td>Water Main Shutoff type unacceptable, do not bind</td>
+<td>Type d'arrêt d'eau principal inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>380</td>
+<td>Water Main Shutoff alarm required, refer prior to binding</td>
+<td>Alarme d'arrêt d'eau requise, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>381</td>
+<td>Water Main Shutoff alarm required, do not bind</td>
+<td>Alarme d'arrêt d'eau requise, ne pas souscrire</td>
+</tr>
+<tr>
+<td>382</td>
+<td>Minimum number of bathrooms required, refer prior to binding</td>
+<td>Nombre minimum de salle-de-bains requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>383</td>
+<td>Minimum number of bathrooms required, do not bind</td>
+<td>Nombre minimum de salle-de-bains requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>384</td>
+<td>Maximum number of bathrooms exceeded, refer prior to binding</td>
+<td>Nombre maximum de salle-de-bains dépassé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>385</td>
+<td>Maximum number of bathrooms exceeded, do not bind</td>
+<td>Nombre maximum de salle-de-bains dépassé, ne pas souscrire</td>
+</tr>
+<tr>
+<td>388</td>
+<td>Log not acceptable, refer prior to binding</td>
+<td>Bois rond non acceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>389</td>
+<td>Log not acceptable, do not bind</td>
+<td>Bois rond non acceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>390</td>
+<td>Minimum number of fire extinguishers required, refer prior to binding</td>
+<td>Nombre minimum d'extincteur requis, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>391</td>
+<td>Minimum number of fire extinguishers required, do not bind</td>
+<td>Nombre minimum d'extincteur requis, ne pas souscrire</td>
+</tr>
+<tr>
+<td>392</td>
+<td>Exterior finish unacceptable, refer prior to binding</td>
+<td>Finition extérieure inacceptable, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>393</td>
+<td>Exterior finish unacceptable, do not bind</td>
+<td>Finition extérieure inacceptable, ne pas souscrire</td>
+</tr>
+<tr>
+<td>394</td>
+<td>Minimum number of sensors required, refer prior to binding</td>
+<td>Nombre minimum de capteurs nécessaires, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>395</td>
+<td>Minimum number of sensors required, do not bind</td>
+<td>Nombre minimum de capteurs nécessaires, ne pas souscrire</td>
+</tr>
+<tr>
+<td>396</td>
+<td>Must have building coverage, rates not available</td>
+<td>Dois avoir couvertures sur bâtiment, taux non disponible</td>
+</tr>
+<tr>
+<td>397</td>
+<td>Must have contents coverage, rates not available</td>
+<td>Dois avoir couverture sur biens meubles, taux non disponible</td>
+</tr>
+<tr>
+<td>398</td>
+<td>Must have outbuilding coverage, rates not available</td>
+<td>Dois avoir couverture sur dépendance, taux non disponible</td>
+</tr>
+<tr>
+<td>399</td>
+<td>Coverage not supported</td>
+<td>Garantie non supportée</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Number of days exceeds days covered by policy</td>
+<td>Nombre de jours excède les jours couverts par la police</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Number of NSFs exceeded, refer prior to binding</td>
+<td>Nombre de NSFs excédé, soumettre à l'assureur</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Dwelling type not supported by carrier</td>
+<td>Type d'habitation non disponible par l'assureur</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Form type not supported by carrier</td>
+<td>Type de formule non disponible par l'assureur</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Invalid location given. Default used</td>
+<td>Location inadmissible donné. Défaut utilisé</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Invalid form given. Default used</td>
+<td>Formule inadmissible donné. Défaut utilisé</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Invalid floater zone given. Default used</td>
+<td>Zone d'objet personnels invalide. Défaut utilisé</td>
+</tr>
+<tr>
+<td>505</td>
+<td>Invalid earthquake zone given. Default used</td>
+<td>Zone de tremblement de terre invalide. Défaut utilisé</td>
+</tr>
+<tr>
+<td>506</td>
+<td>Invalid sewer backup zone given. Default used</td>
+<td>Zone de refou. des égouts invalide. Défaut utilisé</td>
+</tr>
+<tr>
+<td>507</td>
+<td>Carrier territory information problem</td>
+<td>Problème de l'information de territoire de l'assureur</td>
+</tr>
+<tr>
+<td>508</td>
+<td>Rating territory adjusted by user</td>
+<td></td>
+</tr>
+<tr>
+<td>599</td>
+<td>Confirm with the insurance company before binding this risk</td>
+<td>Confirmer avec la compagnie avant de couvrir ce risque</td>
+</tr>
+<tr>
+<td>601</td>
+<td>12 month policy - 1 installment only</td>
+<td>Police 12 mois - 1 versement seulement</td>
+</tr>
+<tr>
+<td>602</td>
+<td>Technical difficulty. If problem persists contact Applied.</td>
+<td>Problème technique. Si le problème persiste, avisé Applied.</td>
+</tr>
+<tr>
+<td>603</td>
+<td>Consent not obtained - 12 month policy - 1 installment only</td>
+<td>Consentement non obtenu-Police 12 mois-1 versement seulement</td>
+</tr>
+<tr>
+<td>604</td>
+<td>No hit-Client not found. Verify client info. and resubmit</td>
+<td>Client non trouvé. Vérifier info. client et relancer</td>
+</tr>
+<tr>
+<td>605</td>
+<td>INVALID INTACT STABILITY PROGRAM USER NAME AND/OR PASSWORD</td>
+<td>NOM UTILISATEUR/MOT DE PASSE INVALIDE POUR STABILITÉ INTACT</td>
+</tr>
+<tr>
+<td>606</td>
+<td>Invalid Applied user name and/or password.</td>
+<td>Nom utilisateur et/ou mot de passe invalide pour Applied.</td>
+</tr>
+<tr>
+<td>607</td>
+<td>Technical difficulty. Please contact Applied.</td>
+<td>Problème technique. SVP, avisé Applied.</td>
+</tr>
+<tr>
+<td>608</td>
+<td>Current carrier is Intact - premium to be confirmed by company</td>
+<td>Assureur actuel Intact - prime à confirmer avec la compagnie</td>
+</tr>
+<tr>
+<td>609</td>
+<td>Access Intact functions not allowed. Enter your full name</td>
+<td>Accès fonctions Intact non autorisé. Entrer votre nom complet</td>
+</tr>
+<tr>
+<td>610</td>
+<td>Insure with AXA and BEE rewarded</td>
+<td>Assurez avec AXA et "BEE rewarded"</td>
+</tr>
+<tr>
+<td>611</td>
+<td>Refer to AXA prior to binding</td>
+<td>Référer à AXA avant de soumettre</td>
+</tr>
+<tr>
+<td>612</td>
+<td>ANNUAL PREMIUM DOES NOT INCLUDE THE 50$/POLICY : TO BE ADDED</td>
+<td>LA PRIME ANNUELLE N'INCLUT PAS LE 50$/POLICE : A AJOUTER</td>
+</tr>
+<tr>
+<td>613</td>
+<td>Acceptable risk, subject to underwriting guidelines</td>
+<td>Risque acceptable, sujet aux règles de souscriptions</td>
+</tr>
+<tr>
+<td>614</td>
+<td>Consent not obtained</td>
+<td>Consentement non obtenu</td>
+</tr>
+<tr>
+<td>615</td>
+<td>Tech default/Premium not confirmed.  (If persistent, call Applied)</td>
+<td>Défaut tech./Prime non confirmée. Si persistant, appelez Applied</td>
+</tr>
+<tr>
+<td>616</td>
+<td>Client not found / Verify info. and resubmit if need be.</td>
+<td>Client non trouvé / Vérifiez info. et relancez au besoin.</td>
+</tr>
+<tr>
+<td>617</td>
+<td>Tech default/Premium not confirmed, contact Applied</td>
+<td>Défaut tech./Prime non confirmée, contactez Applied</td>
+</tr>
+<tr>
+<td>618</td>
+<td>Invalid insurance company user name and/or password</td>
+<td>Nom utilisateur et/ou mot de passe pour compagnie invalide</td>
+</tr>
+<tr>
+<td>619</td>
+<td>AXA authorization required</td>
+<td>Autorisation de AXA requise</td>
+</tr>
+<tr>
+<td>620</td>
+<td>Consent ignored, insured is a minor.</td>
+<td>Consentement ignoré, assuré est mineur.</td>
+</tr>
+<tr>
+<td>701</td>
+<td>Intact rates not available. Stability info. not provided</td>
+<td>Tarification Intact non disponible. Info Stabilité non fournie</td>
+</tr>
+<tr>
+<td>997</td>
+<td>Dwelling does not exist on your system</td>
+<td>L'Habitation n'existe pas sur votre système</td>
+</tr>
+<tr>
+<td>998</td>
+<td>Unable to quote successfully. See other messages for further information.</td>
+<td>Incapable de coter avec succès. Voir autres messages pour plus d'informations.</td>
+</tr>
+<tr>
+<td>999</td>
+<td>ERROR! Abnormal Termination of Quote!</td>
+<td>ERROR! Abnormal Termination of Quote!</td>
+</tr>
+</table><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

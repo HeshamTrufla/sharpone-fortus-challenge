@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <Province>QC</Province>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1a" Type="Territory">
+         <Carrier>AXA</Carrier>
+         <LocationIndex>1007</LocationIndex>
+         <PostalCode>J0E1A0</PostalCode>
+         <Results>
+            <Value>4D</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="1b" Type="Territory">
+         <Carrier>PAF</Carrier>
+         <LocationIndex>1007</LocationIndex>
+         <PostalCode>J0E1A0</PostalCode>
+         <Results>
+            <Value>1E</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2a" Type="TerritoryList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>1A</Value>
+            <Value>1B</Value>
+            <Value>1C</Value>
+            <Value>1D</Value>
+            <Value>1E</Value>
+            <Value>1F</Value>
+            <Value>1G</Value>
+            <Value>1H</Value>
+            <Value>02</Value>
+            <Value>2A</Value>
+            <Value>2B</Value>
+            <Value>2C</Value>
+            <Value>03</Value>
+            <Value>4A</Value>
+            <Value>4B</Value>
+            <Value>4D</Value>
+            <Value>05</Value>
+            <Value>5A</Value>
+            <Value>5B</Value>
+            <Value>6A</Value>
+            <Value>6B</Value>
+            <Value>6C</Value>
+            <Value>6D</Value>
+            <Value>6E</Value>
+            <Value>7A</Value>
+            <Value>7B</Value>
+            <Value>7C</Value>
+            <Value>08</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2b" Type="TerritoryList">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>1A</Value>
+            <Value>1B</Value>
+            <Value>1C</Value>
+            <Value>1D</Value>
+            <Value>1E</Value>
+            <Value>2A</Value>
+            <Value>4A</Value>
+            <Value>4B</Value>
+            <Value>5A</Value>
+            <Value>6A</Value>
+            <Value>7A</Value>
+            <Value>7B</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="3a" Type="DriverClassList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="3b" Type="DriverClassList">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>20</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="4a" Type="CoverageList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>TP</Value>
+            <Value>AP</Value>
+            <Value>COL</Value>
+            <Value>CMP</Value>
+            <Value>SP</Value>
+            <Value>PAK</Value>
+            <Value>2</Value>
+            <Value>5A</Value>
+            <Value>13C</Value>
+            <Value>20</Value>
+            <Value>23A</Value>
+            <Value>27</Value>
+            <Value>34A</Value>
+            <Value>43A</Value>
+            <Value>43D</Value>
+            <Value>43E</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="4b" Type="CoverageList">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>TPBI</Value>
+            <Value>COL</Value>
+            <Value>CMP</Value>
+            <Value>34A</Value>
+            <Value>AP</Value>
+            <Value>SP</Value>
+            <Value>13C</Value>
+            <Value>20</Value>
+            <Value>27</Value>
+            <Value>43A</Value>
+            <Value>43D</Value>
+            <Value>43E</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="5a" Type="DrivingRecordList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>0</Value>
+            <Value>1</Value>
+            <Value>2</Value>
+            <Value>3</Value>
+            <Value>4</Value>
+            <Value>5</Value>
+            <Value>6</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="5b" Type="DrivingRecordList">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>6</Value>
+            <Value>5</Value>
+            <Value>4</Value>
+            <Value>3</Value>
+            <Value>2</Value>
+            <Value>1</Value>
+            <Value>0</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="6a" Type="VRG">
+         <Carrier>AXA</Carrier>
+         <VehYear>2000</VehYear>
+         <VICCCode>5470</VICCCode>
+         <Results>
+            <Values Group="TP">
+               <Value>25</Value>
+            </Values>
+            <Values Group="COL">
+               <Value>25</Value>
+            </Values>
+            <Values Group="CMP">
+               <Value>25</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="6b" Type="VRG">
+         <Carrier>PAF</Carrier>
+         <VehYear>2000</VehYear>
+         <VICCCode>5470</VICCCode>
+         <Results>
+            <Values Group="TP">
+               <Value>41</Value>
+            </Values>
+            <Values Group="COL">
+               <Value>41</Value>
+            </Values>
+            <Values Group="CMP">
+               <Value>29</Value>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="7a" Type="VRGList">
+         <Carrier>AXA</Carrier>
+         <EffDate>20050303</EffDate>
+         <Renewal>Y</Renewal>
+         <Results>
+            <Value>01</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>14</Value>
+            <Value>15</Value>
+            <Value>16</Value>
+            <Value>17</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+            <Value>20</Value>
+            <Value>21</Value>
+            <Value>22</Value>
+            <Value>23</Value>
+            <Value>24</Value>
+            <Value>25</Value>
+            <Value>26</Value>
+            <Value>27</Value>
+            <Value>28</Value>
+            <Value>29</Value>
+            <Value>30</Value>
+            <Value>31</Value>
+            <Value>32</Value>
+            <Value>33</Value>
+            <Value>34</Value>
+            <Value>35</Value>
+            <Value>36</Value>
+            <Value>37</Value>
+            <Value>38</Value>
+            <Value>39</Value>
+            <Value>40</Value>
+            <Value>41</Value>
+            <Value>42</Value>
+            <Value>43</Value>
+            <Value>44</Value>
+            <Value>45</Value>
+            <Value>46</Value>
+            <Value>47</Value>
+            <Value>48</Value>
+            <Value>49</Value>
+            <Value>50</Value>
+            <Value>51</Value>
+            <Value>52</Value>
+            <Value>53</Value>
+            <Value>54</Value>
+            <Value>55</Value>
+            <Value>56</Value>
+            <Value>57</Value>
+            <Value>58</Value>
+            <Value>59</Value>
+            <Value>60</Value>
+            <Value>61</Value>
+            <Value>62</Value>
+            <Value>63</Value>
+            <Value>64</Value>
+            <Value>65</Value>
+            <Value>66</Value>
+            <Value>67</Value>
+            <Value>68</Value>
+            <Value>69</Value>
+            <Value>70</Value>
+            <Value>71</Value>
+            <Value>72</Value>
+            <Value>73</Value>
+            <Value>74</Value>
+            <Value>75</Value>
+            <Value>76</Value>
+            <Value>77</Value>
+            <Value>78</Value>
+            <Value>79</Value>
+            <Value>80</Value>
+            <Value>81</Value>
+            <Value>82</Value>
+            <Value>83</Value>
+            <Value>84</Value>
+            <Value>85</Value>
+            <Value>86</Value>
+            <Value>87</Value>
+            <Value>88</Value>
+            <Value>89</Value>
+            <Value>90</Value>
+            <Value>91</Value>
+            <Value>92</Value>
+            <Value>93</Value>
+            <Value>94</Value>
+            <Value>95</Value>
+            <Value>96</Value>
+            <Value>97</Value>
+            <Value>98</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="7b" Type="VRGList">
+         <Carrier>PAF</Carrier>
+         <Renewal>Y</Renewal>
+         <Results>
+            <Value>1</Value>
+            <Value>2</Value>
+            <Value>3</Value>
+            <Value>4</Value>
+            <Value>5</Value>
+            <Value>6</Value>
+            <Value>7</Value>
+            <Value>8</Value>
+            <Value>9</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>14</Value>
+            <Value>15</Value>
+            <Value>16</Value>
+            <Value>17</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+            <Value>20</Value>
+            <Value>21</Value>
+            <Value>22</Value>
+            <Value>23</Value>
+            <Value>24</Value>
+            <Value>25</Value>
+            <Value>26</Value>
+            <Value>27</Value>
+            <Value>28</Value>
+            <Value>29</Value>
+            <Value>30</Value>
+            <Value>31</Value>
+            <Value>32</Value>
+            <Value>33</Value>
+            <Value>34</Value>
+            <Value>35</Value>
+            <Value>36</Value>
+            <Value>37</Value>
+            <Value>38</Value>
+            <Value>39</Value>
+            <Value>40</Value>
+            <Value>41</Value>
+            <Value>42</Value>
+            <Value>43</Value>
+            <Value>44</Value>
+            <Value>45</Value>
+            <Value>46</Value>
+            <Value>47</Value>
+            <Value>48</Value>
+            <Value>49</Value>
+            <Value>50</Value>
+            <Value>51</Value>
+            <Value>52</Value>
+            <Value>53</Value>
+            <Value>54</Value>
+            <Value>55</Value>
+            <Value>56</Value>
+            <Value>57</Value>
+            <Value>58</Value>
+            <Value>59</Value>
+            <Value>60</Value>
+            <Value>61</Value>
+            <Value>62</Value>
+            <Value>63</Value>
+            <Value>64</Value>
+            <Value>65</Value>
+            <Value>66</Value>
+            <Value>67</Value>
+            <Value>68</Value>
+            <Value>69</Value>
+            <Value>70</Value>
+            <Value>71</Value>
+            <Value>72</Value>
+            <Value>73</Value>
+            <Value>74</Value>
+            <Value>75</Value>
+            <Value>76</Value>
+            <Value>77</Value>
+            <Value>78</Value>
+            <Value>79</Value>
+            <Value>80</Value>
+            <Value>81</Value>
+            <Value>82</Value>
+            <Value>83</Value>
+            <Value>84</Value>
+            <Value>85</Value>
+            <Value>86</Value>
+            <Value>87</Value>
+            <Value>88</Value>
+            <Value>89</Value>
+            <Value>90</Value>
+            <Value>91</Value>
+            <Value>92</Value>
+            <Value>93</Value>
+            <Value>94</Value>
+            <Value>95</Value>
+            <Value>96</Value>
+            <Value>97</Value>
+            <Value>98</Value>
+            <Value>99</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="8a" Type="TerritoryHelp">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>Cette compagnie publie une liste de ville    
+complete ou les territoires correspondants   
+ont ete definis dans notre systeme.          
+                                             
+This carrier publishes a complete town/city  
+list with corresponding territories which    
+have been defined within the rating system.</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="8b" Type="TerritoryHelp">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f36\froman\fcharset238\fprq2 Times New Roman CE;}{\f37\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f39\froman\fcharset161\fprq2 Times New Roman Greek;}{\f40\froman\fcharset162\fprq2 Times New Roman Tur;}{\f41\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f42\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f43\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f44\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 Normal;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}}{\*\latentstyles\lsdstimax156\lsdlockeddef0}{\*\rsidtbl \rsid5314682\rsid13261017\rsid13903609}{\*\generator Microsoft Word 11.0.6113;}{\info{\title This carrier publishes a complete town/city list with corresponding territories which have been defined within the rating system}{\author Anthony Coliccihia}{\operator Lea Patterson}{\creatim\yr2006\mo5\dy17\hr9\min15}{\revtim\yr2006\mo5\dy17\hr9\min15}{\version2}{\edmins1}{\nofpages1}{\nofwords19}{\nofchars112}{\*\company  Compu-Quote Inc.}{\nofcharsws130}{\vern24699}}\widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\formshade\horzdoc\dgmargin\dghspace180\dgvspace180\dghorigin1800\dgvorigin1440\dghshow1\dgvshow1\jexpand\viewkind1\viewscale100\pgbrdrhead\pgbrdrfoot\splytwnine\ftnlytwnine\htmautsp\nolnhtadjtbl\useltbaln\alntblind\lytcalctblwd\lyttblrtgr\lnbrkrule\nobrkwrptbl\viewnobound1\snaptogridincell\allowfieldendsel\wrppunct\asianbrkrule\rsidroot13261017\newtblstyruls\nogrowautofit \fet0\sectd \linex0\sectdefaultcl\sectrsid13261017\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid13261017 \par This carrier publishes a complete town/city list with corresponding territories which have been defined within the rating system.\par }}</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="9a" Type="ClassHelp">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>CLASSE 01     (SUITE: LES DOSSIERS)          
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Kilometrage aller-retour travail: 8 km max.  
+Kilometrage annuel: 16 000 km max.           
+2 conducteurs maximum par vehicule.          
+Tout conducteur possedant un permis de       
+conduire valide depuis les 3 precedentes     
+annees.                                      
+Aucun conducteur masculin ou feminin         
+celibataire de moins de 25 ans.              
+                                             
+CLASSE 02                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Kilometrage aller-retour travail: 16 km max. 
+Kilometrage annuel: 25 000 km max.           
+2 conducteurs maximum par vehicule.          
+Aucun conducteur masculin ou feminin         
+celibataire de moins de 25 ans.              
+CLASSE 03                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 04                                    
+Conducteur principal masculin celibataire    
+de 25 a 29 ans.                              
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 06                                    
+Conducteur occasionnel masculin de moins de  
+25 ans.                                      
+Notes:                                       
+La prime a exiger est distincte et doit etre 
+inscrite separement sur la proposition.      
+Lorsq'il y a plus d'un conducteur occasionnel
+masculin de moins de 25 ans:                 
+A) exiger la prime la plus elevee de la      
+classe 06 selon le dossier de chacun des     
+conducteurs.                                 
+B) tarifer en utilisant la classe 03, si la  
+classe principale est 01 ou 02.              
+                                             
+CLASSE 07                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire age
+30 ans et plus.                              
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 08                                    
+Conducteur principal masculin marie de 16    
+20 ans.                                      
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 09                                    
+Conducteur principal masculin marie de 21    
+24 ans.                                      
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 10                                    
+Conducteur principal masculin celibataire de 
+16 a 18 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 11                                    
+Conducteur principal masculin celibataire de 
+19 a 20 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 12                                    
+Conducteur principal masculin celibataire de 
+21 a 22 ans.                                 
+Usage:  Promenade et Affaires.               
+                                             
+CLASSE 13                                    
+Conducteur principal masculin celibataire de 
+23 a 24 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 18                                    
+Conducteur principal feminin marie ou        
+celibataire de 16 a 20 ans.                  
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+CLASSE 19                                    
+Conducteur principal feminin marie ou        
+celibataire de 21 a 24 ans.                  
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+DOSSIER 5                                    
+"Bon dossier" au cours des cinq (5) annees   
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.  Valable
+seulement pour les risques admissibles au    
+dossier cinq (5) ans.                        
+Tous les conducteurs doivent, pendant les    
+cinq (5) annees qui precedent immediatement  
+la date d'entree en vigueur de la police de  
+son dernier renouvellement:                  
+avoir detenu un permis de conduire valide, et
+n'avoir eu aucun accident responsable sous   
+les garanties Responsabilite Civile et/ou    
+Collision.                                   
+                                             
+De plus, durant les trois (3) annees qui     
+precedent imm}diatement la date d'entree en  
+vigueur de la police ou de son renouvellement
+les conducteurs doivent n'avoir subi:        
+Aucune condamnation pour infraction de       
+circulation routiere relevant du Code        
+Criminel;                                    
+Plus de deux (2) infractions de circulation  
+routiere.                                    
+Les proposants qui etaient proprietaires ou  
+locataires d'un vehicule doivent avoir       
+detenu une assurance automobile.             
+                                             
+NOTE:                                        
+Tout risque tarife en vertu du dossier 5 ne  
+perd pas automatiquement son dossier apres un
+accident responsable.                        
+                                             
+Classe 06:                                   
+Les conducteurs de la classe 06 sont exclus, 
+sauf si les conducteurs de la classe         
+principale et ces derniers se qualifient.    
+Les conducteurs de la classe 06 qui ne se    
+qualifient pas au dossier 5, ne privent pas  
+les conducteurs de la classe principale      
+d'avoir droit au dossier 5 pour autant.      
+Conjoints:                                   
+Signifie l'homme et la femme qui:            
+Sont maries et cohabitent.                   
+Cohabitent maritalement et se presentent     
+publiquement comme conjoints, depuis au moins
+trois ans, ou dans les cas suivants, depuis  
+au moins un an:                              
+Un enfant est ne ou est a naitre de leur     
+union,                                       
+Ils ont conjointement adopte un enfant,      
+L'un deux a adopte un enfant de l'autre.     
+                                             
+DOSSIER 3                                    
+Bon dossier au cours des trois (3) annees    
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.         
+                                             
+DOSSIER 2                                    
+Bon dossier au cours des deux (2) annees     
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.         
+                                             
+DOSSIER 1                                    
+Bon dossier au cours de l'annee immediatement
+anterieure a la prise d'effet ou au          
+renouvellement de l'assurance.               
+                                             
+DOSSIER 0                                    
+Risques qui n'entrent dans aucune des        
+categories ci-dessus.</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="9b" Type="ClassHelp">
+         <Carrier>PAF</Carrier>
+         <Results>
+            <Value>{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f36\froman\fcharset238\fprq2 Times New Roman CE;}{\f37\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f39\froman\fcharset161\fprq2 Times New Roman Greek;}{\f40\froman\fcharset162\fprq2 Times New Roman Tur;}{\f41\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f42\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f43\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f44\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 Normal;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}}{\*\latentstyles\lsdstimax156\lsdlockeddef0}{\*\listtable{\list\listtemplateid-583506704\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid-1550287192\'02\'00);}{\levelnumbers\'01;}\loch\af0\hich\af0\dbch\af0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\fi-180\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\fi-180\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\fi-360\li5760\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\fi-180\li6480\jclisttab\tx6480\lin6480 }{\listname ;}\listid921135356}{\list\listtemplateid1342366364\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext\leveltemplateid479602016\'01\'00;}{\levelnumbers\'01;}\fbias0 \fi-2880\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1800\jclisttab\tx1800\lin1800 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'02.;}{\levelnumbers\'01;}\fi-180\li2520\jclisttab\tx2520\lin2520 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'03.;}{\levelnumbers\'01;}\fi-360\li3240\jclisttab\tx3240\lin3240 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'04.;}{\levelnumbers\'01;}\fi-360\li3960\jclisttab\tx3960\lin3960 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'05.;}{\levelnumbers\'01;}\fi-180\li4680\jclisttab\tx4680\lin4680 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698703\'02\'06.;}{\levelnumbers\'01;}\fi-360\li5400\jclisttab\tx5400\lin5400 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698713\'02\'07.;}{\levelnumbers\'01;}\fi-360\li6120\jclisttab\tx6120\lin6120 }{\listlevel\levelnfc2\levelnfcn2\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace0\levelindent0{\leveltext\leveltemplateid67698715\'02\'08.;}{\levelnumbers\'01;}\fi-180\li6840\jclisttab\tx6840\lin6840 }{\listname ;}\listid1863400125}}{\*\listoverridetable{\listoverride\listid921135356\listoverridecount0\ls1}{\listoverride\listid1863400125\listoverridecount0\ls2}}{\*\rsidtbl \rsid11934\rsid218522\rsid418478\rsid3961763\rsid5191913\rsid8202204\rsid9008934\rsid9649081\rsid10886360\rsid10901243\rsid13008683\rsid13314126}{\*\generator Microsoft Word 11.0.6113;}{\info{\title First Digit}{\author Anthony Coliccihia}{\operator Lea Patterson}{\creatim\yr2006\mo5\dy17\hr9\min16}{\revtim\yr2006\mo5\dy17\hr9\min16}{\version2}{\edmins0}{\nofpages5}{\nofwords1123}{\nofchars6404}{\*\company  Compu-Quote Inc.}{\nofcharsws7512}{\vern24699}}\widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\formshade\horzdoc\dgmargin\dghspace180\dgvspace180\dghorigin1800\dgvorigin1440\dghshow1\dgvshow1\jexpand\viewkind1\viewscale100\pgbrdrhead\pgbrdrfoot\splytwnine\ftnlytwnine\htmautsp\nolnhtadjtbl\useltbaln\alntblind\lytcalctblwd\lyttblrtgr\lnbrkrule\nobrkwrptbl\viewnobound1\snaptogridincell\allowfieldendsel\wrppunct\asianbrkrule\rsidroot13314126\newtblstyruls\nogrowautofit \fet0\sectd \linex0\endnhere\sectlinegrid360\sectdefaultcl\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid13314126 First Digit\par \par Type of Business\par \par Condition\tab \tab \tab \tab \tab Value\par Farm use\tab \tab \tab \tab \tab 2\par \par Pleasure, Work, Business, \par }{\insrsid5191913 l}{\insrsid13314126 icensed &lt; 5 years, driver training,\tab \tab 8\par no claims\par \par Pleasure, Work, Business, licensed\tab \tab 9\par &lt; 5 years no driver training, no claims\par \par All others\tab \tab \tab \tab \tab 1\par \par Rules \endash  First Digit\par A \'93New Driver\'94 is one who has held a permanent drivers licence for less than 5 years, calculated from the effective date of the policy.  The codes \'938\'94, \'939\'94 are only to be used for claim free New Drivers.  At the first renewal or when the operator becomes licensed for 5 years the TYPE of BUSINESS code would revert to a code \'931\'94.\par \par If the insured is a claim free new driver who is also a f}{\insrsid5191913 armer use Type of Business codes}{\insrsid13314126 \par \'932\'94.\par \par }{\insrsid418478 The first digit may be overridden by the user to a value of 4 to indicate a fleet.}{\insrsid13314126 \par }{\insrsid418478 \par Second and Third Digits\par \par Type of Use}{\insrsid5191913 \tab \tab \tab \tab \tab Digits 2 &amp; 3}{\insrsid418478 \par }{\insrsid5191913 Principal operator &gt;= 25, no \par Business use, no Work use, no \par Artisan use (ie: no operator with \par use = Cnn) &lt;= 2 operators, no \tab \tab \tab 01\par female &lt; 25, no unmarried male\par &lt; 30, all operators licensed &gt;= 3 \par years, no license suspensions &lt;= 3\par years, annual KM &lt;= 16KM\par }{\insrsid418478 \par }{\insrsid5191913 Principal operator &gt;= 25, no Business \par use, if used for work then one way\tab \tab \tab 02 \par KM &lt;= 16, &lt;= 2 operators, no female\par &lt; 25, no unmarried male &lt; 30.\par \par }{\insrsid11934 Principal operator &gt;=25, no Business }{\insrsid5191913 \par }{\insrsid11934 use, no unmarried male &lt; 30\tab \tab \tab \tab 03\par \par }{\insrsid8202204 Principal or occasional unmarried}{\insrsid11934 \par }{\insrsid8202204 Male &gt;= 25 &lt; 30,\tab \tab \tab \tab \tab 04\par \par Principal operator &gt;= 25, Business\par use,  No unmarried male &lt; 30\tab \tab \tab \tab 07\par \par Occasional operator, 16 &lt;= age &lt;= 24,\par female, principal operator &gt;= 25, not \tab \tab 05\par principal operator of any vehicle on policy.\par \par Occasional operator, 16 &lt;= age &lt;= 24, \par male, principal operator &gt;= 25, not \tab \tab \tab 06\par principal operator of any vehicle on policy.\par \par Principal operator, 16 &lt;= age &lt;= 20, \par male, married\tab \tab \tab \tab \tab \tab 08\par \par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid8202204 {\insrsid8202204 Principal operator, 21 &lt;= age &lt;= 24, \par male, married\tab \tab \tab \tab \tab \tab 09\par \par Principal operator, 16 &lt;= age &lt;= 18, \par male, single\tab \tab \tab \tab \tab \tab 10\par \par Principal operator, 19 &lt;= age &lt;= 20, \par male, single\tab \tab \tab \tab \tab \tab 11\par \par Principal operator, age 21, 22, \par male, single\tab \tab \tab \tab \tab \tab 12\par \par Principal operator, age 23, 24, \par male, single\tab \tab \tab \tab \tab \tab 13\par \par Principal operator, 16 &lt;= age &lt;= 20, \par female\tab \tab \tab \tab \tab \tab \tab 18\par \par Principal operator, 21 &lt;= age &lt;= 24, \par female\tab \tab \tab \tab \tab \tab \tab 19\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 {\insrsid8202204 \par }{\insrsid3961763 Additional Rules}{\insrsid8202204 \par }{\insrsid3961763 \par Vehicle Use = Highest use of all operators on vehicle excluding underage (age &lt;25) male or female occasional operators.  If there are multiple occasional operators on a vehicle the 06 class (operator sex M) takes precedence over the 05 class (operator sex F).\par \par \lquote Highest Use\rquote  is currently defined as BUS then WRK then PLS then FRM where BUS is the highest (from Type of Use field).  With the introduction of the new ARTISAN classes, \lquote Highest use\rquote  will now be defined as: BUS then WRK then Cnn then PLS then FRM where BUS is the highest.  If &gt;1 Cnn then use the highest nn value. (so in an example where 2 operators assigned to the vehicle and use for Operator 1 is BUS and for Operator 2 is C34, then system in this case should assign 2}{\super\insrsid3961763\charrsid3961763 nd}{\insrsid3961763 /3}{\super\insrsid3961763\charrsid3961763 rd}{\insrsid3961763  digits as 07.  In another example; again 2 operators, 1 vehicle \endash  use for Operator 1 is C34 and for Operator 2 is C43 then system would assign 43.)\par \par Age, sex, marital status from principal operator or underage occasional operator.\par }{\insrsid10901243 \par Number of operators \endash  If underage occasional operator assigned to vehicle do not count drivers male or female &lt;= 24 years.\par \par KM to work \endash  Highest of all operators excluding underage occasional operator.\par \par Licensed &gt;= 3 years \endash  All operators on policy must be licensed &gt;= 3 years excluding underage occasional operator (class 01).\par \par License suspension \endash  No operator on the vehicle has had license suspended &lt;= 3 years.\par \par 05 \endash  Used when risk would normally qualify for 01, 02, 03, 04, 07 except for occasional use by female &lt; 25.  05 is for occasional young female driver only.  Principal operator would be coded with applicable type of use code 01, Cnn, 02, 03, 04 or 07.\par \par 06 \endash  Used when risk would normally qualify for 01, 02, 03, 04, 07 except for occasional use by male &lt; 25.  06 is for occasional young male driver only.  Principal operator would be coded with applicable type of use code 01, Cnn, 02, 03, 04 or 07.\par \par If &gt;= 2 underage drivers on vehicle (05 and/or 06 driver present), then do not use 01, Cnn or 02, use 03.\par \par Fourth Digit\par \par Driving Record\par \par This digit will reflect, based on the driving experience of the principal operator (or \lquote rated for\rquote  UOO in computing the 05/06 RCC), the number of years of without an AT FAULT accident attributed to this vehicle.  }{\insrsid10886360 Values range from 0 to a maximum of 6.  No special credit is given for presence of Driver Training.  There is no accident forgiveness.}{\insrsid10901243 \par }{\insrsid10886360 \par In determining the value of the 4}{\super\insrsid10886360\charrsid10886360 th}{\insrsid10886360  digit, take the smaller of the values computed based on:\par {\listtext\pard\plain\insrsid10886360 \hich\af0\dbch\af0\loch\f0 1)\tab}}\pard \ql \fi-360\li720\ri0\widctlpar\jclisttab\tx720\aspalpha\aspnum\faauto\ls1\adjustright\rin0\lin720\itap0\pararsid10886360 {\insrsid10886360 Principal operator driving experience (or age of \lquote rated for\rquote  underage occasional operator when computing the 05/06 rate class code) and \par {\listtext\pard\plain\insrsid10886360 \hich\af0\dbch\af0\loch\f0 2)\tab}Number of years accident free \endash  this takes into account all AF accidents assigned to this vehicle\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid10886360 {\insrsid10886360 \par Principal operator driving experience \par (or \lquote rated for\rquote  underage occasional operator when computing the 05/06 RCC)\par \par Driving Experience\tab \tab \tab Digit 4\par &lt; 1 year\tab \tab \tab \tab 0\par &gt;= 1 &lt; 2 years\tab \tab \tab \tab 1\par &gt;= 2 &lt; 3 years\tab \tab \tab \tab 2\par &gt;= 3 &lt; 4 years\tab \tab \tab \tab 3\par &gt;= 4 &lt; 5 years\tab \tab \tab \tab 4\par &gt;= 5 &lt; 6 years\tab \tab \tab \tab 5\par &gt;= 6 years\tab \tab \tab \tab 6\par \par In determining number of years of driving experience compare the principal operator\rquote s date licensed (or \lquote rated for\rquote  UOO date licensed when computing the 05/06 RCC) to the policy effective date and if the number of years licensed is &lt;6, subtract any period within the last 6 years where any operator\rquote s license was under suspension.\par \par (Note: since brokers use for input \lquote 6\rquote  as the number of years licensed for anyone who has &gt; 6 years driving experience we\rquote ll only look at subtracting suspensions if the number of years licensed is &lt;6.)\par }{\insrsid9649081 \par License suspensions are identified as conviction type SUnn* (located on Operator screen) where \lquote nn\rquote  represents the suspension period \endash  eg: if SU03 then suspension period is 3 months.  Example: If policy effective date is 09/01/04 and operator date licensed is 08/00 as of the effective date the driving experience for this driver would be: - 4 if no conviction type SUnn is present (total months experience is 49 which represents 4 full years + 1 month).  \endash  3 if 1 conviction with type SU03 is present (total months experience is 46 which represents 3 full years + 10 months).\par (* conviction code SUSP is never used when entering suspension data from the MVR \endash  underwriters always use SUnn.)\par \par In developing driving experience consider the violation history of all operators assigned to the vehicle (except if a separate 05/06 RCC is developed for the vehicle).  The total number of months of license suspensions for all operators is used in the calculation.\par \par Determining driving experience when class 05/06 RCC present:\par Suspensions attributed to any occasional operator under age 25 are used to determine the value of the 4}{\super\insrsid9649081\charrsid9649081 th}{\insrsid9649081  digit of the 05/06 rate class code developed for the vehicle while suspensions associated with occasional operators with age &gt;= 25 are included with those attributed to the principal operator when computing the rate class code for the principal operator.\par \par Number of Years accident free\par This includes all AT FAULT claims attributed to this vehicle with a charge date equal to or less than the effective date and with an occurrence date within the past 6 years.  In determining the number of accident free years, the occurrence date of the most recent AF loss is compared to the policy effective date.  Note: If 05/06 RCC developed for the vehicle see rules below.\par \par # Years Accident Free\tab \tab \tab Digit 4\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 0\tab}}\pard \ql \fi-2880\li3600\ri0\widctlpar\jclisttab\tx3600\aspalpha\aspnum\faauto\ls2\adjustright\rin0\lin3600\itap0\pararsid9649081 {\insrsid9649081 0\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 1\tab}1\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 2\tab}2\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 3\tab}3\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 4\tab}4\par {\listtext\pard\plain\insrsid9649081 \hich\af0\dbch\af0\loch\f0 5\tab}5\par }\pard \ql \li720\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin720\itap0\pararsid9649081 {\insrsid9649081 &gt;5\tab \tab \tab \tab 6\par }\pard \ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid9649081 {\insrsid9649081 \par }}</Value>
+         </Results>
+      </Lookup>
+    <Lookup ID="11a" Type="UserInitDisSur">
+      <Carrier>PAF</Carrier>
+      <Results>
+        <Values Group="Discounts">
+          <Values Group="ZDSU1">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Blue</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Green</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU3">
+            <Values Group="AmountOverride">
+              <Value>MUST_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Brown</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+          </Values>
+        </Values>
+        <Values Group="Surcharges">
+          <Values Group="ZSRU1">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Yellow</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU2">
+            <Values Group="AmountOverride">
+              <Value>MUST_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Red</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU3">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Pink</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="11b" Type="UserInitDisSur">
+      <Carrier>UTOM</Carrier>
+      <Results>
+        <Values Group="Discounts">
+          <Values Group="ZDSU3">
+            <Values Group="AmountOverride">
+              <Value>MUST_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Green Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Blue Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU1">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Pink Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+          </Values>
+        </Values>
+        <Values Group="Surcharges">
+          <Values Group="ZSRU3">
+            <Values Group="AmountOverride">
+              <Value>CAN_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Red Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Black Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="12" Type="SupportedTypes">
+      <Carrier>GA</Carrier>
+      <Results>
+        <Values Group="Commercial">
+          <Value>Private Passenger</Value>
+        </Values>
+        <Values Group="IRCA">
+          <Value>Personal Trailer</Value>
+        </Values>
+        <Values Group="Personal">
+          <Value>Private Passenger</Value>
+        </Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="13" Type="TelematProgList">
+      <Carrier>DOC</Carrier>
+      <Results>
+        <Values Group="TNB10">
+          <Values Group="Description">
+            <Value>New Enrolment</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN10">
+          <Values Group="Description">
+            <Value>Renewal 10%</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN15">
+          <Values Group="Description">
+            <Value>Renewal 15%</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN20">
+          <Values Group="Description">
+            <Value>Renewal 20%</Value>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>New Engine: C:\CQFortus\bin\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Auto Engine: c:\cqwin\cqae32r.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 0</Info>
+      <Info LookupID="1a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="1b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="1b">RateBook Index: 1</Info>
+      <Info LookupID="2a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="2b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="2b">RateBook Index: 1</Info>
+      <Info LookupID="3a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="3b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="3b">RateBook Index: 1</Info>
+      <Info LookupID="4a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="4b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="4b">RateBook Index: 1</Info>
+      <Info LookupID="5a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="5b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="5b">RateBook Index: 1</Info>
+      <Info LookupID="6a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="6b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="6b">RateBook Index: 1</Info>
+      <Info LookupID="7a">Ratebook File: c:\cqwin\auto\AP1AXA.QUE</Info>
+      <Info LookupID="7b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="7b">RateBook Index: 1</Info>
+      <Info LookupID="8a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="8b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="8b">RateBook Index: 1</Info>
+      <Info LookupID="9a">Ratebook File: c:\cqwin\auto\AP6AXA.QUE</Info>
+      <Info LookupID="9b">RBC File: c:\cqwin\auto\PPQCPAF.RBC</Info>
+      <Info LookupID="9b">RateBook Index: 1</Info>
+      <Info>FLookup Engine Info: Version 1 Build 1</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Wed Jul 05 13:28:57 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

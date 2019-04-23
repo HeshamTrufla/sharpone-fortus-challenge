@@ -1,0 +1,25 @@
+﻿<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <CQCredentials xmlns="http://www.compu-quote.com/AppliedITV/Version1">
+         <UserName>Username1</UserName>
+         <Password>UGFzc3dvcmQx</Password>
+      </CQCredentials>
+      <Caller xmlns="http://www.compu-quote.com/AppliedITV/Version1">
+         <Product>ThirdParty_Web</Product>
+         <Name>mycallingapp.dll</Name>
+         <Version>1.0.1.54</Version>
+         <ClientID>12345</ClientID>
+         <QuoteGUID>9381A101CC4042C5B77C34E8A2264039</QuoteGUID>
+      </Caller>
+   </soap:Header>
+   <soap:Body>
+      <AddressLookup xmlns="http://www.compu-quote.com/AppliedITV/Version1">
+         <AddressInfo>
+            <Address>4510 Rhodes</Address>
+            <City>WINDSOR</City>
+            <PostalCode>N8W5K5</PostalCode>
+            <Province>ON</Province>
+         </AddressInfo>
+      </AddressLookup>
+   </soap:Body>
+</soap:Envelope>

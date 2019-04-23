@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+  <Defaults>
+    <ProductLine>Personal</ProductLine>
+    <Province>ON</Province>
+    <VehType>Private Passenger</VehType>
+  </Defaults>
+  <Diagnostics>
+    <Info>New Engine: G:\Fortus\bin\v5.2_b1\cqe20.dll</Info>
+    <Info>New Engine Info: Version 2.5 Build 3</Info>
+    <Info>Legacy Auto Engine: G:\Fortus\bin\v5.2_b1\cqae32.dll</Info>
+    <Info>Legacy Auto Engine Info: Version 4 Build 1</Info>
+    <Info>Data Path: g:\fortus\test\data\auto\</Info>
+    <Info>Shared Data Path: g:\fortus\test\postal\</Info>
+    <Info>System Files Path: g:\fortus\bin\v5.2_b1\sysfiles\</Info>
+    <Info>FLookup Engine Info: Version 2.2 Build 5</Info>
+    <Info>System Date/Time: Thu Jan 02 21:13:36 2014</Info>
+  </Diagnostics>
+  <Lookups>
+    <Lookup ID="1" Type="TelematProgList">
+      <Carrier>CIC</Carrier>
+      <Renewal>N</Renewal>
+      <Results></Results>
+    </Lookup>
+    <Lookup ID="2" Type="TelematProgList">
+      <Carrier>DOC</Carrier>
+      <Renewal>N</Renewal>
+      <Results>
+        <Values Group="TNB10">
+          <Values Group="Description">
+            <Value>New Enrolment</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN10">
+          <Values Group="Description">
+            <Value>Renewal 10%</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN15">
+          <Values Group="Description">
+            <Value>Renewal 15%</Value>
+          </Values>
+        </Values>
+        <Values Group="TRN20">
+          <Values Group="Description">
+            <Value>Renewal 20%</Value>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Property">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <CodeName>Homeowners</CodeName>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="TableNameList">
+         <Carrier>GC</Carrier>
+      </Lookup>
+      <Lookup ID="101" Type="TableName">
+         <Carrier>GC</Carrier>
+         <TerrCode>1007</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+      </Lookup>
+      <Lookup ID="2" Type="TableNameList">
+         <Carrier>MR</Carrier>
+      </Lookup>
+      <Lookup ID="102" Type="TableName">
+         <Carrier>MR</Carrier>
+         <TerrCode>1007</TerrCode>
+         <ProtectionClass>P</ProtectionClass>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

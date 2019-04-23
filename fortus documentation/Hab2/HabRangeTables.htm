@@ -1,0 +1,5807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Hab Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table1">Table 1: Heating Type Codes</a></li>
+<li><a href="#Table2">Table 2: Chimney Type Codes</a></li>
+<li><a href="#Table3">Table 3: Alarm Codes</a></li>
+<li><a href="#Table4">Table 4: Occupation Codes</a></li>
+<li><a href="#Table5">Table 5: Form Type Codes</a></li>
+<li><a href="#Table6">Table 6: Business Type Codes</a></li>
+<li><a href="#Table7">Table 7: Language Codes</a></li>
+<li><a href="#Table8">Table 8: Insurance Type Codes</a></li>
+<li><a href="#Table9">Table 9: Province Codes</a></li>
+<li><a href="#Table10">Table 10: Protection Grade Codes</a></li>
+<li><a href="#Table11">Table 11: Policy Deductibles</a></li>
+<li><a href="#Table12">Table 12: Policy Liability Limits</a></li>
+<li><a href="#Table13">Table 13: Structure Type Codes</a></li>
+<li><a href="#Table14">Table 14: Construction Type Codes</a></li>
+<li><a href="#Table15">Table 15: Claim Type Codes</a></li>
+<li><a href="#Table16">Table 16: Roof Type Codes</a></li>
+<li><a href="#Table17">Table 17: Electrical Service Type Codes</a></li>
+<li><a href="#Table18">Table 18: Electrical Wiring Type Codes</a></li>
+<li><a href="#Table19">Table 19: Plumbing Type Codes</a></li>
+<li><a href="#Table20">Table 20: Sprinkler Type Codes</a></li>
+<li><a href="#Table21">Table 21: Watercraft Construction Type Codes</a></li>
+<li><a href="#Table22">Table 22: Watercraft Type Codes</a></li>
+<li><a href="#Table23">Table 23: Watercraft Auxiliary Power Type Codes</a></li>
+<li><a href="#Table24">Table 24: Waterway Type Codes</a></li>
+<li><a href="#Table25">Table 25: Earthquake Deductible Codes</a></li>
+<li><a href="#Table26">Table 26: Glass Breakage Deductibles</a></li>
+<li><a href="#Table27">Table 27: Floater Deductible Codes</a></li>
+<li><a href="#Table28">Table 28: Group Plan Codes</a></li>
+<li><a href="#Table29">Table 29: Product Names</a></li>
+<li><a href="#Table30">Table 30: Sump Pump Types</a></li>
+<li><a href="#Table31">Table 31: Sump Pump Auxiliary Power Types</a></li>
+<li><a href="#Table32">Table 32: Backup / Backflow Valve Types</a></li>
+<li><a href="#Table33">Table 33: Area Measurement Types</a></li>
+<li><a href="#Table34">Table 34: Oil Tank Types</a></li>
+<li><a href="#Table35">Table 35: Swimming Pool Types</a></li>
+<li><a href="#Table36">Table 36: Evaluation Tool Types</a></li>
+<li><a href="#Table37">Table 37: Form Type Codes (Floaters, Ext. Coverages)</a></li>
+<li><a href="#Table38">Table 38: Solar Panel Installation Locations</a></li>
+<li><a href="#Table39">Table 39: Discount Types</a></li>
+<li><a href="#Table40">Table 40: Surcharge Types</a></li>
+<li><a href="#Table41">Table 41: Standard Coverage Types</a></li>
+<li><a href="#Table42">Table 42: Extended Coverage Types</a></li>
+<li><a href="#Table43">Table 43: Floater Types</a></li>
+<li><a href="#Table44">Table 44: Rated Item Interpretations</a></li>
+<li><a href="#Table45">Table 45: Home-based Business Types</a></li>
+<li><a href="#Table47">Table 47: Employers</a></li>
+<li><a href="#Table48">Table 48: Multi-Line Simulation Method</a></li>
+<li><a href="#Table50">Table 50: Electrical Panel Types</a></li>
+<li><a href="#Table51">Table 51: Water and Backup Deductibles</a></li>
+<li><a href="#Table52">Table 52: Water Main Valve Shutoff Types</a></li>
+<li><a href="#Table53">Table 53: Exterior Finish Types</a></li>
+<li><a href="#Table54">Table 54: Dwelling Under Construction - Project Type</a></li>
+<li><a href="#Table55">Table 55: Dwelling Under Construction - Contractor</a></li>
+<li><a href="#Table56">Table 56: Impact Resistance Class Codes</a></li>
+<li><a href="#Table57">Table 57: Oil Tank Constrution Types</a></li>
+<li><a href="#Table58">Table 58: Garage Types</a></li>
+<li><a href="#Table59">Table 59: Roof Slope Codes</a></li>
+</ul>
+</div>
+<a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 1:  Heating Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>CENTRAL FURNACE - GAS</td>
+<td>Central Furnace - Gas</td>
+<td>Fournaise centrale - Gaz</td>
+</tr>
+<tr>
+<td>CENTRAL FURNACE - OIL</td>
+<td>Central Furnace - Oil</td>
+<td>Fournaise centrale - Huile</td>
+</tr>
+<tr>
+<td>CENTRAL FURNACE - PROPANE</td>
+<td>Central Furnace - Propane</td>
+<td>Fournaise centrale - Propane</td>
+</tr>
+<tr>
+<td>CENTRAL FURNACE - WOOD</td>
+<td>Central Furnace - Wood</td>
+<td>Fournaise centrale - Bois</td>
+</tr>
+<tr>
+<td>ELECTRIC</td>
+<td>Electric</td>
+<td>Electrique</td>
+</tr>
+<tr>
+<td>HOT WATER / STEAM</td>
+<td>Hot Water/Steam</td>
+<td>Eau chaude/Vapeur</td>
+</tr>
+<tr>
+<td>COMBINATION FURNACE</td>
+<td>Combination Furnace</td>
+<td>Fournaise combinée</td>
+</tr>
+<tr>
+<td>COMBINATION FURNACE (ADD-ON)</td>
+<td>Combination Furnace (Add-on)</td>
+<td>Fournaise combinée (Addition)</td>
+</tr>
+<tr>
+<td>CF_WE</td>
+<td>Combination Furnace - Wood and electricity</td>
+<td>Fournaise combinée - Bois et Électricité</td>
+</tr>
+<tr>
+<td>CF_OE</td>
+<td>Combination Furnace - Oil and electricity</td>
+<td>Fournaise combinée - Huile et Électricité</td>
+</tr>
+<tr>
+<td>CF_WO</td>
+<td>Combination Furnace - Wood and oil</td>
+<td>Fournaise combinée - Bois et Huile</td>
+</tr>
+<tr>
+<td>SOLID FUEL</td>
+<td>Solid Fuel</td>
+<td>Combustible Solide</td>
+</tr>
+<tr>
+<td>SF_P</td>
+<td>Solid Fuel - Pellet</td>
+<td>Combustible Solide - Granule</td>
+</tr>
+<tr>
+<td>SF_O</td>
+<td>Solid Fuel - Oil</td>
+<td>Combustible Solide - Huile</td>
+</tr>
+<tr>
+<td>SF_A</td>
+<td>Solid Fuel - Coal</td>
+<td>Combustible Solide - Charbon</td>
+</tr>
+<tr>
+<td>SPACE HEATER - GAS</td>
+<td>Space Heater - Gas</td>
+<td>Chaufferette - Gaz</td>
+</tr>
+<tr>
+<td>SPACE HEATER - OIL</td>
+<td>Space Heater - Oil</td>
+<td>Chaufferette - Huile</td>
+</tr>
+<tr>
+<td>SPACE HEATER - ELECTRIC</td>
+<td>Space Heater - Electric</td>
+<td>Chaufferette - Electrique</td>
+</tr>
+<tr>
+<td>WOOD BURNING STOVE</td>
+<td>Wood Burning Stove</td>
+<td>Poêle à bois</td>
+</tr>
+<tr>
+<td>FIREPLACE</td>
+<td>Fireplace</td>
+<td>Foyer</td>
+</tr>
+<tr>
+<td>FIREPLACE INSERT</td>
+<td>Fireplace Insert</td>
+<td>Poêle encastré dans cheminée</td>
+</tr>
+<tr>
+<td>SOLAR</td>
+<td>Solar</td>
+<td>Solaire</td>
+</tr>
+<tr>
+<td>HEAT PUMP</td>
+<td>Heat Pump</td>
+<td>Thermopompe</td>
+</tr>
+<tr>
+<td>HP_O</td>
+<td>Heat Pump - Oil</td>
+<td>Thermopompe - Huile</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 2:  Chimney Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>METAL</td>
+<td>Metal</td>
+</tr>
+<tr>
+<td>BRICK</td>
+<td>Brick</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table3"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 3:  Alarm Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>LOCAL - FULL</td>
+<td>Local - Full</td>
+</tr>
+<tr>
+<td>LOCAL - PARTIAL</td>
+<td>Local - Partial</td>
+</tr>
+<tr>
+<td>CENTRAL - FULL</td>
+<td>Central - Full</td>
+</tr>
+<tr>
+<td>CENTRAL - PARTIAL</td>
+<td>Central - Partial</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table4"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 4:  Occupation Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>A05</td>
+<td>Airline Personnel - General</td>
+<td>Personnel aérien - général</td>
+</tr>
+<tr>
+<td>A08</td>
+<td>Artist - Commercial, Professional, Semi-Professional or Freelance without another profession</td>
+<td>Artiste - Commercial, professionnel, semi-prof., indépendant, etc.</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>Automobile Garage (service station) Employee including Mechanics</td>
+<td>Garage pour automobiles (station service) - Employé, mécanicien</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>Automobile Dealer</td>
+<td>Concessionnaire</td>
+</tr>
+<tr>
+<td>ACC</td>
+<td>Accountant - Spouse</td>
+<td>Comptable - Conjoint</td>
+</tr>
+<tr>
+<td>ACP</td>
+<td>Accountant - General - Office Staff</td>
+<td>Comptable - Général- Employé de bureau</td>
+</tr>
+<tr>
+<td>ACS</td>
+<td>Actuary - Office Staff</td>
+<td>Actuaire - Employé de bureau</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>Actuary</td>
+<td>Actuaire</td>
+</tr>
+<tr>
+<td>ADM</td>
+<td>Administrator/Director</td>
+<td>Administrateur/Directeur</td>
+</tr>
+<tr>
+<td>AGR</td>
+<td>Science - Agronomist</td>
+<td>Science - Agronome</td>
+</tr>
+<tr>
+<td>AGS</td>
+<td>Science - Agronomist - Office Staff</td>
+<td>Science - Agronome - Employé de bureau</td>
+</tr>
+<tr>
+<td>APA</td>
+<td>APAVQ</td>
+<td>APAVQ</td>
+</tr>
+<tr>
+<td>ARC</td>
+<td>Architect</td>
+<td>Architecte</td>
+</tr>
+<tr>
+<td>ARM</td>
+<td>Civil Service - Armed Forces</td>
+<td>Fonction publique - Services militaires</td>
+</tr>
+<tr>
+<td>ARS</td>
+<td>Architect - Office Staff</td>
+<td>Architecte - Employé de bureau</td>
+</tr>
+<tr>
+<td>AST</td>
+<td>Science - Astronomer</td>
+<td>Science - Astronome</td>
+</tr>
+<tr>
+<td>ATH</td>
+<td>Athlete - Professional</td>
+<td>Athlète - Professionnel</td>
+</tr>
+<tr>
+<td>AUT</td>
+<td>Other employment not described</td>
+<td>Autre emploi non défini</td>
+</tr>
+<tr>
+<td>B02</td>
+<td>Banking / Clerical</td>
+<td>Banque - employé de bureau</td>
+</tr>
+<tr>
+<td>B03</td>
+<td>Banking / Management</td>
+<td>Banque - directeur</td>
+</tr>
+<tr>
+<td>B04</td>
+<td>Esthetic (Barber, Hairdresser, Esthetician, Masseur)</td>
+<td>Esthétique (Barbier, coiffeur, estéticien, masseur)</td>
+</tr>
+<tr>
+<td>BAC</td>
+<td>Bachelor's Degree and working full time</td>
+<td>Baccalauréat et employé à temps plein</td>
+</tr>
+<tr>
+<td>BAK</td>
+<td>Bakery - Personnel</td>
+<td>Boulanger - personnel</td>
+</tr>
+<tr>
+<td>BAN</td>
+<td>Banking / Administration</td>
+<td>Banque - administration</td>
+</tr>
+<tr>
+<td>BAR</td>
+<td>Bar (Owner, Manager, Employee)</td>
+<td>Bar- Propriétaire, gérant, employé</td>
+</tr>
+<tr>
+<td>BCA</td>
+<td>Bell Canada</td>
+<td>Bell Canada</td>
+</tr>
+<tr>
+<td>BLG</td>
+<td>Business of 25 or more employees - Office Staff</td>
+<td>Entreprise de 25 employés et plus - Employé de bureau</td>
+</tr>
+<tr>
+<td>BRG</td>
+<td>Insurance - General</td>
+<td>Assurance - Général</td>
+</tr>
+<tr>
+<td>BRO</td>
+<td>Insurance - Agent/Broker</td>
+<td>Assurance - Agent/Courtier</td>
+</tr>
+<tr>
+<td>BRP</td>
+<td>Insurance - Agent/Broker - Personnel</td>
+<td>Assurance - Agent/Courtier - Employé de bureau</td>
+</tr>
+<tr>
+<td>BSM</td>
+<td>Business of 5 or more employees - Office Staff</td>
+<td>Entreprise de 5 employés et plus - Employé de bureau</td>
+</tr>
+<tr>
+<td>C01</td>
+<td>Construction - Carpenter</td>
+<td>Construction - Menuisier</td>
+</tr>
+<tr>
+<td>C02</td>
+<td>Cashier</td>
+<td>Caissier</td>
+</tr>
+<tr>
+<td>C03</td>
+<td>Accountant - General</td>
+<td>Comptable - Général</td>
+</tr>
+<tr>
+<td>C04</td>
+<td>Civil Service - General</td>
+<td>Fonction publique - Général</td>
+</tr>
+<tr>
+<td>C05</td>
+<td>Clergy</td>
+<td>Le clergé</td>
+</tr>
+<tr>
+<td>C06</td>
+<td>Science - Computer (Analyst, Programmer, technician)</td>
+<td>Science - Informatique (Analyste, programmeur, technicien)</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>Craftsman</td>
+<td>Artisan</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>Accountant - Chartered - C.A., R.G.A., C.G.A., R.I.A.</td>
+<td>Comptable agréés - C.A., C.G.A., C.M.A., R.I.A.</td>
+</tr>
+<tr>
+<td>CAD</td>
+<td>Chartered Administrator</td>
+<td>Administrateur agréés</td>
+</tr>
+<tr>
+<td>CAE</td>
+<td>Caisse Economie - Office Staff</td>
+<td>Caisse Economie - Employés de bureau</td>
+</tr>
+<tr>
+<td>CAI</td>
+<td>Caisse Populaire - Personnel</td>
+<td>Caisse Populaire - Personnel</td>
+</tr>
+<tr>
+<td>CAO</td>
+<td>Accountant - Chartered - Office Staff</td>
+<td>Comptable agréés - Employé de bureau</td>
+</tr>
+<tr>
+<td>CHE</td>
+<td>Science - Chemist</td>
+<td>Science - Chimiste</td>
+</tr>
+<tr>
+<td>CHI</td>
+<td>Medical Profession - Chiropractor</td>
+<td>Profession médicale - Chiropraticien</td>
+</tr>
+<tr>
+<td>CHS</td>
+<td>Science - Chemist - Office Staff</td>
+<td>Science - Chimiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>CIE</td>
+<td>Insurance - Office Staff</td>
+<td>Compagnie d'assurance - Employé de bureau</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>CLSC - Staff</td>
+<td>CLSC - Employé(e)</td>
+</tr>
+<tr>
+<td>COL</td>
+<td>College - Office Staff</td>
+<td>Collège - Employé de bureau</td>
+</tr>
+<tr>
+<td>COS</td>
+<td>Medical Profession - Chiropractor - Office Staff</td>
+<td>Profession médicale - Chiropraticien - Employé de bureau</td>
+</tr>
+<tr>
+<td>COT</td>
+<td>Construction - Other Trades</td>
+<td>Construction - Autres professions</td>
+</tr>
+<tr>
+<td>D01</td>
+<td>Education - Day Care</td>
+<td>Éducation - Garderie</td>
+</tr>
+<tr>
+<td>D02</td>
+<td>Medical Profession - Dental Hygenist</td>
+<td>Profession médicale - Hygiéniste dentaire</td>
+</tr>
+<tr>
+<td>D04</td>
+<td>Medical Profession - Nutritionist</td>
+<td>Profession médicale - Nutritionniste</td>
+</tr>
+<tr>
+<td>D06</td>
+<td>Driver - Delivery (Local)</td>
+<td>Conducteur - Livraison (locale)</td>
+</tr>
+<tr>
+<td>D07</td>
+<td>Driver - Delivery (Long Haul, Mover)</td>
+<td>Conducteur - Livraison (long voyage, déménagement)</td>
+</tr>
+<tr>
+<td>D09</td>
+<td>Driver - Chauffeur, Driving School Instructor, Taxi</td>
+<td>Conducteur - Chauffeur, instructeur, taxi</td>
+</tr>
+<tr>
+<td>DEN</td>
+<td>Medical Profession - Dentist</td>
+<td>Profession médicale - Dentiste</td>
+</tr>
+<tr>
+<td>DES</td>
+<td>Medical Profession - Dentist - Office Staff</td>
+<td>Profession médicale - Dentiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>DET</td>
+<td>Medical Profession - Denturologist</td>
+<td>Profession médicale - Denturologiste</td>
+</tr>
+<tr>
+<td>DIE</td>
+<td>Medical Profession - Dietician</td>
+<td>Profession médicale - Diététiste</td>
+</tr>
+<tr>
+<td>DOC</td>
+<td>Medical Profession - Doctor - Medical</td>
+<td>Profession médicale - Docteur - Médical</td>
+</tr>
+<tr>
+<td>DOS</td>
+<td>Medical Profession - Doctor - Medical - Office Staff</td>
+<td>Profession médicale - Docteur - Médical - Employé de bureau</td>
+</tr>
+<tr>
+<td>DTS</td>
+<td>Medical Profession - Denturologist - Office Staff</td>
+<td>Profession médicale - Denturologiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>E01</td>
+<td>Construction - Electrician</td>
+<td>Construction - Électricien</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>Entertainer including actor/actress, announcers, musicians, etc.</td>
+<td>Artiste (Acteur, annonceur, musicien, etc.)</td>
+</tr>
+<tr>
+<td>EDU</td>
+<td>Education - General</td>
+<td>Éducation - Général</td>
+</tr>
+<tr>
+<td>ENG</td>
+<td>Engineer</td>
+<td>Ingénieur</td>
+</tr>
+<tr>
+<td>ENS</td>
+<td>Engineer - Office Staff</td>
+<td>Ingénieur - Employé de bureau</td>
+</tr>
+<tr>
+<td>ENT</td>
+<td>Entertainer - help (Cameraman, Projectionist, Stagehand, Researcher)</td>
+<td>Artiste (Cameraman, projectionniste, recherchiste, etc.)</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>Economist</td>
+<td>Économiste</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>Firefighter</td>
+<td>Pompier</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>Fisherman</td>
+<td>Pêcheur</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>Airline Personnel - Flight Attendants</td>
+<td>Personnel aérien - hôtesse de l'air</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>Food Industry - Other (Slaughterer, Butcher)</td>
+<td>Industrie alimentaire - Autre (Abatteur, boucher)</td>
+</tr>
+<tr>
+<td>F09</td>
+<td>Land &amp; Forest Employee</td>
+<td>Ressources naturelles - Employé</td>
+</tr>
+<tr>
+<td>FAL</td>
+<td>Farm Labourer</td>
+<td>Ouvrier de ferme</td>
+</tr>
+<tr>
+<td>FAR</td>
+<td>Farmer</td>
+<td>Fermier</td>
+</tr>
+<tr>
+<td>FAW</td>
+<td>Farm Employee</td>
+<td>Employé de ferme</td>
+</tr>
+<tr>
+<td>FED</td>
+<td>Federation, Conf., Ins. &amp; Corporation</td>
+<td>Fédération, Conf., Ins., &amp; Corporation</td>
+</tr>
+<tr>
+<td>FEN</td>
+<td>Forestry Engineer</td>
+<td>Ingénieur forestier</td>
+</tr>
+<tr>
+<td>G02</td>
+<td>Printing (Designer, Graphic Artist, Printer, Presser, Bookbinder, Typographer)</td>
+<td>Impression (Désigner, graphiste, imprimeur, typographe)</td>
+</tr>
+<tr>
+<td>GEO</td>
+<td>Science - Others (Map-Maker, Historian, Meteorologist, geographer, Anthropologist, Archaeologist, geologist)</td>
+<td>Science - Autre (Cartographe, historien, métérologue, géographe, etc.)</td>
+</tr>
+<tr>
+<td>GOC</td>
+<td>Government - Federal</td>
+<td>Gouvernement - Fédéral</td>
+</tr>
+<tr>
+<td>GOM</td>
+<td>Government - Municipal</td>
+<td>Gouvernement - Municipal</td>
+</tr>
+<tr>
+<td>GOP</td>
+<td>Government - Provincial</td>
+<td>Gouvernement - Provincial</td>
+</tr>
+<tr>
+<td>H01</td>
+<td>Housewife</td>
+<td>Femme au foyer</td>
+</tr>
+<tr>
+<td>H02</td>
+<td>Horticulture (Orchardist, Botanist, Florist, Floriculturist, Horticulturist, gardener, landscaper, nurseryman)</td>
+<td>Horticulteur (Botaniste, fleuriste, jardinier, paysagiste)</td>
+</tr>
+<tr>
+<td>H03</td>
+<td>Hotel/Motel - General</td>
+<td>Hôtel/Motel - Général</td>
+</tr>
+<tr>
+<td>HOP</td>
+<td>Hotel/Motel - Proprietor</td>
+<td>Hôtel/Motel - Proprietaire</td>
+</tr>
+<tr>
+<td>HOS</td>
+<td>Hospital - Staff</td>
+<td>Hôpital - Employé</td>
+</tr>
+<tr>
+<td>HYD</td>
+<td>Hydro-Quebec</td>
+<td>Hydro-Québec</td>
+</tr>
+<tr>
+<td>KNW</td>
+<td>Keeper, Night-Watchman</td>
+<td>Gardien / Gardien de nuit</td>
+</tr>
+<tr>
+<td>L01</td>
+<td>Insurance - Adjuster</td>
+<td>Assurance - Ajusteur</td>
+</tr>
+<tr>
+<td>L30</td>
+<td>Construction - Labourer</td>
+<td>Construction - Ouvrier</td>
+</tr>
+<tr>
+<td>LAI</td>
+<td>Labourer - Inside</td>
+<td>Ouvrier - Intérieur</td>
+</tr>
+<tr>
+<td>LAO</td>
+<td>Labourer - Outside</td>
+<td>Ouvrier - Extérieur</td>
+</tr>
+<tr>
+<td>LAS</td>
+<td>Lawyer - Office Staff</td>
+<td>Avocat - Employé de bureau</td>
+</tr>
+<tr>
+<td>LAW</td>
+<td>Lawyer</td>
+<td>Avocat</td>
+</tr>
+<tr>
+<td>M01</td>
+<td>Maintenance - Building Superintendent, Janitor, Cleaner</td>
+<td>Entretien - concièrge, nettoyeur, laveur</td>
+</tr>
+<tr>
+<td>M02</td>
+<td>Construction - Manager</td>
+<td>Construction - Gérant</td>
+</tr>
+<tr>
+<td>M04</td>
+<td>Medical Profession - Anaesthetist</td>
+<td>Profession médicale - Anesthésiste</td>
+</tr>
+<tr>
+<td>M05</td>
+<td>Miner</td>
+<td>Mineur</td>
+</tr>
+<tr>
+<td>MDE</td>
+<td>Medical Profession - Dermatologist</td>
+<td>Profession médicale - Dermatologue</td>
+</tr>
+<tr>
+<td>MEG</td>
+<td>Medical Profession - Ergotherapist</td>
+<td>Profession médicale - Ergothérapie</td>
+</tr>
+<tr>
+<td>MEL</td>
+<td>Medical Profession - Electrophysiologist</td>
+<td>Profession médicale - Électrophysiologiste</td>
+</tr>
+<tr>
+<td>MER</td>
+<td>Centre Hospitalier Honore Mercier</td>
+<td>Centre Hospitalier Honore Mercier</td>
+</tr>
+<tr>
+<td>MGE</td>
+<td>Medical Profession - General</td>
+<td>Profession médicale - Général</td>
+</tr>
+<tr>
+<td>MGY</td>
+<td>Medical Profession - Gynaecologist</td>
+<td>Profession médicale - Gynécologue</td>
+</tr>
+<tr>
+<td>MHA</td>
+<td>Medical Profession - Hearing Aid Technician</td>
+<td>Profession médicale - Technicien de l'appareil accoustique</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>Medical Profession - Inhalotherapist</td>
+<td>Profession médicale - Inhalothérapeute</td>
+</tr>
+<tr>
+<td>MPH</td>
+<td>Medical Profession - Physiotherapist</td>
+<td>Profession médicale - Physiothérapeute</td>
+</tr>
+<tr>
+<td>MPO</td>
+<td>Medical Profession - Podiatrist</td>
+<td>Profession médicale - Podologue</td>
+</tr>
+<tr>
+<td>MRA</td>
+<td>Medical Profession - Radiology Technician</td>
+<td>Profession médicale - Technicien en radiographie</td>
+</tr>
+<tr>
+<td>MUN</td>
+<td>Municipality - Office Staff</td>
+<td>Municipalité - Employé de bureau</td>
+</tr>
+<tr>
+<td>NOR</td>
+<td>Nortel</td>
+<td>Nortel</td>
+</tr>
+<tr>
+<td>NOS</td>
+<td>Notary - Office Staff</td>
+<td>Notaire - Employé de bureau</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>Notary</td>
+<td>Notaire</td>
+</tr>
+<tr>
+<td>NTT</td>
+<td>Northern Telecom</td>
+<td>Northern Telecom</td>
+</tr>
+<tr>
+<td>NUR</td>
+<td>Medical Profession - Nurse</td>
+<td>Profession médicale - Infirmier</td>
+</tr>
+<tr>
+<td>OOS</td>
+<td>Medical Profession - Optician - Office Staff</td>
+<td>Profession médicale - Opticien - Employé de bureau</td>
+</tr>
+<tr>
+<td>OPH</td>
+<td>Medical Profession - Ophthalmologist</td>
+<td>Profession médicale - Ophtalmologiste</td>
+</tr>
+<tr>
+<td>OPO</td>
+<td>Medical Profession - Optometrist</td>
+<td>Profession médicale - Optométriste</td>
+</tr>
+<tr>
+<td>OPS</td>
+<td>Medical Profession - Ophthalmologist - Office Staff</td>
+<td>Profession médicale - Ophtalmologiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>OPT</td>
+<td>Medical Profession - Optician</td>
+<td>Profession médicale - Opticien</td>
+</tr>
+<tr>
+<td>ORS</td>
+<td>Medical Profession - Orthodontist - Office Staff</td>
+<td>Profession médicale - Orthodontiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>ORT</td>
+<td>Medical Profession - Orthodontist</td>
+<td>Profession médicale - Orthodontiste</td>
+</tr>
+<tr>
+<td>OTS</td>
+<td>Medical Profession - Optometrist - Office Staff</td>
+<td>Profession médicale - Optométriste - Employé de bureau</td>
+</tr>
+<tr>
+<td>P01</td>
+<td>Office Worker</td>
+<td>Travailleur de bureau</td>
+</tr>
+<tr>
+<td>P30</td>
+<td>Construction - Paint (Plasterer, Decorator, Painter, Wallpaperer)</td>
+<td>Construction - peinture (peintre, décorateur, etc.)</td>
+</tr>
+<tr>
+<td>P33</td>
+<td>Airline Personnel - Pilots</td>
+<td>Personnel aérien - pilote</td>
+</tr>
+<tr>
+<td>P35</td>
+<td>Civil Service - Postal Worker</td>
+<td>Fonction publique - Services postaux</td>
+</tr>
+<tr>
+<td>P41</td>
+<td>Medical Profession - Psychologist</td>
+<td>Profession médicale - Psychologue</td>
+</tr>
+<tr>
+<td>PHA</td>
+<td>Medical Profession - Pharmacist</td>
+<td>Profession médicale - Pharmacien</td>
+</tr>
+<tr>
+<td>PHO</td>
+<td>Phone Company</td>
+<td>Compagnie de téléphone</td>
+</tr>
+<tr>
+<td>PHS</td>
+<td>Medical Profession - Pharmacist - Personnel</td>
+<td>Profession médicale - Pharmacien - Personnel</td>
+</tr>
+<tr>
+<td>PHY</td>
+<td>Medical Profession - Physician</td>
+<td>Profession médicale - Médecin</td>
+</tr>
+<tr>
+<td>POL</td>
+<td>Police Officer</td>
+<td>Policier</td>
+</tr>
+<tr>
+<td>PRI</td>
+<td>Private Sector - Office Staff</td>
+<td>Secteur privé - Employé de bureau</td>
+</tr>
+<tr>
+<td>PYS</td>
+<td>Medical Profession - Physician - Office Staff</td>
+<td>Profession médicale - Médecin - Employé de bureau</td>
+</tr>
+<tr>
+<td>QTE</td>
+<td>Quebec Telephone</td>
+<td>Québec Téléphone</td>
+</tr>
+<tr>
+<td>R01</td>
+<td>Real Estate Agent</td>
+<td>Agent immobilier</td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Food Industry - Cook, Chef or Caterer</td>
+<td>Industrie alimentaire - Cuisinier, chef ou traîteur</td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Restaurant - General</td>
+<td>Restaurant - Général</td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Retail Store - Employee (e.g. hairdresser, barber, butcher, drycleaner, department store)</td>
+<td>Détaillant - Employé (Coiffeur, boucher, nettoyeur, etc...)</td>
+</tr>
+<tr>
+<td>RCD</td>
+<td>Race Car Driver</td>
+<td>Conducteur d'automobile de course</td>
+</tr>
+<tr>
+<td>RCM</td>
+<td>R.C.M.P.</td>
+<td>G.R.C.</td>
+</tr>
+<tr>
+<td>REP</td>
+<td>Retail Store - Proprietor</td>
+<td>Détaillant - Propriétaire</td>
+</tr>
+<tr>
+<td>RET</td>
+<td>Retired</td>
+<td>Retraité</td>
+</tr>
+<tr>
+<td>RGE</td>
+<td>Restaurant - Proprietor</td>
+<td>Restaurant - Propriétaire</td>
+</tr>
+<tr>
+<td>RTR</td>
+<td>National Association of Retirees</td>
+<td>Association Nationale des Retraités</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Science - Microbiologist</td>
+<td>Science - Microbiologiste</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>Seamstress</td>
+<td>Couturier</td>
+</tr>
+<tr>
+<td>S09</td>
+<td>Construction - Foreman</td>
+<td>Construction - Contremaître</td>
+</tr>
+<tr>
+<td>SBC</td>
+<td>Science - Biochemist</td>
+<td>Science - Biochimiste</td>
+</tr>
+<tr>
+<td>SBI</td>
+<td>Science - Biologist</td>
+<td>Science - Biologiste</td>
+</tr>
+<tr>
+<td>SCE</td>
+<td>Marketing (Technical or Administration, Publicist, communications advisor)</td>
+<td>Marketing (Technicien ou administration, publiciste, relationniste)</td>
+</tr>
+<tr>
+<td>SCH</td>
+<td>School Board - Office Staff</td>
+<td>Commission scolaire-Employé de bureau</td>
+</tr>
+<tr>
+<td>SOC</td>
+<td>Crown Corporation</td>
+<td>Sociétés D'Etat</td>
+</tr>
+<tr>
+<td>SPI</td>
+<td>Sales Person - Inside Sales</td>
+<td>Vendeur - Dans un commerce</td>
+</tr>
+<tr>
+<td>SPO</td>
+<td>Sales Person - Outside Sales</td>
+<td>Vendeur itinérant</td>
+</tr>
+<tr>
+<td>STE</td>
+<td>Driver - Public Transportation</td>
+<td>Conducteur - Transport public</td>
+</tr>
+<tr>
+<td>STH</td>
+<td>Medical Profession - Speech Therapist</td>
+<td>Profession médicale - Orthophoniste</td>
+</tr>
+<tr>
+<td>STO</td>
+<td>Finance (Agent, Stock Market, Financial Advisor, Financial Broker)</td>
+<td>Finance (Agent, conseiller financier, courtier financier)</td>
+</tr>
+<tr>
+<td>STU</td>
+<td>Student</td>
+<td>Étudiant</td>
+</tr>
+<tr>
+<td>SUR</td>
+<td>Medical Profession - Surgeon - Dentist</td>
+<td>Profession médicale - Chirurgien - Dentiste</td>
+</tr>
+<tr>
+<td>SUV</td>
+<td>Land-Surveyor</td>
+<td>Géomètre</td>
+</tr>
+<tr>
+<td>T01</td>
+<td>Education - Principal</td>
+<td>Éducation - Directeur</td>
+</tr>
+<tr>
+<td>T02</td>
+<td>Medical Profession - Research/Lab Tech.</td>
+<td>Profession médicale - Rechercheur, technicien de laboratoire</td>
+</tr>
+<tr>
+<td>T04</td>
+<td>Tradesman</td>
+<td>Commerçant</td>
+</tr>
+<tr>
+<td>TEA</td>
+<td>Education - Teacher/Professional</td>
+<td>Éducation - Professeur/professionnel</td>
+</tr>
+<tr>
+<td>TEC</td>
+<td>Medical Profession - Other Technician</td>
+<td>Profession médicale - Autre technicien</td>
+</tr>
+<tr>
+<td>TEL</td>
+<td>Telebec</td>
+<td>Télébec</td>
+</tr>
+<tr>
+<td>TRA</td>
+<td>Translator</td>
+<td>Traducteur</td>
+</tr>
+<tr>
+<td>TRU</td>
+<td>Trust Company</td>
+<td>Sociétés de Fiducie</td>
+</tr>
+<tr>
+<td>UIR</td>
+<td>U/I Recipient</td>
+<td>Bénéficiaire d'assurance chomage</td>
+</tr>
+<tr>
+<td>UNE</td>
+<td>Unemployed</td>
+<td>Sans emploi</td>
+</tr>
+<tr>
+<td>UNI</td>
+<td>University - Office Staff</td>
+<td>Université - Employé de bureau</td>
+</tr>
+<tr>
+<td>UNK</td>
+<td>Not Known</td>
+<td>Inconnu</td>
+</tr>
+<tr>
+<td>V01</td>
+<td>Veterinarian</td>
+<td>Vétérinaire</td>
+</tr>
+<tr>
+<td>W01</td>
+<td>Science - Literary (Writer, Interpreter, Linguist, Translator, Archivist, Librarian, Journalist, Relationist, Newspaper Staff)</td>
+<td>Science - Littéraire (Écrivain, interrprète, linguiste, journaliste, etc.)</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table5"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 5:  Form Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Basic - Named Perils Building/Named Perils Contents</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Broad - All Risks Building/Named Perils Contents</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Comprehensive - All Risks Building/All Risks Contents</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fire and Extended Coverages Building/Fire and Extended Coverages Contents. Building portion is omitted when the dwelling type is C, N, or G.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Fire and Extended Coverages Building/Fire and Extended Coverages plus Theft Contents. Building portion is omitted when the dwelling type is C, N, or G.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>All Risk Contents</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Named Perils Contents</td>
+</tr>
+<tr>
+<td>7</td>
+<td>All Risk Building/Fire and Extended Coverages</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Limited Named Perils Contents</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Seniors Package</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table6"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 6:  Business Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>N</td>
+<td>New business</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Renewal</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table7"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 7:  Language Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>English</td>
+<td>English</td>
+</tr>
+<tr>
+<td>French</td>
+<td>French</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table8"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 8:  Insurance Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Primary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Primary condomium dwelling.</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Primary tenant dwelling.</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Secondary seasonal dwelling.</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Secondary rental dwelling.</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Secondary rental condominium dwelling.</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Secondary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Watercraft.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 9:  Province Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AB</td>
+<td>Alberta</td>
+</tr>
+<tr>
+<td>BC</td>
+<td>British Columbia</td>
+</tr>
+<tr>
+<td>MB</td>
+<td>Manitoba</td>
+</tr>
+<tr>
+<td>NB</td>
+<td>New Brunswick</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>Newfoundland and Labrador</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Nova Scotia</td>
+</tr>
+<tr>
+<td>NT</td>
+<td>Northwest Territories</td>
+</tr>
+<tr>
+<td>ON</td>
+<td>Ontario</td>
+</tr>
+<tr>
+<td>PE</td>
+<td>Prince Edward Island</td>
+</tr>
+<tr>
+<td>QC</td>
+<td>Quebec</td>
+</tr>
+<tr>
+<td>SK</td>
+<td>Saskatchewan</td>
+</tr>
+<tr>
+<td>YT</td>
+<td>Yukon</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table10"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 10:  Protection Grade Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Protected</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Semi-protected</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Unprotected</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table11"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 11:  Policy Deductibles</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>100</td>
+<td>$100</td>
+</tr>
+<tr>
+<td>200</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>250</td>
+<td>$250</td>
+</tr>
+<tr>
+<td>300</td>
+<td>$300</td>
+</tr>
+<tr>
+<td>350</td>
+<td>$350</td>
+</tr>
+<tr>
+<td>500</td>
+<td>$500</td>
+</tr>
+<tr>
+<td>750</td>
+<td>$750</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>$1000</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>$1500</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>$2000</td>
+</tr>
+<tr>
+<td>2500</td>
+<td>$2500</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>$3000</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>$5000</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table12"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 12:  Policy Liability Limits</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>200000</td>
+<td>$200,000</td>
+</tr>
+<tr>
+<td>250000</td>
+<td>$250,000</td>
+</tr>
+<tr>
+<td>300000</td>
+<td>$300,000</td>
+</tr>
+<tr>
+<td>500000</td>
+<td>$500,000</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>$1,000,000</td>
+</tr>
+<tr>
+<td>2000000</td>
+<td>$2,000,000</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table13"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 13:  Structure Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Home dwelling types (HSRO)</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>DETACHED</td>
+<td>Detached</td>
+<td>Individuelle</td>
+</tr>
+<tr>
+<td>SEMI DETACHED</td>
+<td>Semi-Detached</td>
+<td>Jumellées</td>
+</tr>
+<tr>
+<td>TOWNHOUSE</td>
+<td>Town House - Unspecified</td>
+<td>De ville - non-spécifié</td>
+</tr>
+<tr>
+<td>ROWHOUSE</td>
+<td>Row House - Unspecified</td>
+<td>En bande - non-spécifié</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (END)</td>
+<td>Row House/Town House (End)</td>
+<td>En bande/Maison de ville (unité de bout)</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (INSIDE)</td>
+<td>Row House/Town House (Inside)</td>
+<td>En bande/Maison de ville (unité de centre)</td>
+</tr>
+<tr>
+<td>DUPLEX (SIDE BY SIDE)</td>
+<td>Duplex (side-by-side)</td>
+<td>Duplex (côte-à-côte)</td>
+</tr>
+<tr>
+<td>DUPLEX (UP AND DOWN)</td>
+<td>Duplex (up-and-down)</td>
+<td>Duplex (superposé)</td>
+</tr>
+<tr>
+<td>TRIPLEX</td>
+<td>Triplex</td>
+<td>Triplex</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 13:  Structure Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Condo dwelling types (CN)</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>HIGH RISE APARTMENT</td>
+<td>High Rise Apartment</td>
+<td>Tour</td>
+</tr>
+<tr>
+<td>LOW RISE APARTMENT</td>
+<td>Low Rise Apartment</td>
+<td>Petit immeuble</td>
+</tr>
+<tr>
+<td>BASEMENT APARTMENT</td>
+<td>Basement Apartment</td>
+<td>Sous-sol appartement</td>
+</tr>
+<tr>
+<td>COMMERCIAL</td>
+<td>Commercial</td>
+<td>Commercial</td>
+</tr>
+<tr>
+<td>ROWHOUSE</td>
+<td>Row House - Unspecified</td>
+<td>Maison en bande - non spécifiée</td>
+</tr>
+<tr>
+<td>TOWNHOUSE</td>
+<td>Town House - Unspecified</td>
+<td>Maison en rangée - non spécifiée</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (END)</td>
+<td>Row House/Town House (End)</td>
+<td>Maison en bande/de ville (unité de bout)</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (INSIDE)</td>
+<td>Row House/Town House (Inside)</td>
+<td>Maison en bande/de ville (unité de centre)</td>
+</tr>
+<tr>
+<td>DUPLEX</td>
+<td>Duplex</td>
+<td>Duplex</td>
+</tr>
+<tr>
+<td>TRIPLEX</td>
+<td>Triplex</td>
+<td>Triplex</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 13:  Structure Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Tenants</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>HIGH RISE APARTMENT</td>
+<td>High Rise Apartment</td>
+<td>Tour</td>
+</tr>
+<tr>
+<td>LOW RISE APARTMENT</td>
+<td>Low Rise Apartment</td>
+<td>Petit immeuble</td>
+</tr>
+<tr>
+<td>BASEMENT APARTMENT</td>
+<td>Basement Apartment</td>
+<td>Sous-sol appartement</td>
+</tr>
+<tr>
+<td>COMMERCIAL</td>
+<td>Commercial</td>
+<td>Commercial</td>
+</tr>
+<tr>
+<td>ROWHOUSE</td>
+<td>Row House - Unspecified</td>
+<td>Maison en bande - non spécifiée</td>
+</tr>
+<tr>
+<td>TOWNHOUSE</td>
+<td>Town House - Unspecified</td>
+<td>Maison en rangée - non spécifiée</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (END)</td>
+<td>Row House/Town House (End)</td>
+<td>Maison en bande/de ville (unité de bout)</td>
+</tr>
+<tr>
+<td>ROW OR TOWN (INSIDE)</td>
+<td>Row House/Town House (Inside)</td>
+<td>Maison en bande/de ville (unité de centre)</td>
+</tr>
+<tr>
+<td>DUPLEX</td>
+<td>Duplex</td>
+<td>Duplex</td>
+</tr>
+<tr>
+<td>TRIPLEX</td>
+<td>Triplex</td>
+<td>Triplex</td>
+</tr>
+<tr>
+<td>DETACHED</td>
+<td>Detached</td>
+<td>Individuelle</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table14"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 14:  Construction Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>Log</td>
+<td>Rondin</td>
+</tr>
+<tr>
+<td>MONO</td>
+<td>Monocoque</td>
+<td>Monocoque</td>
+</tr>
+<tr>
+<td>FBGL</td>
+<td>Fiberglass</td>
+<td>Fibre de verre</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>ASB</td>
+<td>Asbestos</td>
+<td>Amiante</td>
+</tr>
+<tr>
+<td>BRICK</td>
+<td>Brick</td>
+<td>Brique</td>
+</tr>
+<tr>
+<td>CEMENT</td>
+<td>Cement</td>
+<td>Ciment</td>
+</tr>
+<tr>
+<td>CBLOCK</td>
+<td>Concrete Block/Masonry Frame</td>
+<td>Charpente en blocs de béton/Maçonnerie</td>
+</tr>
+<tr>
+<td>FRAME</td>
+<td>Frame (Wood)</td>
+<td>Charpente de bois</td>
+</tr>
+<tr>
+<td>AGGR</td>
+<td>Aggregate</td>
+<td>Granulat</td>
+</tr>
+<tr>
+<td>MSNI</td>
+<td>Masonite</td>
+<td>Panneau dur</td>
+</tr>
+<tr>
+<td>MSNC</td>
+<td>Masonry Non-Combustible</td>
+<td>Maçonnerie incombustible</td>
+</tr>
+<tr>
+<td>ALUM</td>
+<td>Aluminium</td>
+<td>Aluminium</td>
+</tr>
+<tr>
+<td>MASONRY</td>
+<td>Masonry</td>
+<td>Maçonnerie</td>
+</tr>
+<tr>
+<td>STONE</td>
+<td>Stone</td>
+<td>Pierre</td>
+</tr>
+<tr>
+<td>STUC</td>
+<td>Stucco</td>
+<td>Stuc</td>
+</tr>
+<tr>
+<td>FIRE RESISTIVE</td>
+<td>Fire Resistive</td>
+<td>Matériel résistant au feu</td>
+</tr>
+<tr>
+<td>STVN</td>
+<td>Stone Veneer</td>
+<td>Pierre plaquée sur bois</td>
+</tr>
+<tr>
+<td>STEEL</td>
+<td>Steel</td>
+<td>Acier</td>
+</tr>
+<tr>
+<td>WOOD</td>
+<td>Wood Exterior</td>
+<td>Extérieur en bois</td>
+</tr>
+<tr>
+<td>MSVN</td>
+<td>Masonry Veneer</td>
+<td>Lambris de maçonnerie</td>
+</tr>
+<tr>
+<td>BRVN</td>
+<td>Brick Veneer</td>
+<td>Lambris de brique</td>
+</tr>
+<tr>
+<td>NOFR</td>
+<td>Non-fire Resistive Apartment</td>
+<td>Logis non résistant au feu</td>
+</tr>
+<tr>
+<td>VNYL</td>
+<td>Vinyl</td>
+<td>Vinyle</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table15"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 15:  Claim Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Other Provinces</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>FIRE</td>
+<td>Fire</td>
+<td>Feu</td>
+</tr>
+<tr>
+<td>WIND</td>
+<td>Windstorm or hail</td>
+<td>Tempête de vent ou de grêle</td>
+</tr>
+<tr>
+<td>BI</td>
+<td>Bodily injury</td>
+<td>Dommage corporels</td>
+</tr>
+<tr>
+<td>PD</td>
+<td>Property damage</td>
+<td>Dommage matériels</td>
+</tr>
+<tr>
+<td>BURG</td>
+<td>Burglary or theft</td>
+<td>Cambrioleur ou voleur</td>
+</tr>
+<tr>
+<td>ND</td>
+<td>No discount</td>
+<td>Aucun escompte</td>
+</tr>
+<tr>
+<td>VAND</td>
+<td>Vandalism</td>
+<td>Vandalisme</td>
+</tr>
+<tr>
+<td>GLASS</td>
+<td>Glass breakage</td>
+<td>Bris de glace</td>
+</tr>
+<tr>
+<td>WATERDAM</td>
+<td>Water damage</td>
+<td>Dommage causé par l'eau</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>Mysterious disappearance</td>
+<td>Disparition mystérieuse</td>
+</tr>
+<tr>
+<td>CREDITCARD</td>
+<td>Credit card fraud</td>
+<td>Fraude par carte de crédit</td>
+</tr>
+<tr>
+<td>AIRCOND</td>
+<td>Air conditioner</td>
+<td>Air climatisé</td>
+</tr>
+<tr>
+<td>EXPLOSION</td>
+<td>Explosion</td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td>SENIOR</td>
+<td>Seniors refund</td>
+<td>Remboursement pour les aînés</td>
+</tr>
+<tr>
+<td>PERSACC</td>
+<td>Personal accident</td>
+<td>Accident personel</td>
+</tr>
+<tr>
+<td>SEWER</td>
+<td>Sewer backup</td>
+<td>Refoulement des égouts</td>
+</tr>
+<tr>
+<td>FOOD</td>
+<td>Food spoilage</td>
+<td>Nourriture avariée</td>
+</tr>
+<tr>
+<td>MASSEVAC</td>
+<td>Mass evacuation</td>
+<td>Evacuation</td>
+</tr>
+<tr>
+<td>ERQK</td>
+<td>Earthquake</td>
+<td>Tremblement de terre</td>
+</tr>
+<tr>
+<td>FLTR</td>
+<td>Floater</td>
+<td>Flottante</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>IDENTTHEFT</td>
+<td>Identity theft</td>
+<td>Vol d'identité</td>
+</tr>
+<tr>
+<td>HOMEBUS</td>
+<td>Home-based Business</td>
+<td>Entreprise à domicile</td>
+</tr>
+<tr>
+<td>WATER_SF</td>
+<td>Surface Water (excluding flood)</td>
+<td>Eau de surface (excluant les inondations)</td>
+</tr>
+<tr>
+<td>WATERLINE</td>
+<td>Exterior Water Line</td>
+<td>Conduite d&#8217;eau extérieure</td>
+</tr>
+<tr>
+<td>SEWERLINE</td>
+<td>Exterior Sewer Line</td>
+<td>Conduite d&#8217;égout extérieure</td>
+</tr>
+<tr>
+<td>WATER_GR</td>
+<td>Ground Water</td>
+<td>Eau du sol</td>
+</tr>
+<tr>
+<td>WATER_FL</td>
+<td>Flood Water (excluding coastal flooding)</td>
+<td>Eau de crue (excluant les inondations côtières)</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 15:  Claim Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec and New Brunswick</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>FIRE</td>
+<td>Fire</td>
+<td>Feu</td>
+</tr>
+<tr>
+<td>WIND</td>
+<td>Windstorm or hail</td>
+<td>Tempête de vent ou de grêle</td>
+</tr>
+<tr>
+<td>BI</td>
+<td>Bodily injury</td>
+<td>Dommage corporels</td>
+</tr>
+<tr>
+<td>PD</td>
+<td>Property damage</td>
+<td>Dommage matériels</td>
+</tr>
+<tr>
+<td>BURG</td>
+<td>Burglary or theft</td>
+<td>Cambrioleur ou voleur</td>
+</tr>
+<tr>
+<td>ND</td>
+<td>No discount</td>
+<td>Aucun escompte</td>
+</tr>
+<tr>
+<td>VAND</td>
+<td>Vandalism</td>
+<td>Vandalisme</td>
+</tr>
+<tr>
+<td>GLASS</td>
+<td>Glass breakage</td>
+<td>Bris de glace</td>
+</tr>
+<tr>
+<td>WATERDAM</td>
+<td>Water damage</td>
+<td>Dommage causé par l'eau</td>
+</tr>
+<tr>
+<td>WATER_AF</td>
+<td>Water damage - Above foundation</td>
+<td>Dommage par l&#8217;eau - Au-dessus des fondations</td>
+</tr>
+<tr>
+<td>WATER_BF</td>
+<td>Water damage - At/Below foundation</td>
+<td>Dommage par l&#8217;eau - Du sol/au-dessous des fondations</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>Mysterious disappearance</td>
+<td>Disparition mystérieuse</td>
+</tr>
+<tr>
+<td>CREDITCARD</td>
+<td>Credit card fraud</td>
+<td>Fraude par carte de crédit</td>
+</tr>
+<tr>
+<td>AIRCOND</td>
+<td>Air conditioner</td>
+<td>Air climatisé</td>
+</tr>
+<tr>
+<td>EXPLOSION</td>
+<td>Explosion</td>
+<td>Explosion</td>
+</tr>
+<tr>
+<td>SENIOR</td>
+<td>Seniors refund</td>
+<td>Remboursement pour les aînés</td>
+</tr>
+<tr>
+<td>PERSACC</td>
+<td>Personal accident</td>
+<td>Accident personel</td>
+</tr>
+<tr>
+<td>SEWER</td>
+<td>Sewer backup</td>
+<td>Refoulement des égouts</td>
+</tr>
+<tr>
+<td>FOOD</td>
+<td>Food spoilage</td>
+<td>Nourriture avariée</td>
+</tr>
+<tr>
+<td>MASSEVAC</td>
+<td>Mass evacuation</td>
+<td>Evacuation</td>
+</tr>
+<tr>
+<td>ERQK</td>
+<td>Earthquake</td>
+<td>Tremblement de terre</td>
+</tr>
+<tr>
+<td>FLTR</td>
+<td>Floater</td>
+<td>Flottante</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>IDENTTHEFT</td>
+<td>Identity theft</td>
+<td>Vol d'identité</td>
+</tr>
+<tr>
+<td>FL_EXTOIL</td>
+<td>Fuel Leakage - Exterior Oil Storage Tank</td>
+<td>Fuite de mazout - Réservoir extérieur</td>
+</tr>
+<tr>
+<td>FL_INTOIL</td>
+<td>Fuel Leakage - Interior Oil Storage Tank</td>
+<td>Fuite de mazout - Réservoir intérieur</td>
+</tr>
+<tr>
+<td>WATER_POOL</td>
+<td>Water Escape/Rupture - Swimming Pool/Equipment</td>
+<td>Fuite d&#8217;eau/ Rupture - Piscine/Équipement</td>
+</tr>
+<tr>
+<td>HOMEBUS</td>
+<td>Home Based Business</td>
+<td>Entreprise à domicile</td>
+</tr>
+<tr>
+<td>WATER_SF</td>
+<td>Surface Water (excluding flood)</td>
+<td>Eau de surface (excluant les inondations)</td>
+</tr>
+<tr>
+<td>WATERLINE</td>
+<td>Exterior Water Line</td>
+<td>Conduite d&#8217;eau extérieure</td>
+</tr>
+<tr>
+<td>SEWERLINE</td>
+<td>Exterior Sewer Line</td>
+<td>Conduite d&#8217;égout extérieure</td>
+</tr>
+<tr>
+<td>WATER_GR</td>
+<td>Ground Water</td>
+<td>Eau du sol</td>
+</tr>
+<tr>
+<td>WATER_FL</td>
+<td>Flood Water (excluding coastal flooding)</td>
+<td>Eau de crue (excluant les inondations côtières)</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table16"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 16:  Roof Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>ASPHALT SHINGLES</td>
+<td>Asphalt Shingles</td>
+<td>Bardeaux</td>
+</tr>
+<tr>
+<td>CLAY TILE</td>
+<td>Clay Tile</td>
+<td>Tuile d'argile</td>
+</tr>
+<tr>
+<td>METAL TILE</td>
+<td>Metal Tile</td>
+<td>Tuile en métal</td>
+</tr>
+<tr>
+<td>WOOD SHAKES</td>
+<td>Wood Shakes</td>
+<td>Bardeau en cèdre</td>
+</tr>
+<tr>
+<td>CONCRETE TILE</td>
+<td>Concrete Tile</td>
+<td>Tuile en ciment</td>
+</tr>
+<tr>
+<td>TAR AND GRAVEL</td>
+<td>Tar and Gravel</td>
+<td>Goudron et gravier</td>
+</tr>
+<tr>
+<td>ELASTOMER</td>
+<td>Elastomer</td>
+<td>Élastomère</td>
+</tr>
+<tr>
+<td>RUBBER</td>
+<td>Rubber</td>
+<td>Caoutchouc</td>
+</tr>
+<tr>
+<td>CORRUGATED STEEL</td>
+<td>Corrugated Steel</td>
+<td>Tôle ondulée</td>
+</tr>
+<tr>
+<td>SLATE TILE</td>
+<td>Slate Tile</td>
+<td>Tuile d'ardoise</td>
+</tr>
+<tr>
+<td>WOOD SHINGLES</td>
+<td>Wood Shingles</td>
+<td>Bardeaux de bois</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table17"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 17:  Electrical Service Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>60 AMP</td>
+<td>60 AMP</td>
+</tr>
+<tr>
+<td>100 AMP</td>
+<td>100 AMP</td>
+</tr>
+<tr>
+<td>200 AMP</td>
+<td>200 AMP</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table18"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 18:  Electrical Wiring Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ALUMINUM</td>
+<td>Aluminum</td>
+</tr>
+<tr>
+<td>COPPER</td>
+<td>Copper</td>
+</tr>
+<tr>
+<td>KNOB AND TUBE</td>
+<td>Knob and Tube</td>
+</tr>
+<tr>
+<td>MIXED</td>
+<td>Mixed wiring, multiple types.</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>Unknown</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table19"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 19:  Plumbing Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>COPPER</td>
+<td>Metal - Copper</td>
+<td>Métal - Cuivre</td>
+</tr>
+<tr>
+<td>LEAD</td>
+<td>Metal - Lead</td>
+<td>Métal - Plomb</td>
+</tr>
+<tr>
+<td>PLASTIC</td>
+<td>Plastic - Other</td>
+<td>Plastique - Autre</td>
+</tr>
+<tr>
+<td>CASTIRON</td>
+<td>Metal - Cast Iron</td>
+<td>Métal - Fer</td>
+</tr>
+<tr>
+<td>GALVANIZED</td>
+<td>Metal - Galvanized</td>
+<td>Métal - Galvanisé</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>Plastic - ABS</td>
+<td>Plastique - ABS</td>
+</tr>
+<tr>
+<td>PEX</td>
+<td>Plastic - PEX</td>
+<td>Plastique - PEX</td>
+</tr>
+<tr>
+<td>POLYB</td>
+<td>Plastic - Poly-B</td>
+<td>Plastique - PB</td>
+</tr>
+<tr>
+<td>COPPER_ABS</td>
+<td>Mixed - Copper/ABS</td>
+<td>Combiné - Cuivre/ABS</td>
+</tr>
+<tr>
+<td>COPPER_PVC</td>
+<td>Mixed - Copper/PVC</td>
+<td>Combiné - Cuivre/PVC</td>
+</tr>
+<tr>
+<td>PVC</td>
+<td>Plastic - PVC</td>
+<td>Plastique - PVC</td>
+</tr>
+<tr>
+<td>MIXED</td>
+<td>Mixed - Other</td>
+<td>Combiné - Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table20"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 20:  Sprinkler Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>FULL</td>
+<td>Full</td>
+</tr>
+<tr>
+<td>PARTIAL</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table21"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 21:  Watercraft Construction Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>WOOD</td>
+<td>Wood</td>
+</tr>
+<tr>
+<td>FIBERGLASS</td>
+<td>Fiberglass</td>
+</tr>
+<tr>
+<td>STEEL</td>
+<td>Steel</td>
+</tr>
+<tr>
+<td>ALUMINUM</td>
+<td>Aluminum</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table22"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 22:  Watercraft Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>INBOARD</td>
+<td>Inboard</td>
+</tr>
+<tr>
+<td>OUTBOARD</td>
+<td>Outboard</td>
+</tr>
+<tr>
+<td>INBOARD/OUTBOARD</td>
+<td>Inboard/Outboard</td>
+</tr>
+<tr>
+<td>SAILCRAFT - WITH SPARS</td>
+<td>Sailcraft - with Spars</td>
+</tr>
+<tr>
+<td>SAILCRAFT - WITHOUT SPARS</td>
+<td>Sailcraft - without Spars</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table23"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 23:  Watercraft Auxiliary Power Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>INBOARD</td>
+<td>Inboard</td>
+</tr>
+<tr>
+<td>OUTBOARD</td>
+<td>Outboard</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table24"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 24:  Waterway Type Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Inland</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Coastal</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table25"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 25:  Earthquake Deductible Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>15</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>20</td>
+<td>20%</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table26"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 26:  Glass Breakage Deductibles</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>25</td>
+<td>25</td>
+</tr>
+<tr>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>75</td>
+<td>75</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table27"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 27:  Floater Deductible Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Nil</td>
+</tr>
+<tr>
+<td>25</td>
+<td>25</td>
+</tr>
+<tr>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>75</td>
+<td>75</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>200</td>
+<td>200</td>
+</tr>
+<tr>
+<td>250</td>
+<td>250</td>
+</tr>
+<tr>
+<td>300</td>
+<td>300</td>
+</tr>
+<tr>
+<td>350</td>
+<td>350</td>
+</tr>
+<tr>
+<td>500</td>
+<td>500</td>
+</tr>
+<tr>
+<td>750</td>
+<td>750</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>1000</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table28"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 28:  Group Plan Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>ACQ</td>
+<td>ACQ</td>
+<td>ACQ</td>
+</tr>
+<tr>
+<td>AMVOQ</td>
+<td>AMVOQ</td>
+<td>AMVOQ</td>
+</tr>
+<tr>
+<td>APCHQ</td>
+<td>APCHQ</td>
+<td>APCHQ</td>
+</tr>
+<tr>
+<td>ASPPCQ</td>
+<td>ASPPCQ</td>
+<td>ASPPCQ</td>
+</tr>
+<tr>
+<td>ATEQ</td>
+<td>ATEQ</td>
+<td>ATEQ</td>
+</tr>
+<tr>
+<td>ATU</td>
+<td>Club Age d'Or d'Abit.,Témis.,Ungava</td>
+<td>Club Age d'Or d'Abit.,Témis.,Ungava</td>
+</tr>
+<tr>
+<td>CAA</td>
+<td>CAA</td>
+<td>CAA</td>
+</tr>
+<tr>
+<td>CAAB</td>
+<td>Club de l'Amitié de l'âge d'or de Beloeil</td>
+<td>Club de l'Amitié de l'âge d'or de Beloeil</td>
+</tr>
+<tr>
+<td>CAJ</td>
+<td>Club des Ainés de Jonquière</td>
+<td>Club des Ainés de Jonquière</td>
+</tr>
+<tr>
+<td>CHA</td>
+<td>Club Age d'Or - Chaudière-Appalaches</td>
+<td>Club Age d'Or - Chaudière-Appalaches</td>
+</tr>
+<tr>
+<td>EST</td>
+<td>Club Age d'Or de Windsor</td>
+<td>Club Age d'Or de Windsor</td>
+</tr>
+<tr>
+<td>FADEQ</td>
+<td>Club Age d'Or (FADEQ)</td>
+<td>Club Age d'Or (FADEQ)</td>
+</tr>
+<tr>
+<td>FADOQ</td>
+<td>Club Age d'Or (FADOQ)</td>
+<td>Club Age d'Or (FADOQ)</td>
+</tr>
+<tr>
+<td>QSBA</td>
+<td>Quebec School Bus Association</td>
+<td>Association du transport du Québec</td>
+</tr>
+<tr>
+<td>RPHL</td>
+<td>RPHL</td>
+<td>RPHL</td>
+</tr>
+<tr>
+<td>SPCFP</td>
+<td>SPCFP-Monteregie</td>
+<td>SPCFP-Monteregie</td>
+</tr>
+<tr>
+<td>SPGQ</td>
+<td>SPGQ</td>
+<td>SPGQ</td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table29"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 29:  Product Names</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Web</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table30"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 30:  Sump Pump Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>PEDESTAL (ELECTRIC)</td>
+<td>Pedestal (Electric)</td>
+<td>Piédestal (Électrique)</td>
+</tr>
+<tr>
+<td>SUBMERSIBLE (ELECTRIC)</td>
+<td>Submersible (Electric)</td>
+<td>Submersible (Électrique)</td>
+</tr>
+<tr>
+<td>FLOOR SUCKER (ELECTRIC)</td>
+<td>Floor Sucker (Electric)</td>
+<td>Pompe de plancher (Électrique)</td>
+</tr>
+<tr>
+<td>WATER POWERED</td>
+<td>Water Powered</td>
+<td>À action hydraulique</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table31"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 31:  Sump Pump Auxiliary Power Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>BATTERY</td>
+<td>Battery</td>
+<td>Batterie</td>
+</tr>
+<tr>
+<td>GENERATOR</td>
+<td>Generator</td>
+<td>Génératrice</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table32"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 32:  Backup / Backflow Valve Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>GATE</td>
+<td>Gate</td>
+<td>Barrière</td>
+</tr>
+<tr>
+<td>FLAPPER</td>
+<td>Flapper</td>
+<td>Clapet</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table33"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 33:  Area Measurement Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Square Feet</td>
+<td>Pieds Carrés</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Square Metres</td>
+<td>Mètres Carrés</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table34"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 34:  Oil Tank Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>IND_AG</td>
+<td>Inside and Above Ground</td>
+<td>Intérieur - au dessus du sol</td>
+</tr>
+<tr>
+<td>IND_IG</td>
+<td>Inside and In Ground</td>
+<td>Intérieur - encastrée dans le sol</td>
+</tr>
+<tr>
+<td>OUT_AG</td>
+<td>Outside and Above Ground</td>
+<td>Extérieur - au dessus du sol</td>
+</tr>
+<tr>
+<td>OUT_IG</td>
+<td>Outside and In Ground</td>
+<td>Extérieur - encastrée dans le sol</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table35"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 35:  Swimming Pool Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>AG_F</td>
+<td>Above Ground, with Fence</td>
+<td>Hors terre avec clôture</td>
+</tr>
+<tr>
+<td>AG_NOF</td>
+<td>Above Ground, without Fence</td>
+<td>Hors terre sans clôture</td>
+</tr>
+<tr>
+<td>IG_F</td>
+<td>In Ground, with Fence</td>
+<td>Creusée avec clôture</td>
+</tr>
+<tr>
+<td>IG_NOF</td>
+<td>In Ground, without Fence</td>
+<td>Creusée sans clôture</td>
+</tr>
+<tr>
+<td>IND</td>
+<td>Indoor</td>
+<td>Intérieure</td>
+</tr>
+<tr>
+<td>IND_IG</td>
+<td>Indoor, In Ground</td>
+<td>Intérieure creusée</td>
+</tr>
+<tr>
+<td>IND_AG</td>
+<td>Indoor, Above Ground</td>
+<td>Intérieure hors terre</td>
+</tr>
+<tr>
+<td>SIG_F</td>
+<td>Semi-Inground, with Fence</td>
+<td>Semi-creusée avec clôture</td>
+</tr>
+<tr>
+<td>SIG_NOF</td>
+<td>Semi-Inground, without Fence</td>
+<td>Semi-creusée sans clôture</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table36"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 36:  Evaluation Tool Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Unknown</td>
+<td>Inconnu</td>
+</tr>
+<tr>
+<td>20</td>
+<td>ezITV</td>
+<td>CVA</td>
+</tr>
+<tr>
+<td>21</td>
+<td>ezITV 2010</td>
+<td>CVA 2010</td>
+</tr>
+<tr>
+<td>22</td>
+<td>ezITV (iClarify Validated)</td>
+<td>CVA (iClarify validé)</td>
+</tr>
+<tr>
+<td>40</td>
+<td>RCT EvaluRater</td>
+<td>RCT EvaluRater</td>
+</tr>
+<tr>
+<td>41</td>
+<td>RCT Express</td>
+<td>RCT Express</td>
+</tr>
+<tr>
+<td>60</td>
+<td>RS Means CostWorks</td>
+<td>RS Means CostWorks</td>
+</tr>
+<tr>
+<td>80</td>
+<td>PowerHouse EvalWorks</td>
+<td>PowerHouse EvalWorks</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Applied ITV</td>
+<td>Valeur &#8211; Applied</td>
+</tr>
+<tr>
+<td>999</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table37"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 37:  Form Type Codes (Floaters, Ext. Coverages)</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>5</td>
+<td>All Risk</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Named Perils</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table38"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 38:  Solar Panel Installation Locations</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>ROOF</td>
+<td>Roof</td>
+<td>Toit</td>
+</tr>
+<tr>
+<td>GROUND</td>
+<td>Ground</td>
+<td>Au sol</td>
+</tr>
+<tr>
+<td>POLE</td>
+<td>Pole</td>
+<td>Poteau</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table39"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 39:  Discount Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Bath</td>
+<td>Bathroom</td>
+</tr>
+<tr>
+<td>Bsmt</td>
+<td>Basement</td>
+</tr>
+<tr>
+<td>BurglarAlarm</td>
+<td>Burglar alarm</td>
+</tr>
+<tr>
+<td>BusinessUse</td>
+<td>Business use</td>
+</tr>
+<tr>
+<td>ClaimsForgiveness</td>
+<td>Claims forgiveness</td>
+</tr>
+<tr>
+<td>ClaimsFree</td>
+<td>Claims free</td>
+</tr>
+<tr>
+<td>CombinationAlarm</td>
+<td>Combination alarm</td>
+</tr>
+<tr>
+<td>CombinedPolicy</td>
+<td>Combined policy</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>Type of construction</td>
+</tr>
+<tr>
+<td>CourseConstruction</td>
+<td>Course construction</td>
+</tr>
+<tr>
+<td>DeadBolt</td>
+<td>Deadbolt</td>
+</tr>
+<tr>
+<td>Elect</td>
+<td>Electrical service, wiring, panel, etc.</td>
+</tr>
+<tr>
+<td>FireAlarm</td>
+<td>Fire alarm</td>
+</tr>
+<tr>
+<td>GroupPlan</td>
+<td>Group plan</td>
+</tr>
+<tr>
+<td>Heating</td>
+<td>Heating type</td>
+</tr>
+<tr>
+<td>HomeSecurity</td>
+<td>Home security</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Geographic location</td>
+</tr>
+<tr>
+<td>Loyalty</td>
+<td>Loyalty</td>
+</tr>
+<tr>
+<td>MatureHomeowner</td>
+<td>Mature home owner</td>
+</tr>
+<tr>
+<td>MaxCap</td>
+<td>Max cap</td>
+</tr>
+<tr>
+<td>Misc0</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc1</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc10</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc11</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc12</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc13</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc14</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc15</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc16</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc17</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc18</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc19</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc2</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc3</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc4</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc5</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc6</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc7</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc8</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>Misc9</td>
+<td>Company-specific discount</td>
+</tr>
+<tr>
+<td>MortgageFree</td>
+<td>Mortgage free</td>
+</tr>
+<tr>
+<td>MultiFamily</td>
+<td>Multi-family</td>
+</tr>
+<tr>
+<td>MultiPolicy</td>
+<td>Multi-policy</td>
+</tr>
+<tr>
+<td>NeighbourhoodWatch</td>
+<td>Neighbourhood watch</td>
+</tr>
+<tr>
+<td>NewBusiness</td>
+<td>New business</td>
+</tr>
+<tr>
+<td>NewHome</td>
+<td>New home</td>
+</tr>
+<tr>
+<td>NonSmoker</td>
+<td>Non-smokers</td>
+</tr>
+<tr>
+<td>Occupational</td>
+<td>Occupation</td>
+</tr>
+<tr>
+<td>Plumb</td>
+<td>Plumbing</td>
+</tr>
+<tr>
+<td>Pool</td>
+<td>Swimming Pool</td>
+</tr>
+<tr>
+<td>PowerSquadron</td>
+<td>Power squadron</td>
+</tr>
+<tr>
+<td>PreferredCustomer</td>
+<td>Preferred customer</td>
+</tr>
+<tr>
+<td>QualityHome</td>
+<td>Quality home</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>Renewal</td>
+</tr>
+<tr>
+<td>Roof</td>
+<td>Roof</td>
+</tr>
+<tr>
+<td>SailingSchool</td>
+<td>Sailing school</td>
+</tr>
+<tr>
+<td>SBUPrevMeas</td>
+<td>Preventative measures for sewer backup</td>
+</tr>
+<tr>
+<td>SecurityGuard</td>
+<td>Security guard</td>
+</tr>
+<tr>
+<td>Seniors</td>
+<td>Seniors</td>
+</tr>
+<tr>
+<td>SepticSystem</td>
+<td>Septic system</td>
+</tr>
+<tr>
+<td>ShuttleTanker</td>
+<td>Shuttle tanker</td>
+</tr>
+<tr>
+<td>SmokeAlarm</td>
+<td>Smoke alarm</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>Solar panel(s)</td>
+</tr>
+<tr>
+<td>Sprinkler</td>
+<td>Sprinkler</td>
+</tr>
+<tr>
+<td>Stability</td>
+<td>Stability of residence occupancy</td>
+</tr>
+<tr>
+<td>Storey</td>
+<td>Floor or storey of residence</td>
+</tr>
+<tr>
+<td>WaterHeater</td>
+<td>Water Heater</td>
+</tr>
+<tr>
+<td>WaterMain</td>
+<td>Water Main</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table40"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 40:  Surcharge Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AgeOfHome</td>
+<td>Age of home</td>
+</tr>
+<tr>
+<td>AgeOfInsured</td>
+<td>Age of insured</td>
+</tr>
+<tr>
+<td>AuxilliaryHeating</td>
+<td>Auxiliary heating</td>
+</tr>
+<tr>
+<td>BasementApt</td>
+<td>Basement apartment</td>
+</tr>
+<tr>
+<td>Bath</td>
+<td>Bathroom</td>
+</tr>
+<tr>
+<td>Bsmt</td>
+<td>Basement</td>
+</tr>
+<tr>
+<td>BusinessUse</td>
+<td>Business use</td>
+</tr>
+<tr>
+<td>Claims</td>
+<td>Claims</td>
+</tr>
+<tr>
+<td>Construction</td>
+<td>Type of construction</td>
+</tr>
+<tr>
+<td>Duplex</td>
+<td>Duplex</td>
+</tr>
+<tr>
+<td>Elect</td>
+<td>Electrical service, wiring, panel, etc.</td>
+</tr>
+<tr>
+<td>GroupPlan</td>
+<td>Group plan</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Geographic location</td>
+</tr>
+<tr>
+<td>LogHome</td>
+<td>Log home</td>
+</tr>
+<tr>
+<td>MinPremium</td>
+<td>Minimum premium enforcement</td>
+</tr>
+<tr>
+<td>Misc0</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc1</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc10</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc11</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc12</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc13</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc14</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc15</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc16</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc17</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc18</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc19</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc2</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc3</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc4</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc5</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc6</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc7</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc8</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Misc9</td>
+<td>Company-specific surcharge</td>
+</tr>
+<tr>
+<td>Mortgage</td>
+<td>Mortgage(s)</td>
+</tr>
+<tr>
+<td>MultiFamily</td>
+<td>Multi-family</td>
+</tr>
+<tr>
+<td>MultiPolicy</td>
+<td>Multi-policy</td>
+</tr>
+<tr>
+<td>NoPreviousInsurance</td>
+<td>No previous insurance</td>
+</tr>
+<tr>
+<td>Plumb</td>
+<td>Plumbing</td>
+</tr>
+<tr>
+<td>Pool</td>
+<td>Swimming Pool</td>
+</tr>
+<tr>
+<td>PrimaryHeating</td>
+<td>Primary heating</td>
+</tr>
+<tr>
+<td>Roof</td>
+<td>Roof</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>Solar panel(s)</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>Number of units in building</td>
+</tr>
+<tr>
+<td>WaterHeater</td>
+<td>Water Heater</td>
+</tr>
+<tr>
+<td>WaterMain</td>
+<td>Water Main</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table41"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 41:  Standard Coverage Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>AddLivingExp</td>
+<td>Additional living expenses</td>
+</tr>
+<tr>
+<td>Betterments</td>
+<td>Betterments</td>
+</tr>
+<tr>
+<td>BrokerFee</td>
+<td>Fee charged as part of the insurance premium payable to the broker for securing the business</td>
+</tr>
+<tr>
+<td>Burglary</td>
+<td>Burglary</td>
+</tr>
+<tr>
+<td>Contents</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>Contingent</td>
+<td>Contingency</td>
+</tr>
+<tr>
+<td>Deductible</td>
+<td>Deductible</td>
+</tr>
+<tr>
+<td>GuarBldgRepCost</td>
+<td>Guaranteed building replacement cost</td>
+</tr>
+<tr>
+<td>Hail</td>
+<td>Hail peril coverage</td>
+</tr>
+<tr>
+<td>Liability</td>
+<td>Liability</td>
+</tr>
+<tr>
+<td>LiabMultiFam</td>
+<td>Liability coverage for multi-family.</td>
+</tr>
+<tr>
+<td>LiabOilTank</td>
+<td>Liability coverage for oil tank.</td>
+</tr>
+<tr>
+<td>LiabPool</td>
+<td>Liability coverage for swimming pool.</td>
+</tr>
+<tr>
+<td>LiabSolar</td>
+<td>Liability coverage for solar panel(s).</td>
+</tr>
+<tr>
+<td>LossAssessLiab</td>
+<td>Loss assessment liability coverage</td>
+</tr>
+<tr>
+<td>LossAssessProp</td>
+<td>Loss assessment property coverage</td>
+</tr>
+<tr>
+<td>Outbuilding</td>
+<td>Out-building</td>
+</tr>
+<tr>
+<td>ReplacementCost</td>
+<td>Replacement cost</td>
+</tr>
+<tr>
+<td>Residence</td>
+<td>Residence</td>
+</tr>
+<tr>
+<td>SingleLimit</td>
+<td>Single limit</td>
+</tr>
+<tr>
+<td>VanMalBldg</td>
+<td>Vandalism/malicious damage building</td>
+</tr>
+<tr>
+<td>VanMalCnts</td>
+<td>Vandalism/malicious damage contents</td>
+</tr>
+<tr>
+<td>VoluntaryMed</td>
+<td>Voluntary medical</td>
+</tr>
+<tr>
+<td>VoluntaryProp</td>
+<td>Voluntary property</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>Wind peril coverage</td>
+</tr>
+<tr>
+<td>Water</td>
+<td>Water peril coverage</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table42"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 42:  Extended Coverage Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>ByLaws</td>
+<td>By-laws</td>
+</tr>
+<tr>
+<td>ClaimFreeProtection</td>
+<td>Claim free protection endorsement</td>
+</tr>
+<tr>
+<td>DedAssess</td>
+<td>Condominium deductible assessment endorsement</td>
+</tr>
+<tr>
+<td>EarthquakeBldg</td>
+<td>Earthquake - building</td>
+</tr>
+<tr>
+<td>EarthquakeCnts</td>
+<td>Earthquake - contents</td>
+</tr>
+<tr>
+<td>EarthquakeOutBldg</td>
+<td>Earthquake - outbuilding</td>
+</tr>
+<tr>
+<td>ElectBike</td>
+<td>Electric bicycle (or eBike) endorsement.</td>
+</tr>
+<tr>
+<td>EQIndirect</td>
+<td>Indirect damage from earthquake</td>
+</tr>
+<tr>
+<td>FireDeptCharges</td>
+<td>Fire department charges</td>
+</tr>
+<tr>
+<td>Freezer</td>
+<td>Food freezer</td>
+</tr>
+<tr>
+<td>FuelOilLeakage</td>
+<td>Damage caused by the sudden and accidental leakage of fuel oil from a tank permanently installed</td>
+</tr>
+<tr>
+<td>FuelOilLeakageOutdoor</td>
+<td>Damage caused by the sudden and accidental leakage of fuel oil from a tank permanently installed outside a dwelling</td>
+</tr>
+<tr>
+<td>GlassDed</td>
+<td>Glass breakage buy-down</td>
+</tr>
+<tr>
+<td>GroundWater</td>
+<td>Ground water coverage</td>
+</tr>
+<tr>
+<td>HomeBus</td>
+<td>Home-based business extended coverage structure.</td>
+</tr>
+<tr>
+<td>HomeBusProfLiab</td>
+<td>Professional Liability for home-based Business extended coverage</td>
+</tr>
+<tr>
+<td>IdentityTheft</td>
+<td>Identity theft</td>
+</tr>
+<tr>
+<td>LegalFees</td>
+<td>Legal fees incurred in the event of a dispute</td>
+</tr>
+<tr>
+<td>MassEvac</td>
+<td>Mass evacuation</td>
+</tr>
+<tr>
+<td>Misc0</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc1</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc2</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc3</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc4</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc5</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc6</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc7</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc8</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc9</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc10</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc11</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc12</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc13</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc14</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc15</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc16</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc17</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc18</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc19</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc20</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc21</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc22</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc23</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc24</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc25</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc26</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc27</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc28</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>Misc29</td>
+<td>Company-specific extended coverage</td>
+</tr>
+<tr>
+<td>OverlandWater</td>
+<td>Overland water</td>
+</tr>
+<tr>
+<td>PersonalCyber</td>
+<td>Personal Cyber</td>
+</tr>
+<tr>
+<td>PoolAboveGround</td>
+<td>Above ground pool</td>
+</tr>
+<tr>
+<td>PoolInGround</td>
+<td>In-ground pool</td>
+</tr>
+<tr>
+<td>PropertyInStorage</td>
+<td>Property in storage</td>
+</tr>
+<tr>
+<td>Rental</td>
+<td>Rental Income</td>
+</tr>
+<tr>
+<td>ResGlass</td>
+<td>Residential glass</td>
+</tr>
+<tr>
+<td>SewerBackup</td>
+<td>Water damage caused by discharge, backing up or overflow of water from a sewer</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>Solar panel(s)</td>
+</tr>
+<tr>
+<td>SpasAboveGround</td>
+<td>Above ground spa</td>
+</tr>
+<tr>
+<td>SpasInGround</td>
+<td>In-ground spa</td>
+</tr>
+<tr>
+<td>WaterDamage</td>
+<td>Water damage caused by seepage or influx of surface or ground water, except overflow from any stream or body of water</td>
+</tr>
+<tr>
+<td>WaterEntry</td>
+<td>Demolition and renovation costs as a result of breakage or faulty operation of the water entry</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table43"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 43:  Floater Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Animals</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>Antenna</td>
+<td>Antenna</td>
+</tr>
+<tr>
+<td>Bikes</td>
+<td>Bicycles</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>Camera</td>
+</tr>
+<tr>
+<td>CB</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>CellularPhone</td>
+<td>Cellular phone</td>
+</tr>
+<tr>
+<td>China</td>
+<td>China</td>
+</tr>
+<tr>
+<td>Coins</td>
+<td>Coins</td>
+</tr>
+<tr>
+<td>ComputerDesk</td>
+<td>Desktop computer</td>
+</tr>
+<tr>
+<td>ComputerPortable</td>
+<td>Portable computer</td>
+</tr>
+<tr>
+<td>Contacts</td>
+<td>Contacts</td>
+</tr>
+<tr>
+<td>FineArts</td>
+<td>Fine arts</td>
+</tr>
+<tr>
+<td>FineArtsBrk</td>
+<td>Fine arts with breakage</td>
+</tr>
+<tr>
+<td>Firearms</td>
+<td>Fire arms</td>
+</tr>
+<tr>
+<td>Fish</td>
+<td>Fishing equipment</td>
+</tr>
+<tr>
+<td>Furs</td>
+<td>Furs</td>
+</tr>
+<tr>
+<td>GoldSilver</td>
+<td>Gold and Silver</td>
+</tr>
+<tr>
+<td>GolfCart</td>
+<td>Golf cart</td>
+</tr>
+<tr>
+<td>GolfClubs</td>
+<td>Golf clubs</td>
+</tr>
+<tr>
+<td>Gravestone</td>
+<td>Gravestone</td>
+</tr>
+<tr>
+<td>HearingAid</td>
+<td>Hearing aid</td>
+</tr>
+<tr>
+<td>Jewelery</td>
+<td>Jewellery</td>
+</tr>
+<tr>
+<td>JewelerySafe</td>
+<td>Jewellery in vault or safety deposit</td>
+</tr>
+<tr>
+<td>LawnCare</td>
+<td>Lawn care</td>
+</tr>
+<tr>
+<td>MediaStorage</td>
+<td>Media / storage (tapes, CDs, DVDs, etc)</td>
+</tr>
+<tr>
+<td>MedicalEquipment</td>
+<td>Medical equipment</td>
+</tr>
+<tr>
+<td>MusicalInstrument</td>
+<td>Musical instruments</td>
+</tr>
+<tr>
+<td>PersonalEffectsOther</td>
+<td>Other personal effects</td>
+</tr>
+<tr>
+<td>PersonalEffectsWW</td>
+<td>Personal effects world wide</td>
+</tr>
+<tr>
+<td>PortableRadio</td>
+<td>Portable radio</td>
+</tr>
+<tr>
+<td>Satellite</td>
+<td>Satellite</td>
+</tr>
+<tr>
+<td>Skis</td>
+<td>Skis</td>
+</tr>
+<tr>
+<td>SportsCards</td>
+<td>Sports cards</td>
+</tr>
+<tr>
+<td>SportsEquipment</td>
+<td>Sports equipment</td>
+</tr>
+<tr>
+<td>Stamps</td>
+<td>Stamps</td>
+</tr>
+<tr>
+<td>Tools</td>
+<td>Tools</td>
+</tr>
+<tr>
+<td>TV</td>
+<td>Television</td>
+</tr>
+<tr>
+<td>Typewriter</td>
+<td>Typewriter</td>
+</tr>
+<tr>
+<td>VideoEquipment</td>
+<td>Video equipment</td>
+</tr>
+<tr>
+<td>WheelchairMotorized</td>
+<td>Wheelchair - motorized</td>
+</tr>
+<tr>
+<td>WheelchairOther</td>
+<td>Wheelchair - other</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table44"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 44:  Rated Item Interpretations</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Included at no extra or separate cost</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Not available</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Charged premium</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Not relevant or applicable</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table45"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 45:  Home-based Business Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Accounting Service</td>
+<td>Service comptable</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Actuary</td>
+<td>Actuaire</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Adjuster</td>
+<td>Ajusteur</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Administrative Support Service</td>
+<td>Service de support administrative</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Advertising/Marketing Service</td>
+<td>Service de publicité/marketing</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Antique Gallery Shop</td>
+<td>Galerie d'antiquité or antiquaire</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Appraiser</td>
+<td>Évaluateur</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Aquarium Sales &amp; Service</td>
+<td>Aquarium Ventes et Services</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Arbitration Service</td>
+<td>Service d'arbitrage</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Architect</td>
+<td>Architecte</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Art Gallery/Art Studio</td>
+<td>Galerie d'art/Studio d'art</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Art Lessons/Studio</td>
+<td>Cours d'art/Studio</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Artists Goods and Materials Sales</td>
+<td>Artistes - matériels et fournitures</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Audiologist</td>
+<td>Audiologiste</td>
+</tr>
+<tr>
+<td>128</td>
+<td>Auditing</td>
+<td>Auditer</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Baked Goods</td>
+<td>Pâtisseries</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Beauty Salon / Barber Shop</td>
+<td>Salon de beauté/Salon de coiffure pour homme ou Barbier</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Bed and Breakfast</td>
+<td>Chambre d'hôtel ou Chambre avec petit déjeuner</td>
+</tr>
+<tr>
+<td>153</td>
+<td>Bike Repair</td>
+<td>Réparation de bicyclettes</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Book Binding</td>
+<td>Reliure</td>
+</tr>
+<tr>
+<td>130</td>
+<td>Book Publishing</td>
+<td>Éditeur de livres</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Book/Magazine Distribution</td>
+<td>Distribution de livre/revue</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Bookkeeping Service</td>
+<td>Service de comptabilité</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Books/Magazines Sales</td>
+<td>Ventes de livres/revues</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Bridal Consultant</td>
+<td>Conseiller de mariée</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Calligrapher</td>
+<td>Calligraphe</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Camera Repair</td>
+<td>Réparation de caméra</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Candy/Nut Confections</td>
+<td>Fabricants de bonbons/noix</td>
+</tr>
+<tr>
+<td>146</td>
+<td>Catalogue or Mail Orders</td>
+<td>Ventes par catalogue ou correspondance</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Catering Service</td>
+<td>Service traiteur</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Ceramics and Pottery (No Kiln on Premises)</td>
+<td>Céramique et poterie (aucun four à céramique sur les lieux)</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Ceramics and Pottery (With Kiln)</td>
+<td>Céramique et poterie (avec four à céramique)</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Chiropractor&#8217;s Office</td>
+<td>Bureau de Chiropraticien</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Clock Repair</td>
+<td>Réparation d'horloge</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Clothing and Accessories Sales</td>
+<td>Ventes de vêtement et accessoires</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Clown, Magician or Entertainer</td>
+<td>Clown, Magicien ou Artiste</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Computer Consulting/Programming</td>
+<td>Conseiller d'ordinateur/Programmation</td>
+</tr>
+<tr>
+<td>154</td>
+<td>Computer Lessons</td>
+<td>Leçons d'ordinateurs</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Computer Repair</td>
+<td>Réparation d'ordinateur</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Copywriting</td>
+<td>Rédaction de texte</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Cosmetics and Personal Care Sales</td>
+<td>Ventes de cosmetiques et soins personnels</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Costume Rental</td>
+<td>Location de costume</td>
+</tr>
+<tr>
+<td>131</td>
+<td>Craft Sales</td>
+<td>Ventes d'artisanat</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Culinary Tutoring</td>
+<td>Cours de cuisine</td>
+</tr>
+<tr>
+<td>147</td>
+<td>Curtain/Drapes, Manufacturing and Sales</td>
+<td>Rideaux/Draperies, Fabrication et Ventes</td>
+</tr>
+<tr>
+<td>132</td>
+<td>Dance School Instructor</td>
+<td>Professeur d'école de danse</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Data Entry Clerk</td>
+<td>Opérateur de saisie de données</td>
+</tr>
+<tr>
+<td>133</td>
+<td>Day Care Service</td>
+<td>Service de garderie</td>
+</tr>
+<tr>
+<td>134</td>
+<td>Dentist</td>
+<td>Dentiste</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Dermatologist&#8217;s Office</td>
+<td>Bureau de Dermatologue</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Desktop Publishing</td>
+<td>Publication assistée par ordinateur or microédition</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Dietician (Consultant)</td>
+<td>Diététicien (Conseiller)</td>
+</tr>
+<tr>
+<td>135</td>
+<td>Direct Advertising</td>
+<td>Publicité directe</td>
+</tr>
+<tr>
+<td>136</td>
+<td>Doctor</td>
+<td>Docteur ou Médecin</td>
+</tr>
+<tr>
+<td>155</td>
+<td>Dog Kennel</td>
+<td>Chenil pour chiens</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Doll Making</td>
+<td>Fabricant de poupée</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Drafting</td>
+<td>Rédaction</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Dramatic Art &amp; Speech Training</td>
+<td>Formation d'art dramatique et élocution</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Drawing/Sketching</td>
+<td>Dessin/Croquis</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Editor/Proofreader</td>
+<td>Editeur/Correcteur</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Educational Counsellor/Tutor</td>
+<td>Éducation Conseiller/Professeur</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Electronic Equipment Repair</td>
+<td>Réparation d'équipement électronique</td>
+</tr>
+<tr>
+<td>137</td>
+<td>Employment Agency</td>
+<td>Agence de placement</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Engineer</td>
+<td>Ingénieur</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Engraver</td>
+<td>Graveur</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Esoteric Service</td>
+<td>Esotérisme - Service</td>
+</tr>
+<tr>
+<td>138</td>
+<td>Estate Planning</td>
+<td>Planification de succession</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Fabric Painting,Inking,Dyeing</td>
+<td>Tissus - Peinture, Encre , Teinture</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Financial Planning/Consultant</td>
+<td>Planification financière / Conseiller</td>
+</tr>
+<tr>
+<td>139</td>
+<td>Firewood Sales &amp; Delivery</td>
+<td>Ventes et livraisons de bois de chauffage</td>
+</tr>
+<tr>
+<td>156</td>
+<td>Fishing Tackle</td>
+<td>Articles de pêche</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Flower Arranging</td>
+<td>Arrangement de fleur</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Flower Sales</td>
+<td>Ventes de fleur ou fleuriste</td>
+</tr>
+<tr>
+<td>148</td>
+<td>Food Broker</td>
+<td>Courtier en produits alimentaires</td>
+</tr>
+<tr>
+<td>157</td>
+<td>Food Supplements/Vitamins</td>
+<td>Suppléments/Vitamines</td>
+</tr>
+<tr>
+<td>158</td>
+<td>Foster Home</td>
+<td>Famille d'accueil</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Genealogist</td>
+<td>Généalogiste</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Gift Delivery Service (Balloons, Gift Baskets)</td>
+<td>Service de livraison de cadeaux (Ballons, Paniers)</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Giftware Sales</td>
+<td>Ventes de cadeaux</td>
+</tr>
+<tr>
+<td>159</td>
+<td>Glassware</td>
+<td>Articles de verre</td>
+</tr>
+<tr>
+<td>160</td>
+<td>Golf Club Making and Repair</td>
+<td>Fabrication/Réparation de bâtons de golf</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Graphic Arts Designer</td>
+<td>Graphiste ou Designer graphique</td>
+</tr>
+<tr>
+<td>161</td>
+<td>Greenhouse</td>
+<td>Serre</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Greeting Cards</td>
+<td>Cartes de souhaits</td>
+</tr>
+<tr>
+<td>162</td>
+<td>Group Home</td>
+<td>Foyer de groupe</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Handyman</td>
+<td>Bricoleur ou Homme à tout faire</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Hearing Aid Outlets Sales and Repairs</td>
+<td>Prothèse auditive  - Ventes &amp; Réparations</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Hobby &amp; Model Supplies &amp; Accessories</td>
+<td>Passe-temps et Modèle - Fournitures &amp; Accessoires</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Hobby/Models and Accessories</td>
+<td>Passe-temps/Modèles &amp; accessoires</td>
+</tr>
+<tr>
+<td>163</td>
+<td>Home Care for the Elderly</td>
+<td>Soins à domicile pour les aînés</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Home Party Sales (Household Goods, Clothing, Food Products)</td>
+<td>Réception - Ventes ( Matériels domestiques, Vètement, Nourritures)</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Household Products and Appliances</td>
+<td>Nourritures et appareils</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Human Resource Consultant</td>
+<td>Ressource humaine - conseiller</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Image Consultant</td>
+<td>Conseiller d'image</td>
+</tr>
+<tr>
+<td>141</td>
+<td>Income Tax Consulting</td>
+<td>Conseiller d'impôt</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Insurance Agent/Broker/Consultant</td>
+<td>Agent d'assurance / Courtier / Conseiller</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Insurance Valuation Inspection Services</td>
+<td>Service d'évaluation d'inspection d'assurance</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Interior Designer</td>
+<td>Architecte d'intérieur</td>
+</tr>
+<tr>
+<td>142</td>
+<td>Jams/Preserves Sales</td>
+<td>Ventes de confitures</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Jewellery</td>
+<td>Bijoutier</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Kitchen Supplies</td>
+<td>Accessoires de cuisine</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Land Title Search</td>
+<td>Recherche de titre de terrain</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Landscaping</td>
+<td>Paysagement</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Lawyer&#8217;s Office</td>
+<td>Bureau d'avocat</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Leather Craft</td>
+<td>Cuir artisanal</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Leather Goods Sales</td>
+<td>Ventes de matériax de cuir</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Lingerie Sales</td>
+<td>Ventes de lingerie</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Locksmith</td>
+<td>Serrurier</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Mail Receiving</td>
+<td>Réception de courrier</td>
+</tr>
+<tr>
+<td>166</td>
+<td>Mailing List Services</td>
+<td>Fournisseur de liste d'adresses</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Management Consultant</td>
+<td>Conseiller de gestion</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Market Research and Analysis</td>
+<td>Recherche de marché et analyste</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Massage Therapist</td>
+<td>Thérapeutes de massage</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Modelling Agency &amp; School</td>
+<td>Agence et école de mannequin</td>
+</tr>
+<tr>
+<td>151</td>
+<td>Mortgage Broker</td>
+<td>Courtier en hypothèques</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Music Lessons/Studio</td>
+<td>Cours de Musique/Studio</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Musical Instruments Sales and Repairs</td>
+<td>Ventes et réparation d'instruments de musique</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Needle Work (Embroidery, Knitting, Macrame, Crewel Work)</td>
+<td>Couture ( Broderie, Tricot, Macramé, Tapisserie)</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Notary Public</td>
+<td>Notaire publique</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Office Designing &amp; Planning</td>
+<td>Bureau de conception et project</td>
+</tr>
+<tr>
+<td>145</td>
+<td>Office Employee/Contract Worker</td>
+<td>Travailleur contractuel - Emloyé de bureau</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Office Services (Including Faxing, Photocopying, Quick Printing)</td>
+<td>Bureautique ( incluant Fax, Photocopie, Imprimerie)</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Office Supplies Sales</td>
+<td>Ventes de fournitures de bureau</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Opticial Sales and Repairs</td>
+<td>Ventes et réparations d'optique</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Optometrist</td>
+<td>Optometriste</td>
+</tr>
+<tr>
+<td>999</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Paper Mache, Paper Tole</td>
+<td>Papier mâché, Papier tôle</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Paralegal Agent</td>
+<td>Agent paralégal</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Party Planning/Rental Service</td>
+<td>Planification de fête / Service de Location</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Pet Grooming Service</td>
+<td>Service de toilettage d'animaux</td>
+</tr>
+<tr>
+<td>152</td>
+<td>Pet/House Sitting</td>
+<td>Service de gardiennage d'animaux domestiques / Garde de maison</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Photographer, Photography Studio</td>
+<td>Photographe, Studio de photographie</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Piano, Tuning &amp; Repairing</td>
+<td>Accord et réparation de piano</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Picture Framing</td>
+<td>Encadrement</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Picture Painting</td>
+<td>Peinture</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Plants Indoor Maintenance</td>
+<td>Entretien des plantes intérieur</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Podiatrist</td>
+<td>Podiâtre</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Psychologist</td>
+<td>Psycologue</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Public Relations Service</td>
+<td>Service de relations publiques</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Public Speaking Service</td>
+<td>Service de communication</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Real Estate Sales</td>
+<td>Ventes d'immobilier</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Religious Goods</td>
+<td>Matériels religieux</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Relocation Service</td>
+<td>Service de relocalisation</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Residential Inspection Service</td>
+<td>Service d'inspection résidentielle</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Resume Service</td>
+<td>Service de résumé</td>
+</tr>
+<tr>
+<td>167</td>
+<td>Sales Representative</td>
+<td>Représentant des ventes</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Secretarial/Stenographic Service</td>
+<td>Service de secrétaire /sténographe</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Sewing/ Tailoring/ Altering Service</td>
+<td>Service de couture/tailleur/altération</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Sharpening Service</td>
+<td>Aiguisage - Service</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Shoe Repair</td>
+<td>Cordonnier</td>
+</tr>
+<tr>
+<td>168</td>
+<td>Sign Designer</td>
+<td>Concepteur d'enseignes</td>
+</tr>
+<tr>
+<td>169</td>
+<td>Small Appliance Repair</td>
+<td>Réparation de petits électroménagers</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Speech/Language Pathologist</td>
+<td>Pathologiste</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Stained Glass Craft</td>
+<td>Métier en fenêtre vitrail</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Stencilling of Pictures</td>
+<td>Images décorées au pochoir</td>
+</tr>
+<tr>
+<td>170</td>
+<td>Sun Tanning Bed</td>
+<td>Lit de bronzage</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Surveyors land</td>
+<td>Arpenteur</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Taxidermist</td>
+<td>Taxidemiste</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Telephone Answering Service</td>
+<td>Centre d'appel</td>
+</tr>
+<tr>
+<td>117</td>
+<td>Telephone Sales/Telemarketing</td>
+<td>Ventes par téléphone/Télémarketing</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Toy Sales</td>
+<td>Vente de jouets</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Transcribing Service, Court Reporter</td>
+<td>Service de transcription, Chroniqueur judiciaire</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Translation Service</td>
+<td>Service de traduction</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Travel Agent/Travel Planner</td>
+<td>Agent de voyage/ Planification de voyage</td>
+</tr>
+<tr>
+<td>121</td>
+<td>Trophy Sales</td>
+<td>Ventes de trophé</td>
+</tr>
+<tr>
+<td>122</td>
+<td>Tupperware Sales</td>
+<td>Ventes de tupperware</td>
+</tr>
+<tr>
+<td>123</td>
+<td>Upholstery</td>
+<td>Rembourage</td>
+</tr>
+<tr>
+<td>124</td>
+<td>Video Taping Service Including Editing</td>
+<td>Service d'enregistrement incluant l'édition de vidéo</td>
+</tr>
+<tr>
+<td>125</td>
+<td>Vocational Counsellor</td>
+<td>Conseiller d'embauchage</td>
+</tr>
+<tr>
+<td>172</td>
+<td>Window Display Decorator</td>
+<td>Décorateur de vitrines</td>
+</tr>
+<tr>
+<td>126</td>
+<td>Woodworker</td>
+<td>Menuisier</td>
+</tr>
+<tr>
+<td>127</td>
+<td>Writer</td>
+<td>Ecrivain</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table47"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 47:  Employers</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>A0210</td>
+<td>Veterinary Office</td>
+<td>Vétérinaire - Employé de bureau</td>
+</tr>
+<tr>
+<td>A0230</td>
+<td>Agronomist Office</td>
+<td>Agronome - Employé de bureau</td>
+</tr>
+<tr>
+<td>A3700</td>
+<td>Chemist Office</td>
+<td>Chimiste - Employé de bureau</td>
+</tr>
+<tr>
+<td>A6030</td>
+<td>Pharmacy</td>
+<td>Pharmacie</td>
+</tr>
+<tr>
+<td>A7000</td>
+<td>Financial Institution</td>
+<td>Institution financière</td>
+</tr>
+<tr>
+<td>A7200</td>
+<td>Credit Union</td>
+<td>Caisse populaire</td>
+</tr>
+<tr>
+<td>A7300</td>
+<td>Insurance Company</td>
+<td>Compagnie d'assurances</td>
+</tr>
+<tr>
+<td>A7610</td>
+<td>General Insurance Brokerage</td>
+<td>Courtage d'Assurances Générales</td>
+</tr>
+<tr>
+<td>A7615</td>
+<td>Stock/Bond Brokerage</td>
+<td>Courtage stock/obligations</td>
+</tr>
+<tr>
+<td>A7730</td>
+<td>Accounting Firm</td>
+<td>Firme de comptabilité</td>
+</tr>
+<tr>
+<td>A7750</td>
+<td>Engineering Firm</td>
+<td>Firme d'ingénierie</td>
+</tr>
+<tr>
+<td>A7751</td>
+<td>Architect Firm</td>
+<td>Firme d'architecture</td>
+</tr>
+<tr>
+<td>A7752</td>
+<td>Land-surveyor Firm</td>
+<td>Firme d'arpentage</td>
+</tr>
+<tr>
+<td>A7760</td>
+<td>Notary Office</td>
+<td>Bureau de notaire</td>
+</tr>
+<tr>
+<td>A7761</td>
+<td>Law Office</td>
+<td>Bureau d'avocats</td>
+</tr>
+<tr>
+<td>A7790</td>
+<td>Chartered Administration Firm</td>
+<td>Firme d'Administrateurs Agréés</td>
+</tr>
+<tr>
+<td>A7791</td>
+<td>Actuary Firm</td>
+<td>Firme d'actuariat</td>
+</tr>
+<tr>
+<td>A8260</td>
+<td>School Board</td>
+<td>Commission scolaire</td>
+</tr>
+<tr>
+<td>A8300</td>
+<td>Municipality</td>
+<td>Municipalité</td>
+</tr>
+<tr>
+<td>A8301</td>
+<td>Urban Community</td>
+<td>Communauté urbaine</td>
+</tr>
+<tr>
+<td>A8510</td>
+<td>Seminary</td>
+<td>Séminaire</td>
+</tr>
+<tr>
+<td>A8520</td>
+<td>College</td>
+<td>Collège/Cégep</td>
+</tr>
+<tr>
+<td>A8521</td>
+<td>Professional School</td>
+<td>École professionnelle</td>
+</tr>
+<tr>
+<td>A8522</td>
+<td>High School</td>
+<td>École secondaire</td>
+</tr>
+<tr>
+<td>A8530</td>
+<td>University</td>
+<td>Université</td>
+</tr>
+<tr>
+<td>A8610</td>
+<td>Hospital</td>
+<td>Hôpital</td>
+</tr>
+<tr>
+<td>A8650</td>
+<td>Doctor Office</td>
+<td>Bureau de médecin</td>
+</tr>
+<tr>
+<td>A8651</td>
+<td>Dentist Office</td>
+<td>Bureau de dentiste</td>
+</tr>
+<tr>
+<td>A8660</td>
+<td>Chiropractor Office</td>
+<td>Bureau de chiropracticien</td>
+</tr>
+<tr>
+<td>A8661</td>
+<td>Optometrist Office</td>
+<td>Bureau d'optométriste</td>
+</tr>
+<tr>
+<td>A8662</td>
+<td>Dietician Office</td>
+<td>Bureau de diététicien</td>
+</tr>
+<tr>
+<td>A8663</td>
+<td>Optician Office</td>
+<td>Bureau d'opticien</td>
+</tr>
+<tr>
+<td>A8664</td>
+<td>Denturologist Office</td>
+<td>Bureau de Denturologiste</td>
+</tr>
+<tr>
+<td>A8665</td>
+<td>Audio-practician Office</td>
+<td>Bureau d'orthophoniste</td>
+</tr>
+<tr>
+<td>A8666</td>
+<td>Podiatrist Office</td>
+<td>Bureau de podiatre</td>
+</tr>
+<tr>
+<td>A8670</td>
+<td>Psychologist Office</td>
+<td>Bureau de psychologue</td>
+</tr>
+<tr>
+<td>A9210</td>
+<td>Restaurant</td>
+<td>Restaurant</td>
+</tr>
+<tr>
+<td>A9211</td>
+<td>Hotel/Motel</td>
+<td>Hôtel/motel</td>
+</tr>
+<tr>
+<td>A9212</td>
+<td>Bar/Disco/Brasserie</td>
+<td>Bar/Discothèque/Brasserie</td>
+</tr>
+<tr>
+<td>A9810</td>
+<td>Parish Church</td>
+<td>Église de paroisse</td>
+</tr>
+<tr>
+<td>A9990</td>
+<td>Private Society (more than 25 employees)</td>
+<td>Entreprise privée (plus de 25 employés)</td>
+</tr>
+<tr>
+<td>B4810</td>
+<td>Bell Canada</td>
+<td>Bell Canada</td>
+</tr>
+<tr>
+<td>B4811</td>
+<td>Northern Telecom</td>
+<td>Northern Telecom</td>
+</tr>
+<tr>
+<td>B4812</td>
+<td>Quebec Telephone</td>
+<td>Téléphone Québec</td>
+</tr>
+<tr>
+<td>B4813</td>
+<td>Telebec</td>
+<td>Telebec</td>
+</tr>
+<tr>
+<td>B4840</td>
+<td>Canada Post Corporation</td>
+<td>Postes Canada</td>
+</tr>
+<tr>
+<td>B4910</td>
+<td>Hydro Quebec</td>
+<td>Hydro-Québec</td>
+</tr>
+<tr>
+<td>B6020</td>
+<td>Quebec Liquor Board</td>
+<td>Société des Alcools du Québec (SAQ)</td>
+</tr>
+<tr>
+<td>B7050</td>
+<td>Desjardins Group</td>
+<td>Caisses Desjardins</td>
+</tr>
+<tr>
+<td>B7210</td>
+<td>Quebec Investment Society</td>
+<td>Société de Gestion Financière (SGF)</td>
+</tr>
+<tr>
+<td>B8110</td>
+<td>Canadian Armed Forces</td>
+<td>Forces Armées Canadiennes</td>
+</tr>
+<tr>
+<td>B8150</td>
+<td>Federal Government (Ministry or Department)</td>
+<td>Gouvernement fédéral (Ministère ou Département)</td>
+</tr>
+<tr>
+<td>B8190</td>
+<td>Federal Government (Other)</td>
+<td>Gouvernement fédéral (Autre)</td>
+</tr>
+<tr>
+<td>B8220</td>
+<td>Quebec Surety</td>
+<td>Sûreté du Québec</td>
+</tr>
+<tr>
+<td>B8250</td>
+<td>Provincial Government (Ministry or Department)</td>
+<td>Gouvernement provincial (Ministère ou Département)</td>
+</tr>
+<tr>
+<td>B8290</td>
+<td>Provincial Government (Other)</td>
+<td>Gouvernement provincial (Autre)</td>
+</tr>
+<tr>
+<td>B8611</td>
+<td>Honore-Mercier Hospital</td>
+<td>Hôpital Honoré-Mercier</td>
+</tr>
+<tr>
+<td>B8670</td>
+<td>CLSC(Centre Local de Services Communautaires/Local Community Centre)</td>
+<td>CLSC(Centre Local de Services Communautaires/Centre Communautaire Local)</td>
+</tr>
+<tr>
+<td>B9820</td>
+<td>ATEQ (Assoc. des Transport d=Écoliers du Quebec/Assoc. Of Quebec Schoolbus Drivers)</td>
+<td>ATEQ (Association du Transport Écolier du Québec/Association des chauffeurs d'autobus)</td>
+</tr>
+<tr>
+<td>B9840</td>
+<td>ASPPCQ (Association Syndicats des Professionnelles et Professionnels de Collège du Québec/Quebec College Professionals Unions Assoc.)</td>
+<td>ASPPCQ (Assoc. des Syndicats des Professionnelles et Professionnels de Collège du Québec/Quebec College Professionals Unions Assoc.)</td>
+</tr>
+<tr>
+<td>B9900</td>
+<td>Self-employed</td>
+<td>Travailleur autonome</td>
+</tr>
+<tr>
+<td>B9901</td>
+<td>Un-employed</td>
+<td>Chômeur</td>
+</tr>
+<tr>
+<td>B9999</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table48"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 48:  Multi-Line Simulation Method</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table50"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 50:  Electrical Panel Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>BREAKERS</td>
+<td>Circuit Breakers</td>
+<td>Disjoncteurs</td>
+</tr>
+<tr>
+<td>FUSES</td>
+<td>Fuses</td>
+<td>Fusibles</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table51"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 51:  Water and Backup Deductibles</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Base</td>
+</tr>
+<tr>
+<td>100</td>
+<td>$100</td>
+</tr>
+<tr>
+<td>200</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>250</td>
+<td>$250</td>
+</tr>
+<tr>
+<td>300</td>
+<td>$300</td>
+</tr>
+<tr>
+<td>350</td>
+<td>$350</td>
+</tr>
+<tr>
+<td>500</td>
+<td>$500</td>
+</tr>
+<tr>
+<td>750</td>
+<td>$750</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>$1000</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>$1500</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>$2000</td>
+</tr>
+<tr>
+<td>2500</td>
+<td>$2500</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>$3000</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>$5000</td>
+</tr>
+<tr>
+<td>7500</td>
+<td>$7500</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>$10000</td>
+</tr>
+<tr>
+<td>25000</td>
+<td>$25000</td>
+</tr>
+<tr>
+<td>50000</td>
+<td>$50000</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table52"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 52:  Water Main Valve Shutoff Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>MANUAL</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>AUTOMATIC</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>MONITORED</td>
+<td>Automatic and centrally monitored</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>Unknown</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table53"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 53:  Exterior Finish Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>Log</td>
+<td>Rondin</td>
+</tr>
+<tr>
+<td>MONO</td>
+<td>Monocoque</td>
+<td>Monocoque</td>
+</tr>
+<tr>
+<td>FBGL</td>
+<td>Fiberglass</td>
+<td>Fibre de verre</td>
+</tr>
+<tr>
+<td>OTH</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>ASB</td>
+<td>Asbestos</td>
+<td>Amiante</td>
+</tr>
+<tr>
+<td>BRIC</td>
+<td>Brick</td>
+<td>Brique</td>
+</tr>
+<tr>
+<td>CEME</td>
+<td>Cement</td>
+<td>Ciment</td>
+</tr>
+<tr>
+<td>CONC</td>
+<td>Concrete Block/Masonry Frame</td>
+<td>Charpente en blocs de béton/Maçonnerie</td>
+</tr>
+<tr>
+<td>FRAM</td>
+<td>Frame (Wood)</td>
+<td>Charpente de bois</td>
+</tr>
+<tr>
+<td>AGGR</td>
+<td>Aggregate</td>
+<td>Granulat</td>
+</tr>
+<tr>
+<td>MSNI</td>
+<td>Masonite</td>
+<td>Panneau dur</td>
+</tr>
+<tr>
+<td>MSNC</td>
+<td>Masonry Non-Combustible</td>
+<td>Maçonnerie incombustible</td>
+</tr>
+<tr>
+<td>ALUM</td>
+<td>Aluminium</td>
+<td>Aluminium</td>
+</tr>
+<tr>
+<td>MSRY</td>
+<td>Masonry</td>
+<td>Maçonnerie</td>
+</tr>
+<tr>
+<td>STON</td>
+<td>Stone</td>
+<td>Pierre</td>
+</tr>
+<tr>
+<td>STUC</td>
+<td>Stucco</td>
+<td>Stuc</td>
+</tr>
+<tr>
+<td>FIRE</td>
+<td>Fire Resistive</td>
+<td>Matériel résistant au feu</td>
+</tr>
+<tr>
+<td>STVN</td>
+<td>Stone Veneer</td>
+<td>Pierre plaquée sur bois</td>
+</tr>
+<tr>
+<td>STEE</td>
+<td>Steel</td>
+<td>Acier</td>
+</tr>
+<tr>
+<td>WOOD</td>
+<td>Wood Exterior</td>
+<td>Extérieur en bois</td>
+</tr>
+<tr>
+<td>MSVN</td>
+<td>Masonry Veneer</td>
+<td>Lambris de maçonnerie</td>
+</tr>
+<tr>
+<td>BRVN</td>
+<td>Brick Veneer</td>
+<td>Lambris de brique</td>
+</tr>
+<tr>
+<td>NOFR</td>
+<td>Non-fire Resistive Apartment</td>
+<td>Logis non résistant au feu</td>
+</tr>
+<tr>
+<td>VNYL</td>
+<td>Vinyl</td>
+<td>Vinyle</td>
+</tr>
+<tr>
+<td>CEDA</td>
+<td>Cedar Siding</td>
+<td>Parement de cèdre</td>
+</tr>
+<tr>
+<td>FIBR</td>
+<td>Cement Fiber Board</td>
+<td>Planche fibrociment</td>
+</tr>
+<tr>
+<td>FBSH</td>
+<td>Cement Fiber Shingles</td>
+<td>Bardeaux en fibrociment</td>
+</tr>
+<tr>
+<td>LGSD</td>
+<td>Log Siding</td>
+<td>Parement billot</td>
+</tr>
+<tr>
+<td>METL</td>
+<td>Metal Siding</td>
+<td>Parement de métal</td>
+</tr>
+<tr>
+<td>UNKN</td>
+<td>Unknown</td>
+<td>Inconnu</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table54"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 54:  Dwelling Under Construction - Project Type</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>NEW</td>
+<td>New dwelling</td>
+<td>Nouvelle résidence</td>
+</tr>
+<tr>
+<td>RENO</td>
+<td>Major renovation</td>
+<td>Rénovation majeure</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table55"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 55:  Dwelling Under Construction - Contractor</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>OWNER</td>
+<td>Owner</td>
+<td>Propriétaire</td>
+</tr>
+<tr>
+<td>HIRED</td>
+<td>Hired Contractor</td>
+<td>Entrepreneur engagé</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table56"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 56:  Impact Resistance Class Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>00</td>
+<td>Unclassed / None</td>
+<td>Non classé / auncun</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Class 1</td>
+<td>Catégorie 1</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Class 2</td>
+<td>Catégorie 2</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Class 3</td>
+<td>Catégorie 3</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Class 4</td>
+<td>Catégorie 4</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table57"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 57:  Oil Tank Constrution Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>FBGL</td>
+<td>Fibreglass</td>
+<td>Fibre de verre</td>
+</tr>
+<tr>
+<td>OTH</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>METL</td>
+<td>Metal</td>
+<td>Métal</td>
+</tr>
+<tr>
+<td>UNKN</td>
+<td>Unknown</td>
+<td>Inconnu</td>
+</tr>
+<tr>
+<td>SGST</td>
+<td>Single-Walled Steel</td>
+<td>Acier à paroi simple</td>
+</tr>
+<tr>
+<td>DBST</td>
+<td>Double-Walled Steel</td>
+<td>Acier à paroi double</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table58"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 58:  Garage Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Attached &#8211; Frame</td>
+<td>Attachée - Charpente de bois</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Attached &#8211; Masonry</td>
+<td>Attachée - Maçonnerie</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Attached &#8211; Masonry or Masonry/Veneer</td>
+<td>Attachée - Maçonnerie ou parement de maçonnerie</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Basement</td>
+<td>Sous-sol</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Basement Under Attached Garage</td>
+<td>Sous-sol sous garage attaché</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Built-In</td>
+<td>Encastré, incorporé</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carport</td>
+<td>Abri d'auto</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Carport With Storage</td>
+<td>Abri d'auto avec espace de rangement</td>
+</tr>
+<tr>
+<td>0</td>
+<td>None</td>
+<td>Aucun</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Detached- Masonry</td>
+<td>Individuelle - Maçonnerie</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Detached- Frame</td>
+<td>Individuelle - Charpente de bois</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Detached- Masonry or Masonry/ Veneer</td>
+<td>Individuelle - Maçonnerie ou parement de maçonnerie</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table59"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3">Table 59:  Roof Slope Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Flat</td>
+<td>Plat</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Pitched</td>
+<td>Inclinée</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Combined</td>
+<td>Combiné</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+  <Defaults>
+    <Language>English</Language>
+    <Province>ON</Province>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="1"
+            Type="SupportedTypes">
+      <Carrier>GA</Carrier>
+    </Lookup>
+    <Lookup ID="2"
+            Type="SupportedTypes">
+      <Carrier>HAL</Carrier>
+      <ProductLine>Personal</ProductLine>
+      <VehType>Private Passenger</VehType>
+    </Lookup>
+    <Lookup ID="3"
+            Type="SupportedTypes">
+      <Carrier>PEM</Carrier>
+    </Lookup>
+    <Lookup ID="4"
+            Type="SupportedTypes">
+      <Carrier>ALL</Carrier>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

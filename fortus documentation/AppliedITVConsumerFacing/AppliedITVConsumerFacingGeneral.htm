@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div id="pagePaper">
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm" class="active">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+<li><span>›</span>AppliedITVConsumerFacing Web Service</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkOverview">Overview</a></li>
+<li><a href="#lnkWSDL">Service Description (WSDL)</a></li>
+<li><a href="#lnkSOAPHeaders">SOAP Headers</a></li>
+<li><a href="#lnkAddressLookupWebMethod">AddressLookup() Web Method</a><ul>
+<li><span class="subtitle">Request</span><ul>
+<li><a href="#lnkALSOAPBody">SOAP Body</a></li>
+<li><a href="#lnkALReqEx">Example</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Response</span><ul>
+<li><a href="#lnkALResInt">Interpretation of Results</a></li>
+<li><a href="#lnkALResEx">Example</a></li>
+</ul>
+</li>
+</ul>
+</li><li><a href="#lnkDwellingLookupWebMethod">DwellingLookup() Web Method</a><ul>
+<li><span class="subtitle">Request</span><ul>
+<li><a href="#lnkDLSOAPBody">SOAP Body</a></li>
+<li><a href="#lnkDLReqEx">Example</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Response</span><ul>
+<li><a href="#lnkDLResInt">Interpretation of Results</a></li>
+<li><a href="#lnkDLResEx">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><a name="lnkOverview"></a><h1>Consumer-Facing Applied ITV</h1>
+<p>Applied hosts this XML web service<a class="txtBodyFootNoteMarker" href="#anchorFootNote1">1</a> for looking up dwelling addresses and replacement cost information.
+								The AppliedITVConsumerFacing web service uses SOAP<a class="txtBodyFootNoteMarker" href="#anchorFootNote2">2</a> messages to communicate.
+								<br><br>
+								The AppliedITVConsumerFacing web service consists of 2 web methods. The first, <a href="#lnkAddressLookupWebMethod">AddressLookup()</a>, is used to verify a valid street address and returns 0 or more maching results.
+								The second, <a href="#lnkDwellingLookupWebMethod">DwellingLookup()</a>, uses the address information for one of the selected results returned in the previous <a href="#lnkAddressLookupWebMethod">AddressLookup()</a> request.
+							 </p>
+<hr>
+<h2 id="lnkWSDL">Service Description (WSDL)</h2>
+<p>For a formal definition of this web service, please review the <a href="AppliedITVConsumerFacingWS.wsdl">Service Description</a>.</p>
+<hr>
+<h3 id="lnkSOAPHeaders">SOAP Headers</h3>
+<p>These headers are required for all requests made to this web service regardless of the method that is being called.</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td id="anchorCQCredentials" colspan="2" align="left">CQCredentials SOAP Header</td>
+</tr>
+<tr>
+<td colspan="2">This SOAP header is meant to provide Applied with credentials to validate against for service authentication and authorization.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>UserName</td>
+<td>Username associated with authorization for Applied services. Provided by Applied.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Base64<a class="txtBodyFootNoteMarker" href="#anchorFootNote3">3</a> encoded password associated with authorization for Applied services. Provided by Applied.</td>
+</tr>
+</table>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td id="anchorCaller" colspan="2" align="left">Caller SOAP Header</td>
+</tr>
+<tr>
+<td colspan="2">This SOAP header is meant to provide Applied with information to facilitate accurate event logging.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>(  <strong>ThirdParty_Web</strong> )</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>The name of the program/product/service/etc calling the web method. This is expected to be unique and valid.</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>
+										The version of the program/product/service/etc calling the web method. This is expected to be maintained when
+										caller is updated/enhanced/modified.
+									</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>An ID value used to distinguish individual clients within the requesting system. This is used in logging the service requests.</td>
+</tr>
+<tr>
+<td>QuoteGUID</td>
+<td>
+										A Globally Unique Identifier (GUID) must be sent to the AppliedITVConsumerFacing Web Service. This value is meant to identify
+										a quote from the caller. The GUID should be a hexadecimal string with exactly 32 characters and should remain consistent for
+										each request within a single session. GUIDs are more fully explained at many locations on the web, such as Wikipedia.<a class="txtBodyFootNoteMarker" href="#anchorFootNote4">4</a></td>
+</tr>
+</table><a href="#">top</a><hr>
+<h2 id="lnkAddressLookupWebMethod">AddressLookup() Web Method - Request</h2>
+<p>The AddressLookup() web method requires two SOAP headers to be passed, <a href="#anchorCQCredentials">CQCredentials</a> and <a href="#anchorCaller">Caller</a>. There are
+								4 parameters for the AddressLookup() web method: Address, City, PostalCode and Province.</p>
+<h3 id="lnkALSOAPBody">SOAP Body</h3>
+<p>
+								The SOAP Body of the AddressLookup() web method contains an element for the name of the method. Inside this element, each parameter to this
+								web method is indicated by a child element. In the case of this web method, there are 4 parameters, the dwelling Address, City, PostalCode
+								and Province.
+							</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">SOAP Body</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>A full or partial street address, consisting of a dwelling number followed by a street name, used to look up a list of corresponding
+										addresses.</td>
+</tr>
+<tr>
+<td>City</td>
+<td>The name of the City in which the address is located.</td>
+</tr>
+<tr>
+<td>PostalCode</td>
+<td>The postal code corresponding to the postal district of the address being searched for.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>The 2 digit code representing the province in which the the address is located.</td>
+</tr>
+</table><a href="#">top</a><h3 id="lnkALReqEx">Example Request</h3>
+<p>Below is a sample HTTP POST request. <a href="soaprequest_1.xml">Click here</a> for the XML content of an actual HTTP POST example.</p>
+<div class="sourcecodebox">
+<pre lang="xml">
+  POST /AppliedITVConsumerFacing/Version1.asmx HTTP/1.1
+  Host: www1.compu-quote.com
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: length
+  SOAPAction: "http://www.compu-quote.com/AppliedITV/Version1/AddressLookup"
+  
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+      &lt;CQCredentials xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;UserName&gt;string&lt;/UserName&gt;
+        &lt;Password&gt;string&lt;/Password&gt;
+      &lt;/CQCredentials&gt;
+      &lt;Caller xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;Product&gt;string&lt;/Product&gt;
+        &lt;Name&gt;string&lt;/Name&gt;
+        &lt;Version&gt;string&lt;/Version&gt;
+        &lt;ClientID&gt;string&lt;/ClientID&gt;
+        &lt;QuoteGUID&gt;string&lt;/QuoteGUID&gt;
+      &lt;/Caller&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+      &lt;AddressLookup xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;AddressInfo&gt;
+          &lt;Address&gt;string&lt;/Address&gt;
+          &lt;City&gt;string&lt;/City&gt;
+          &lt;PostalCode&gt;string&lt;/PostalCode&gt;
+          &lt;Province&gt;string&lt;/Province&gt;
+        &lt;/AddressInfo&gt;
+      &lt;/AddressLookup&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+								</pre>
+</div><a href="#">top</a><hr>
+<h2>AddressLookup() Web Method - Response</h2>
+<h3 id="lnkALResInt">Interpretation of Results</h3>
+<p>The return value for the AddressLookup() web method is XML. The response begins at the 'AddressLookupResponse' element. From there, the following elements are described in the table below.</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Path: AddressLookupResult ( xmlns="http://www.compu-quote.com/AppliedITV/Version1" )</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This 32-bit integer is used to identify the request within the AppliedITVConsumerFacing web service logs. Programs calling the AppliedITVConsumerFacing web service should record this number to help with any support request.</td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>
+										The status code indicates the state of execution within the AppliedITVConsumerFacing web service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the AppliedITVConsumerFacing web service. It will not, for example, guarantee that matches have been found.<br>
+										Possible values:<br>
+										  <strong>SUCCESS</strong> - The transaction was successful.<br>
+										  <strong>ERROR</strong> - An error occurred retrieving address information.  See the Message field for further information.<br>
+										  <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+										  <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br></td>
+</tr>
+<tr>
+<td>ServiceResponse</td>
+<td>
+										The xml result of the ezITVValidation service request.
+									</td>
+</tr>
+</table>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Path: AddressLookupResult ( xmlns="http://www.compu-quote.com/ezITVValidation/Version1" )</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This 32-bit integer is used to identify the request with internal Applied services. This value can be ignored by the requesting AppliedITVConsumerFacing client.</td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>
+										The status code indicates the state of execution within the internal Applied ezITVValidation web service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the ezITVValidation web service. It will not, for example, guarantee that matches have been found.<br>
+										Possible values:<br>
+										  <strong>SUCCESS</strong> - The transaction was successful.<br>
+										  <strong>ERROR</strong> - An error occurred retrieving address information.  See the Message field for further information.<br>
+										  <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+										  <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br></td>
+</tr>
+<tr>
+<td>Message</td>
+<td>
+										This message text is intended as programmer-level contextual information to help identify and track down potential problems. It is <strong>NOT</strong> intended
+										to be used as information relayed to the end-user and should never be used as such.
+									</td>
+</tr>
+</table>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td>AddressInfo</td>
+<td>This is a repeated tag that contains the address information for each of the matched addresses returned by the service.</td>
+</tr>
+</table><a href="#">top</a><h3 id="lnkALResEx">Response Example</h3>
+<p>
+								Below is a sample HTTP POST reply. <a href="soapresponse_1.xml">Click here</a> for the XML content of an actual HTTP POST reply example.
+							</p>
+<div class="sourcecodebox">
+<pre lang="xml">
+  HTTP/1.1 200 OK
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: length
+  
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Body&gt;
+      &lt;AddressLookupResponse xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;AddressLookupResult&gt;
+          &lt;TrackingNumber&gt;string&lt;/TrackingNumber&gt;
+          &lt;StatusCode&gt;SUCCESS or ERROR or CQCREDENTIALS or INVALIDINPUT&lt;/StatusCode&gt;
+          &lt;ServiceResponse&gt;
+            &lt;AddressLookupResult xmlns="http://www.compu-quote.com/ezITVValidation/Version1"&gt;
+              &lt;TrackingNumber&gt;string&lt;/TrackingNumber&gt;
+              &lt;StatusCode&gt;SUCCESS or ERROR or CQCREDENTIALS or INVALIDINPUT&lt;/StatusCode&gt;
+              &lt;TransactionKey&gt;string&lt;/TransactionKey&gt;
+              &lt;Message&gt;string&lt;/Message&gt;
+              &lt;Address&gt;
+                &lt;AddressInfo&gt;
+                  &lt;Address&gt;string&lt;/Address&gt;
+                  &lt;City&gt;string&lt;/City&gt;
+                  &lt;Province&gt;string&lt;/Province&gt;
+                  &lt;PostalCode&gt;string&lt;/PostalCode&gt;
+                  &lt;AddressKey&gt;string&lt;/AddressKey&gt;
+                  &lt;AddressParts&gt;string&lt;/AddressParts&gt;
+                &lt;/AddressInfo&gt;
+                . . .
+              &lt;/Address&gt;
+            &lt;/AddressLookupResult&gt;
+          &lt;/ServiceResponse&gt;
+        &lt;/AddressLookupResult&gt;
+      &lt;/AddressLookupResponse&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+								</pre>
+</div><a href="#">top</a><hr>
+<h2 id="lnkDwellingLookupWebMethod">DwellingLookup() Web Method - Request</h2>
+<p>The DwellingLookup() web method requires two SOAP headers to be passed, <a href="#anchorCQCredentials">CQCredentials</a> and <a href="#anchorCaller">Caller</a>. There are
+								5 parameters for the DwellingLookup() web method: AddressKey, Address, City, PostalCode and Province</p>
+<h3 id="lnkDLSOAPBody">SOAP Body</h3>
+<p>
+								The SOAP Body of the DwellingLookup() web method contains an element with the name of the requested method. Inside this element, each parameter to this
+								web method is indicated by a child element. In the case of this web method there are 5 parameters: AddressKey, Address, City, PostalCode
+								and Province.  Each of these is returned within the successful <a href="#lnkAddressLookupWebMethod">AddressLookup()</a> result.
+							</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">SOAP Body</td>
+</tr>
+<tr>
+<td>AddressKey</td>
+<td>The address identifier return from the AddressLookup() request for the selected AddressInfo.</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>The street address returned form the AddressLookup() request for the selected AddressInfo.</td>
+</tr>
+<tr>
+<td>City</td>
+<td>The name of the City returned form the AddressLookup() request for the selected AddressInfo.</td>
+</tr>
+<tr>
+<td>PostalCode</td>
+<td>The postal code returned form the AddressLookup() request for the selected AddressInfo.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>The 2 digit code returned form the AddressLookup() request for the selected AddressInfo.</td>
+</tr>
+</table><a href="#">top</a><h3 id="lnkDLReqEx">Example Request</h3>
+<p>Below is a sample HTTP POST request. <a href="soaprequest_2.xml">Click here</a> for the XML content of an actual HTTP POST example.</p>
+<div class="sourcecodebox">
+<pre lang="xml">
+  Host: www1.compu-quote.com
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: length
+  SOAPAction: "http://www.compu-quote.com/AppliedITV/Version1/DwellingLookup"
+
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+      &lt;CQCredentials xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;UserName&gt;string&lt;/UserName&gt;
+        &lt;Password&gt;string&lt;/Password&gt;
+      &lt;/CQCredentials&gt;
+      &lt;Caller xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;Product&gt;string&lt;/Product&gt;
+        &lt;Name&gt;string&lt;/Name&gt;
+        &lt;Version&gt;string&lt;/Version&gt;
+        &lt;ClientID&gt;string&lt;/ClientID&gt;
+        &lt;QuoteGUID&gt;string&lt;/QuoteGUID&gt;
+      &lt;/Caller&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+      &lt;DwellingLookup xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;AddressInfo&gt;
+          &lt;Address&gt;string&lt;/Address&gt;
+          &lt;City&gt;string&lt;/City&gt;
+          &lt;PostalCode&gt;string&lt;/PostalCode&gt;
+          &lt;Province&gt;string&lt;/Province&gt;
+          &lt;AddressKey&gt;string&lt;/AddressKey&gt;
+        &lt;/AddressInfo&gt;
+      &lt;/DwellingLookup&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+								</pre>
+</div><a href="#">top</a><hr>
+<h2>DwellingLookup() Web Method - Response</h2>
+<h3 id="lnkDLResInt">Interpretation of Results</h3>
+<p>The return value for the DwellingLookup() web method is XML. The response begins at the 'DwellingLookupResult' element. From there, the following elements are described in the table below.</p>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Path: DwellingLookup  ( xmlns="http://www.compu-quote.com/AppliedITV/Version1" )</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This 32-bit integer is used to identify the request within the AppliedITVConsumerFacing web service logs. Programs calling the AppliedITVConsumerFacing web service should record this number to help with any support request.</td>
+</tr>
+<td>StatusCode</td>
+<td>
+										The status code indicates the state of execution within the AppliedITVConsumerFacing web service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the AppliedITVConsumerFacing web service. It will not, for example, guarantee the matches have been found.<br>
+										Possible values:<br>
+										  <strong>SUCCESS</strong> - The transaction was successful.  It now awaits broker retrieval.<br>
+										  <strong>ERROR</strong> - An error occurred retrieving dwelling information.  See the Message field for further information.<br>
+										  <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+										  <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br></td>
+</tr>
+<tr>
+<td>ServiceResponse1</td>
+<td>
+										The xml result of the internal ezITVValidation service request.
+									</td>
+</tr>
+<tr>
+<td>ServiceResponse2</td>
+<td>
+										The xml result of the internal FUSService service request.
+									</td>
+</tr>
+</table>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Path: AppliedITVConsumerFacingResult  ( xmlns="http://www.compu-quote.com/ezITVValidation/Version1" )</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This 32-bit integer is used to identify the request with internal Applied services. This value can be ignored by the requesting AppliedITVConsumerFacing client.</td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>
+										The status code indicates the state of execution within the ezITVValidation web service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the ezITVValidation web service. It will not, for example, guarantee that a matche was found.<br>
+										Possible values:<br>
+										  <strong>SUCCESS</strong> - The transaction was successful.  It now awaits broker retrieval.<br>
+										  <strong>ERROR</strong> - An error occurred  retrieving dwelling information.  See the Message field for further information.<br>
+										  <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+										  <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br></td>
+</tr>
+<tr>
+<td>RawResponse</td>
+<td>The xml tag that contains the dwelling information returned from the internal ezITVValidation request.  The entries below are 'supported' mappings.</td>
+</tr>
+<tr>
+<td colspan="2" class="txtTableColumnTitle"><strong>Path: ResponseDT</strong></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Mapping</td>
+</tr>
+<tr>
+<td>ReplacementCost</td>
+<td>Dwelling/Coverage and Dwelling/Value</td>
+</tr>
+<tr>
+<td colspan="2" class="txtTableColumnTitle"><strong>Path: ITVParameterPointsOfLightDT</strong></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Mapping</td>
+</tr>
+<tr>
+<td>ITVParameterYearBuilt</td>
+<td>Year in Dwelling/DwellingDate.  You must fill in month/day.</td>
+</tr>
+<tr>
+<td>ITVParameterSquareFootage</td>
+<td>Dwelling/TotalLivingArea, with Dwelling/LivingAreaMeasure set to 'F'.</td>
+</tr>
+<tr>
+<td>ITVParameterNumberofStories</td>
+<td>Dwelling/NumStoreys</td>
+</tr>
+<tr>
+<td>ITVParameterNumberofBaths</td>
+<td>Dwelling/NumFullBaths and Dwelling/NumHalfBaths</td>
+</tr>
+<tr>
+<td>ITVParameterExteriorWallType</td>
+<td>Dwelling/ExteriorFinish, with the following value mappings:<br>
+                                 Brick -&gt; BRIC<br>
+                                 Brick Veneer -&gt; BRVN<br>
+                                 Concrete -&gt; CONC<br>
+                                 Fiberglass -&gt; FBGL<br>
+                                 Logs -&gt; LOG<br>
+                                 Stone -&gt; STON<br>
+                                 Stone Veneer -&gt; STVN<br>
+                                 Stucco -&gt; STUC<br>
+                                 Vinyl Siding -&gt; VNYL<br>
+                                 Wood Siding -&gt; WOOD<br>
+                                 &lt; otherwise &gt; -&gt; OTH<br></td>
+</tr>
+<tr>
+<td>ITVParameterRoofType</td>
+<td>Dwelling/RoofType, with the following value mappings:<br>
+                                 Asphalt -&gt; ASPHALT SHINGLES<br>
+                                 Clay Tile -&gt; CLAY TILE<br>
+                                 Wood Shingles -&gt; WOOD SHINGLES<br>
+                                 Concrete -&gt; CONCRETE TILE<br>
+                                 Tar and Gravel -&gt; TAR AND GRAVEL<br>
+                                 Slate Tile -&gt; SLATE TILE<br>
+                                 Rubber -&gt; RUBBER<br></td>
+</tr>
+<tr>
+<td>ITVParameterBasementFinishType</td>
+<td>Dwelling/BsmtFinishPerc, with the following value mappings:<br>
+                                 No -&gt; 0<br>
+                                 Yes -&gt; 100<br></td>
+</tr>
+<tr>
+<td>ITVParameterGarageType</td>
+<td>Dwelling/Garage, with the following mappings:<br>
+                                 If value contains 'Built-in Garage' -&gt; 1<br>
+                                 If value contains 'incorporé' -&gt; 1<br>
+                                 If value contains 'Basement Garage' -&gt; 2<br>
+                                 If value contains 'sous-sol' -&gt; 2<br>
+                                 If value equals 'None' -&gt; 0<br>
+                                 If value equals 'Aucun' -&gt; 0<br></td>
+</tr>
+<tr>
+<td>ITVParameterSwimmingPoolType</td>
+<td>Dwelling/PoolType, with the following mappings:<br>
+                                 None -&gt; 0<br>
+                                 In Ground Concrete -&gt; 4<br>
+                                 In Ground Fiberglass -&gt; 4<br>
+                                 In Ground Vinyl -&gt; 4<br>
+                                 Above Ground Standard -&gt; 2<br>
+                                 Above Ground Fiberglass -&gt; 2<br></td>
+</tr>
+</table>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Path: CallFUSWebServiceResult  ( xmlns="http://www.compu-quote.com/FUSService/" )</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>TrackingNumber</td>
+<td>This 32-bit integer is used to identify the request with internal Applied services. This value can be ignored by the requesting AppliedITVConsumerFacing client.</td>
+</tr>
+<tr>
+<td>CQAuthTrackingNumber</td>
+<td>This 32-bit integer is used to identify the request with internal Applied services. This value can be ignored by the requesting AppliedITVConsumerFacing client.</td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>
+										The status code indicates the state of execution within the FUSService web service.<br><strong>IMPORTANT: </strong>This status code only indicates the status of the FUSService web service. It will not, for example, guarantee that a matche was found.<br>
+										Possible values:<br>
+										  <strong>SUCCESS</strong> - The transaction was successful.  It now awaits broker retrieval.<br>
+										  <strong>ERROR</strong> - An error occurred retrieving dwelling information.  See the Message field for further information.<br>
+										  <strong>CQCREDENTIALS</strong> - The CQ credentials provided were not valid.<br>
+										  <strong>INVALIDINPUT</strong> - Some aspect of the input provided was invalid. Context information is usually passed in the Message element.<br></td>
+</tr>
+<tr>
+<td>RawResponse</td>
+<td>The xml tag that contains the Fire Underwriters Survey information returned from the internal FUSService request.  The entries below are 'supported' mappings.</td>
+</tr>
+<tr>
+<td colspan="2" class="txtTableColumnTitle"><strong>Condition: Dwelling/DwellingGrades/AllOtherAreasGrades/AllOtherAreasGrade has children</strong></td>
+</tr>
+<tr>
+<td colspan="2">If present quote will be marked unprotected.<br>
+                                    Dwelling/ProtectionClass -&gt; U<br>
+                                    Dwelling/FHDist -&gt; 999<br>
+                                    Dwelling/HydDist -&gt; 999<br></td>
+</tr>
+<tr>
+<td colspan="2" class="txtTableColumnTitle"><strong>Otherwise</strong></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>//Dwelling/RespondingFirehall/RoadDistanceKilometers</td>
+<td>Dwelling/FHDist</td>
+</tr>
+<tr>
+<td>//Hydrants/HydrantCount[Count &gt; 0 and Ownership='Public']/RadiusInMeters</td>
+<td>May yield several; find smallest value.  Then map to Dwelling/HydDist, with the following mappings:<br>
+                                 150 or less -&gt; 150<br>
+                                 151 to 300 -&gt; 300<br>
+                                 301 or more -&gt; 301
+                           </td>
+</tr>
+</table><a href="#">top</a><h3 id="lnkDLResEx">Response Example</h3>
+<p>
+								Below is a sample HTTP POST reply. <a href="soapresponse_2.xml">Click here</a> for the XML content of an actual HTTP POST reply example.
+							</p>
+<div class="sourcecodebox">
+<pre lang="xml">
+  HTTP/1.1 200 OK
+  Content-Type: text/xml; charset=utf-8
+  Content-Length: length
+  
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+  &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Body&gt;
+      &lt;DwellingLookupResponse xmlns="http://www.compu-quote.com/AppliedITV/Version1"&gt;
+        &lt;DwellingLookupResult&gt;
+          &lt;TrackingNumber&gt;string&lt;/TrackingNumber&gt;
+          &lt;StatusCode&gt;SUCCESS or ERROR or CQCREDENTIALS or INVALIDINPUT&lt;/StatusCode&gt;
+          &lt;ServiceResponse1&gt;xml&lt;/ServiceResponse1&gt;
+          &lt;ServiceResponse2&gt;xml&lt;/ServiceResponse2&gt;
+        &lt;/DwellingLookupResult&gt;
+      &lt;/DwellingLookupResponse&gt;
+    &lt;/soap:Body&gt;
+  &lt;/soap:Envelope&gt;
+								</pre>
+</div><a href="#">top</a></div>
+</div>
+</div>
+<div class="footer"><div class="container">
+<p id="anchorFootNote1">[1] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/XML_Web_Services">XML Web Services</a>.</p>
+<p id="anchorFootNote2">[2] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/SOAP">SOAP</a>.</p>
+<p id="anchorFootNote3">[3] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/Base64">Base64</a>.</p>
+<p id="anchorFootNote4">[4] See Wikipedia's explanation of <a href="http://en.wikipedia.org/wiki/GUID">Globally Unique Identifier (GUID)</a>.</p>
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

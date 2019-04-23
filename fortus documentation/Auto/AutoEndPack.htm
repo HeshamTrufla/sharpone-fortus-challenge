@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Endorsement Packages</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#descOverview">Overview</a></li>
+<li><a href="#descLatestMethod">Latest Method</a></li>
+<li><span class="subtitle">Examples</span><ul>
+<li><a href="#descLatestMethodInput">Input XML</a></li>
+<li><a href="#descLatestMethodOutput">Output XML</a></li>
+</ul>
+</li>
+<li><a href="#descLegacyMethod">Legacy Method</a></li>
+<li><span class="subtitle">Examples</span><ul>
+<li><a href="#descLegacyMethodInput">Input XML</a></li>
+<li><a href="#descLegacyMethodOutput">Output XML</a></li>
+</ul>
+</li>
+<li><a href="#descPackList">List of Endorsement Packages</a></li>
+</ul>
+</div><a name="descOverview"></a><h2>Overview</h2>
+<p>Endorsement Packages are collections of endorsements given 
+                together as a package. The FORTUS&#8482; rating engine will create an extra 
+                &lt;CoveragePremium&gt; structure in the output XML if an endorsement package is quoted.
+                 Version 4.4 Build 4 of the FORTUS&#8482; rating engine introduces new functionality 
+                with regards to the endorsement packages.  From this version forward it is possible for 
+                carriers to use new functionality to better define endorsement packages. This functionality 
+                is explained below (See <a href="#descLatestMethod">Latest Method</a>).  Since this functionality 
+                has been implemented in a way so as to ease transitioning hundreds of carriers, systems using the 
+                FORTUS&#8482; rating engine should expect to see both this new method and the 
+                <a href="#descLegacyMethod">Legacy Method</a>.</p><a name="descLatestMethod"></a><hr>
+<h2>Latest Method</h2>
+<p>
+                    The latest method of providing endorsement packages includes improvements 
+                    made to the relay of the specifics of the package given, especially from the point of view of 
+                    programmatic interpretation of quote results.  The improvements over the <a href="#descLegacyMethod">Legacy Method</a>
+                    include:
+                </p>
+<ul>
+<li>The package &lt;CoveragePremium&gt; structure will now directly contain the included package coverages.  
+                    This will remove the need for the inclusion of a seperate lookup to a hard-coded list of packages and their included 
+                    coverages, and/or the examination of quote messages to determine what coverages were included in the package.</li>
+<li>The &lt;Coverage&gt; structures parented by the package &lt;CoveragePremium&gt; structure will also contain the 
+                    actual limits given with the package, where possible. A message relaying these limits will no longer be used. This 
+                    will make programmatic interpretation of this information much simpler.</li>
+<li>A company description of the endorsement package will now be given.</li>
+<li>Greater control over the issuance of endorsement packages. Specific coverage limits could be required, coverages 
+                    can be added to the quote on the fly so that a package can be given, etc.</li>
+</ul>
+<p>In the latest method for endorsement packages, the FORTUS&#8482; rating engine creates an 
+                extra &lt;CoveragePremium&gt; structure in the output XML if an endorsement package is quoted, just like the legacy method.
+                However, whereas the legacy method removes the included coverages from the quote, the latest method simly moves 
+                the coverages so that they are children of the package &lt;CoveragePremium&gt; structure.  Since the included coverages are 
+                implicitly stated for the package, the latest method does not include the message stating what coverages are included 
+                in the package.  Also, since the limits of the included coverages are implicitly included in the XML, there is no longer 
+                a message indicating what those limits are.  The exception to this would be if a coverage includes a limit that is 
+                not supported by the FORTUS&#8482; rating engine, so a message would be necessary to relay the accurate limit.</p>
+<h3>Examples</h3>
+<p>The following is an example where an endorsement package 
+                is given using the latest method. The XML Input and XML Output are both shown below.</p><a name="descLatestMethodInput"></a><h4>XML Input</h4>
+<div class="sourcecodebox">
+    ...
+      &lt;Vehicle&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage1</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>TPBI</strong>&lt;/CSIOCode&gt;
+          &lt;Limit1&gt;<strong>1000000</strong>&lt;/Limit1&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage2</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>20</strong>&lt;/CSIOCode&gt;
+          &lt;Limit2&gt;<strong>300</strong>&lt;/Limit2&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage3</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>27</strong>&lt;/CSIOCode&gt;
+          &lt;Limit1&gt;<strong>20000</strong>&lt;/Limit1&gt;
+        &lt;/Coverage&gt;
+        ...
+      &lt;/Vehicle&gt;
+      &lt;VehLink&gt;
+        ...
+      &lt;/VehLink&gt;
+    ...
+                      </div><a name="descLatestMethodOutput"></a><h4>XML Output</h4>
+<div class="sourcecodebox">
+    ...
+      &lt;Vehicle&gt;
+        ...
+      &lt;/Vehicle&gt;
+      &lt;VehLink&gt;
+        &lt;CoveragePremium&gt; 
+          &lt;CarrierCovCode&gt;<strong>TPBI</strong>&lt;/CarrierCovCode&gt;
+          ...
+        &lt;/CoveragePremium&gt;
+        &lt;CoveragePremium&gt; 
+          &lt;CarrierCovCode&gt;<strong>PAK6</strong>&lt;/CarrierCovCode&gt;
+          &lt;CarrierCovDesc&gt;<strong>A.C.T. Protection Plus</strong>&lt;/CarrierCovDesc&gt;
+          ...
+          &lt;Coverage&gt;
+            &lt;CSIOCode&gt;<strong>20</strong>&lt;/CSIOCode&gt;
+            &lt;Limit2&gt;<strong>900</strong>&lt;/Limit2&gt;
+            ...
+          &lt;/Coverage&gt;
+          &lt;Coverage&gt;
+            &lt;CSIOCode&gt;<strong>27</strong>&lt;/CSIOCode&gt;
+            &lt;Limit1&gt;<strong>20000</strong>&lt;/Limit1&gt;
+            ...
+          &lt;/Coverage&gt;
+        &lt;/CoveragePremium&gt;
+        ...
+      &lt;/VehLink&gt;
+    ...
+                      </div><a name="descLegacyMethod"></a><hr>
+<h2>Legacy Method</h2>
+<p>In the legacy implementating of endorsement package application to the quote,
+                the FORTUS&#8482; rating engine creates an extra &lt;CoveragePremium&gt; structure in the output XML if 
+                an endorsement package is quoted. It also leaves out the &lt;CoveragePremium&gt; structures for 
+                those coverages which the endorsement package replaces. It creates at least two 
+                messages indicating that an endorsement package was given and what endorsements were
+                given in the package. This functionality is referred to as 
+                'Intellipak', and this word will appear in the message text. See the 
+                <a href="#descPackList">List</a> below for valid packages.</p>
+<h3>Examples</h3>
+<p>The following is an example where an endorsement package 
+                is given using the legacy method. The XML Input and XML Output are both shown below.</p><a name="descLegacyMethodInput"></a><h4>XML Input</h4>
+<div class="sourcecodebox">
+    ...
+      &lt;Vehicle&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage1</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>TPBI</strong>&lt;/CSIOCode&gt;
+          &lt;Limit1&gt;<strong>1000000</strong>&lt;/Limit1&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage2</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>20</strong>&lt;/CSIOCode&gt;
+          &lt;Limit2&gt;<strong>300</strong>&lt;/Limit2&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage3</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>27</strong>&lt;/CSIOCode&gt;
+          &lt;Limit1&gt;<strong>20000</strong>&lt;/Limit1&gt;
+        &lt;/Coverage&gt;
+        ...
+      &lt;/Vehicle&gt;
+      &lt;VehLink&gt;
+        ...
+      &lt;/VehLink&gt;
+    ...
+                      </div><a name="descLegacyMethodOutput"></a><h4>XML Output</h4>
+<div class="sourcecodebox">
+    ...
+      &lt;Vehicle&gt;
+        ...
+      &lt;/Vehicle&gt;
+      &lt;VehLink&gt;
+        &lt;Message&gt;
+          &lt;MessageText&gt;<strong>Intellipak is Quoting with PAK6</strong>&lt;/MessageText&gt;
+          &lt;MessageID&gt;<strong>0</strong>&lt;/MessageID&gt;
+          &lt;Severity&gt;<strong>0</strong>&lt;/Severity&gt;
+        &lt;/Message&gt;
+        &lt;Message&gt;
+          &lt;MessageText&gt;<strong>Intellipak Replaces 20, 27</strong>&lt;/MessageText&gt;
+          &lt;MessageID&gt;<strong>0</strong>&lt;/MessageID&gt;
+          &lt;Severity&gt;<strong>0</strong>&lt;/Severity&gt;
+        &lt;/Message&gt;
+        ...
+        &lt;CoveragePremium&gt; 
+          &lt;CarrierCovCode&gt;<strong>TPBI</strong>&lt;/CarrierCovCode&gt;
+          ...
+        &lt;/CoveragePremium&gt;
+        &lt;CoveragePremium&gt; 
+          &lt;CarrierCovCode&gt;<strong>PAK6</strong>&lt;/CarrierCovCode&gt;
+          ...
+        &lt;/CoveragePremium&gt;
+      &lt;/VehLink&gt;
+    ...
+                      </div><a name="descPackList"></a><hr>
+<h2>List of Endorsement Packages</h2>
+<table class="txtTableBody" cellSpacing="0">
+<col align="left" width="40%">
+<col align="left" width="15%">
+<col align="left" width="15%">
+<col align="left" width="15%">
+<col align="left" width="15%">
+<tr class="txtTableTitle">
+<td colspan="5" align="left">Endorsement Packages</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Package Name</td>
+<td colspan="4" class="txtTableColumnTitle">Endorsements Included in Package</td>
+</tr>
+<tr>
+<td rowspan="6">PAK1</td>
+<td>20</td>
+<td>35</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>35</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>35</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>35</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>35</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>35</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="3">PAK2</td>
+<td>27</td>
+<td>35</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>27</td>
+<td>35</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>27</td>
+<td>35</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="6">PAK3</td>
+<td>20</td>
+<td>43</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>43A</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>43R</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>43</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>43A</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>43R</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="2">PAK4</td>
+<td>20</td>
+<td>35</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>35</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="6">PAK5</td>
+<td>20</td>
+<td>27</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="2">PAK6</td>
+<td>20</td>
+<td>27</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="4">PAK7</td>
+<td>20</td>
+<td>27</td>
+<td>34</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>34</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="6">PAK8</td>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td>43</td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td>43A</td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td>43R</td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td>43</td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td>43A</td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td>43R</td>
+</tr>
+<tr>
+<td rowspan="4">PAK9</td>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td> </td>
+</tr>
+<tr>
+<td>20</td>
+<td>27</td>
+<td>35</td>
+<td>45</td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td> </td>
+</tr>
+<tr>
+<td>20A</td>
+<td>27</td>
+<td>35</td>
+<td>45</td>
+</tr>
+<tr>
+<td rowspan="6">PAK10</td>
+<td>2</td>
+<td>20</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>43</td>
+<td> </td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>43A</td>
+<td> </td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>43R</td>
+<td> </td>
+</tr>
+<tr>
+<td>PAK11</td>
+<td>2</td>
+<td>20A</td>
+<td>27</td>
+<td>34</td>
+</tr>
+<tr>
+<td>PAK12</td>
+<td>2</td>
+<td>20</td>
+<td>27</td>
+<td>34</td>
+</tr>
+<tr>
+<td>PAK13</td>
+<td>2</td>
+<td>20</td>
+<td>27</td>
+<td> </td>
+</tr>
+<tr>
+<td rowspan="6">PAK14</td>
+<td>2</td>
+<td>20</td>
+<td>27</td>
+<td>43</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+<td>27</td>
+<td>43A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+<td>27</td>
+<td>43R</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>27</td>
+<td>43</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>27</td>
+<td>43A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20A</td>
+<td>27</td>
+<td>43R</td>
+</tr>
+<tr>
+<td>PAKC1</td>
+<td>ACCW</td>
+<td>20</td>
+<td>26</td>
+<td> </td>
+</tr>
+<tr>
+<td>PAKC2</td>
+<td>ACCW</td>
+<td>33</td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

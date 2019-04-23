@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<LookupTransaction Type="Property">
+  <RegistryOverrides>
+    <Diagnostics>1</Diagnostics>
+  </RegistryOverrides>
+  <Defaults>
+    <Province>QC</Province>
+    <CodeName>Homeowners</CodeName>
+    <Language>French</Language>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="1" Type="UserInit">
+      <Carrier>MR</Carrier>
+      <!-- Empty <Results> node implies Hab2 ratebook does not exist -->
+      <Results></Results>
+    </Lookup>
+    <Lookup ID="2" Type="UserInit">
+      <Carrier>GA</Carrier>
+      <!-- Non-Empty <Results> node implies Hab2 ratebook does exist.  If no items are returned other than the dwelling type node(s), 
+           then this implies the carrier does not have any relevant items to discover. 
+        -->
+      <Results>
+        <Values Group="Homeowners"></Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="3" Type="UserInit">
+      <Carrier>TRG</Carrier>
+      <Results>
+        <Values Group="Homeowners">
+         <!-- "Discounts", "Surcharges", and "ExtCovs" will only show up if items in that group exist.  
+         Here, there are no Surcharges, so we don't see that group. 
+         Note: CSIOCode can optionally show up if a value has been defined.
+           -->
+          <Values Group="Discounts">
+            <Values Group="Misc0">
+              <Values Group="Description">
+                <Value>Installation Septique</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>Septic System</Value>
+              </Values>
+            </Values>
+            <Values Group="Misc2">
+              <Values Group="Description">
+                <Value>Service de navette d&#39;alimentation</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>Shuttle Tanker Service</Value>
+              </Values>
+              <Values Group="CSIOCode">
+                <Value>ZSHUT</Value>
+              </Values>            
+            </Values>
+            <Values Group="Misc3">
+              <Values Group="Description">
+                <Value>Evaluateur RCT</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>RCT</Value>
+              </Values>
+            </Values>
+          </Values>
+          <Values Group="ExtCovs">
+            <Values Group="Misc4">
+              <Values Group="Description">
+                <Value>Batiment en construction</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>Dwelling Under Construction</Value>
+              </Values>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+  </Lookups>
+  <Diagnostics>
+    <Info>New Engine: C:\CQFortus\bin\v5.0_b2\cqe20.dll</Info>
+    <Info>New Engine Info: Version 2.3 Build 1</Info>
+    <Info>Legacy Hab Engine: C:\CQFortus\bin\v5.0_b2\CQHE3210.dll</Info>
+    <Info>Legacy Hab Engine Info: Version 1.6 Build 1</Info>
+    <Info>Data Path: C:\CQFortus\data\hab2\qc\</Info>
+    <Info>Postal Code Files Path: C:\CQFortus\data\hab2\QC\</Info>
+    <Info>FLookup Engine Info: Version 2 Build 1</Info>
+    <Info>Microsoft Windows 7  Service Pack 1 (build 7601)</Info>
+    <Info>System Date/Time: Fri Aug 12 08:31:50 2011</Info>
+  </Diagnostics>
+</LookupTransaction>

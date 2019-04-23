@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkSnowVehicle">Snow Vehicle</a></li>
+<li><span>›</span>Map Definition</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#tblVehicle">Vehicle</a></li>
+<li><a href="#tblDriverProfile">DriverProfile</a></li>
+<li><a href="#tblGroupPlan">GroupPlan</a></li>
+<li><a href="#tblAntitheftDevice">AntitheftDevice</a></li>
+</ul>
+</div><a name="descOverview"></a><h1>Overview</h1>
+<p>Rating Snow Vehicles is built on top of the normal Automobile hierarchy.  Therefore, to 
+            construct quote input for Snow Vehicles, first begin by referring to the normal 
+            <a href="../AutoMap.htm">Automobile Map Definition</a> and constructing input based on this information.  
+            However, there are a few pieces of data that are different for Snow Vehicles.  These details have been listed below.</p>
+<a name="tblVehicle"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Vehicle</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AccessoriesValue</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Value of all accessories</td>
+</tr>
+<tr>
+<td>BodyStyle</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="SnowRangeTables.htm#Table35" target="Tables">Table 35</a></td>
+<td> </td>
+<td>The general style or category of body of the vehicle.</td>
+</tr>
+<tr>
+<td>Customized</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Modified/Customized? This value will be assumed to be 'N' if blank or non-existent.</td>
+</tr>
+<tr>
+<td>EngineDispl</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Engine Displacement (in cc's)</td>
+</tr>
+<tr>
+<td>EngineType</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="SnowRangeTables.htm#Table34" target="Tables">Table 34</a></td>
+<td>Y</td>
+<td>The general type of engine of the vehicle.   Default: 4S. See <a href="..\AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>GVW</td>
+<td>LONG</td>
+<td> </td>
+<td>0-999999</td>
+<td>Y</td>
+<td>Gross Vehicle Weight (kg).</td>
+</tr>
+<tr>
+<td>nCylinders</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Number of Cylinders</td>
+</tr>
+<tr>
+<td>ProductLine</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="SnowRangeTables.htm#Table39" target="Tables">Table 39</a></td>
+<td>Y</td>
+<td>Product line for purposes of rating.  Must be set to 'Personal'.</td>
+</tr>
+<tr>
+<td>PurchasePrice</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Purchase price of vehicle.</td>
+</tr>
+<tr>
+<td>TowablesValue</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Value of all towable sleds/cutters/trailers/etc.</td>
+</tr>
+<tr>
+<td>Turbo</td>
+<td>CHAR</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Turbo engine?</td>
+</tr>
+<tr>
+<td>UnrepairedDamage</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Unrepaired Damage?</td>
+</tr>
+<tr>
+<td>ValueNew</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Price of the snow vehicle new.</td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="SnowRangeTables.htm#Table9" target="Tables">Table 9</a></td>
+<td>Y</td>
+<td>Type of Vehicle. Must be set to 'Snow Vehicle'.</td>
+</tr>
+<tr>
+<td>VehUse</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="SnowRangeTables.htm#Table8" target="Tables">Table 8</a></td>
+<td> </td>
+<td>Vehicle Use.</td>
+</tr>
+<tr>
+<td>VICCCodeExt</td>
+<td>STRING</td>
+<td>6</td>
+<td>6 characters</td>
+<td>Y</td>
+<td>Extended VICC Car Code.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDriverProfile"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">DriverProfile</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>SnowInsDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date first insured for Snow Vehicles.  Default: &lt;FortusTransaction&gt;&lt;EffDate&gt;. See <a href="../AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblGroupPlan"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">GroupPlan</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>GroupPlanDescr</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="SnowRangeTables.htm#Table16" target="Tables">Table 16</a></td>
+<td>Y</td>
+<td>Code of the group for which the driver is a member of.</td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="SnowRangeTables.htm#Table36" target="Tables">Table 36</a></td>
+<td> </td>
+<td>Type of vehicle that the membership applies to. To indicate non-private passenger related group memberships, specify 'Other'.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblAntitheftDevice"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">AntitheftDevice</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>DeviceType</td>
+<td>STRING</td>
+<td>50</td>
+<td><a href="SnowRangeTables.htm#Table11" target="Tables">Table 11</a></td>
+<td>Y</td>
+<td>Device Type</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

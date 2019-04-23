@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Property">
+  <Defaults>
+    <CodeName>Homeowners</CodeName>
+    <Province>QC</Province>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="2"
+            Type="RenewalCodeList">
+      <Carrier>PROM</Carrier>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

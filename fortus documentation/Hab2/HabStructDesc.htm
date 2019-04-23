@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Structure Descriptions</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#descStdCov">Standard Coverages</a></li>
+<li><a href="#desCovResults">Coverage Results</a></li>
+<li><a href="#descID">ID Fields</a></li>
+<li><a href="#descDwellTypes">Dwelling Types</a></li>
+<li><a href="#descFormTypeDwell">Valid Form Type - Dwelling Combinations</a></li>
+<li><a href="#descMultipleForms">Multiple Forms</a></li>
+<li><a href="#descResValues">Residence Values</a></li>
+<li><a href="#descExtCovFields">Extended Coverage Field Matrix</a></li>
+<li><a href="#descLeadDetail">Lead Detail</a></li>
+</ul>
+</div><a name="descStdCov"></a><h2>Standard Coverages</h2>
+<p>Each type of dwelling has a different set of Standard Coverages 
+               (<a href="HabMap.htm#tblStdCov">StdCov structure</a>) that are rated with the dwelling. 
+               FORTUS&#8482; will create and attach the necessary Standard Coverage structures
+               based on the type of dwelling, if they do not exist in the input XML. Therefore,
+               the input XML does not need to contain any Standard Coverages.
+            </p>
+<hr><a name="desCovResults"></a><h2>Coverage Results</h2>
+<p>Coverage results require some interpretation. The 
+            following illustrates how to interpret coverage results:</p>
+<ul>
+<li>If &lt;Premium&gt; = 0, then the coverage is <strong>Included</strong>.</li>
+<li>If a coverage was requested in the input, but did not appear in the output, then
+                   it is <strong>Not Available</strong>.</li>
+<li>If a coverage contains a &lt;Message&gt; tag(s), then the Message should be
+                   examined to determine if the coverage was available or not.  In most circumstances,
+                   the existence of a &lt;Message&gt; tag(s) indicates that the coverage was <strong>Not 
+                   Available</strong>.</li>
+</ul>
+<hr><a name="descID"></a><h2>ID Fields</h2>
+<p>Each structure has an <strong>ID</strong> field. This field is described
+            as a 'Unique ID string'. The value must only be unique for immediate siblings of it's 
+            containing parent. For example, two claims can be defined.  These claim structures must contain 
+            unique ID values, say 'C1' and 'C2'. 
+            </p>
+<hr><a name="descDwellTypes"></a><h2>Dwelling Types</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Dwelling Types</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Code</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Primary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Primary condomium dwelling.</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Primary tenant dwelling.</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Secondary seasonal dwelling.</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Secondary rental dwelling.</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Secondary rental condominium dwelling.</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Secondary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Watercraft.</td>
+</tr>
+</table><a href="#">top</a><br><hr><a name="descFormTypeDwell"></a><h2>Valid Form Type - Dwelling Combinations</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="12" align="left">Valid Form Type - Dwelling Combinations</td>
+</tr>
+<tr>
+<td colspan="12" class="txtTableColumnTitle">This table demonstrates, with an X, the form types that can be used for each dwelling type.</td>
+</tr>
+<tr>
+<td rowspan="2" class="txtTableColumnTitle">Dwelling Type</td>
+<td rowspan="2" class="txtTableColumnTitle">Description</td>
+<td align="center" colspan="10" class="txtTableColumnTitle"><a href="HabRangeTables.htm#Table5">Form Type</a></td>
+</tr>
+<tr>
+<td align="center" class="txtTableColumnTitle">0</td>
+<td align="center" class="txtTableColumnTitle">1</td>
+<td align="center" class="txtTableColumnTitle">2</td>
+<td align="center" class="txtTableColumnTitle">3</td>
+<td align="center" class="txtTableColumnTitle">4</td>
+<td align="center" class="txtTableColumnTitle">5</td>
+<td align="center" class="txtTableColumnTitle">6</td>
+<td align="center" class="txtTableColumnTitle">7</td>
+<td align="center" class="txtTableColumnTitle">9</td>
+<td align="center" class="txtTableColumnTitle">10</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Homeowners</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>C</td>
+<td>Condos</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>T</td>
+<td>Tenants</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>R</td>
+<td>Secondary Rental</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>N</td>
+<td>Secondary Rental Condos</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>O</td>
+<td>Secondary Homeowners</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>W</td>
+<td>Watercraft</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><hr><a name="descMultipleForms"></a><h2>Multiple Forms</h2>
+<p>Some carriers offer multiple forms for a coverage type. For example, a carrier
+            might offer two different forms for All Risks/All Risks. FORTUS&#8482; can now quote both forms 
+            simultaneously. For backwards compatibility, multiple forms quoting is turned OFF by default. To quote
+            multiple forms, do one of the following:</p>
+<ul>
+<li>Go to Settings in Fortus Config and check "Habitation - Multiple Forms"</li>
+<li>Include the following in the input XML as a child node of &lt;FortusTransaction&gt;:
+                <br>    &lt;RegistryOverrides&gt;
+                <br>      &lt;HabMultipleForms&gt;1&lt;/HabMultipleForms&gt;
+                <br>    &lt;/RegistryOverrides&gt;</li>
+</ul>
+<p>If not quoting multiple forms, the form quoted will be the default form. If 
+            quoting multiple forms, additional forms will manifest as additional &lt;QuoteInfo&gt; tags. These 
+            additional tags are identified with an <strong>AdditionalForm</strong> attribute with a value of <strong>"TRUE"</strong>.</p><br><hr><a name="descResValues"></a><h2>Residence Values</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Residence Values</td>
+</tr>
+<tr>
+<td colspan="6" class="txtTableColumnTitle">This table outlines the intended meaning of fields depending on the dwelling type.</td>
+</tr>
+<tr>
+<td rowspan="2" class="txtTableColumnTitle">Dwelling Type</td>
+<td rowspan="2" class="txtTableColumnTitle">Description</td>
+<td align="center" colspan="4" class="txtTableColumnTitle"><a href="HabMap.htm#tblDwelling">Fields</a> with their intended meanings</td>
+</tr>
+<tr>
+<td align="center" class="txtTableColumnTitle">Value</td>
+<td align="center" class="txtTableColumnTitle">Coverage</td>
+<td align="center" class="txtTableColumnTitle">OB</td>
+<td align="center" class="txtTableColumnTitle">PP</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Homeowners</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Condos</td>
+<td>Contents Amount</td>
+<td>Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>T</td>
+<td>Tenants</td>
+<td>Contents Amount</td>
+<td>Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Secondary Rental</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Landlord Contents</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Secondary Rental Condos</td>
+<td> </td>
+<td>Landlord Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>O</td>
+<td>Secondary Homeowners</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="descExtCovFields"></a><h2>Extended Coverage Field Matrix</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="13" align="left">Necessary Fields per Coverage</td>
+</tr>
+<tr>
+<td colspan="13" class="txtTableColumnTitle">This table demonstrates, with an X, the fields that are necessary for each coverage.</td>
+</tr>
+<tr>
+<td rowspan="2" class="txtTableColumnTitle">CoverageType</td>
+<td align="center" colspan="12" class="txtTableColumnTitle"><a href="HabMap.htm#tblExtCov">Fields</a> to be populated</td>
+</tr>
+<tr>
+<td align="center" class="txtTableColumnTitle">ID</td>
+<td align="center" class="txtTableColumnTitle">Applied</td>
+<td align="center" class="txtTableColumnTitle">Burglary</td>
+<td align="center" class="txtTableColumnTitle">Days</td>
+<td align="center" class="txtTableColumnTitle">FormType</td>
+<td align="center" class="txtTableColumnTitle">InCoverage</td>
+<td align="center" class="txtTableColumnTitle">IncReplCoverage</td>
+<td align="center" class="txtTableColumnTitle">InDeduct</td>
+<td align="center" class="txtTableColumnTitle">Months</td>
+<td align="center" class="txtTableColumnTitle">PercentIns</td>
+</tr>
+<tr>
+<td>ByLaws</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ClaimFreeProtection</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>DedAssess</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ElectBike</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>EarthquakeBldg</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>EarthquakeCnts</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>EarthquakeOutBldg</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>EQIndirect</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>FireDeptCharges</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Freezer</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>FuelOilLeakage</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>FuelOilLeakageOutdoor</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>GlassDed</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>GroundWater</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>HomeBus</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>HomeBusProfLiab</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>IdentityTheft</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>LegalFees</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MassEvac</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc0</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc1</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc2</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc3</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc4</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc5</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc6</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc7</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc8</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc9</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc10</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc11</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc12</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc13</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc14</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc15</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc16</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc17</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc18</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc19</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc20</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc21</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc22</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc23</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc24</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc25</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc26</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc27</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc28</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Misc29</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>OverlandWater</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PersonalCyber</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PoolAboveGround</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PoolInGround</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PropertyInStorage</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Rental</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+</tr>
+<tr>
+<td>SewerBackup</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+</tr>
+<tr>
+<td>SpasAboveGround</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>SpasInGround</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>UnderConst</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Vacancy</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>WaterDamage</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>WaterEntry</td>
+<td>X</td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><a name="descLeadDetail"></a><hr>
+<h2>Lead Detail</h2>
+<p>When talking about leads and the parties involved, we can use the following terms:</p>
+<ul>
+<li><strong>Submitter</strong>: The web site or system submitting the lead to the lead recipient.</li>
+<li><strong>Recipient</strong>: The brokerage/system targeted to receive the lead.</li>
+<li><strong>Client</strong>: The consumer who is the topic of the lead.</li>
+<li><strong>Referrer</strong>: The web site/system which referred the client to the submitter.</li>
+</ul>
+<h4>Example</h4>
+<p>Below is an example of a fulsome LeadDetail section, with interpretation:</p>
+<ul>
+<li>Origin tag helps convey that MyMaxInsurance.ca is submitting the lead.</li>
+<li>This lead is providing some detail about itself:
+                  <ul>
+<li>This lead/client is identified as "X-1234567" within MyMaxInsurance.ca's systems.</li>
+<li>This lead is reprenting a quote where company "GA" yielded a premium of "1234".</li>
+<li>The consumer arrived at MyMaxInsurance.ca from Facebook.</li>
+<li>MyMaxInsurance.ca describes the lead as being of type "Partial".</li>
+</ul>
+</li>
+<li>Contact preferenced details are provided for the lead recipient, to reach out and communicate with the client:
+                  <ul>
+<li>The client would prefer to be contacted by phone, in the afternoon, in English.</li>
+</ul>
+</li>
+<li>MyMaxInsurance.ca provides some detail of the lead recipient, from it's point of view:
+                  <ul>
+<li>The lead recipient has an account code of "ACME" within MyMaxInsurance.ca's system.</li>
+<li>The full name of that account, again within MyMaxInsurance.ca's system, is "Acme Insurance Ltd.".</li>
+</ul>
+</li>
+</ul>
+<div class="sourcecodebox">
+              &lt;QuoteInfo&gt;
+              
+                &lt;Origin&gt;MyMaxInsurance.ca&lt;/Origin&gt;
+                . . .
+                &lt;LeadDetail&gt;
+                
+                  &lt;ID&gt;<strong>1</strong>&lt;/ID&gt;
+                  &lt;CompanyCode&gt;<strong>GA</strong>&lt;/CompanyCode&gt;
+                  &lt;Premium&gt;<strong>1234</strong>&lt;/Premium&gt;
+                  &lt;ContactLanguage&gt;<strong>E</strong>&lt;/ContactLanguage&gt;
+                  &lt;ContactMethod&gt;<strong>P</strong>&lt;/ContactMethod&gt;
+                  &lt;ContactTime&gt;<strong>A</strong>&lt;/ContactTime&gt;
+                  &lt;LeadTypeEn&gt;<strong>Partial</strong>&lt;/LeadTypeEn&gt;
+                  &lt;LeadTypeFr&gt;<strong>Partielle</strong>&lt;/LeadTypeFr&gt;
+                  &lt;Referrer&gt;<strong>Facebook</strong>&lt;/Referrer&gt;
+                  &lt;RecipientAccountCode&gt;<strong>ACME</strong>&lt;/RecipientAccountCode&gt;
+                  &lt;RecipientAccountName&gt;<strong>Acme Insurance Ltd.</strong>&lt;/RecipientAccountName&gt;
+                  &lt;SubmitterLeadID&gt;<strong>X-1234567</strong>&lt;/SubmitterLeadID&gt;
+            
+                &lt;/LeadDetail&gt;
+              &lt;/QuoteInfo&gt;
+            </div>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

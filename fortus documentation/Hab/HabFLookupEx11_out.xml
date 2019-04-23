@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<LookupTransaction Type="Property">
+  <RegistryOverrides>
+    <Diagnostics>1</Diagnostics>
+  </RegistryOverrides>
+  <Defaults>
+    <Province>QC</Province>
+    <CodeName>Homeowners</CodeName>
+    <Language>French</Language>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="1" Type="DisSurList">
+      <Carrier>MR</Carrier>
+      <!-- Empty <Results> node implies Hab2 ratebook does not exist -->
+      <Results></Results>
+    </Lookup>
+    <Lookup ID="2" Type="DisSurList">
+      <Carrier>GA</Carrier>
+      <!-- Non-Empty <Results> node implies Hab2 ratebook does exist.  If no items are returned other than the dwelling type node(s), 
+           then this implies the carrier does not have any relevant items to discover. 
+        -->
+      <Results>
+        <Values Group="Homeowners"></Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="3" Type="DisSurList">
+      <Carrier>TRG</Carrier>
+      <Results>
+        <Values Group="Homeowners">
+         <!-- "Discounts", "Surcharges", and "ExtCovs" will only show up if items in that group exist.  
+         Here, there are no Surcharges, so we don't see that group. 
+         Note: CSIOCode can optionally show up if a value has been defined.
+           -->
+          <Values Group="Discounts">
+            <Values Group="Misc0">
+              <Values Group="Description">
+                <Value>Installation Septique</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>Septic System</Value>
+              </Values>
+            </Values>
+            <Values Group="Misc2">
+              <Values Group="Description">
+                <Value>Service de navette d&#39;alimentation</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>Shuttle Tanker Service</Value>
+              </Values>
+              <Values Group="CSIOCode">
+                <Value>ZSHUT</Value>
+              </Values>            
+            </Values>
+            <Values Group="Misc6">
+              <Values Group="Description">
+                <Value>Pro-Shine</Value>
+              </Values>
+              <Values Group="Identifier">
+                <Value>ProShine</Value>
+              </Values>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

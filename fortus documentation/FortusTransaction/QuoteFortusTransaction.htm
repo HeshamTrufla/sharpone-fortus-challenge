@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><span class="active">Fortus Transaction</span></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><span class="subtitle">Structures</span><ul>
+<li><a href="#tblFortusTransaction">FortusTransaction</a></li>
+<li><a href="#tblCarriers">Carriers</a></li>
+<li><a href="#tblRegistryOverrides">RegistryOverrides</a></li>
+<li><a href="#tblCodeNames">CodeNames</a><ul>
+<li><a href="#tblAuto">Auto</a></li>
+<li><a href="#tblHab">Hab</a></li>
+<li><a href="#tblHab2">Property</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="subtitle">Tables</span><ul>
+<li><a href="#Table1">1. Type of FortusTransaction</a></li>
+<li><a href="#Table2">2. Hab Codename values</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Input XML Examples</span><ul>
+<li><a href="#lnkInputAutomobileExample">Automobile</a></li>
+<li><a href="#lnkInputPropertyExample">Hab</a></li>
+<li><a href="#lnkInputProperty2Example">Hab 2</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Output XML Examples</span><ul>
+<li><a href="#lnkOutputAutomobileExample">Automobile</a></li>
+<li><a href="#lnkOutputPropertyExample">Hab</a></li>
+<li><a href="#lnkOutputProperty2Example">Hab 2</a></li>
+</ul>
+</li>
+</ul>
+</div><a name="lnkInputXML"></a><h2>Input XML</h2><a name="lnkStructures"></a><h3>Structures</h3>
+<p>The following tables outline the basic structure of the Input XML:</p><a name="tblFortusTransaction"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">FortusTransaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>STRING</td>
+<td> </td>
+<td><a href="#Table1">Table 1</a></td>
+<td>Y</td>
+<td>Type of Fortus transaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblCarriers">Carriers</a></td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Holds 1 or more &lt;Carrier&gt; child tags, one for each carrier to be quoted.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>STRING</td>
+<td>2</td>
+<td> </td>
+<td>Y</td>
+<td>Province codes (2 characters)</td>
+</tr>
+<tr>
+<td>EffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Effective date of the quote.  If none is supplied or a value of 0 (zero) is used, then the current system date will be used.</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>STRING</td>
+<td>3</td>
+<td>YES/NO</td>
+<td> </td>
+<td>YES = Policy Renewal, NO = New Business. Default: NO</td>
+</tr>
+<tr>
+<td><a href="#tblCodeNames">CodeNames</a></td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Holds one or more codenames to dictate internal ratebook file associations.  A 'codename' is a Compu-Quote convention for identifying quote/dwelling/lookup type.</td>
+</tr>
+<tr>
+<td><a href="#tblRegistryOverrides">RegistryOverrides</a></td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Holds settings that take precedence over machine level configurations.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblCarriers"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Carriers</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Carrier</td>
+<td>STRING</td>
+<td>4</td>
+<td> </td>
+<td>Y</td>
+<td>Compu-Quote Company Code of carrier to be quoted. This value must be completely in uppercase letters.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblRegistryOverrides"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">RegistryOverrides</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Diagnostics</td>
+<td>'1' or '0'</td>
+<td>A value of '1' indicates that diagnostic information should be included in the quote results.  This can be very useful when trying to 
+                            diagnose system/carrier problems.</td>
+</tr>
+<tr>
+<td>HabMultipleForms</td>
+<td>'1' or '0'</td>
+<td>A value of '1' indicates that multiple forms for the requested form type should be quoted and returned if appropriate.  A value of '0' 
+                            indicates that the default form for the given form type should be assumed, thus returning only 1 set of quote results.</td>
+</tr>
+<tr>
+<td>PrettyPrint</td>
+<td>'1' or '0'</td>
+<td>A value of '1' indicates that results XML should be formatted in a more easily human-readable fashion.  This means that line-breaks and 
+                            indentation will be used.  However, doing this increases the size of the XML, so this is disabled by default.</td>
+</tr>
+<tr>
+<td>StrictMap</td>
+<td>'1' or '0'</td>
+<td>A value of '1' indicates that any XML node that is not part of the map file does not below and a warning should be issued.  This feature is rarely used.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblCodeNames"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">CodeNames</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblAuto">Auto</a></td>
+<td>Parent tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Parent tag for Auto Quote Information</td>
+</tr>
+<tr>
+<td><a href="#tblHab">Hab*</a></td>
+<td>Parent tag</td>
+<td> </td>
+<td><a href="#Table2">Table 2</a></td>
+<td>Y</td>
+<td>Parent tag for Hab Quote Information</td>
+</tr>
+<tr>
+<td><a href="#tblHab2">Property</a></td>
+<td>Parent tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Parent tag for Hab 2 Quote Information</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblAuto"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Auto</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>QuoteInfo</td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Quote Data as defined in <a href="../Auto/AutoMap.htm">Auto Map Definition</a>.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblHab"></a><table class="txtTableBody" cellSpacing="0" cellPadding="3" width="100%" border="1">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Hab* <font style="FONT-SIZE = x-small">      (Do not use 'Hab', but instead use one of the values from Table 2)</font></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>QuoteInfo</td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Quote Data as defined in <a href="../Hab/HabMap.htm">Hab Map Definition</a>.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblHab2"></a><table class="txtTableBody" cellSpacing="0" width="100%">
+<col align="left" width="116">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Property</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>QuoteInfo</td>
+<td>Parent Tag</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>Quote Data as defined in <a href="../Hab2/HabMap.htm">Hab 2 Map Definition</a>.</td>
+</tr>
+</table><a href="#">top</a><br><hr><a name="lnkTables"></a><h3>Tables</h3><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle"><td>Table 1 - Type of FortusTransaction</td></tr>
+<tr><td>Automobile</td></tr>
+<tr><td>Property</td></tr>
+<tr><td>Property2</td></tr>
+</table><a href="#">top</a><br><br><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td>Table 2 - Hab Codename values</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Range</td>
+</tr>
+<tr><td>Homeowners</td></tr>
+<tr><td>Tenants</td></tr>
+<tr><td>Condos</td></tr>
+<tr><td>HolidayTrailer</td></tr>
+<tr><td>ParkModelTrailer</td></tr>
+<tr><td>Seasonal</td></tr>
+<tr><td>SASecRentalDwellings</td></tr>
+<tr><td>SASecRentalCondos</td></tr>
+<tr><td>SASeasonal</td></tr>
+<tr><td>SASecHomeowners</td></tr>
+<tr><td>SecRentalDwellings</td></tr>
+<tr><td>SecHomeowners</td></tr>
+<tr><td>Watercraft</td></tr>
+</table><a href="#">top</a><br><hr><a name="lnkInputExamples"></a><h3>Examples</h3><a name="lnkInputAutomobileExample"></a><h4>Auto Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;AXA&lt;/Carrier&gt;
+        &lt;Carrier&gt;ROY&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;Renewal&gt;NO&lt;/Renewal&gt;
+      &lt;CodeNames&gt;
+        &lt;Auto&gt;
+          &lt;QuoteInfo&gt;
+            ...
+          &lt;/QuoteInfo&gt;
+        &lt;/Auto&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a><br><br><a name="lnkInputPropertyExample"></a><h4>Hab Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;AXA&lt;/Carrier&gt;
+        &lt;Carrier&gt;ROY&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;EffDate&gt;20021213&lt;/EffDate&gt;
+      &lt;Renewal&gt;NO&lt;/Renewal&gt;
+      &lt;CodeNames&gt;
+        &lt;Homeowners&gt;
+          &lt;QuoteInfo&gt;
+            ...
+          &lt;/QuoteInfo&gt;
+        &lt;/Homeowners&gt;
+        ...
+    
+        &lt;Watercraft&gt;
+          &lt;QuoteInfo&gt;
+            ...
+          &lt;/QuoteInfo&gt;
+        &lt;/Watercraft&gt;
+        
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a><br><br><a name="lnkInputProperty2Example"></a><h4>Hab2 Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property2"&gt;
+      &lt;Carriers&gt;
+        &lt;Carrier&gt;AXA&lt;/Carrier&gt;
+        &lt;Carrier&gt;ROY&lt;/Carrier&gt;
+      &lt;/Carriers&gt;
+      &lt;Province&gt;ON&lt;/Province&gt;
+      &lt;EffDate&gt;20021213&lt;/EffDate&gt;
+      &lt;Renewal&gt;NO&lt;/Renewal&gt;
+      &lt;CodeNames&gt;
+        &lt;Property&gt;
+          &lt;QuoteInfo&gt;
+            &lt;Dwelling&gt;
+              ...
+            &lt;/Dwelling&gt;
+            &lt;Dwelling&gt;
+              ...
+            &lt;/Dwelling&gt;
+    
+            &lt;Watercraft&gt;
+              ...
+            &lt;/Watercraft&gt;
+    
+            ...
+          &lt;/QuoteInfo&gt;
+        &lt;/Property&gt;
+      &lt;/CodeNames&gt;
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a><br><hr><a name="lnkOutputXML"></a><h2>Output XML</h2>
+<p>In the Output XML, each carrier's results are listed under the tag containing that carrier's code.</p><a name="lnkOutputExamples"></a><h3>Examples</h3><a name="lnkOutputAutomobileExample"></a><h4>Auto Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Carriers&gt;
+        &lt;ROY&gt;
+          &lt;CodeNames&gt;
+            &lt;Auto&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Auto&gt;
+          &lt;/CodeNames&gt;
+        &lt;/ROY&gt;
+        &lt;WEST&gt;
+          &lt;CodeNames&gt;
+            &lt;Auto&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Auto&gt;
+          &lt;/CodeNames&gt;
+        &lt;/WEST&gt;
+      &lt;/Carriers&gt;
+      ...
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a><br><br><a name="lnkOutputPropertyExample"></a><h4>Hab Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property"&gt;
+      &lt;Carriers&gt;
+        &lt;GA&gt;
+          &lt;CodeNames&gt;
+            &lt;Homeowners&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Homeowners&gt;
+            &lt;WaterCraft&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/WaterCraft&gt;
+          &lt;/CodeNames&gt;
+        &lt;/GA&gt;
+        &lt;ROY&gt;
+          &lt;CodeNames&gt;
+            &lt;Homeowners&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Homeowners&gt;
+            &lt;WaterCraft&gt;
+              &lt;QuoteInfo&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/WaterCraft&gt;
+          &lt;/CodeNames&gt;
+        &lt;/ROY&gt;
+      &lt;/Carriers&gt;
+      ...
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a><a name="lnkOutputProperty2Example"></a><h4>Hab2 Example</h4>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Property2"&gt;
+      &lt;Carriers&gt;
+        &lt;GA&gt;
+          &lt;CodeNames&gt;
+            &lt;Property&gt;
+              &lt;QuoteInfo&gt;
+                &lt;Dwelling&gt;
+                  ...
+                &lt;/Dwelling&gt;
+                &lt;Watercraft&gt;
+                  ...
+                &lt;/Watercraft&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Property&gt;
+          &lt;/CodeNames&gt;
+        &lt;/GA&gt;
+        &lt;ROY&gt;
+          &lt;CodeNames&gt;
+            &lt;Property&gt;
+              &lt;QuoteInfo&gt;
+                &lt;Dwelling&gt;
+                  ...
+                &lt;/Dwelling&gt;
+                &lt;Watercraft&gt;
+                  ...
+                &lt;/Watercraft&gt;
+                ...
+              &lt;/QuoteInfo&gt;
+            &lt;/Property&gt;
+          &lt;/CodeNames&gt;
+        &lt;/ROY&gt;
+      &lt;/Carriers&gt;
+      ...
+    &lt;/FortusTransaction&gt;
+    </div><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

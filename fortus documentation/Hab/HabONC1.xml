@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<FortusTransaction Type="Property" xmlns="">
+   <Carriers>
+      <Carrier>DOC</Carrier>
+   </Carriers>
+   <Province>ON</Province>
+   <CodeNames>
+      <Condos>
+         <QuoteInfo>
+            <Dwelling>
+               <DwellingType>C</DwellingType>
+               <CityName>WINDSOR</CityName>
+               <PostalCode>N9J</PostalCode>
+               <FHDist>8</FHDist>
+               <ProtectionClass>U</ProtectionClass>
+               <Ded>-1</Ded>
+               <Liab>-1</Liab>
+               <Value>100000</Value>
+               <Coverage>100000</Coverage>
+               <Betterments>-1</Betterments>
+               <Contingent>-1</Contingent>
+               <LossLiab>-1</LossLiab>
+               <LossProp>-1</LossProp>
+               <OwnerOcc>1</OwnerOcc>
+               <NumFam>1</NumFam>
+               <NumUnits>6</NumUnits>
+               <FloorNum>1</FloorNum>
+               <NumBedrooms>2</NumBedrooms>
+               <DobIns>19600101</DobIns>
+               <DobCoIns>19600101</DobCoIns>
+               <InsSince>19800101</InsSince>
+               <WithBroker>19800101</WithBroker>
+               <HabCo>NBUS</HabCo>
+               <HabCoDate>19900101</HabCoDate>
+               <AutoCo>NBUS</AutoCo>
+               <AutoCoDate>19900101</AutoCoDate>
+               <DwellingDate>19800101</DwellingDate>
+               <RoofType>ASPHALT SHINGLES</RoofType>
+               <RoofDate>19800101</RoofDate>
+               <ElectDate>19800101</ElectDate>
+               <ElectType>COPPER</ElectType>
+               <ElectServ>100 AMP</ElectServ>
+               <PlumbDate>19800101</PlumbDate>
+               <PlumbType>COPPER</PlumbType>
+               <Structure>HIGH RISE APARTMENT</Structure>
+               <Construction>FIRE RESISTIVE</Construction>
+               <PrmHeatApproved>1</PrmHeatApproved>
+               <PrmHeatDate>19800101</PrmHeatDate>
+               <PrmHeatType>CENTRAL FURNACE - GAS</PrmHeatType>
+               <PrmHeatChimneyType>BRICK</PrmHeatChimneyType>
+               <BurgAlarm>NONE</BurgAlarm>
+               <FireAlarm>NONE</FireAlarm>
+               <SmokeDetectors>2</SmokeDetectors>
+               <FireExt>2</FireExt>
+               <Sprinkler>NONE</Sprinkler>
+               <DeadBolt>1</DeadBolt>
+               <OccSince>19800101</OccSince>
+               <FormType>5</FormType>
+               <TerrCode>1265</TerrCode>
+            </Dwelling>
+         </QuoteInfo>
+      </Condos>
+   </CodeNames>
+</FortusTransaction>

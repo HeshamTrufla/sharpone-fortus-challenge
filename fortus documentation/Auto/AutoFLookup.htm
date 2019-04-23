@@ -1,0 +1,860 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Carrier Value Lookups</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><span class="subtitle">Input</span><ul>
+<li><a href="#tblLookupTransaction">LookupTransaction</a></li>
+<li><a href="#tblLookups">Lookups</a></li>
+<li><a href="#tblDefaultsLookup">Defaults / Lookup</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Output</span><ul>
+<li><a href="#tblResults">Results</a></li>
+<li><a href="#tblValuesVRG">Values for VRG</a></li>
+<li><a href="#tblValuesSupportedTypes">Values for SupportedTypes</a></li>
+<li><a href="#tblValuesUserInitDisSur">Values for UserInitDisSur</a></li>
+<li><a href="#tblValuesTelematProgList">Values for TelematProgList</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Tables</span><ul>
+<li><a href="#Table1">Lookup Types</a></li>
+<li><a href="#Table2">Population Matrix</a></li>
+</ul>
+</li>
+<li><a href="#lnkExamples">Examples</a></li>
+</ul>
+</div>
+<h1>FLookup - Automobile</h1>
+<p>FORTUS&#8482; allows for carrier specific values to be indicated in some cases.  One of the more common 
+               examples of this would be to allow the user to define the Vehicle Rate Groups.  These values are often 
+               used to override the calculated value.  Of course, valid entries must be supplied for these values and 
+               not all companies use the same range of values.  This is where the FLookup library comes in.  The FLookup 
+               library provides an XML interface to retrieve ranges of valid carrier values, or even the calculated 
+               value itself (although this value is sometimes because full quote information may be required).
+            </p><a name="lnkInputXML"></a><h2>Input XML</h2>
+<p>The model for lookups was designed with many aspects is mind: extensibility, inheritance, scalability, flexibility, etc.  
+               Many different types of lookups can be performed for many different carriers, all within the same XML transaction. The 
+               model allows for the definition of default values to use within each individual lookup.  At the same time, the model 
+               allows each individual lookup to override these default values.
+            </p><a name="tblLookupTransaction"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="200">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">LookupTransaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>STRING</td>
+<td>"Automobile" or "Property"</td>
+<td>Type of FLookup transaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblDefaultsLookup">Defaults</a></td>
+<td>Parent Tag</td>
+<td>Just one Defaults tag.</td>
+<td>Values indicated under this node will automatically be used for each lookup, unless the value is redefined in the lookup.</td>
+</tr>
+<tr>
+<td><a href="#tblLookups">Lookups</a></td>
+<td>Parent Tag</td>
+<td>Just one Lookups tag.</td>
+<td>Collection of lookups to be performed.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblLookups"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="200">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Lookups</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblDefaultsLookup">Lookup</a></td>
+<td>Parent Tag</td>
+<td>Any number of Lookup tags</td>
+<td>There will be one Lookup tag per lookup per carrier.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblDefaultsLookup"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="70">
+<col align="center" width="130">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="5" align="left">Defaults / Lookup</td>
+</tr>
+<tr>
+<td colspan="5">The Type and ID attributes do not apply to the Defaults tag.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Type</td>
+<td colspan="2">STRING</td>
+<td><a href="#Table1">Table 1</a></td>
+<td>Type of individual lookup.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td colspan="2">STRING</td>
+<td> </td>
+<td>Value to uniquely identify the individual lookup within the whole FLookup transaction.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Carrier</td>
+<td>STRING</td>
+<td>4</td>
+<td> </td>
+<td>Proprietary Company Code of carrier to lookup values for. All letters must be uppercase.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>STRING</td>
+<td>2</td>
+<td>Auto Range Tables: <a href="AutoRangeTables.htm#Table1">Table 1</a></td>
+<td>Canada Post standard province codes (2 characters)</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td>Indicates whether or not the lookup should be performed with the assumption that the information represents a New Business request, or a Renewal.  If no value or an invalid value is supplied then a value of N is assumed.</td>
+</tr>
+<tr>
+<td>EffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Effective date of the lookup.  If none is supplied or a value of 0 (zero) is used, then the current system date will be used.</td>
+</tr>
+<tr>
+<td>LocationIndex</td>
+<td>LONG</td>
+<td> </td>
+<td>1-99999</td>
+<td>The relevant Compu-Quote auto location identifier to use for the lookup.  See LocationIndex in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>PostalCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td>The relevant postal code to use for the lookup.  See PostalCode in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>VehYear</td>
+<td>LONG</td>
+<td>YYYY</td>
+<td> </td>
+<td>The vehicle year to use for the lookup.  See Year in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>VICCCode</td>
+<td>STRING</td>
+<td> </td>
+<td>4 digits</td>
+<td>The vehicle VICC code to use for the lookup.  See VICCCode in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>VICCCodeExt</td>
+<td>STRING</td>
+<td> </td>
+<td>6 digits</td>
+<td>The vehicle extended VICC code to use for the lookup.  See VICCCodeExt in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>STRING</td>
+<td> </td>
+<td>'English' / 'French'</td>
+<td>The language that results should be returned if possible and if relevant.  Most carriers only define one language.</td>
+</tr>
+<tr>
+<td>CodeName</td>
+<td>STRING</td>
+<td> </td>
+<td>'Auto'</td>
+<td>The Codename to use for the lookup.  Currently, the only possible value is 'Auto'.</td>
+</tr>
+<tr>
+<td>ProductLine</td>
+<td>STRING</td>
+<td>10</td>
+<td>'Personal' / 'Commercial' / 'IRCA'</td>
+<td>The product line to use for the lookup.  If no value is supplied, then Personal is assumed. See ProductLine in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td>Auto Range Tables: <a href="AutoRangeTables.htm#Table9">Table 9</a></td>
+<td>The vehicle type to use for the lookup.  If no value is supplied, then Private Passenger is assumed. See VehType in the <a href="AutoMap.htm#tblVehicle">Auto Map Definition</a>.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="lnkOutputXML"></a><h2>Output XML</h2>
+<p>Depending on the type of the individual lookup, the results will be returned slightly differently.  The model for 
+               returning results is meant to be flexible and generic enough to return a single value, a list of values, or groups of lists of values.
+            </p><a name="tblResults"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Results</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>STRING</td>
+<td>The following lookup types will return a single Value tag here: Territory, TerritoryHelp, ClassHelp, DsHelp<br>
+                    The following lookup types will return multiple Value tags here: TerritoryList, DriverClassList, DrivingRecordList, CoverageList, VRGList
+                </td>
+</tr>
+<tr>
+<td>Values</td>
+<td>Parent Tag</td>
+<td>Instead of the Value tag, the VRG, SupportedTypes, UserInitDisSur, and TelematProgList lookup types will return Values tags.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblValuesVRG"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="80">
+<col align="center" width="140">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Values for VRG lookup type</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>"TP", "COL", "CMP", "AB"</td>
+<td>Indicates coverage that value represents.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td colspan="2">STRING</td>
+<td>Single Value tag here, representing result.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblValuesSupportedTypes"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="80">
+<col align="center" width="140">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Values for SupportedTypes lookup type</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>"Personal", "Commercial", "IRCA"</td>
+<td>Indicates the product line that list of value tags represents.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td colspan="2">STRING</td>
+<td>Multiple Value tags here, representing supported vehicle types.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblValuesUserInitDisSur"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="80">
+<col align="center" width="140">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Values for UserInitDisSur lookup type</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>"Discounts", "Surcharges"</td>
+<td>Indicates if the group is discounts or surcharges (will likely be one group for each).  Under this Values group, will be one group for each discount/surcharge.</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>Code for discount/surcharge</td>
+<td>Each discount/surcharge has a Values group where the group value is the code for the item.  Under this Values group will be other groups, one for each facet of the item.</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>"AmountOverride", "Description", "Scope", "Definition"</td>
+<td>Indicates characteristics of the discount/surcharge.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td colspan="2">STRING</td>
+<td>Single Value tag, with meanings explained as:<br><br>
+                    AmountOverride (1st part, before underscore):<br>
+                       CANNOT - User cannot set amount<br>
+                       CAN - User can set amount<br>
+                       MUST - User must set amount<br><br>
+                    AmountOverride (2nd part, after underscore):<br>
+                       % - Amount that user can set will be a percentage<br>
+                       $ - Amount that user can set will be a dollar value<br><br>
+                    Description:<br>
+                       Display name for the discount/surcharge (35 char max)<br><br>
+                    Scope:<br>
+                       Prn - item only available to principal operators<br>
+                       Occ - item only available to occasional operators<br>
+                       Both - item avaible to both principal and occasional operators<br><br>
+                    Definition:<br>
+                       Paragraph-like definiton of discount/surcharge. No length limitation.  This item is enveloped in a CDATA section.<br></td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblValuesTelematProgList"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="80">
+<col align="center" width="140">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Values for TelematProgList lookup type</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>Code for telematics program</td>
+<td>Each Telematics program has a Values group where the group value is the code for the program.  Under this Values group is another group, "Description".</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>"Description"</td>
+<td>Indicates display name for the program.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td colspan="2">STRING</td>
+<td>Single Value tag for "Description" group, representing the display description for the program.</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="lnkTables"></a><h1>Tables</h1><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2">Table 1 - Lookup types</td>
+</tr>
+<tr>
+<td>Territory</td>
+<td>Determine the territory rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>TerritoryList</td>
+<td>Retrieve the list of valid territory literals used by the carrier.</td>
+</tr>
+<tr>
+<td>DriverClassList</td>
+<td>Retrieve the list of valid Driver Class literals used by the carrier.</td>
+</tr>
+<tr>
+<td>DrivingRecordList</td>
+<td>Retrieve the list of valid Driving Record literals used by the carrier.</td>
+</tr>
+<tr>
+<td>CoverageList</td>
+<td>Retrieve the list CSIO codes for the valid coverages used by the carrier.</td>
+</tr>
+<tr>
+<td>VRG</td>
+<td>Determine the Vehicle Rate Group rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>VRGList</td>
+<td>Retrieve the list of valid VRG literals used by the carrier.</td>
+</tr>
+<tr>
+<td>ClassHelp</td>
+<td>Retrieve the Driver Class 'Help' documentation for the carrier.</td>
+</tr>
+<tr>
+<td>TerritoryHelp</td>
+<td>Retrieve the Territory 'Help' documentation for the carrier.</td>
+</tr>
+<tr>
+<td>DsHelp</td>
+<td>Retrieve the Discounts/Surcharges 'Help' documentation for the carrier.</td>
+</tr>
+<tr>
+<td>UserInitDisSur</td>
+<td>Retrieve the list of User Initiated Discounts/Surcharges for the carrier.</td>
+</tr>
+<tr>
+<td>SupportedTypes</td>
+<td>Retrieve the list of supported product line / vehicle types for the carrier.</td>
+</tr>
+<tr>
+<td>TelematProgList</td>
+<td>Retrieve the list of Telematics programs offered by carrier.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="14">Table 2 - Population Matrix</td>
+</tr>
+<tr>
+<td colspan="6" valign="top">
+<div style="font-weight:bold; text-decoration: underline;">Legend:</div>
+                R - Required - Value is required for lookup.<br>
+                D - Default Value - Default value will be used if none is given.<br>
+                A - All in range - Value can be specified to narrow results. If no value is given, then results for each value in range of valid values are returned.
+                </td>
+<td colspan="8">
+<div style="font-weight:bold; text-decoration: underline;">Defaults:</div>
+                CodeName - "Auto"<br>
+                EffDate - system date<br>
+                Renewal - "N"<br>
+                Language - "English"<br>
+                ProductLine - "Personal"<br>
+                VehType - "Private Passenger"
+                </td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td> </td>
+<td colspan="13" align="center">Fields</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Types</td>
+<td>CodeName</td>
+<td>Carrier</td>
+<td>Province</td>
+<td>EffDate</td>
+<td>Renewal</td>
+<td>Language</td>
+<td>ProductLine</td>
+<td>VehType</td>
+<td>LocationIndex</td>
+<td>PostalCode</td>
+<td>VehYear</td>
+<td>VICCCode</td>
+<td>VICCCodeExt</td>
+</tr>
+<tr>
+<td>Territory</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TerritoryList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DriverClassList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DrivingRecordList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CoverageList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VRG</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+</tr>
+<tr>
+<td>VRGList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ClassHelp</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TerritoryHelp</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DsHelp</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UserInitDisSur</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SupportedTypes</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>A</td>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TelematProgList</td>
+<td>D</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="lnkExamples"></a><h1>Examples</h1><a name="Table3"></a><table class="txtTableBody" cellSpacing="0">
+<col width="1">
+<col width="1">
+<col width="1">
+<col>
+<tr class="txtTableTitle">
+<td colspan="4">Table 3 - Examples</td>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="AutoFLookupEx1_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx1_out.xml">Output XML</a></td>
+<td><strong>TerritoryList</strong> - Retrieve the list of valid territory literals for 3 carriers.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="AutoFLookupEx2_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx2_out.xml">Output XML</a></td>
+<td><strong>Territory</strong> - Retrieve the rated territory for 3 carriers.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="AutoFLookupEx3_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx3_out.xml">Output XML</a></td>
+<td><strong>TerritoryHelp</strong> - Retrieve the Territory 'Help' information for 3 carriers.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="AutoFLookupEx4_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx4_out.xml">Output XML</a></td>
+<td><strong>VRGList</strong> - Retrieve the list of valid vehicle rate group literals for 3 carriers.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="AutoFLookupEx5_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx5_out.xml">Output XML</a></td>
+<td><strong>VRG</strong> - Retrieve the rated vehicle rate groups for 3 carriers.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="AutoFLookupEx6_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx6_out.xml">Output XML</a></td>
+<td><strong>ClassHelp</strong> - Retrieve the Driver Class 'Help' information for 3 carriers.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="AutoFLookupEx7_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx7_out.xml">Output XML</a></td>
+<td><strong>CoverageList</strong> - Retrieve the list of valid coverages for 3 carriers.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="AutoFLookupEx8_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx8_out.xml">Output XML</a></td>
+<td><strong>DrivingRecordList</strong> - Retrieve the list of valid Driving Record literals for 2 carriers.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="AutoFLookupEx9_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx9_out.xml">Output XML</a></td>
+<td><strong>DriverClassList</strong> - Retrieve the list of valid Driver Class literals for 2 carriers.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="AutoFLookupEx10_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx10_out.xml">Output XML</a></td>
+<td><strong>DsHelp</strong> - Retrieve the discount and surcharge information for 3 carriers.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="AutoFLookupEx11_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx11_out.xml">Output XML</a></td>
+<td><strong>UserInitDisSur</strong> - Retrieve the user initiated discount and surcharge information for 2 carriers.</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="AutoFLookupEx12_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx12_out.xml">Output XML</a></td>
+<td><strong>SupportedTypes</strong> - Retrieve the supported product line / vehicle type combinations for 4 carriers.</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="AutoFLookupEx13_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupEx13_out.xml">Output XML</a></td>
+<td><strong>TelematProgList</strong> - Retrieve the Telematics programs offered for 2 carriers.</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="AutoFLookupExMix_in.xml">Input XML</a></td>
+<td><a href="AutoFLookupExMix_out.xml">Output XML</a></td>
+<td>This examples performs different types of lookups for different carriers.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

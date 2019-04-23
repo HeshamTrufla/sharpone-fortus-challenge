@@ -1,0 +1,4659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Map Definition</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#tblStdCov">StdCov</a></li>
+<li><a href="#tblExtCov">ExtCov</a></li>
+<li><a href="#tblEarthquakeExt">EarthquakeExt</a></li>
+<li><a href="#tblGlassDedExt">GlassDedExt</a></li>
+<li><a href="#tblFreezerExt">FreezerExt</a></li>
+<li><a href="#tblMiscExt">MiscExt</a></li>
+<li><a href="#tblDisSur">DisSur</a></li>
+<li><a href="#tblFloater">Floater</a></li>
+<li><a href="#tblWaterCraft">WaterCraft</a></li>
+<li><a href="#tblDwelling">Dwelling</a></li>
+<li><a href="#tblQuoteInfo">QuoteInfo</a></li>
+<li><a href="#tblClaim">Claim</a></li>
+<li><a href="#tblCreditScore">CreditScore</a></li>
+<li><a href="#tblHabPremium">HabPremium</a></li>
+<li><a href="#tblRentalExt">RentalExt</a></li>
+<li><a href="#tblPropertyInStorageExt">PropertyInStorageExt</a></li>
+<li><a href="#tblSolarExt">SolarExt</a></li>
+<li><a href="#tblHomeBusExt">HomeBusExt</a></li>
+<li><a href="#tblUnderConstExt">UnderConstExt</a></li>
+</ul>
+</div>
+<a name="tblStdCov"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">StdCov</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descStdCov">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this standard coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this standard coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of standard coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblExtCov"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">ExtCov</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descExtCov">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblEarthquakeExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">EarthquakeExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descEarthquakeExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Requested amount of coverage.  Or, 
+      <br> -1 : request amount included at no charge (not relevant for Overland Water).
+      <br> -2 : request maximum amount allowed, premiums may apply (currently only available for Overland Water).
+      </td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Deductible</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table25" target="Tables">Table 25</a><br><a href="HabRangeTables.htm#Table49" target="Tables">Table 49</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Preferred deductible for this extended coverage to be used if appropriate on resulting quote. 
+      <br>Table 25 - Earthquake
+      <br>Table 49 - Overland Water</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblGlassDedExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">GlassDedExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descGlassDedExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Deductible</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table26" target="Tables">Table 26</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Preferred deductible for this extended coverage to be used if appropriate on resulting quote</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblFreezerExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">FreezerExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descFreezerExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Requested amount of coverage. Or,
+      <br>-1 : request amount included at no charge
+      <br>-2 : request maximum amount allowed, premiums may apply (currently only available for SewerBackupExt)</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Deductible</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table49" target="Tables">Table 49</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Preferred deductible for this extended coverage to be used if appropriate on resulting quote.</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblMiscExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">MiscExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descMiscExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">OptionCode</td>
+<td valign="top">STRING</td>
+<td valign="top">7</td>
+<td valign="top">Carrier-specific</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">A carrier-specific code used to identify the requested option for the coverage. Only used for 'miscellaneous' aliases (ie. starting with Misc). Note that this value will most likely be different from carrier to carrier, so the 
+      <a href="HabPerCarrierValues.htm#descPerCarrierValues">Per Carrier Values</a>mechanism can be used to identify different values for different carriers.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDisSur"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">DisSur</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descDisSur">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of discount/surcharge (in English)</td>
+</tr>
+<tr>
+<td valign="top">OptionCode</td>
+<td valign="top">STRING</td>
+<td valign="top">7</td>
+<td valign="top">Carrier-specific</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">A carrier-specific code used to identify the requested option for the discount/surcharge. Only used for 'miscellaneous' aliases (ie. starting with Misc). Note that this value will most likely be different from carrier to carrier, so the 
+      <a href="HabPerCarrierValues.htm#descPerCarrierValues">Per Carrier Values</a>mechanism can be used to identify different values for different carriers.</td>
+</tr>
+<tr>
+<td valign="top">Percent</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Percentage of discount</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium (may be negative)</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblFloater"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">Floater</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descFloater">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this floater</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this floater</td>
+</tr>
+<tr>
+<td valign="top">Deductible</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table27" target="Tables">Table 27</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Preferred deductible for this floater to be used if appropriate on resulting quote</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of floater. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Form</td>
+<td valign="top">STRING</td>
+<td valign="top">12</td>
+<td valign="top">ALL RISKS / NAMED PERILS</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Form</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">MiscAmount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Total miscellaneous coverage</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+<tr>
+<td valign="top">Total</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Total amount of scheduled items</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblWaterCraft"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">WaterCraft</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descWaterCraft">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">ACV</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Actual Cash Value coverage</td>
+</tr>
+<tr>
+<td valign="top">AuxPower</td>
+<td valign="top">STRING</td>
+<td valign="top">15</td>
+<td valign="top"><a href="HabRangeTables.htm#Table23" target="Tables">Table 23</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Auxiliary power type. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Claim</td>
+<td valign="top"><a href="#tblClaim" type="">Pointer to Claim</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">Construction</td>
+<td valign="top">STRING</td>
+<td valign="top">15</td>
+<td valign="top"><a href="HabRangeTables.htm#Table21" target="Tables">Table 21</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Type of construction</td>
+</tr>
+<tr>
+<td valign="top">Ded</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table11" target="Tables">Table 11</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Deductible amount</td>
+</tr>
+<tr>
+<td valign="top">DisSur</td>
+<td valign="top"><a href="#tblDisSur" type="">Pointer to DisSur</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">ExtCov</td>
+<td valign="top"><a href="#tblExtCov" type="">Pointer to ExtCov</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">Form</td>
+<td valign="top">STRING</td>
+<td valign="top">30</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Carrier-specific name for the form.</td>
+</tr>
+<tr>
+<td valign="top">FormType</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table5" target="Tables">Table 5</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Number representing the requested form type. Different dwelling types have different 
+      <a href="HabStructDesc.htm#descFormTypeCodeNames">valid form types</a>.</td>
+</tr>
+<tr>
+<td valign="top">HorsePwr</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Horse power of watercraft</td>
+</tr>
+<tr>
+<td valign="top">Length</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Length of watercraft</td>
+</tr>
+<tr>
+<td valign="top">Liab</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table12" target="Tables">Table 12</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Liability Amount</td>
+</tr>
+<tr>
+<td valign="top">Location</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Carrier-specific name for the rating territory.</td>
+</tr>
+<tr>
+<td valign="top">PwrSquad</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Power squadron training?</td>
+</tr>
+<tr>
+<td valign="top">Rating</td>
+<td valign="top">STRING</td>
+<td valign="top">45</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Carrier-specific name for the rating.</td>
+</tr>
+<tr>
+<td valign="top">SailSchool</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Sailing school?</td>
+</tr>
+<tr>
+<td valign="top">Speed</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Max speed of watercraft</td>
+</tr>
+<tr>
+<td valign="top">StdCov</td>
+<td valign="top"><a href="#tblStdCov" type="">Pointer to StdCov</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">TrailConts</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Value of watercraft trailer contents</td>
+</tr>
+<tr>
+<td valign="top">TrailVal</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Value of watercraft trailer</td>
+</tr>
+<tr>
+<td valign="top">Value</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Value of watercraft</td>
+</tr>
+<tr>
+<td valign="top">WatercraftDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Date watercraft was built</td>
+</tr>
+<tr>
+<td valign="top">WaterCraftTotal</td>
+<td valign="top"><a href="#tblHabPremium" type="">Pointer to HabPremium</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">WatercraftType</td>
+<td valign="top">STRING</td>
+<td valign="top">25</td>
+<td valign="top"><a href="HabRangeTables.htm#Table22" target="Tables">Table 22</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Type of watercraft</td>
+</tr>
+<tr>
+<td valign="top">Waterway</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table24" target="Tables">Table 24</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Type of waterway</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDwelling"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="36%">
+<tr class="txtTableTitle">
+<td colspan="9">Dwelling</td>
+</tr>
+<tr>
+<td colspan="9">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descDwelling">More Info</a><br>
+                      <strong>·</strong> 
+                  <a href="HabProtectionClass.htm">Protection Class</a><br>
+                      <strong>·</strong> 
+                  <a href="../Territory.htm">Territories</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle"><a href="HabRangeTables.htm#Table8">Dwellings</a></td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">AutoCo</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">CSIO code of auto insurer. Default: NBUS. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AutoCoDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date at start of insurance with current auto company</td>
+</tr>
+<tr>
+<td valign="top">Aux1HeatOilTankConstruction</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"><a href="HabRangeTables.htm#Table50" target="Tables">Table 50</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Construction type of the oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux1HeatOilTankDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date of first auxiliary heating unit's oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux1HeatOilTankType</td>
+<td valign="top">STRING</td>
+<td valign="top">25</td>
+<td valign="top"><a href="HabRangeTables.htm#Table34" target="Tables">Table 34</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Description of the type/location oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux2HeatOilTankConstruction</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"><a href="HabRangeTables.htm#Table50" target="Tables">Table 50</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Construction type of the oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux2HeatOilTankDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date of second auxiliary heating unit's oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux2HeatOilTankType</td>
+<td valign="top">STRING</td>
+<td valign="top">25</td>
+<td valign="top"><a href="HabRangeTables.htm#Table34" target="Tables">Table 34</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Description of the type/location oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux3HeatOilTankConstruction</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"><a href="HabRangeTables.htm#Table50" target="Tables">Table 50</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Construction type of the oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux3HeatOilTankDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date of third auxiliary heating unit's oil tank.</td>
+</tr>
+<tr>
+<td valign="top">Aux3HeatOilTankType</td>
+<td valign="top">STRING</td>
+<td valign="top">25</td>
+<td valign="top"><a href="HabRangeTables.htm#Table34" target="Tables">Table 34</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Description of the type/location oil tank.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1Approved</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">First auxiliary heating system approval.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1ChimneyType</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table2" target="Tables">Table 2</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of chimney for this heating source. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1Cords</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of full or bush cords of wood used per year</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1Date</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date heating source was installed or last updated.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1FireExt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Automatic fire extinguishing system?</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1Hours</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of hours this system is used per day.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1RenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of auxiliary heating that was renovated/updated on the date indicated by AuxHeat1Date.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat1Type</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"><a href="HabRangeTables.htm#Table1" target="Tables">Table 1</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of heating. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2Approved</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Second auxiliary heating system approval</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2ChimneyType</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table2" target="Tables">Table 2</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of chimney for this heating source. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2Cords</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of full or bush cords of wood used per year</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2Date</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date heating source was installed or last updated.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2FireExt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Automatic fire extinguishing system?</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2Hours</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of hours this system is used per day</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2RenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of auxiliary heating that was renovated/updated on the date indicated by AuxHeat2Date.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat2Type</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"><a href="HabRangeTables.htm#Table1" target="Tables">Table 1</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of heating. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3Approved</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Third auxiliary heating system approval</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3ChimneyType</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table2" target="Tables">Table 2</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of chimney for this heating source. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3Cords</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of full or bush cords of wood used per year</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3Date</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date heating source was installed or last updated.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3FireExt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Automatic fire extinguishing system?</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3Hours</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of hours this system is used per day</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3RenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of auxiliary heating that was renovated/updated on the date indicated by AuxHeat3Date.</td>
+</tr>
+<tr>
+<td valign="top">AuxHeat3Type</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"><a href="HabRangeTables.htm#Table1" target="Tables">Table 1</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of heating. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">BackflowValve</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table32" target="Tables">Table 32</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of backup or backflow valve</td>
+</tr>
+<tr>
+<td valign="top">Betterments</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>C<span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Amount of betterments and improvements coverage required, or -1 to indicate the amount included at no charge.</td>
+</tr>
+<tr>
+<td valign="top">BlockWatch</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Block watch program in your neighbourhood?</td>
+</tr>
+<tr>
+<td valign="top">BsmtApt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Residence has a basement apartment?</td>
+</tr>
+<tr>
+<td valign="top">BsmtFinishPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The percentage of the basement which is finished.</td>
+</tr>
+<tr>
+<td valign="top">BurgAlarm</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table3" target="Tables">Table 3</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of burglar alarm. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Burglary</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>AGEKSRNO</td>
+<td valign="top">Burglary coverage?</td>
+</tr>
+<tr>
+<td valign="top">CityName</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">City/Town Description of dwelling. See 
+      <a href="../Territory.htm">Territory</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Claim</td>
+<td valign="top"><a href="#tblClaim" type="">Pointer to Claim</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">CoInsGender</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top">M/F</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Gender of co-insured.</td>
+</tr>
+<tr>
+<td valign="top">Construction</td>
+<td valign="top">STRING</td>
+<td valign="top">30</td>
+<td valign="top"><a href="HabRangeTables.htm#Table14" target="Tables">Table 14</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Building construction type.</td>
+</tr>
+<tr>
+<td valign="top">Contingent</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>C<span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Amount of contingent coverage required, or -1 to indicate the amount included at no charge.</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Coverage amount for residence/contents. See 
+      <a href="HabStructDesc.htm#descResValues">Residence Values</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">CreditScoreMis</td>
+<td valign="top"><a href="#tblCreditScore" type="">Pointer to CreditScore</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">DaysOccMonth</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-31</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The number of days per month that the dwelling is occupied.</td>
+</tr>
+<tr>
+<td valign="top">DeadBolt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Deadbolts on all entrances?</td>
+</tr>
+<tr>
+<td valign="top">Ded</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table11" target="Tables">Table 11</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Requested deductible for policy</td>
+</tr>
+<tr>
+<td valign="top">DisSur</td>
+<td valign="top"><a href="#tblDisSur" type="">Pointer to DisSur</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">DobCoIns</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date of birth of the co-insured.</td>
+</tr>
+<tr>
+<td valign="top">DobIns</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date of birth of the insured.</td>
+</tr>
+<tr>
+<td valign="top">Dog</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Guard dog living in residence?</td>
+</tr>
+<tr>
+<td valign="top">DwellingDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date the residence was built.</td>
+</tr>
+<tr>
+<td valign="top">DwellingTotal</td>
+<td valign="top"><a href="#tblHabPremium" type="">Pointer to HabPremium</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">DwellingType</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table8" target="Tables">Table 8</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Dwelling Type Codes</td>
+</tr>
+<tr>
+<td valign="top">EarthquakeZone</td>
+<td align="left" valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for earthquake rating territory.</td>
+</tr>
+<tr>
+<td valign="top">ElectDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date electrical service was last updated.</td>
+</tr>
+<tr>
+<td valign="top">ElectPanelType</td>
+<td valign="top">STRING</td>
+<td valign="top">15</td>
+<td valign="top"><a href="HabRangeTables.htm#Table44" target="Tables">Table 44</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of electrical panel.</td>
+</tr>
+<tr>
+<td valign="top">ElectRenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of electrical service that was renovated/updated on the date indicated by ElectDate.</td>
+</tr>
+<tr>
+<td valign="top">ElectServ</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table17" target="Tables">Table 17</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of electrical service.</td>
+</tr>
+<tr>
+<td valign="top">ElectType</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table18" target="Tables">Table 18</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of electrical wiring</td>
+</tr>
+<tr>
+<td valign="top">EvalTool</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table36" target="Tables">Table 36</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Indicates the tool used to evaluate the value of the dwelling.</td>
+</tr>
+<tr>
+<td valign="top">ExtCov</td>
+<td valign="top"><a href="#tblExtCov" type="">Pointer to ExtCov</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">ExteriorFinish</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table46" target="Tables">Table 46</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Material of exterior finish of the dwelling.</td>
+</tr>
+<tr>
+<td valign="top">FHDist</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Distance from Fire Hall in kilometres. See 
+      <a href="HabProtectionClass.htm">Protection Class</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">FireAlarm</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table3" target="Tables">Table 3</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of fire alarm. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">FireExt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of fire extinguishers</td>
+</tr>
+<tr>
+<td valign="top">FirstTimeBuyer</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HC<span class="txtTableBodyDisabled">T</span>AGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">First time buyer?</td>
+</tr>
+<tr>
+<td valign="top">Floater</td>
+<td valign="top"><a href="#tblFloater" type="">Pointer to Floater</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">FloaterZone</td>
+<td align="left" valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for floater rating territory.</td>
+</tr>
+<tr>
+<td valign="top">FloorNum</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Number of floors on this residence.</td>
+</tr>
+<tr>
+<td valign="top">Form</td>
+<td valign="top">STRING</td>
+<td valign="top">30</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for the form.</td>
+</tr>
+<tr>
+<td valign="top">FormType</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table5" target="Tables">Table 5</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number representing the requested form type. Different dwelling types have different 
+      <a href="HabStructDesc.htm#descFormTypeCodeNames">valid form types</a>.</td>
+</tr>
+<tr>
+<td valign="top">Garage</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table52" target="Tables">Table 52</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of garage.</td>
+</tr>
+<tr>
+<td valign="top">GBRC</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Guaranteed building replacement cost (GBRC)?</td>
+</tr>
+<tr>
+<td valign="top">Gender</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top">M/F</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Gender of insured.</td>
+</tr>
+<tr>
+<td valign="top">GroupDate1</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Initial Date of Membership of insured. Assumes insured has been a continuous member since the specified date.</td>
+</tr>
+<tr>
+<td valign="top">GroupDate2</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Initial Date of Membership of insured. Assumes insured has been a continuous member since the specified date.</td>
+</tr>
+<tr>
+<td valign="top">GroupPlan1</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table28" target="Tables">Table 28</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Group that insured is associated with (CQ Proprietary Group Code).</td>
+</tr>
+<tr>
+<td valign="top">GroupPlan2</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table28" target="Tables">Table 28</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Group that insured is associated with (CQ Proprietary Group Code).</td>
+</tr>
+<tr>
+<td valign="top">HabCo</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">CSIO code of current insurance company. Default: NBUS. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">HabCoDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date at start of insurance with current company</td>
+</tr>
+<tr>
+<td valign="top">HailCoverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Preferred amount covered by hail peril coverage, to be used if appropriate on resulting quote. A value of -1 means that the Base amount is being requested.</td>
+</tr>
+<tr>
+<td valign="top">HailDeduct</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table43" target="Tables">Table 43</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Hail peril requested deductible.</td>
+</tr>
+<tr>
+<td valign="top">HBIncome</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Gross annual income for home-based business.</td>
+</tr>
+<tr>
+<td valign="top">HBInternetSales</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Does the home-based business have internet sales?</td>
+</tr>
+<tr>
+<td valign="top">HBNumClients</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of 'clients' for home-based business, where clients are ...<br>
+      Children - for Day Care Service<br>
+      Guests   - for Bed and Breakfast<br>
+      Kennels  - for Dog Kennel<br>
+      Chairs   - for Beauty Salon / Barber Shop<br>
+      Students - for Art Lessons/Studio<br>
+      Students - for Computer Lessons<br>
+      Students - for Culinary Tutoring<br>
+      Students - for Dance School Instructor<br>
+      Students - for Dramatic Art &amp; Speech Training<br>
+      Students - for Educational Counsellor/Tutor<br>
+      Students - for Modelling Agency &amp; School<br>
+      Students - for Music Lessons/Studio<br>
+      </td>
+</tr>
+<tr>
+<td valign="top">HBNumEmployees</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of non-resident employees for home-based business.</td>
+</tr>
+<tr>
+<td valign="top">HBNumRooms</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of rooms used for bed and breakfast home-based business (HBType = 17).</td>
+</tr>
+<tr>
+<td valign="top">HBNumStylists</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of stylists/hairdressers/operators when home-based business is Beauty Salon / Barber Shop.</td>
+</tr>
+<tr>
+<td valign="top">HBType</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table39" target="Tables">Table 39</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Business type for home-based business.</td>
+</tr>
+<tr>
+<td valign="top">HBWorldSales</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Does the home-based business sell products outside of Canada?</td>
+</tr>
+<tr>
+<td valign="top">HydDist</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Distance from Fire Hydrant in metres. See 
+      <a href="HabProtectionClass.htm">Protection Class</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Inlaw</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Residence has inlaw suite?</td>
+</tr>
+<tr>
+<td valign="top">InsEmployer</td>
+<td valign="top">STRING</td>
+<td valign="top">5</td>
+<td valign="top"><a href="HabRangeTables.htm#Table41" target="Tables">Table 41</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Employer of insured.</td>
+</tr>
+<tr>
+<td valign="top">InsSince</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date at start of continuous insurance for insured?</td>
+</tr>
+<tr>
+<td valign="top">Intercom</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Intercom system for entry into building?</td>
+</tr>
+<tr>
+<td valign="top">LandlordOcc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span>T<span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Does the landlord reside in the same building?</td>
+</tr>
+<tr>
+<td valign="top">LastHomeEvaluation</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date of the most recent evaluation.</td>
+</tr>
+<tr>
+<td valign="top">LastNSFDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date of the most recent Non-Sufficient Funds (NSF) incurred through payment of insurance premium within the last 3 years.</td>
+</tr>
+<tr>
+<td valign="top">Liab</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table12" target="Tables">Table 12</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Requested liability amount for policy</td>
+</tr>
+<tr>
+<td valign="top">LivingAreaMeasure</td>
+<td valign="top">CHAR</td>
+<td valign="top"></td>
+<td valign="top"><a href="HabRangeTables.htm#Table33" target="Tables">Table 33</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Measurement type for total living area</td>
+</tr>
+<tr>
+<td valign="top">LocFactor</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Used to apply a territory factor to the base premium. Unless an override is intended, this field should be left blank so that the proper value can be determined.</td>
+</tr>
+<tr>
+<td valign="top">LogConst</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Residence made of log construction? DEPRECATED: Use Construction and ExteriorFinish instead.</td>
+</tr>
+<tr>
+<td valign="top">LossLiab</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>C<span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Amount of loss assessment liability coverage required, or -1 to indicate the amount included at no charge.</td>
+</tr>
+<tr>
+<td valign="top">LossProp</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>C<span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Amount of loss assessment property damage coverage required, or -1 to indicate the amount included at no charge.</td>
+</tr>
+<tr>
+<td valign="top">MalBldg</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>AGEKSRNO</td>
+<td valign="top">Malicious damage coverage on building?</td>
+</tr>
+<tr>
+<td valign="top">MalConts</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>AGEKSRNO</td>
+<td valign="top">Malicious damage coverage on contents?</td>
+</tr>
+<tr>
+<td valign="top">NonSmoker</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Is the residence a smoke-free household?</td>
+</tr>
+<tr>
+<td valign="top">NumBedrooms</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Number of bedrooms.</td>
+</tr>
+<tr>
+<td valign="top">NumDaysVacant</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of days vacated.</td>
+</tr>
+<tr>
+<td valign="top">NumFam</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of families in this residence.</td>
+</tr>
+<tr>
+<td valign="top">NumFullBaths</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The number of full bathrooms.</td>
+</tr>
+<tr>
+<td valign="top">NumHalfBaths</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The number of half bathrooms.</td>
+</tr>
+<tr>
+<td valign="top">NumMortgage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HC<span class="txtTableBodyDisabled">T</span>AGEKSRNO</td>
+<td valign="top">Number of mortgages on this residence.</td>
+</tr>
+<tr>
+<td valign="top">NumNSF</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-99</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Number of Non-Sufficient Funds (NSF) incurred through payment of insurance premium within the last 3 years.</td>
+</tr>
+<tr>
+<td valign="top">NumStoreys</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of storeys in the building. Note that half-storeys are allowed; ex. 1.5, 2.5, etc.</td>
+</tr>
+<tr>
+<td valign="top">NumUnits</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of apartment units in this residence.</td>
+</tr>
+<tr>
+<td valign="top">OB</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Amount of outbuilding coverage required, or -1 to indicate the amount included at no charge. See 
+      <a href="HabStructDesc.htm#descResValues">Residence Values</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">OccSince</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date residence was first occupied by insured</td>
+</tr>
+<tr>
+<td valign="top">Occupation</td>
+<td valign="top">STRING</td>
+<td valign="top">50</td>
+<td valign="top"><a href="HabRangeTables.htm#Table4" target="Tables">Table 4</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">CSIO occupation code of insured. Default: UNK. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">OccupDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date hired for occupation.</td>
+</tr>
+<tr>
+<td valign="top">OccupFullTime</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Is occupation full time? Default: 1. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">OwnerOcc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCT<span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span>EKS<span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Is the dwelling occupied by the insured? This refers to the tenant for a tenants quote, and the owner for other dwellings.</td>
+</tr>
+<tr>
+<td valign="top">PlumbDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date plumbing was last updated.</td>
+</tr>
+<tr>
+<td valign="top">PlumbRenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of plumbing that was renovated/updated on the date indicated by PlumbDate.</td>
+</tr>
+<tr>
+<td valign="top">PlumbType</td>
+<td valign="top">STRING</td>
+<td valign="top">15</td>
+<td valign="top"><a href="HabRangeTables.htm#Table19" target="Tables">Table 19</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of plumbing.</td>
+</tr>
+<tr>
+<td valign="top">PoolDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Installation date of the swimming pool.</td>
+</tr>
+<tr>
+<td valign="top">PoolType</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table35" target="Tables">Table 35</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of swimming pool.</td>
+</tr>
+<tr>
+<td valign="top">PostalCode</td>
+<td valign="top">STRING</td>
+<td valign="top">6</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Postal Code of dwelling. See 
+      <a href="../Territory.htm">Territory</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">PP</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Amount of personal property (contents) coverage required, or -1 to indicate the amount included at no charge. See 
+      <a href="HabStructDesc.htm#descResValues">Residence Values</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">PrePaidAlarm</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Pre-paid alarm?</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatApproved</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Primary heating type approval.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatChimneyType</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table2" target="Tables">Table 2</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of chimney for primary heating source.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatCords</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of full or bush cords of wood used per year for primary heating.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date primary heating source was installed or last updated.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatFireExt</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Automatic fire extinguishing system for primary heating unit?</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatOilTankConstruction</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"><a href="HabRangeTables.htm#Table50" target="Tables">Table 50</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Construction type of the oil tank.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatOilTankDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date of primary heating oil tank.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatOilTankType</td>
+<td valign="top">STRING</td>
+<td valign="top">25</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Description of the type/location oil tank.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatRenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of primary heating that was renovated/updated on the date indicated by PrmHeatDate.</td>
+</tr>
+<tr>
+<td valign="top">PrmHeatType</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"><a href="HabRangeTables.htm#Table1" target="Tables">Table 1</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of primary heating.</td>
+</tr>
+<tr>
+<td valign="top">ProtectionClass</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table10" target="Tables">Table 10</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Protection grade. See 
+      <a href="HabProtectionClass.htm">Protection Class</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">ProtectionDesc</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Description of protection grading. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Prov</td>
+<td valign="top">STRING</td>
+<td valign="top">2</td>
+<td valign="top"><a href="HabRangeTables.htm#Table9" target="Tables">Table 9</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">2 character province code. Default: &lt;FortusTransaction&gt;&lt;Province&gt;. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Rating</td>
+<td valign="top">STRING</td>
+<td valign="top">45</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for the rating.</td>
+</tr>
+<tr>
+<td valign="top">Retired</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Insured is retired?</td>
+</tr>
+<tr>
+<td valign="top">RoofDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date roof was last updated.</td>
+</tr>
+<tr>
+<td valign="top">RoofRenoPerc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0-100</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Percentage of roof that was renovated/updated on the date indicated by RoofDate.</td>
+</tr>
+<tr>
+<td valign="top">RoofResistance</td>
+<td valign="top">STRING</td>
+<td valign="top">2</td>
+<td valign="top"><a href="HabRangeTables.htm#Table49" target="Tables">Table 49</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Roofing material impact resistance classification.</td>
+</tr>
+<tr>
+<td valign="top">RoofSlope</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table53" target="Tables">Table 53</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Slope of the roof.</td>
+</tr>
+<tr>
+<td valign="top">RoofType</td>
+<td valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"><a href="HabRangeTables.htm#Table16" target="Tables">Table 16</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of roofing.</td>
+</tr>
+<tr>
+<td valign="top">SecGuard</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Security guard on duty?</td>
+</tr>
+<tr>
+<td valign="top">SecuredEntrance</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Secured entrance into building?</td>
+</tr>
+<tr>
+<td valign="top">SepticSystem</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Does the residence have a septic system?</td>
+</tr>
+<tr>
+<td valign="top">SewerBackupZone</td>
+<td align="left" valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for sewer backup rating territory.</td>
+</tr>
+<tr>
+<td valign="top">SglLimit</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Single limit requested?</td>
+</tr>
+<tr>
+<td valign="top">SmokeDetectors</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Number of smoke detectors</td>
+</tr>
+<tr>
+<td valign="top">SolarCapacity</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Capacity of solar panel(s) in kilowatt hours (kW·h).</td>
+</tr>
+<tr>
+<td valign="top">SolarInstDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date of installation of solar panel(s).</td>
+</tr>
+<tr>
+<td valign="top">SolarInstLoc</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table38" target="Tables">Table 38</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The location where the solar panel(s) is installed.</td>
+</tr>
+<tr>
+<td valign="top">SolarOnGrid</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Is the solar panel(s) tied to the grid?</td>
+</tr>
+<tr>
+<td valign="top">SolarOwned</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Is the solar panel(s) owned? 1 = owned, 2 = leased.</td>
+</tr>
+<tr>
+<td valign="top">SolarTracking</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Is the solar panel(s) equipped with tracking?</td>
+</tr>
+<tr>
+<td valign="top">Sprinkler</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table20" target="Tables">Table 20</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of sprinkler system. Default: NONE. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">StdCov</td>
+<td valign="top"><a href="#tblStdCov" type="">Pointer to StdCov</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">Structure</td>
+<td valign="top">STRING</td>
+<td valign="top">30</td>
+<td valign="top"><a href="HabRangeTables.htm#Table13" target="Tables">Table 13</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Building structure type.</td>
+</tr>
+<tr>
+<td valign="top">SumpPumpAlarmed</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Sump Pump is alarmed.</td>
+</tr>
+<tr>
+<td valign="top">SumpPumpAuxPower</td>
+<td valign="top">STRING</td>
+<td valign="top">10</td>
+<td valign="top"><a href="HabRangeTables.htm#Table31" target="Tables">Table 31</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of auxiliary power used for the (auxiliary) sump pump.</td>
+</tr>
+<tr>
+<td valign="top">SumpPumpPit</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Is there a pit (hole) for the sump pump?</td>
+</tr>
+<tr>
+<td valign="top">SumpPumpType</td>
+<td valign="top">STRING</td>
+<td valign="top">30</td>
+<td valign="top"><a href="HabRangeTables.htm#Table30" target="Tables">Table 30</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of sump pump</td>
+</tr>
+<tr>
+<td valign="top">TableName</td>
+<td align="left" valign="top">STRING</td>
+<td valign="top">35</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Carrier-specific name for the rating territory.</td>
+</tr>
+<tr>
+<td valign="top">TerrCode</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Territory Code (GCPCID). Note: For PBR, the field is required, but the contents are ignored. See 
+      <a href="../Territory.htm">Territory</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">TerritoryEffDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Effective date of the territories ratebook that was used.</td>
+</tr>
+<tr>
+<td valign="top">TotalBsmtArea</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Total basement area</td>
+</tr>
+<tr>
+<td valign="top">TotalLivingArea</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Total living area</td>
+</tr>
+<tr>
+<td valign="top">UCContractor</td>
+<td valign="top">STRING</td>
+<td valign="top">5</td>
+<td valign="top"><a href="HabRangeTables.htm#Table48" target="Tables">Table 48</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Contractor for dwelling under construction.</td>
+</tr>
+<tr>
+<td valign="top">UCEndDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">End date for dwelling under construction.</td>
+</tr>
+<tr>
+<td valign="top">UCOccupied</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Is the dwelling occupied while under construction? Only relevant when UCWorkType is "RENO".</td>
+</tr>
+<tr>
+<td valign="top">UCProjectType</td>
+<td valign="top">STRING</td>
+<td valign="top">4</td>
+<td valign="top"><a href="HabRangeTables.htm#Table47" target="Tables">Table 47</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Type of construction being done for dwelling under construction.</td>
+</tr>
+<tr>
+<td valign="top">UCStartDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Start date for dwelling under construction.</td>
+</tr>
+<tr>
+<td valign="top">UnderwritingEffDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Effective date of the underwriting ratebook that was used.</td>
+</tr>
+<tr>
+<td valign="top">Value</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTA<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Replacement value of residence/contents. See 
+      <a href="HabStructDesc.htm#descResValues">Residence Values</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">VideoSystem</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span>CT<span class="txtTableBodyDisabled">A</span>G<span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span>N<span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Video surveillance system?</td>
+</tr>
+<tr>
+<td valign="top">WalledCom</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Within a walled community?</td>
+</tr>
+<tr>
+<td valign="top">WaterDeduct</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table11" target="Tables">Table 11</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Water peril requested deductible.</td>
+</tr>
+<tr>
+<td valign="top">WaterHeaterDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">Date water heater was last updated.</td>
+</tr>
+<tr>
+<td valign="top">WaterMainOffType</td>
+<td valign="top">STRING</td>
+<td valign="top">15</td>
+<td valign="top"><a href="HabRangeTables.htm#Table45" target="Tables">Table 45</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">The type of shutoff that the main water valve is equipped with.</td>
+</tr>
+<tr>
+<td valign="top">WaterMainSensors</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">HCTAGEKSRNO</td>
+<td valign="top">When the WaterMainOffType is automatic (with or without monitoring), use this field to indicate the number of sensors installed to detect water leaks.</td>
+</tr>
+<tr>
+<td valign="top">WindCoverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"><span class="txtTableBodyDisabled">H</span><span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span><span class="txtTableBodyDisabled">A</span><span class="txtTableBodyDisabled">G</span><span class="txtTableBodyDisabled">E</span><span class="txtTableBodyDisabled">K</span><span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Preferred amount covered by wind peril coverage, to be used if appropriate on resulting quote. A value of -1 means that the Base amount is being requested.</td>
+</tr>
+<tr>
+<td valign="top">WindDeduct</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table43" target="Tables">Table 43</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Wind peril requested deductible.</td>
+</tr>
+<tr>
+<td valign="top">WindowBars</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">H<span class="txtTableBodyDisabled">C</span><span class="txtTableBodyDisabled">T</span>A<span class="txtTableBodyDisabled">G</span>EKSR<span class="txtTableBodyDisabled">N</span>O</td>
+<td valign="top">Bars on windows?</td>
+</tr>
+<tr>
+<td valign="top">WithBroker</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">HCTAGEK<span class="txtTableBodyDisabled">S</span><span class="txtTableBodyDisabled">R</span><span class="txtTableBodyDisabled">N</span><span class="txtTableBodyDisabled">O</span></td>
+<td valign="top">Date when first insured with this agency/brokerage.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblQuoteInfo"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">QuoteInfo</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descQuoteInfo">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">AssumeMultiLine</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top">Y/N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If AssumeMultiLine is 'Y', then AutoCo is populated with the CSIO code of the carrier currently quoting. This is really only useful when quoting multiple carriers and the desired effect is to have each carrier believe that the risk has multiple lines with the carrier. This is generally used for profile comparison and not actual individual quotes.</td>
+</tr>
+<tr>
+<td valign="top">Business</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table6" target="Tables">Table 6</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Business type. Default: N. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">CombinedPolicy</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top">Y/N/A</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If CombinedPolicy is 'Y', then AutoCo represents the automobile policy insurer with which the risk has a combined policy with. If CombinedPolicy is 'A', then AutoCo is populated with the CSIO code of the carrier currently quoting. This is really only useful when quoting multiple carriers and the desired effect is to have each carrier believe that the risk has combined policies with the carrier. This is generally used for profile comparison and not actual individual quotes.</td>
+</tr>
+<tr>
+<td valign="top">ContractNumber</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Agency/brokerage's contract number with insurance carrier.</td>
+</tr>
+<tr>
+<td valign="top">Dwelling or WaterCraft</td>
+<td valign="top">
+<div>
+        <a href="#tblDwelling">Pointer to Dwelling</a>
+        <br>or
+        <br>
+        <a href="#tblWaterCraft">Pointer to WaterCraft</a></div>
+</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">EffDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Effective date of quote. Default: &lt;FortusTransaction&gt;&lt;EffDate&gt;. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Implementation</td>
+<td valign="top">STRING</td>
+<td valign="top">50</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">For future use.</td>
+</tr>
+<tr>
+<td valign="top">Language</td>
+<td valign="top">STRING</td>
+<td valign="top">9</td>
+<td valign="top"><a href="HabRangeTables.htm#Table7" target="Tables">Table 7</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Language the user wants the output will be displayed in. Default: English. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">PolDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Policy date.</td>
+</tr>
+<tr>
+<td valign="top">PolicyTotal</td>
+<td valign="top"><a href="#tblHabPremium" type="">Pointer to HabPremium</a></td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">PrimaryPostalCode</td>
+<td valign="top">STRING</td>
+<td valign="top">6</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">The postal code of the insured's primary residence.</td>
+</tr>
+<tr>
+<td valign="top">ProductName</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"><a href="HabRangeTables.htm#Table29" target="Tables">Table 29</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Product requesting the Quote. Default: 'Web'. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">RateBookEffDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Input: Effective date to use for ratebook determination. Default: &lt;QuoteInfo&gt;&lt;EffDate&gt; (or &lt;FortusTransaction&gt;&lt;EffDate&gt; if the other is not specified). See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information. Specify this date to override which ratebook is chosen, without disrupting rule date logic which might occur if &lt;EffDate&gt; were modified. 
+      <br>Output: Effective date of the rates ratebook that was used.</td>
+</tr>
+<tr>
+<td valign="top">XacDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Transaction date.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblClaim"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">Claim</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descClaim">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Amount of claim</td>
+</tr>
+<tr>
+<td valign="top">ClaimDate</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top">YYYYMMDD</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Date of claim</td>
+</tr>
+<tr>
+<td valign="top">ClaimType</td>
+<td valign="top">STRING</td>
+<td valign="top">64</td>
+<td valign="top"><a href="HabRangeTables.htm#Table15" target="Tables">Table 15</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Type of claim</td>
+</tr>
+<tr>
+<td valign="top">Forgiven</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Forgive this claim?</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblCreditScore"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">CreditScore</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  Note that separate documentation is provided, when appropriate, to provide details for the use of this structure.<br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Article1</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Article 1</td>
+</tr>
+<tr>
+<td valign="top">Article2</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Article 2</td>
+</tr>
+<tr>
+<td valign="top">Article3</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Article 3</td>
+</tr>
+<tr>
+<td valign="top">Article4</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Article 4</td>
+</tr>
+<tr>
+<td valign="top">Article5</td>
+<td valign="top">STRING</td>
+<td valign="top">20</td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Article 5</td>
+</tr>
+<tr>
+<td valign="top">DobIns</td>
+<td valign="top">DATE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Date of birth of credit score applicant</td>
+</tr>
+<tr>
+<td valign="top">Factor1</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 1</td>
+</tr>
+<tr>
+<td valign="top">Factor10</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 10</td>
+</tr>
+<tr>
+<td valign="top">Factor11</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 11</td>
+</tr>
+<tr>
+<td valign="top">Factor12</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 12</td>
+</tr>
+<tr>
+<td valign="top">Factor13</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 13</td>
+</tr>
+<tr>
+<td valign="top">Factor14</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 14</td>
+</tr>
+<tr>
+<td valign="top">Factor15</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 15</td>
+</tr>
+<tr>
+<td valign="top">Factor16</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 16</td>
+</tr>
+<tr>
+<td valign="top">Factor17</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 17</td>
+</tr>
+<tr>
+<td valign="top">Factor18</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 18</td>
+</tr>
+<tr>
+<td valign="top">Factor19</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 19</td>
+</tr>
+<tr>
+<td valign="top">Factor2</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 2</td>
+</tr>
+<tr>
+<td valign="top">Factor20</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 20</td>
+</tr>
+<tr>
+<td valign="top">Factor21</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 21</td>
+</tr>
+<tr>
+<td valign="top">Factor22</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 22</td>
+</tr>
+<tr>
+<td valign="top">Factor23</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 23</td>
+</tr>
+<tr>
+<td valign="top">Factor24</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 24</td>
+</tr>
+<tr>
+<td valign="top">Factor25</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 25</td>
+</tr>
+<tr>
+<td valign="top">Factor26</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 26</td>
+</tr>
+<tr>
+<td valign="top">Factor27</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 27</td>
+</tr>
+<tr>
+<td valign="top">Factor28</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 28</td>
+</tr>
+<tr>
+<td valign="top">Factor29</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 29</td>
+</tr>
+<tr>
+<td valign="top">Factor3</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 3</td>
+</tr>
+<tr>
+<td valign="top">Factor30</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 30</td>
+</tr>
+<tr>
+<td valign="top">Factor4</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 4</td>
+</tr>
+<tr>
+<td valign="top">Factor5</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 5</td>
+</tr>
+<tr>
+<td valign="top">Factor6</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 6</td>
+</tr>
+<tr>
+<td valign="top">Factor7</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 7</td>
+</tr>
+<tr>
+<td valign="top">Factor8</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 8</td>
+</tr>
+<tr>
+<td valign="top">Factor9</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Factor 9</td>
+</tr>
+<tr>
+<td valign="top">StatusCode</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top"> </td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblHabPremium"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">HabPremium</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descHabPremium">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">BasePremium</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Base premium.</td>
+</tr>
+<tr>
+<td valign="top">FinalPremium</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Final premium, rounded to the nearest dollar.</td>
+</tr>
+<tr>
+<td valign="top">PremiumWithDecimal</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Final premium, rounded to the nearest cent.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblRentalExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">RentalExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descRentalExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount of coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Requested amount of coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Months</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Number of months of rental income.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblPropertyInStorageExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">PropertyInStorageExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descPropertyInStorageExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount of coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Burglary</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">If set to 1, then the burglary option has been selected</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Requested amount of coverage</td>
+</tr>
+<tr>
+<td valign="top">Days</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Number of days in storage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblSolarExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">SolarExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descSolarExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount of coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage.</td>
+</tr>
+<tr>
+<td valign="top">Deductible</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table11" target="Tables">Table 11</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Preferred deductible for this extended coverage to be used if appropriate on resulting quote.</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">FormType</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table37" target="Tables">Table 37</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Type of coverage requested.</td>
+</tr>
+<tr>
+<td valign="top">IncReplCoverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Requested amount of income replacement coverage for income generated by solar panel(s). If not applicable, leave out or set to zero.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">PercentIns</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Percentage of actual value (indicated in Value) to insure. Default: 100. See 
+      <a href="HabDataPropagation.htm">Data Propagation</a>for more information.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+<tr>
+<td valign="top">Value</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Value of solar panel.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblHomeBusExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">HomeBusExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descHomeBusExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Coverage</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td valign="top">Preferred amount covered by this extended coverage to be used if appropriate on resulting quote. A value of -1 means that the Base amount is being requested.</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblUnderConstExt"></a><table class="txtTableBody" cellSpacing="0">
+<col width="20%">
+<col width="7%">
+<col width="5%">
+<col width="12%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="41%">
+<tr class="txtTableTitle">
+<td colspan="8">UnderConstExt</td>
+</tr>
+<tr>
+<td colspan="8">
+                      <strong>·</strong> 
+                  <a href="HabStructDesc.htm#descUnderConstExt">More Info</a><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td valign="top">Amount</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Amount covered by policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Apply</td>
+<td valign="top">LONG</td>
+<td valign="top"> </td>
+<td valign="top">0/1</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top"> </td>
+<td valign="top">If set to 1 try to apply this coverage</td>
+</tr>
+<tr>
+<td valign="top">Deduct</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Deductible in effect on policy for this extended coverage</td>
+</tr>
+<tr>
+<td valign="top">Description</td>
+<td valign="top">STRING</td>
+<td valign="top">40</td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Description of extended coverage. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Interpret</td>
+<td valign="top">CHAR</td>
+<td valign="top"> </td>
+<td valign="top"><a href="HabRangeTables.htm#Table51" target="Tables">Table 51</a><br></td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Indication of how to interpret/display this item. This field is optional.</td>
+</tr>
+<tr>
+<td valign="top">Premium</td>
+<td valign="top">DOUBLE</td>
+<td valign="top"> </td>
+<td valign="top"> </td>
+<td align="center" valign="top">N</td>
+<td align="center" valign="top">Y</td>
+<td align="center" valign="top"> </td>
+<td valign="top">Premium</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+      <DataPath>c:\cqwin\auto</DataPath>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="3" Type="DsHelp">
+         <Carrier>GC</Carrier>
+      </Lookup>
+      <Lookup ID="1" Type="DsHelp">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup ID="2" Type="DsHelp">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

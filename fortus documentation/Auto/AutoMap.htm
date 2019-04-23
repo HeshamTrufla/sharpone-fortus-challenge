@@ -1,0 +1,2365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Map Definition</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#tblQuoteInfo">QuoteInfo</a></li>
+<li><a href="#tblVehLink">VehLink</a></li>
+<li><a href="#tblVehicle">Vehicle</a></li>
+<li><a href="#tblDriverProfile">DriverProfile</a></li>
+<li><a href="#tblCoverage">Coverage</a></li>
+<li><a href="#tblIncident">Incident</a></li>
+<li><a href="#tblClaim">Claim</a></li>
+<li><a href="#tblConviction">Conviction</a></li>
+<li><a href="#tblDriverLicense">DriverLicense</a></li>
+<li><a href="#tblGroupPlan">GroupPlan</a></li>
+<li><a href="#tblDiscount">Discount</a></li>
+<li><a href="#tblSurcharge">Surcharge</a></li>
+<li><a href="#tblPremium">Premium</a></li>
+<li><a href="#tblAntitheftDevice">AntitheftDevice</a></li>
+<li><a href="#tblCreditScore">CreditScore</a></li>
+<li><a href="#tblItemInfo">ItemInfo</a></li>
+<li><a href="#tblGridLevelAssignment">GridLevelAssignment</a></li>
+</ul>
+</div>
+<a name="tblQuoteInfo"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">QuoteInfo</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descQuoteInfo">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AssumeMultiLine</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>If AssumeMultiLine is 'Y', then HabCompanyCode is populated with the CSIO code of the carrier currently quoting. This is really only useful when quoting multiple carriers and the desired effect is to have each carrier believe that the risk has multiple lines with the carrier. This is generally used for profile comparison and not actual individual quotes.  Note that HabDateCompany sometimes still needs to be populated to calculate the multi-line discount, it depends on the carrier's underwriting. Default: 'N'.  See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td><a href="#tblClaim" type="">Pointer to Claim</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CombinedPolicy</td>
+<td>CHAR</td>
+<td> </td>
+<td>Y/N/A</td>
+<td> </td>
+<td>Much like multi-line/multi-policy, except that this flag indicates that this quote is part of a combined policy.  'Y' means that HabCompanyCode is the CSIO code of the carrier with which the other policy is with.  'N' means that there is no combined policy.  'A' will incur behaviour like AssumeMultiLine, in that the HabCompanyCode will be populated with the CSIO code of the carrier currently quoting.  This will have each carrier being quoted believe that the risk is part of a combined policy with the carrier.  Default: 'N'.  See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>ContractNumber</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Agency/Brokerage's contract number with insurance carrier.</td>
+</tr>
+<tr>
+<td>Conviction</td>
+<td><a href="#tblConviction" type="">Pointer to Conviction</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>CoverageOverride</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="AutoRangeTables.htm#Table4" target="Tables">Table 4</a></td>
+<td> </td>
+<td>This item represents the method of 'Coverage Level Substitution' that will be used if the requested coverage level was unavailable. Default: 'None'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>DisableGridLevel</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>If DisableGridLevel is 'Y', then the Alberta Grid Level logic is not performed.</td>
+</tr>
+<tr>
+<td>DriverProfile</td>
+<td><a href="#tblDriverProfile" type="">Pointer to DriverProfile</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td> </td>
+</tr>
+<tr>
+<td>Fleet</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the policy should be rated as a Fleet policy.</td>
+</tr>
+<tr>
+<td>GridLevelAssignment</td>
+<td><a href="#tblGridLevelAssignment" type="">Pointer to GridLevelAssignment</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Contains information about how drivers were assigned to vehicle for the purpose of Alberta Grid Level calculation. System assignment can be overriden by creating desired assignment structures as input.  See <a href="AutoStructDesc.htm#descGridLevel">Grid Levels</a> for more information.</td>
+</tr>
+<tr>
+<td>HabCompanyCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td> </td>
+<td>The CSIO code for the company with whom property insurance is held.</td>
+</tr>
+<tr>
+<td>HabDateCompany</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>The inception date of the insured's property insurance policy with the company specified in HabCompanyCode.</td>
+</tr>
+<tr>
+<td>HabOccSinceDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>The date the insured began occupation of the dwelling specified in the details given about the property insurance policy held with the company specified in HabCompanyCode.</td>
+</tr>
+<tr>
+<td>HabPolicyType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table2" target="Tables">Table 2</a></td>
+<td> </td>
+<td>The type of property insurance policy held by the insured with the company specified in HabCompanyCode.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>For use in specific implementations.  If field is necessary, CQ will provide details for this field.</td>
+</tr>
+<tr>
+<td>Incident</td>
+<td><a href="#tblIncident" type="">Pointer to Incident</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ItemInfo</td>
+<td><a href="#tblItemInfo" type="">Pointer to ItemInfo</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Contains information about how the Alberta Grid Levels were calculated.  See <a href="AutoStructDesc.htm#descGridLevel">Grid Levels</a> for more information.</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="AutoRangeTables.htm#Table3" target="Tables">Table 3</a></td>
+<td> </td>
+<td>Language to be used for Quote results. Default: English. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>NoMVD</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Disable Multi-Vehicle Discount</td>
+</tr>
+<tr>
+<td>PolicyTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ProductName</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table5" target="Tables">Table 5</a></td>
+<td> </td>
+<td>Product requesting the Quote. Default: 'Web'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>ProvinceCode</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="AutoRangeTables.htm#Table1" target="Tables">Table 1</a></td>
+<td> </td>
+<td>Canada Post Province code. Default: &lt;FortusTransaction&gt;&lt;Province&gt;. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>RateBookEffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Effective date of ratebook used</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Renewal. Default: N. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>TermQuoted</td>
+<td>LONG</td>
+<td> </td>
+<td>6,12</td>
+<td> </td>
+<td>Term length (in months) for premiums actually quoted.  If this value does not match TermRequested, then the carrier does not support that term length.</td>
+</tr>
+<tr>
+<td>TermRequested</td>
+<td>LONG</td>
+<td> </td>
+<td>6,12</td>
+<td> </td>
+<td>Term length (in months) of quote being requested.  Default: 12.  See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>TerritoryPassed</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>If TerritoryPassed is 'Y' then the engine will accept the value in &lt;Vehicle&gt;&lt;Territory&gt; as the territory. Otherwise, the engine will use LocationIndex to determine the Territory.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td><a href="#tblVehicle" type="">Pointer to Vehicle</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td> </td>
+</tr>
+<tr>
+<td>VehLink</td>
+<td><a href="#tblVehLink" type="">Pointer to VehLink</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td> </td>
+</tr>
+<tr>
+<td>VRGPassed</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>If VRGPassed is 'Y' then the engine will accept the values in &lt;VRAB&gt;, &lt;VRLiab&gt;, &lt;VRColl&gt;, and &lt;VRComp&gt; under &lt;Vehicle&gt;.  Otherwise, the engine will use the &lt;VICCCode&gt; and &lt;Year&gt; to lookup the VRG values.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblVehLink"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">VehLink</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descVehLink">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AdjustedClass</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Adjusted rating classification. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedCollDR</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Adjusted physical damage driving record. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedLiabDR</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Adjusted liability driving record. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AssignFlag</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>This field will indicate if a Driver is assigned as a rated driver of this vehicle, ie if they generate their own set of premiums.</td>
+</tr>
+<tr>
+<td>CollDrRec</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>The physical damage (collision) driving record determined by the company.</td>
+</tr>
+<tr>
+<td>CoveragePremium</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Premiums associated with this Vehicle and Associated Details. Created by the engine.</td>
+</tr>
+<tr>
+<td>DateOwnerPrincipal</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Private Passenger vehicles: Earliest date of being the owner and principal operator of a vehicle.
+Other: The date since the driver has owned or leased the vehicle or one similar to it.</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td><a href="#tblDiscount" type="">Pointer to Discount</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Discounts for this Vehicle/Driver combination and associated details. Created by the engine.</td>
+</tr>
+<tr>
+<td>DriverClass</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>The rating classification determined by the company.</td>
+</tr>
+<tr>
+<td>DriverID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Driver involved in association</td>
+</tr>
+<tr>
+<td>DriverTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Total Premium of Driver and Associated Details. Created by the engine.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>LiabDrRec</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>The liability driving record determined by the company.</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>STRING</td>
+<td>3</td>
+<td><a href="AutoRangeTables.htm#Table15" target="Tables">Table 15</a></td>
+<td>Y</td>
+<td>Relationship identifier, each vehicle must have one and only one Principal driver.  See <a href="AutoStructDesc.htm#descVehLink">Vehicle - Driver Relationships</a> for more information.</td>
+</tr>
+<tr>
+<td>PrincipalOwner</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is this the principal owner of this vehicle? Default: Y</td>
+</tr>
+<tr>
+<td>RateBookEffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Effective Date of ratebook used</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Renewal. Default: N. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>Surcharge</td>
+<td><a href="#tblSurcharge" type="">Pointer to Surcharge</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Surcharges for this Vehicle/Driver combination and associated details. Created by the engine.</td>
+</tr>
+<tr>
+<td>VehicleID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Vehicle involved in association</td>
+</tr>
+<tr>
+<td>YouthfulDriver</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the driver is considered a youthful driver.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblVehicle"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Vehicle</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descVehicle">More Info</a><desc></desc><br>
+                         <strong>·</strong> 
+                     <a href="../Territory.htm">Territories</a><desc></desc><br>
+                         <strong>·</strong> 
+                     <a href="AutoVICC.htm">VICC</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Anti-lock braking system?</td>
+</tr>
+<tr>
+<td>AdjustedTerritory</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Adjusted rating territory. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedVRAB</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Adjusted accident benefits vehicle rate group. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedVRColl</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Adjusted collision vehicle rate group. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedVRComp</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Adjusted comprehensive vehicle rate group. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AdjustedVRLiab</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Adjusted liability vehicle rate group. This field is blank unless the engine data is required to be overridden due to download dislocation or user override.  See <a href="AutoPerCarrierValues.htm#descUserGuidedQuote">User Guided Quote</a> for more information on the use of this field.</td>
+</tr>
+<tr>
+<td>AirBag</td>
+<td>STRING</td>
+<td>11</td>
+<td><a href="AutoRangeTables.htm#Table10" target="Tables">Table 10</a></td>
+<td> </td>
+<td>Air bag. Not a big impact, as currently this only affects one company. Default: 'None'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>AntitheftDevice</td>
+<td><a href="#tblAntitheftDevice" type="">Pointer to AntitheftDevice</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of AntiTheft Devices protecting this vehicle and Associated Details.  For Quebec quotes, 3 anti-theft devices can be indicated (1 engraving plus 2 others), while only 2 (1 engraving plus 1 other) should be indicated for other provinces.</td>
+</tr>
+<tr>
+<td>BodyType</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="AutoRangeTables.htm#Table43" target="Tables">Table 43</a></td>
+<td> </td>
+<td>The CSIO Body Type of the vehicle.</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td><a href="#tblCoverage" type="">Pointer to Coverage</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>List of Coverages Requested for this vehicle and Associated Details</td>
+</tr>
+<tr>
+<td>CurrentValue</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Current estimated/resale value.</td>
+</tr>
+<tr>
+<td>DistanceBusiness</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>The number of kilometres driven for business each year.  Note that DistanceDaily is expected to be equal to or greater than this value, as it is expected to contain this value.</td>
+</tr>
+<tr>
+<td>DistanceDaily</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>The number of kilometres driven one-way to work each day.  If vehicle is not used for commute, then this would be omitted, or set to zero.</td>
+</tr>
+<tr>
+<td>DistanceYearly</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>The total number of kilometres driven each year, regardless of vehicle use.</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the vehicle is a hybrid vehicle.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Location</td>
+<td>STRING</td>
+<td>40</td>
+<td> </td>
+<td>Y</td>
+<td>City/Town Description vehicle is driven the most. See <a href="../Territory.htm">Territory</a> for more information.</td>
+</tr>
+<tr>
+<td>LocationIndex</td>
+<td>LONG</td>
+<td> </td>
+<td>1-99999</td>
+<td>Y</td>
+<td>Proprietary CQ location index (a.k.a. GCPCID). See <a href="../Territory.htm">Territory</a> for more information.</td>
+</tr>
+<tr>
+<td>MakeAndModel</td>
+<td>STRING</td>
+<td>35</td>
+<td> </td>
+<td> </td>
+<td>VICC description of vehicle, including model, series, body style, etc.</td>
+</tr>
+<tr>
+<td>Manufacturer</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Vehicle manufacturer, as defined by VICC.</td>
+</tr>
+<tr>
+<td>MVDOverride</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>MVD Override. If set, Assumes insured has another policy with a qualifying vehicle.</td>
+</tr>
+<tr>
+<td>NightParking</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table41" target="Tables">Table 41</a></td>
+<td> </td>
+<td>Location that vehicle is parked at night.</td>
+</tr>
+<tr>
+<td>NonStandard</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if the vehicle should be considered non-standard (a.k.a. sub-standard).  Note that this classification could be different from carrier to carrier, so the <a href="AutoPerCarrierValues.htm#descPerCarrierValues">Per Carrier Values</a> mechanism can be used to identify different values for different carriers.</td>
+</tr>
+<tr>
+<td>NumDaysOutProv</td>
+<td>LONG</td>
+<td> </td>
+<td>0-365</td>
+<td> </td>
+<td>The number of days (in a year) the vehicle spends outside the province for consecutive periods of time. For example, 'snowbirds' who spend the winter in warmer climates.  This does NOT include vehicle usage out of the province in a non-consecutive manner, such as cross-border work commuting.</td>
+</tr>
+<tr>
+<td>Owned</td>
+<td>CHAR</td>
+<td> </td>
+<td>Y/N</td>
+<td>Y</td>
+<td>Assume 'Y' if blank. 'Y' is owned, 'N' is leased</td>
+</tr>
+<tr>
+<td>PostalCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td>Y</td>
+<td>Postal code where vehicle is driven the most.  Alphabet characters within the postal code MUST be upper case. See <a href="../Territory.htm">Territory</a> for more information.</td>
+</tr>
+<tr>
+<td>ProductLine</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="AutoRangeTables.htm#Table39" target="Tables">Table 39</a></td>
+<td>Y</td>
+<td>Product line for purposes of rating. If omitted, Personal assumed.</td>
+</tr>
+<tr>
+<td>PurchaseCondition</td>
+<td>CHAR</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table33" target="Tables">Table 33</a></td>
+<td> </td>
+<td>Indicates the state of the vehicle at the time of purchase.  For example, was the vehicle new/used/demo?
+NOTE: This value will supercede and invalidate any value entered in PurchasedNew.</td>
+</tr>
+<tr>
+<td>PurchaseDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date vehicle was purchased by owner</td>
+</tr>
+<tr>
+<td>PurchasedNew</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Deprecated.  Use PurchaseCondition instead.
+Was Vehicle purchased new?</td>
+</tr>
+<tr>
+<td>PurchaseMileage</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Mileage on vehicle at time of purchase (in kilometres)</td>
+</tr>
+<tr>
+<td>PurchasePrice</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Purchase price of vehicle. Note: This field will only be used by legacy auto engine carriers if &lt;CurrentValue&gt; is zero, blank, or not provided.</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Renewal. Default: N. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>TelematicsCode</td>
+<td>STRING</td>
+<td>6</td>
+<td>carrier-specific</td>
+<td> </td>
+<td>A carrier-specific code used to identify the Telematics program which the vehicle is enlisted in.  Note that this value will most likely be different from carrier to carrier, so the <a href="AutoPerCarrierValues.htm#descPerCarrierValues">Per Carrier Values</a> mechanism can be used to identify different values for different carriers.</td>
+</tr>
+<tr>
+<td>Territory</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Rating territory where the vehicle is driven the most</td>
+</tr>
+<tr>
+<td>ValueNew</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Initial value of vehicle when new; manufacturer's suggested retail price.</td>
+</tr>
+<tr>
+<td>VehicleTotal</td>
+<td><a href="#tblPremium" type="">Pointer to Premium</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Vehicle Premium and Associated Details. Created by engine.</td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table9" target="Tables">Table 9</a></td>
+<td> </td>
+<td>Type of Vehicle. Default: 'Private Passenger'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>VehUse</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="AutoRangeTables.htm#Table8" target="Tables">Table 8</a></td>
+<td> </td>
+<td>Primary use of the vehicle.  If vehicle has more than one use, indicate the primary use.  Default: 'Pleasure'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>VICCCode</td>
+<td>STRING</td>
+<td>4</td>
+<td>4 characters</td>
+<td>Y</td>
+<td>VICC Car Code. See <a href="AutoVICC.htm">VICC</a> for more information.  NOTE:  This is NOT a numeric field.  Leading zero characters must NOT be omitted.  For example, a correct value would be '0123', while '123' would be invalid.</td>
+</tr>
+<tr>
+<td>VICCCodeExt</td>
+<td>STRING</td>
+<td>6</td>
+<td>6 characters</td>
+<td>Y</td>
+<td>Extended VICC car code.</td>
+</tr>
+<tr>
+<td>VRAB</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Accident Benefits vehicle rate group determined by company.</td>
+</tr>
+<tr>
+<td>VRColl</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Collision vehicle rate group determined by company.</td>
+</tr>
+<tr>
+<td>VRComp</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Comprehensive vehicle rate group determined by company.</td>
+</tr>
+<tr>
+<td>VRGAssumed</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Earlier year's vehicle rate group has been assumed for late model vehicle. The rating engine sets this field if a late model vehicle does not have a vehicle rate group , but the prior year does. The assumption is that the latest model does exist, but the rate tables have not been updated. Typically the prior year vehicle rate group is assumed.</td>
+</tr>
+<tr>
+<td>VRLiab</td>
+<td>STRING</td>
+<td>3</td>
+<td>1-999</td>
+<td> </td>
+<td>Liability vehicle rate group determined by company.</td>
+</tr>
+<tr>
+<td>WinterTires</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Does the vehicle have winter tires?</td>
+</tr>
+<tr>
+<td>Year</td>
+<td>LONG</td>
+<td> </td>
+<td>YYYY</td>
+<td>Y</td>
+<td>Vehicle Model Year</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDriverProfile"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">DriverProfile</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descDriverProfile">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AutoCompanyCode</td>
+<td>STRING</td>
+<td>4</td>
+<td> </td>
+<td> </td>
+<td>Driver's current insurance company.</td>
+</tr>
+<tr>
+<td>Birthdate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Date of birth of the driver</td>
+</tr>
+<tr>
+<td>DateContinuousInsurance</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date from which the driver first obtained vehicle insurance (it is unfortunate that 'Continuous' is present in the field name).  If there have been gaps in insurance since the date first insured, these should be represented with Incident structures.  Default: &lt;FortusTransaction&gt;&lt;EffDate&gt;. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>DateWithBroker</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date first insured with this agency/brokerage</td>
+</tr>
+<tr>
+<td>DateWithCompany</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date first insured with current insurance company.</td>
+</tr>
+<tr>
+<td>DistanceSchool</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Distance of student away at school without a vehicle; zero is Not Applicable</td>
+</tr>
+<tr>
+<td>DriverLicense</td>
+<td><a href="#tblDriverLicense" type="">Pointer to DriverLicense</a></td>
+<td> </td>
+<td> </td>
+<td>Y</td>
+<td>List of Driver's License history and associated details</td>
+</tr>
+<tr>
+<td>DriverTraining</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Driver has obtained driver training credit for private passenger vehicles.</td>
+</tr>
+<tr>
+<td>DriverTrainingDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date that the driver attained a valid driver training certificate.</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>CHAR</td>
+<td> </td>
+<td>M/F</td>
+<td>Y</td>
+<td>Male or Female.  Only required in provinces which allow that stipulation to be made.</td>
+</tr>
+<tr>
+<td>GridLevel</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Driver's Alberta Grid Level at the time indicated by GridLevelEffDate.  If no value is provided or GridLevelGiven is not 'Y', then a new initial Grid Level will be calculated for the driver.  See <a href="AutoStructDesc.htm#descGridLevel">Grid Levels</a> for more information on Alberta's Grid Level.</td>
+</tr>
+<tr>
+<td>GridLevelEffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Indicates the date for which the given GridLevel is relevant.  Default: &lt;FortusTransaction&gt;&lt;EffDate&gt;.  See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>GridLevelGiven</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates whether or not the user is providing a GridLevel value in the input.</td>
+</tr>
+<tr>
+<td>GroupPlan</td>
+<td><a href="#tblGroupPlan" type="">Pointer to GroupPlan</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of groups and associations the driver is a member of, and relevant details.  A maximum of 2 group plans can be given, per vehicle type.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>MaritalStatus</td>
+<td>CHAR</td>
+<td> </td>
+<td>S/M</td>
+<td>Y</td>
+<td>Single or Married.  Only required in provinces which allow that stipulation to be made.</td>
+</tr>
+<tr>
+<td>OccupationCode</td>
+<td>STRING</td>
+<td>3</td>
+<td><a href="AutoRangeTables.htm#Table26" target="Tables">Table 26</a></td>
+<td> </td>
+<td>CSIO Occupation code.  If 640 is being used to indicate that the driver is retired, then the Retired field should also be set to 'Y'.</td>
+</tr>
+<tr>
+<td>OccupDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date hired for occupation.</td>
+</tr>
+<tr>
+<td>OccupFullTime</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is occupation full time?  Default: Y.  See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+<tr>
+<td>OutsideExp</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates that the driver has been credited for out-of-province or out-of-country driving experience.</td>
+</tr>
+<tr>
+<td>PhysImpaired</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates that the driver has a physical impairment.</td>
+</tr>
+<tr>
+<td>RelationshipToApplicant</td>
+<td>STRING</td>
+<td>11</td>
+<td><a href="AutoRangeTables.htm#Table25" target="Tables">Table 25</a></td>
+<td>Y</td>
+<td>Relationship to applicant</td>
+</tr>
+<tr>
+<td>RemedialTrainingDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date Driver graduated with a compulsory remedial driver training course</td>
+</tr>
+<tr>
+<td>ResidesWithParents</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Driver currently lives with parents</td>
+</tr>
+<tr>
+<td>Retired</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Driver is retired. OccupationCode should also be set to 640.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblCoverage"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Coverage</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descCoverage">More Info</a><desc></desc><br>
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descCoverage43">Endorsement 43</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>CSIOCode</td>
+<td>STRING</td>
+<td>6</td>
+<td><a href="AutoRangeTables.htm#Table23" target="Tables">Table 23</a></td>
+<td>Y</td>
+<td>CSIO Coverage Code</td>
+</tr>
+<tr>
+<td>Deductible</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24 " target="Tables">Table 24 </a></td>
+<td> </td>
+<td>Deductible (if applicable).  See <a href="AutoStructDesc.htm#descCoverage">Coverages</a> for more info.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>STRING</td>
+<td>60</td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Full Description of Coverages</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Limit1</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Primary Coverage Limit (if applicable).  See <a href="AutoStructDesc.htm#descCoverage">Coverages</a> for more info.</td>
+</tr>
+<tr>
+<td>Limit2</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Secondary Coverage Limit (if applicable).  See <a href="AutoStructDesc.htm#descCoverage">Coverages</a> for more info.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblIncident"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Incident</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descIncident">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>DateReinstated</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Date of Reinstatement (Required when IncidentType = InsLapse or LicSusp)</td>
+</tr>
+<tr>
+<td>DriverID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Driver Associated with Incident (Principal of Vehicle if Driver not listed)</td>
+</tr>
+<tr>
+<td>Forgiven</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Flag this Incident as Forgiven</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>IncidentDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Date of Incident (Default to day before EffDate, if unavailable)</td>
+</tr>
+<tr>
+<td>IncidentType</td>
+<td>STRING</td>
+<td>10</td>
+<td><a href="AutoRangeTables.htm#Table21" target="Tables">Table 21</a></td>
+<td>Y</td>
+<td>Type of Incident</td>
+</tr>
+<tr>
+<td>Reason</td>
+<td>STRING</td>
+<td>25</td>
+<td><a href="AutoRangeTables.htm#Table22" target="Tables">Table 22</a></td>
+<td> </td>
+<td>Reason for Incident (Required when IncidentType = Ins Lapse or Lic Susp)</td>
+</tr>
+<tr>
+<td>VehicleID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Vehicle Or Replacement Vehicle Incident occurred on (if Applicable)</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblClaim"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Claim</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descClaim">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AmountAB</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Amount Paid out for Accident Benefits</td>
+</tr>
+<tr>
+<td>AmountBI</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Amount paid out for Bodily Injury</td>
+</tr>
+<tr>
+<td>AmountCOL</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Amount Paid out for Collision</td>
+</tr>
+<tr>
+<td>AmountOther</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Amount paid out for Other Insurances</td>
+</tr>
+<tr>
+<td>AmountPD</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Amount paid out for Property Damage</td>
+</tr>
+<tr>
+<td>AmountTotal</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Total amount paid out for Claim.  This field may be required by some companies to rate accurately.</td>
+</tr>
+<tr>
+<td>ClaimDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Date of Incident causing Claim</td>
+</tr>
+<tr>
+<td>ClaimType</td>
+<td>STRING</td>
+<td>30</td>
+<td><a href="AutoRangeTables.htm#Table20" target="Tables">Table 20</a></td>
+<td>Y</td>
+<td>The Type of Claim</td>
+</tr>
+<tr>
+<td>CollDrRecAtTime</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Collision Driving Record at time of claim</td>
+</tr>
+<tr>
+<td>DriverID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Driver involved in Claim</td>
+</tr>
+<tr>
+<td>Forgiven</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Is this Claim Forgiven?</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>LiabDrRecAtTime</td>
+<td>STRING</td>
+<td>3</td>
+<td> </td>
+<td> </td>
+<td>Liability Driving Record at time of claim</td>
+</tr>
+<tr>
+<td>VehicleID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Vehicle (or the one that replaced it) involved in Claim.  If this field is not provided, a claim may end up being associated with multiple vehicles, and creating a situation where a driver is over-penalized.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblConviction"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Conviction</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descConviction">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ConvictionDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Date of Incident resulting in Claim</td>
+</tr>
+<tr>
+<td>DriverID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Driver who caused Conviction</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>OffenceCode</td>
+<td>STRING</td>
+<td>6</td>
+<td><a href="AutoRangeTables.htm#Table18" target="Tables">Table 18</a></td>
+<td>Y</td>
+<td>CSIO Offence Code</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>STRING</td>
+<td>8</td>
+<td><a href="AutoRangeTables.htm#Table19" target="Tables">Table 19</a></td>
+<td>Y</td>
+<td>Severity of Conviction</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Number of KM/h over the speed limit.  Only relevant if the OffenceCode is SP.  Note: Always indicate the Severity of a speeding conviction to be "Minor".  Each carrier will decide if they wish to treat it as an elevated severity based on the Speed value passed.</td>
+</tr>
+<tr>
+<td>VehicleID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>ID of Vehicle involved in Conviction</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDriverLicense"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">DriverLicense</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descDriverLicense">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>STRING</td>
+<td>2</td>
+<td>CA, US</td>
+<td> </td>
+<td>Two character code of the country that issued the license. Default: CA</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>LicenseClass</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="AutoRangeTables.htm#Table17" target="Tables">Table 17</a></td>
+<td>Y</td>
+<td>Driver license class.</td>
+</tr>
+<tr>
+<td>LicenseDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Date driver first received this license.</td>
+</tr>
+<tr>
+<td>ProvinceState</td>
+<td>STRING</td>
+<td>2</td>
+<td><a href="AutoRangeTables.htm#Table1" target="Tables">Table 1</a></td>
+<td> </td>
+<td>Two character code of the province (or state) that issued the license.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblGroupPlan"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">GroupPlan</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>DateMembership</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Initial date of membership of driver. Assumes driver has been a continuous member since the specified date.</td>
+</tr>
+<tr>
+<td>GroupPlanDescr</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table16" target="Tables">Table 16</a></td>
+<td>Y</td>
+<td>Code of the group for which the driver is a member of.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>VehType</td>
+<td>STRING</td>
+<td>20</td>
+<td><a href="AutoRangeTables.htm#Table36" target="Tables">Table 36</a></td>
+<td> </td>
+<td>Type of vehicle that the membership applies to. Default: 'Private Passenger'. See <a href="AutoDataPropagation.htm">Data Propagation</a> for more information.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblDiscount"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Discount</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descDiscount">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Dollar amount of flat rate discount</td>
+</tr>
+<tr>
+<td>Applied</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if discount is applied</td>
+</tr>
+<tr>
+<td>Descript</td>
+<td>STRING</td>
+<td>35</td>
+<td> </td>
+<td> </td>
+<td>Brief Description of Discount.  This is optional but being used more and more frequently.</td>
+</tr>
+<tr>
+<td>DiscountCode</td>
+<td>STRING</td>
+<td>8</td>
+<td><a href="AutoRangeTables.htm#Table13" target="Tables">Table 13</a></td>
+<td> </td>
+<td>CQ Proprietary Discount Code</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Percentage</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Percentage of discount</td>
+</tr>
+<tr>
+<td>RequestedAmount</td>
+<td>DOUBLE</td>
+<td> </td>
+<td>0.0 - 6553.5</td>
+<td> </td>
+<td>If UserInitated, a requested amount can be passed and this will be used if the settings of the discount allow for it.  The amount represents either a dollar amount or a percentage based on the settings of the discount.</td>
+</tr>
+<tr>
+<td>UserInitiated</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if discount was initiated by user</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblSurcharge"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Surcharge</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descSurcharge">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Dollar amount of flat rate surcharge</td>
+</tr>
+<tr>
+<td>Applied</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if surcharge is applied</td>
+</tr>
+<tr>
+<td>Descript</td>
+<td>STRING</td>
+<td>35</td>
+<td> </td>
+<td> </td>
+<td>Brief Description of Surcharge. This is optional but being used more and more frequently.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Percentage</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Percentage of surcharge</td>
+</tr>
+<tr>
+<td>RequestedAmount</td>
+<td>DOUBLE</td>
+<td> </td>
+<td>0.0 - 6553.5</td>
+<td> </td>
+<td>If UserInitated, a requested amount can be passed and this will be used if the settings of the surcharge allow for it.  The amount represents either a dollar amount or a percentage based on the settings of the surcharge.</td>
+</tr>
+<tr>
+<td>SurchargeCode</td>
+<td>STRING</td>
+<td>8</td>
+<td><a href="AutoRangeTables.htm#Table14" target="Tables">Table 14</a></td>
+<td> </td>
+<td>CQ Proprietary Surcharge Code</td>
+</tr>
+<tr>
+<td>UserInitiated</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Indicates if surcharge was initiated by user</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblPremium"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">Premium</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descPremium">More Info</a><desc></desc><br>
+                         <strong>·</strong> 
+                     <a href="AutoEndPack.htm">Endorsement Packages</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Applied</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td> </td>
+<td>Evaluated by Engine as Valid Coverage for this Quote?</td>
+</tr>
+<tr>
+<td>BasePremium</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Base Premium before Discounts and Surcharges. Term is dependant on manual pages.  This field is not always accurate; it depends on individual implementations of rate calculation in each carrier.  It is best not to rely on this field.  Use FinalPremium.</td>
+</tr>
+<tr>
+<td>CarrierCovCode</td>
+<td>STRING</td>
+<td>6</td>
+<td> </td>
+<td> </td>
+<td>Coverage Code Override to allow for Company Specific Codes</td>
+</tr>
+<tr>
+<td>CarrierCovDesc</td>
+<td>STRING</td>
+<td>60</td>
+<td> </td>
+<td> </td>
+<td>Coverage description to allow for company specific naming.</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td><a href="#tblCoverage" type="">Pointer to Coverage</a></td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>List of Coverages that make up this Premium. This list is only revelant when the Premium is a CoveragePremium.
+This list is currently only populated when the Premium is for an Endorsement Package. <a href="AutoEndPack.htm">More Info.</a></td>
+</tr>
+<tr>
+<td>DateAdded</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Effective Date Coverage was Added</td>
+</tr>
+<tr>
+<td>Deductible</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Values here will not necessarily be the same as the input values in Coverage. This value will reflect what value was actually used by the engine. A value of -1 in this field means that this field was irrelevant for this coverage.</td>
+</tr>
+<tr>
+<td>EffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Policy effective date or the transaction effective date of corresponding coverage (whichever is later)</td>
+</tr>
+<tr>
+<td>FinalPremium</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Premium after Discounts and Surcharges have been applied. This is the definitive field to use when examining the premium.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Limit1</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Values here will not necessarily be the same as the input values in Coverage. This value will reflect what value was actually used by the engine. A value of -1 in this field means that this field was irrelevant for this coverage.</td>
+</tr>
+<tr>
+<td>Limit2</td>
+<td>LONG</td>
+<td> </td>
+<td><a href="AutoRangeTables.htm#Table24" target="Tables">Table 24</a></td>
+<td> </td>
+<td>Values here will not necessarily be the same as the input values in Coverage. This value will reflect what value was actually used by the engine. A value of -1 in this field means that this field was irrelevant for this coverage.</td>
+</tr>
+<tr>
+<td>RateBookEffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td> </td>
+<td>Effective Date of RateBook used to Rate this Coverage. This value is meaningless if the Premium Stucture is PolicyTotal, DriverTotal or VehicleTotal.</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td>Y</td>
+<td>Renewal. Default: N</td>
+</tr>
+<tr>
+<td>SourceID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of coverage structure corresponding to premium. N/A for PolicyTotal, DriverTotal, and VehicleTotal.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblAntitheftDevice"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">AntitheftDevice</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>DeviceType</td>
+<td>STRING</td>
+<td>50</td>
+<td><a href="AutoRangeTables.htm#Table11" target="Tables">Table 11</a></td>
+<td>Y</td>
+<td>Device Type</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Manufacturer</td>
+<td>STRING</td>
+<td>50</td>
+<td><a href="AutoRangeTables.htm#Table12" target="Tables">Table 12</a></td>
+<td> </td>
+<td>Manufacturer Name of Anti-Theft Device</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblCreditScore"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">CreditScore</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <desc>Note that separate documentation is provided, when appropriate, to provide details for the use of this structure.</desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Article1</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Article 1</td>
+</tr>
+<tr>
+<td>Article2</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Article 2</td>
+</tr>
+<tr>
+<td>Article3</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Article 3</td>
+</tr>
+<tr>
+<td>Article4</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Article 4</td>
+</tr>
+<tr>
+<td>Article5</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td> </td>
+<td>Article 5</td>
+</tr>
+<tr>
+<td>DobIns</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Y</td>
+<td>Birthdate of the credit score applicant.</td>
+</tr>
+<tr>
+<td>Factor1</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 1</td>
+</tr>
+<tr>
+<td>Factor10</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 10</td>
+</tr>
+<tr>
+<td>Factor11</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 11</td>
+</tr>
+<tr>
+<td>Factor12</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 12</td>
+</tr>
+<tr>
+<td>Factor13</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 13</td>
+</tr>
+<tr>
+<td>Factor14</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 14</td>
+</tr>
+<tr>
+<td>Factor15</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 15</td>
+</tr>
+<tr>
+<td>Factor2</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 2</td>
+</tr>
+<tr>
+<td>Factor3</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 3</td>
+</tr>
+<tr>
+<td>Factor4</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 4</td>
+</tr>
+<tr>
+<td>Factor5</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 5</td>
+</tr>
+<tr>
+<td>Factor6</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 6</td>
+</tr>
+<tr>
+<td>Factor7</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 7</td>
+</tr>
+<tr>
+<td>Factor8</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 8</td>
+</tr>
+<tr>
+<td>Factor9</td>
+<td>DOUBLE</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Factor 9</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>StatusCode</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Status Code representing result of credit score lookup.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblItemInfo"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">ItemInfo</td>
+</tr>
+<tr>
+<td colspan="6">
+                         <strong>·</strong> 
+                     <a href="AutoStructDesc.htm#descGridLevels">More Info</a><desc></desc><br></td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>ItemInfo1</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Contextual information being delivered, based on the ItemType.</td>
+</tr>
+<tr>
+<td>ItemInfo2</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Contextual information being delivered, based on the ItemType.</td>
+</tr>
+<tr>
+<td>ItemInfo3</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Contextual information being delivered, based on the ItemType.</td>
+</tr>
+<tr>
+<td>ItemInfo4</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td> </td>
+<td>Contextual information being delivered, based on the ItemType.</td>
+</tr>
+<tr>
+<td>ItemType</td>
+<td>STRING</td>
+<td>50</td>
+<td> </td>
+<td>Y</td>
+<td>String used to identify the information being devlivered.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="tblGridLevelAssignment"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="20%">
+<col align="left" width="12%">
+<col align="center" width="5%">
+<col align="center" width="12%">
+<col align="center" width="5%">
+<col align="left" width="46%">
+<tr class="txtTableTitle">
+<td colspan="6">GridLevelAssignment</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Required</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>DriverID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Driver involved in association</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>Unique ID String. <a href="AutoStructDesc.htm#descID">More Info.</a></td>
+</tr>
+<tr>
+<td>Link</td>
+<td>STRING</td>
+<td>3</td>
+<td>Prn or Occ</td>
+<td>Y</td>
+<td>Relationship identifier</td>
+</tr>
+<tr>
+<td>VehicleID</td>
+<td>STRING</td>
+<td>20</td>
+<td> </td>
+<td>Y</td>
+<td>ID of Vehicle involved in association</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

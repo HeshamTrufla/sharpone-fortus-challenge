@@ -1,0 +1,87 @@
+<LookupTransaction Type="Automobile">
+   <Defaults>
+      <Province>QC</Province>
+   </Defaults>
+   <Lookups>
+      <Lookup Type="Territory" ID="1a">
+         <Carrier>AXA</Carrier>
+         <LocationIndex>1007</LocationIndex>
+         <PostalCode>J0E1A0</PostalCode>
+      </Lookup>
+      <Lookup Type="Territory" ID="1b">
+         <Carrier>PAF</Carrier>
+         <LocationIndex>1007</LocationIndex>
+         <PostalCode>J0E1A0</PostalCode>
+      </Lookup>
+      <Lookup Type="TerritoryList" ID="2a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="TerritoryList" ID="2b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="DriverClassList" ID="3a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="DriverClassList" ID="3b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="CoverageList" ID="4a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="CoverageList" ID="4b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="DrivingRecordList" ID="5a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="DrivingRecordList" ID="5b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="VRG" ID="6a">
+         <Carrier>AXA</Carrier>
+         <VehYear>2000</VehYear>
+         <VICCCode>5470</VICCCode>
+      </Lookup>
+      <Lookup Type="VRG" ID="6b">
+         <Carrier>PAF</Carrier>
+         <VehYear>2000</VehYear>
+         <VICCCode>5470</VICCCode>
+      </Lookup>
+      <Lookup Type="VRGList" ID="7a">
+         <Carrier>AXA</Carrier>
+         <EffDate>20050303</EffDate>
+         <Renewal>Y</Renewal>
+      </Lookup>
+      <Lookup Type="VRGList" ID="7b">
+         <Carrier>PAF</Carrier>
+         <Renewal>Y</Renewal>
+      </Lookup>
+      <Lookup Type="TerritoryHelp" ID="8a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="TerritoryHelp" ID="8b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="ClassHelp" ID="9a">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup Type="ClassHelp" ID="9b">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="UserInitDisSur" ID="11a">
+         <Carrier>PAF</Carrier>
+      </Lookup>
+      <Lookup Type="UserInitDisSur" ID="11b">
+         <Carrier>UTOM</Carrier>
+      </Lookup>
+      <Lookup Type="SupportedTypes" ID="12">
+         <Carrier>GA</Carrier>
+      </Lookup>
+      <Lookup Type="TelematProgList" ID="13">
+        <Carrier>DOC</Carrier>
+      </Lookup>
+   </Lookups>
+   <RegsitryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegsitryOverrides>
+</LookupTransaction>

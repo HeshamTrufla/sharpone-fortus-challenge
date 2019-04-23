@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <PostalCode>J0E1A0</PostalCode>
+      <Province>QC</Province>
+      <LocationIndex>1007</LocationIndex>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="Territory">
+         <Carrier>GA</Carrier>
+      </Lookup>
+      <Lookup ID="2" Type="Territory">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup ID="3" Type="Territory">
+         <Carrier>GC</Carrier>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Protection Class</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><span class="subtitle">Protection Classes</span><ul>
+<li><a href="#Table1">Classes</a></li>
+<li><a href="#Table2">Internal Sub-classes</a></li>
+<li><a href="#Table3">Class Determination</a></li>
+</ul>
+</li>
+<li><a href="#lnkExamples">Examples</a></li>
+</ul>
+</div>
+<h1>Protection Classes</h1>
+<p>There are 3 protection classes, see <a href="#Table1">Table 1</a>. 
+            However, some carriers break down the <strong>Semi-Protected</strong> class further based on the distance to the 
+            nearest firehall. FORTUS&#8482; thus subclasses <strong>Semi-Protected</strong>, see <a href="#Table2">Table 2</a>.
+             Table 2 values are interal to FORTUS&#8482;, they are <strong>NOT</strong> valid &lt;<strong>ProtectionClass</strong>&gt; 
+            values. <a href="#Table3">Table 3</a> describes all the possible permutations of input values for 
+            the &lt;<strong>ProtectionClass</strong>&gt;, &lt;<strong>FHDist</strong>&gt;, and &lt;<strong>HydDist</strong>&gt; tags.</p><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Table 1: &lt;ProtectionClass&gt; Values</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Range</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Protected</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Semi-Protected</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Unprotected</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Table 2: Internal Semi-Protection SubClasses</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Range</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>S1</td>
+<td>Semi-Protected 1</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Semi-Protected 2</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Semi-Protected 3</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="Table3"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="5" align="left">Table 3: FORTUS&#8482; Protection Class Determination</td>
+</tr>
+<tr>
+<td colspan="3" class="txtTableColumnTitle">Input</td>
+<td class="txtTableColumnTitle">Output</td>
+<td class="txtTableColumnTitle"> </td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">ProtectionClass</td>
+<td class="txtTableColumnTitle">FHDist</td>
+<td class="txtTableColumnTitle">HydDist</td>
+<td class="txtTableColumnTitle">ProtectionClass</td>
+<td class="txtTableColumnTitle">Logic Used</td>
+</tr>
+<tr>
+<td>'P'</td>
+<td>-</td>
+<td>-</td>
+<td>'P'</td>
+<td>Protection class will always be Protected.</td>
+</tr>
+<tr>
+<td>'U'</td>
+<td>-</td>
+<td>-</td>
+<td>'U'</td>
+<td>Protection class will always be Unprotected.</td>
+</tr>
+<tr>
+<td>Not 'P' or 'U'</td>
+<td>&lt;=P</td>
+<td>&lt;=300</td>
+<td>'P'</td>
+<td>ProtectionClass is not 'P' or 'U'<br>
+                        FHDist is &lt;= Protected distance (defined by carrier)<br>
+                        AND HydDist is &lt;= 300 meters
+                        <hr style="COLOR: LightSlateGray">
+                        Protection class is determined to be Protected.
+                    </td>
+</tr>
+<tr>
+<td>Not 'P' or 'U'</td>
+<td>&lt;=S1</td>
+<td>-</td>
+<td>'S'</td>
+<td>ProtectionClass is not 'P' or 'U'<br>
+                        FHDist is &lt;= Semi-Protected 1 distance (defined by carrier)<br>
+                        HydDist is irrelevant
+                        <hr style="COLOR: LightSlateGray">
+                        Protection class is determined to be Semi-Protected 1.  
+                        ProtectionClass will be 'S' and semi-protected 1 rates/rules will be used internally.
+                     </td>
+</tr>
+<tr>
+<td>Not 'P' or 'U'</td>
+<td>&gt;S1 and &lt;=S2</td>
+<td>-</td>
+<td>'S'</td>
+<td>ProtectionClass is not 'P' or 'U'<br>
+                        FHDist is &gt; Semi-Protected 1 distance (defined by carrier)<br>
+                        AND FHDist is &lt;= Semi-Protected 2 distance (defined by carrier)<br>
+                        HydDist is irrelevant
+                        <hr style="COLOR: LightSlateGray">
+                        Protection class is determined to be Semi-Protected 2.  
+                        ProtectionClass will be 'S' and semi-protected 2 rates/rules will be used internally.
+                    </td>
+</tr>
+<tr>
+<td>Not 'P' or 'U'</td>
+<td>&gt;S2 and &lt;=S3</td>
+<td>-</td>
+<td>'S'</td>
+<td>ProtectionClass is not 'P' or 'U'<br>
+                        FHDist is &gt; Semi-Protected 2 distance (defined by carrier)<br>
+                        AND FHDist is &lt;= Semi-Protected 3 distance (defined by carrier)<br>
+                        HydDist is irrelevant
+                        <hr style="COLOR: LightSlateGray">
+                        Protection class is determined to be Semi-Protected 3.  
+                        ProtectionClass will be 'S' and semi-protected 3 rates/rules will be used internally.
+                  </td>
+</tr>
+<tr>
+<td>Not 'P' or 'U'</td>
+<td>&gt;S3</td>
+<td>-</td>
+<td>'U'</td>
+<td>ProtectionClass is not 'P' or 'U'<br>
+                        FHDist is &gt; Semi-Protected 3 distance (defined by carrier)<br>
+                        HydDist is irrelevant
+                        <hr style="COLOR: LightSlateGray">
+                        Protection class is determined to be Unprotected.
+                    </td>
+</tr>
+</table><a href="#">top</a><hr><a name="lnkExamples"></a><h2>Examples</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle"><td>Example 1</td></tr>
+<tr><td class="txtTableColumnTitle">This example will be rated as <strong>Protected</strong> because the ProtectionClass is 'P' in the input.  The FHDist and HydDist values are irrelevant.</td></tr>
+<tr><td>Input:<br>   ProtectionClass = 'P'<br>   FHDist = 40<br>   HydDist = 600</td></tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle"><td>Example 2</td></tr>
+<tr><td class="txtTableColumnTitle">This example will be rated as <strong>Unprotected</strong> because the ProtectionClass is 'U' in the input.  The FHDist and HydDist values are irrelevant.</td></tr>
+<tr><td>Input:<br>   ProtectionClass = 'U'<br>   FHDist = 3<br>   HydDist = 10</td></tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle"><td>Example 3</td></tr>
+<tr><td class="txtTableColumnTitle">This example will be rated as <strong>Protected</strong> because:<br>   ProtectionClass is not 'P' or 'U'<br>   FHDist &lt;= 10 (Protected threshold for carrier in this example)<br>   HydDist &lt;= 300</td></tr>
+<tr><td>Assumptions:<br>   We will assume that the carrier being quoted defines Protected as being within 10 kms of a firehall.<br>
+                Input:<br>   ProtectionClass = ''<br>   FHDist = 10<br>   HydDist = 150</td></tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle"><td>Example 4</td></tr>
+<tr><td class="txtTableColumnTitle">This example will be rated as <strong>Semi-Protected</strong> (with Semi-Protected 2 subclass being used internally) because:<br>   ProtectionClass is not 'P' or 'U'<br>   FHDist &gt; 8 (Semi-Protected 1)<br>   FHDist &lt;= 12 (Semi-Protected 2)</td></tr>
+<tr><td>Assumptions:<br>   We will assume that the carrier being quoted has three possible Semi-Protected ratings.  Anything within 8km of a firehall is Semi-Protected 1, within 13km is Semi-Protected 2, and within 20km is Semi-Protected 3.<br>Input:<br>   ProtectionClass = ''<br>   FHDist = 10<br>   HydDist = 1500</td></tr>
+</table><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

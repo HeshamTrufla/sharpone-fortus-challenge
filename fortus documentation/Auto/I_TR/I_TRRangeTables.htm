@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkCommercialTrailer">Commercial Trailer</a></li>
+<li><span>›</span>Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table9">Table 9: Vehicle Types</a></li>
+<li><a href="#Table29">Table 29: Commercial Uses</a></li>
+<li><a href="#Table35">Table 35: Body Styles</a></li>
+<li><a href="#Table39">Table 39: Product Line</a></li>
+<li><a href="#Table40">Table 40: Vehicle Types for Towing</a></li>
+</ul>
+</div>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="1">Table 9:  Vehicle Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Personal Trailer</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table29"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 29:  Commercial Uses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Rest of Canada</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Cargo</td>
+<td>Cargaison</td>
+</tr>
+<tr>
+<td>901</td>
+<td>Non-Cargo</td>
+<td>Non-cargaison</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 29:  Commercial Uses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Cargo</td>
+<td>Cargaison</td>
+</tr>
+<tr>
+<td>901</td>
+<td>Non-Cargo</td>
+<td>Non-cargaison</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table35"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 35:  Body Styles</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>Converter Dolly</td>
+<td>Engrenage convertisseur / dolly</td>
+</tr>
+<tr>
+<td>CT</td>
+<td>Common Trailer</td>
+<td>Remorque commune</td>
+</tr>
+<tr>
+<td>FT</td>
+<td>Farm Trailer</td>
+<td>Remorque agricole</td>
+</tr>
+<tr>
+<td>GT</td>
+<td>Gooseneck Trailer (pick-up mounted)</td>
+<td>Remorque à col de cygne (montée à une camionette)</td>
+</tr>
+<tr>
+<td>HT</td>
+<td>Horse Trailer</td>
+<td>Remorque à chevaux</td>
+</tr>
+<tr>
+<td>LB</td>
+<td>Low Bed Float Trailer</td>
+<td>Remorque plate-forme</td>
+</tr>
+<tr>
+<td>LT</td>
+<td>Livestock Trailer</td>
+<td>Remorque à bétail</td>
+</tr>
+<tr>
+<td>PT</td>
+<td>Pup Trailer</td>
+<td>Remorque pup</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>Semi-Trailer</td>
+<td>Semi-remorque</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>Tractor-Trailer Train</td>
+<td>Train routier</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table39"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 39:  Product Line</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>IRCA</td>
+<td>Individually Rated Commercial Auto</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table40"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="1">Table 40:  Vehicle Types for Towing</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>ATV Non-Amphibious</td>
+</tr>
+<tr>
+<td>Motorcycle</td>
+</tr>
+<tr>
+<td>Motor Home</td>
+</tr>
+<tr>
+<td>Snow Vehicle</td>
+</tr>
+<tr>
+<td>Private Passenger</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

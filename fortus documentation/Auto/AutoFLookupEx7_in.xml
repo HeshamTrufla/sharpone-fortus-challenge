@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="CoverageList">
+         <Carrier>GA</Carrier>
+      </Lookup>
+      <Lookup ID="2" Type="CoverageList">
+         <Carrier>AXA</Carrier>
+      </Lookup>
+      <Lookup ID="3" Type="CoverageList">
+         <Carrier>GC</Carrier>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

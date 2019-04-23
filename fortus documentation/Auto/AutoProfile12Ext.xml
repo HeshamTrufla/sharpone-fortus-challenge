@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<FortusTransaction Type="Automobile" xmlns="">
+   <CodeNames>
+      <Auto>
+         <QuoteInfo>
+            <Client>
+               <Address>
+                  <Address1>123 Cherry Lane</Address1>
+                  <City>Mississauga</City>
+                  <Classification>Client</Classification>
+                  <ID>1</ID>
+                  <PostalCode>L5N5L4</PostalCode>
+                  <Province>ON</Province>
+               </Address>
+               <ID>000000000003215</ID>
+               <Name>
+                  <Classification>Client</Classification>
+                  <FirstName>Donald</FirstName>
+                  <ID>1</ID>
+                  <LastName>Duck</LastName>
+                  <Salutation>Mr.</Salutation>
+               </Name>
+               <Note>
+                  <Contents>This is the first client memo.</Contents>
+                  <ID>1</ID>
+                  <Subject>Client Memo 1</Subject>
+               </Note>
+               <Note>
+                  <Contents>This is the second client memo.</Contents>
+                  <ID>2</ID>
+                  <Subject>Client Memo 2</Subject>
+               </Note>
+            </Client>
+            <DriverProfile>
+               <ID>00004392</ID>
+               <Name>
+                  <Classification>Driver</Classification>
+                  <FirstName>Donald</FirstName>
+                  <ID>1</ID>
+                  <LastName>Duck</LastName>
+                  <Salutation>Mr.</Salutation>
+               </Name>
+            </DriverProfile>
+            <ID>00012645</ID>
+            <Note>
+               <Contents>This is the first quote note. 
+               Contact: 9:00 AM to 11:00 AM
+               Web quote:  $534
+               </Contents>
+               <ID>1</ID>
+               <Subject>Quote Note 1</Subject>
+            </Note>
+            <Note>
+               <Contents>This is the second quote note.</Contents>
+               <ID>2</ID>
+               <Subject>Quote Note 2</Subject>
+            </Note>
+            <Vehicle>
+               <ID>00004191</ID>
+               <VIN>11111111111111111</VIN>
+            </Vehicle>
+            <LeadDetail>
+               <ID>1</ID>
+               <CompanyCode>GA</CompanyCode>
+               <Premium>534</Premium>
+               <ContactLanguage>E</ContactLanguage>
+               <ContactMethod>P</ContactMethod>
+               <ContactTime>M</ContactTime>
+               <LeadTypeEn>Partial</LeadTypeEn>
+               <LeadTypeFr>Partielle</LeadTypeFr>
+               <Referrer>Facebook</Referrer>
+               <RecipientAccountCode>ACME</RecipientAccountCode>
+               <RecipientAccountName>Acme Insurance Ltd.</RecipientAccountName>
+               <SubmitterLeadID>A-1234567</SubmitterLeadID>
+            </LeadDetail>
+         </QuoteInfo>
+      </Auto>
+   </CodeNames>
+</FortusTransaction>

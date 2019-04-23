@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<soap:Body>
+		<AddressLookupResponse xmlns="http://www.compu-quote.com/AppliedITV/Version1">
+			<AddressLookupResult>
+				<TrackingNumber>826</TrackingNumber>
+				<StatusCode>SUCCESS</StatusCode>
+				<ServiceResponse>
+					<AddressLookupResult xmlns="http://www.compu-quote.com/ezITVValidation/Version1">
+						<TrackingNumber>2242069</TrackingNumber>
+						<StatusCode>SUCCESS</StatusCode>
+						<TransactionKey></TransactionKey>
+						<Message></Message>
+						<Address>
+							<AddressInfo>
+								<Address>4510 RHODES DRIVE </Address>
+								<City>WINDSOR</City>
+								<Province>ON</Province>
+								<PostalCode>N8W5K5</PostalCode>
+								<AddressKey>20-D6736185</AddressKey>
+								<AddressParts>20-D6736185|WINDSOR|ON|N8W5K5||RHODES|4510|DRIVE|00A-26M-13X</AddressParts>
+							</AddressInfo>
+						</Address>
+					</AddressLookupResult>
+				</ServiceResponse>
+			</AddressLookupResult>
+		</AddressLookupResponse>
+	</soap:Body>
+</soap:Envelope>

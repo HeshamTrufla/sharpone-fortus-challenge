@@ -1,0 +1,13 @@
+<LookupTransaction Type="Automobile">
+   <Defaults>
+      <Province>QC</Province>
+   </Defaults>
+   <Lookups>
+    <Lookup Type="UserInitDisSur" ID="11a">
+      <Carrier>PAF</Carrier>
+    </Lookup>
+    <Lookup Type="UserInitDisSur" ID="11b">
+      <Carrier>UTOM</Carrier>
+    </Lookup>
+   </Lookups>
+</LookupTransaction>

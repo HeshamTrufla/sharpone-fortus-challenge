@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" src="js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="index.htm">Home</a></li>
+<li><a href="ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="FortusTransaction/QuoteFortusTransaction.htm" class="active">Fortus Transaction</a></li>
+<li><a href="Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><span>›</span>Territories</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<h1>Territory Information</h1>
+<p>To ensure that territory information is properly conveyed in quoting,
+                FORTUS&#8482; uses it's own list of territories, which then maps to territories defined by each 
+                carrier. Since this master territory list changes on a regular basis (town amalgamations, 
+                etc), the client must remain up to date with territory information. The most common 
+                solution for selecting postal codes and locations is to have this information in a database table. 
+                With this in mind, a delimited text file is supplied containing the necessary information.</p>
+<p>The file names used follow the convention of B_?__BI.TXT, where ? is the 1
+                letter province code as found in <a href="#Table1">Table 1</a> below.</p>
+<p>The first line (or record) contains the field names. This line
+                should be deleted before or after the data is imported into the database. Each field is
+                delimited by a pipe ('|') character, and each line (or record) is seperated by a carriage return and 
+                a line feed. The fields are defined in <a href="#Table2">Table 2</a> below.</p>
+<p><strong>Note:</strong> This is a slightly different format than it's predecessor, B_?_.TXT.
+                The older format may still be provided but is deprecated and may be omitted from updates without notice.</p><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2" align="left">Table 1: One Letter Province Codes</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Code</td>
+<td class="txtTableColumnTitle">Province</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Alberta</td>
+</tr>
+<tr>
+<td>B</td>
+<td>BC</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Manitoba</td>
+</tr>
+<tr>
+<td>W</td>
+<td>New Brunswick</td>
+</tr>
+<tr>
+<td>F</td>
+<td>NewFoundLand</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Nova Scotia</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Northwest Territories</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Ontario</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Prince Edward Island</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>Quebec</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Saskatchewan</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Yukon</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Table 2: Fields</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Width</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>CITY</td>
+<td>CHAR</td>
+<td>35</td>
+<td>City Name</td>
+</tr>
+<tr>
+<td>FSA</td>
+<td>CHAR</td>
+<td>3</td>
+<td><strong>F</strong>orward <strong>S</strong>ortation <strong>A</strong>rea (first 3 characters of postal code)</td>
+</tr>
+<tr>
+<td>LDU</td>
+<td>CHAR</td>
+<td>3</td>
+<td><strong>L</strong>ocal <strong>D</strong>elivery <strong>U</strong>nit (last 3 characters of postal code)</td>
+</tr>
+<tr>
+<td>GCNID</td>
+<td>INT</td>
+<td> </td>
+<td>Reserved, do not use</td>
+</tr>
+<tr>
+<td>GCPCID</td>
+<td>INT</td>
+<td> </td>
+<td>Global Carrier Postal Code ID (pass this to the engine as &lt;LocationIndex&gt; 
+                            for <a href="Auto/AutoGeneral.htm">Auto</a>
+                               and <a href="Hab2/HabGeneral.htm">Hab2</a>, 
+                            
+                            and &lt;TerrCode&gt; for <a href="Hab/HabGeneral.htm">Hab</a>)
+                        </td>
+</tr>
+</table><a href="#">top</a><hr>
+<h2>Territory Determination Implementation</h2>
+<p>The most effective procedure for gathering the necessary territory 
+                information from an interactive end-user is:</p>
+<ul>
+<li>Collect the postal code from the end-user. We will assume the end-user enters H4J 4H4.</li>
+<li>Lookup the list of cities that have this postal code. In this case,
+                       there is no H4J 4H4 defined in B_Q__BI.TXT, so lookup for H4J 4H. This is not 
+                       defined either, so lookup for H4J 4. Again this is not defined, so you look for 
+                       H4J. This is defined as: <strong>MONTREAL, H4J, ..., 30, 851</strong></li>
+<li>Now you have a city list. Allow the end-user to select one city in this list. 
+                       In our example the list only has one item, <strong>MONTREAL</strong>, so the user selects this city.</li>
+<li>Now you have all the location information:
+                      <ul>
+<li>for Automobile, populate as
+                            <div class="sourcecodebox">
+     &lt;Location&gt;<strong>MONTREAL</strong>&lt;/Location&gt;
+     &lt;PostalCode&gt;<strong>H4J4H4</strong>&lt;/PostalCode&gt;
+     &lt;LocationIndex&gt;<strong>851</strong>&lt;/LocationIndex&gt;
+                            </div>
+</li>
+<li>for Hab, populate as
+                            <div class="sourcecodebox">
+     &lt;CityName&gt;<strong>MONTREAL</strong>&lt;/CityName&gt;
+     &lt;PostalCode&gt;<strong>H4J4H4</strong>&lt;/PostalCode&gt;
+     &lt;TerrCode&gt;<strong>851</strong>&lt;/TerrCode&gt;
+                            </div>
+</li>
+<li>for Hab2, populate as
+                            <div class="sourcecodebox">
+     &lt;CityName&gt;<strong>MONTREAL</strong>&lt;/CityName&gt;
+     &lt;PostalCode&gt;<strong>H4J4H4</strong>&lt;/PostalCode&gt;
+     &lt;LocationIndex&gt;<strong>851</strong>&lt;/LocationIndex&gt;
+                            </div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

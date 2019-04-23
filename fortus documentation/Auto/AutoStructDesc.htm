@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>Structure Descriptions</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#descDMDiagram">Diagram of Automofile Data Model</a></li>
+<li><a href="#descVehLink">Vehicle - Driver Relationships (VehLink)</a></li>
+<li><a href="#descID">ID Fields</a></li>
+<li><a href="#descCoverage">Coverages</a></li>
+<li><a href="#descCoverage43">Endorsement 43</a></li>
+<li><a href="#descPremium">Premiums</a></li>
+<li><a href="#descLeadDetail">Lead Detail</a></li>
+<li><a href="#descAutoReform">Alberta Auto Reform</a></li>
+</ul>
+</div><a name="descDMDiagram"></a><h2>Diagram of Automofile Data Model</h2>
+<p><img alt="" src="AutoMapHierarchy.jpg"></p><br><span class="txtFootNote">Figure 1 - Automobile Data Model</span><a name="descVehLink"></a><hr>
+<h2>Vehicle - Driver Relationships (VehLink)</h2>
+<p>The <a href="AutoMap.htm#tblVehLink">VehLink</a> record builds 
+a relationship between drivers and vehicles, whether they are the principal driver, 
+occasional driver, or an excluded driver of a specific vehicle. Since 
+most underwriting is based on a combination of vehicle information and driver information, 
+the VehLink is a central data element for determining rules and storing the results of a quote.
+</p>
+<p>
+One driver can drive many vehicles; hence the driving record, 
+driver class and premiums cannot be stored at the driver level. Furthermore, 
+since one vehicle can have multiple rated drivers, it is not practical to store the 
+premiums, driver class and driving record at the vehicle level. 
+The common denominator to this many-to-many relationship is the VehLink structure; hence 
+result structures, such as CoveragePremium, Discounts, Surcharges, and DriverTotals are 
+found under the VehLink structure. 
+</p>
+<p>
+The VehLink structure is meant to represent the link between driver 
+and vehicle. It is important to note that VehLink is not meant to represent 
+<strong>unrated</strong> driver-vehicle relationships. Below are two guidelines to follow 
+for creating VehLink relationships:
+</p>
+<ul>
+<li>As <a href="#Figure2">Figure 2</a> demonstrates, each driver should have one and only 
+       one VehLink structure association. <a href="#Figure3">Figure 3</a> 
+       demonstrates the only exception to this rule: when Vehicles outnumber Drivers.</li>
+<li>With very few exceptions, a driver should only be found to be listed as &lt;Link&gt;<strong>Occ</strong>&lt;/Link&gt;
+       on a vehicle if they are not already listed as &lt;Link&gt;<strong>Prn</strong>&lt;/Link&gt; on another vehicle.
+        <strong>Note</strong>: This does not imply that the driver only drives one vehicle, just that they are 
+       only to be rated (i.e. monetarily charged) on one vehicle.</li>
+</ul><a name="Figure2"></a><img alt="" src="DrvAsgn1.gif"><br><span class="txtFootNote">Figure 2 - 3 Drivers, 2 Vehicles</span><br><br><a name="Figure3"></a><img alt="" src="DrvAsgn2.gif"><br><span class="txtFootNote">Figure 3 - 1 Driver, 2 Vehicles</span><p>The VehLink record associates the DriverProfile and Vehicle records 
+via their corresponding <strong>ID</strong> fields. Each record has a unique ID. Typically, 
+this ID can correspond to a record <strong>ID</strong> in a database. This <strong>ID</strong> is 
+used by the engine to keep track of which Vehicle, VehLink, DriverProfile record is being 
+referenced.  The VehLink record stores a <strong>VehicleID</strong> field and a <strong>DriverID</strong>
+field to reference the foreign keys for the <strong>Vehicle.ID</strong> and the <strong>DriverProfile.ID</strong>
+records, respectively.
+</p>
+<p>
+Similarly, the Claim, Conviction, and Incident records are referenced 
+from the <a href="AutoMap.htm#tblQuoteInfo">QuoteInfo</a> record directly. They reference 
+the corresponding <a href="AutoMap.htm#tblDriverProfile">DriverProfile</a> and 
+<a href="AutoMap.htm#tblVehicle">Vehicle</a> records via the <strong>DriverID</strong> and <strong>VehicleID</strong> 
+foreign keys.
+</p><a name="descID"></a><hr>
+<h2>ID Fields</h2>
+<p>Each structure has an <strong>ID</strong> field. This field is described
+as a 'Unique ID string'. The value must only be unique for immediate siblings of it's 
+containing parent. For example, one vehicle can be defined with two Coverage structures. 
+These Coverage structures must contain unique ID values, say 'C1' and 'C2'. It is acceptible to 
+have a second vehicle with two Coverage structures that use the same ID values, 'C1' and 'C2'.
+</p><a name="descCoverage"></a><hr>
+<h2>Coverages</h2>
+<p>Depending on the coverage, <strong>Deductible</strong>, <strong>Limit1</strong>, and/or <strong>Limit2</strong> may need
+to be populated with a valid coverage level. Follow these steps to create a coverage structure:
+</p>
+<ul>
+<li>Find the code for the desired coverage in <a href="AutoRangeTables.htm#Table23">Table 23</a>.  Note the Coverage Type for the coverage.</li>
+<li>Lookup the coverage's Coverage Type in <a href="AutoRangeTables.htm#Table24">Table 24</a>.  The Field column indicates the correct field to populate for the coverage.</li>
+<li>Populate the correct field with one of the valid levels indicated.</li>
+</ul>
+<h4>Example</h4>
+<p>Endorsements TP, 20, and AB</p>
+<div class="sourcecodebox">
+    &lt;FortusTransaction Type="Automobile"&gt;
+      &lt;Vehicle&gt;
+        ...
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage1</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>TP</strong>&lt;/CSIOCode&gt;
+          &lt;Limit1&gt;<strong>1000000</strong>&lt;/Limit1&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage2</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>20</strong>&lt;/CSIOCode&gt;
+          &lt;Limit2&gt;<strong>300</strong>&lt;/Limit2&gt;
+        &lt;/Coverage&gt;
+        &lt;Coverage&gt;
+          &lt;ID&gt;<strong>Coverage3</strong>&lt;/ID&gt;
+          &lt;CSIOCode&gt;<strong>AB</strong>&lt;/CSIOCode&gt;
+        &lt;/Coverage&gt;
+        ...
+      &lt;/Vehicle&gt;
+    &lt;/FortusTransaction&gt;
+</div><a name="descCoverage43"></a><hr>
+<h2>Endorsement 43</h2>
+<p>Endorsement 43 varies from province to province, in terms of what coverages codes are used, and in terms of what it 
+specifically represents.  The following table is meant to help demonstrate what specific items to use.  <br>
+NOTE that 43X is only meant for use with Private Passenger vehicles.</p>
+<table class="txtTableBody" cellSpacing="0">
+<col>
+<col width="50px">
+<col width="16%">
+<col width="16%">
+<tr class="txtTableTitle">
+<td></td>
+<td colspan="3" style="align: center">Provinces</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">End. 43 Type</td>
+<td class="txtTableColumnTitle">Ontario</td>
+<td class="txtTableColumnTitle">Quebec</td>
+<td class="txtTableColumnTitle">Other</td>
+</tr>
+<tr>
+<td>Limited Waiver of Depreciation (Owned)</td>
+<td>43 &amp; 43X</td>
+<td></td>
+<td>43</td>
+</tr>
+<tr>
+<td>Limited Waiver of Depreciation (Leased)</td>
+<td>43A &amp; 43X</td>
+<td></td>
+<td>43A</td>
+</tr>
+<tr>
+<td>Replacement Cost (Owned)</td>
+<td>43O &amp; 43X</td>
+<td></td>
+<td>43O</td>
+</tr>
+<tr>
+<td>Replacement Cost (Leased)</td>
+<td>43S &amp; 43X</td>
+<td></td>
+<td>43S</td>
+</tr>
+<tr>
+<td>43a Waiver of Depreciation (Partial)</td>
+<td></td>
+<td>43 &amp; 43D<br><strong>-or-</strong><br>43 &amp; 43E</td>
+<td></td>
+</tr>
+<tr>
+<td>43b Waiver of Depreciation (Partial / New)</td>
+<td></td>
+<td>43B</td>
+<td></td>
+</tr>
+<tr>
+<td>43c Agreed Amount (Total)</td>
+<td></td>
+<td>43C</td>
+<td></td>
+</tr>
+<tr>
+<td>43d Waiver of Depreciation (Total)</td>
+<td></td>
+<td>43 &amp; 43D</td>
+<td></td>
+</tr>
+<tr>
+<td>43e Replacement Cost (Total)</td>
+<td></td>
+<td>43 &amp; 43E</td>
+<td></td>
+</tr>
+</table><a name="descPremium"></a><hr>
+<h2>Premiums</h2>
+<p>The Premium structure appears in a number of places in the output XML, although it is always under one
+of the following Aliases:
+</p>
+<ul>
+<li>PolicyTotal</li>
+<li>DriverTotal</li>
+<li>VehicleTotal</li>
+<li>CoveragePremium</li>
+</ul>
+<p>One corresponding CoveragePremium structure will be generated for every Coverage structure
+that was requested in the XML input.  These before-and-after structures are linked by Coverage.ID = 
+CoveragePremium.SourceID.
+</p>
+<p>Refer to the Map Definition of <a href="AutoMap.htm#tblPremium">Premium</a> 
+for details.
+</p><a name="descLeadDetail"></a><hr>
+<h2>Lead Detail</h2>
+<p>When talking about leads and the parties involved, we can use the following terms:</p>
+<ul>
+<li><strong>Submitter</strong>: The web site or system submitting the lead to the lead recipient.</li>
+<li><strong>Recipient</strong>: The brokerage/system targeted to receive the lead.</li>
+<li><strong>Client</strong>: The consumer who is the topic of the lead.</li>
+<li><strong>Referrer</strong>: The web site/system which referred the client to the submitter.</li>
+</ul>
+<h4>Example</h4>
+<p>Below is an example of a fulsome LeadDetail section, with interpretation:</p>
+<ul>
+<li>Origin tag helps convey that MyMaxInsurance.ca is submitting the lead.</li>
+<li>This lead is providing some detail about itself:
+      <ul>
+<li>This lead/client is identified as "X-1234567" within MyMaxInsurance.ca's systems.</li>
+<li>This lead is reprenting a quote where company "GA" yielded a premium of "1234".</li>
+<li>The consumer arrived at MyMaxInsurance.ca from Facebook.</li>
+<li>MyMaxInsurance.ca describes the lead as being of type "Partial".</li>
+</ul>
+</li>
+<li>Contact preferenced details are provided for the lead recipient, to reach out and communicate with the client:
+      <ul>
+<li>The client would prefer to be contacted by phone, in the afternoon, in English.</li>
+</ul>
+</li>
+<li>MyMaxInsurance.ca provides some detail of the lead recipient, from it's point of view:
+      <ul>
+<li>The lead recipient has an account code of "ACME" within MyMaxInsurance.ca's system.</li>
+<li>The full name of that account, again within MyMaxInsurance.ca's system, is "Acme Insurance Ltd.".</li>
+</ul>
+</li>
+</ul>
+<div class="sourcecodebox">
+  &lt;QuoteInfo&gt;
+  
+    &lt;Origin&gt;MyMaxInsurance.ca&lt;/Origin&gt;
+    . . .
+    &lt;LeadDetail&gt;
+    
+      &lt;ID&gt;<strong>1</strong>&lt;/ID&gt;
+      &lt;CompanyCode&gt;<strong>GA</strong>&lt;/CompanyCode&gt;
+      &lt;Premium&gt;<strong>1234</strong>&lt;/Premium&gt;
+      &lt;ContactLanguage&gt;<strong>E</strong>&lt;/ContactLanguage&gt;
+      &lt;ContactMethod&gt;<strong>P</strong>&lt;/ContactMethod&gt;
+      &lt;ContactTime&gt;<strong>A</strong>&lt;/ContactTime&gt;
+      &lt;LeadTypeEn&gt;<strong>Partial</strong>&lt;/LeadTypeEn&gt;
+      &lt;LeadTypeFr&gt;<strong>Partielle</strong>&lt;/LeadTypeFr&gt;
+      &lt;Referrer&gt;<strong>Facebook</strong>&lt;/Referrer&gt;
+      &lt;RecipientAccountCode&gt;<strong>ACME</strong>&lt;/RecipientAccountCode&gt;
+      &lt;RecipientAccountName&gt;<strong>Acme Insurance Ltd.</strong>&lt;/RecipientAccountName&gt;
+      &lt;SubmitterLeadID&gt;<strong>X-1234567</strong>&lt;/SubmitterLeadID&gt;
+
+    &lt;/LeadDetail&gt;
+  &lt;/QuoteInfo&gt;
+</div><a name="descAutoReform"></a><hr>
+<h2>Alberta Auto Reform</h2>
+<p>FORTUS&#8482; has introduced several new fields to accomodate the 
+Alberta Auto Insurance Reform, as well as a special carrier to handle the underwriting involved 
+in the Reform.</p><a name="descGridLevel"></a><h3>Grid Level</h3>
+<p>The Reform dictates rules for calculating each driver's Grid Level. With many scenarios to handle, FORTUS&#8482; introduces 3 new fields; 
+<a href="AutoMap.htm#tblDriverProfile">GridLevel</a>,
+<a href="AutoMap.htm#tblDriverProfile">GridLevelGiven</a>, and 
+<a href="AutoMap.htm#tblDriverProfile">GridLevelEffDate</a>.
+</p><a name="descImplementation"></a><h3>How FORTUS&#8482; Implements the Reform</h3>
+<p>Most of the legislation rules and underwriting are actually done using a 
+special carrier named Alberta Insurance Reform (code ABEN). In this fashion, most changes to the 
+reform can be implemented very easily by simply updating this special carrier's data files. This 
+carrier will be added under the &lt;Carriers&gt; tag automatically if it does not exist in the 
+input XML. Also, note that the <a href="AutoMap.htm#tblItemInfo">ItemInfo</a> and 
+<a href="AutoMap.htm#tblGridLevelAssignment">GridLevelAssignment</a> structures will only appear 
+under this special carrier.
+</p><a name="descDriverAssignment"></a><h3>Driver Assignment</h3>
+<p>As part of the Reform legislation, driver's may be re-assigned in order 
+to determine a vehicle's Liability premium cap. <a href="AutoMap.htm#tblGridLevelAssignment">GridLevelAssignment</a>
+in the output XML show the assignments used. <a href="AutoMap.htm#tblGridLevelAssignment">GridLevelAssignment</a>
+in the input XML mean that the user wishes to bypass the automatic re-assignment.  Note that this is an 
+all-or-nothing situation.  If you override one assignment, then you must override all the assignments.
+</p><a name="descItemInfo"></a><h3>Item Info</h3>
+<p>The <a href="AutoMap.htm#tblItemInfo">ItemInfo</a> structure returns information 
+about the Grid calculation that was used. Below is the table of the possible values returned:
+</p>
+<table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<tr class="txtTableColumnTitle">
+<td>ItemType</td>
+<td>ItemInfo1</td>
+<td>ItemInfo2</td>
+<td>ItemInfo3</td>
+<td>ItemInfo4</td>
+<td>Comments</td>
+</tr>
+<tr>
+<td>"Message"</td>
+<td>English message part 1</td>
+<td>English message part 2</td>
+<td>French message part 1</td>
+<td>French message part 1</td>
+<td>Concatenate 0 and 1 to get the English message.  Concatenate 2 and 3 to get the French message.</td>
+</tr>
+<tr>
+<td>"Grid Start"</td>
+<td>Grid Level Effective Date entered by user</td>
+<td>Grid Level entered by user</td>
+<td>Percentage associated with the Grid Level</td>
+<td> </td>
+<td>If this is the first driver listed on this vehicle, then this driver is the relevant driver.  If it is the second driver listed, then it is the inexperienced driver.</td>
+</tr>
+<tr>
+<td>"Claim"</td>
+<td>Date of claim</td>
+<td>Grid Level adjustment value</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Licensed Claims Free Years"</td>
+<td>Years claims free</td>
+<td>Date that value was earned</td>
+<td>Grid Level adjustment value</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver Training Credit"</td>
+<td>Grid Level adjustment value</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid End"</td>
+<td>Grid Level calculated</td>
+<td>Percentage associated with the Grid Level</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Traffic Convictions"</td>
+<td>Number of convictions of this type</td>
+<td>Percentage adjustment for these convictions</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Serious Traffic Convictions"</td>
+<td>Number of convictions of this type</td>
+<td>Percentage adjustment for these convictions</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Criminal Convictions"</td>
+<td>Number of convictions of this type</td>
+<td>Percentage adjustment for these convictions</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"At-Fault Claims"</td>
+<td>Number of at-fault claims</td>
+<td>Percentage adjustment for these claims</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver"</td>
+<td>ID of driver</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>This refers to &lt;DriverProfile&gt;&lt;ID&gt;</td>
+</tr>
+<tr>
+<td>"Vehicle"</td>
+<td>ID of vehicle</td>
+<td>Year of vehicle	VICC code</td>
+<td> </td>
+<td> </td>
+<td>This refers to &lt;Vehicle&gt;&lt;ID&gt;</td>
+</tr>
+<tr>
+<td>"VRG"</td>
+<td>Collision/Liability VRG of vehicle</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle Location"</td>
+<td>String of location for vehicle</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle Liability Limit"</td>
+<td>Liability limit of vehicle</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Limit will be a straight number, no formatting.  So, 1 Million will be "1000000"</td>
+</tr>
+<tr>
+<td>"Vehicle Base Grid Premium"</td>
+<td>Base grid premium for vehicle</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>Premium will be a straight number, no formatting.  So, $1,962 will be "1962"</td>
+</tr>
+<tr>
+<td>"Assignment Factor"</td>
+<td>Percentage adjustment for assignment</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>This will always be 25.</td>
+</tr>
+<tr>
+<td>"Unassigned Drivers"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td>This is just an indicator that the following drivers are unassigned drivers.</td>
+</tr>
+</table><br><table class="txtTableBody" cellSpacing="0" cellPadding="3" border="1">
+<tr class="txtTableTitle">
+<td colspan="5">Example</td>
+</tr>
+<tr>
+<td>"Grid Start"</td>
+<td>"20030426"</td>
+<td>""</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle"</td>
+<td>"00000032"</td>
+<td>"1995"</td>
+<td>"5470"</td>
+<td> </td>
+</tr>
+<tr>
+<td>"VRG"</td>
+<td>"17"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle Location"</td>
+<td>"Calgary"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle Liability Limit"</td>
+<td>"1000000"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Vehicle Base Grid Premium"</td>
+<td>"1962"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver"</td>
+<td>"00000056"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid Start"</td>
+<td>"20030426"</td>
+<td>""</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver Training Credit"</td>
+<td>"-2"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Claim"</td>
+<td>"20030312"</td>
+<td>"5"</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Claim"</td>
+<td>"20021215"</td>
+<td>"5"</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid End"</td>
+<td>"8"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Traffic Convictions"</td>
+<td>"1"</td>
+<td>"0"</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Serious Traffic Convictions"</td>
+<td>"1"</td>
+<td>"25"</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver"</td>
+<td>"00000057"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid Start"</td>
+<td>"20030426"</td>
+<td>""</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver Training Credit"</td>
+<td>"-2"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid End"</td>
+<td>"-2"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Assignment Factor"</td>
+<td>"25"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Unassigned Drivers"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Driver"</td>
+<td>"00000058"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid Start"</td>
+<td>"20030426"</td>
+<td>""</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>"Grid End"</td>
+<td>"0"</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

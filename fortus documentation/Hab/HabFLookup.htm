@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Carrier Value Lookups</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><span class="subtitle">Input</span><ul>
+<li><a href="#tblLookupTransaction">LookupTransaction</a></li>
+<li><a href="#tblLookups">Lookups</a></li>
+<li><a href="#tblDefaultsLookup">Defaults / Lookup</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Output</span><ul>
+<li><a href="#tblResults">Results</a></li>
+<li><a href="#tblValues">Values</a></li>
+</ul>
+</li>
+<li><span class="subtitle">Tables</span><ul>
+<li><a href="#Table1">Lookup Types</a></li>
+<li><a href="#Table2">Population Matrix</a></li>
+</ul>
+</li>
+<li><a href="#lnkExamples">Examples</a></li>
+</ul>
+</div>
+<h1>FLookup - Property</h1>
+<p>FORTUS&#8482; allows for carrier specific values to be indicated in some cases.  One of the more common 
+               examples of this would be to allow the user to define the Vehicle Rate Groups.  These values are often 
+               used to override the calculated value.  Of course, valid entries must be supplied for these values and 
+               not all companies use the same range of values.  This is where the FLookup library comes in.  The FLookup 
+               library provides an XML interface to retrieve ranges of valid carrier values, or even the calculated 
+               value itself (although this value is sometimes because full quote information may be required).
+            </p><a name="lnkInputXML"></a><h2>Input XML</h2>
+<p>The model for lookups was designed with many aspects is mind: extensibility, inheritance, scalability, flexibility, etc.  
+               Many different types of lookups can be performed for many different carriers, all within the same XML transaction. The 
+               model allows for the definition of default values to use within each individual lookup.  At the same time, the model 
+               allows each individual lookup to override these default values.
+            </p><a name="tblLookupTransaction"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="200">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">LookupTransaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>STRING</td>
+<td>"Automobile" or "Property"</td>
+<td>Type of FLookup transaction</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblDefaultsLookup">Defaults</a></td>
+<td>Parent Tag</td>
+<td>Just one Defaults tag.</td>
+<td>Values indicated under this node will automatically be used for each lookup, unless the value is redefined in the lookup.</td>
+</tr>
+<tr>
+<td><a href="#tblLookups">Lookups</a></td>
+<td>Parent Tag</td>
+<td>Just one Lookups tag.</td>
+<td>Collection of lookups to be performed.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblLookups"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="200">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Lookups</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td><a href="#tblDefaultsLookup">Lookup</a></td>
+<td>Parent Tag</td>
+<td>Any number of Lookup tags</td>
+<td>There will be one Lookup tag per lookup per carrier.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblDefaultsLookup"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="center" width="70">
+<col align="center" width="140">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="5" align="left">Defaults / Lookup</td>
+</tr>
+<tr>
+<td colspan="5">The Type and ID attributes do not apply to the Defaults tag.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td colspan="2" class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Type</td>
+<td colspan="2">STRING</td>
+<td><a href="#Table1">Table 1</a></td>
+<td>Type of individual lookup.</td>
+</tr>
+<tr>
+<td>ID</td>
+<td colspan="2">STRING</td>
+<td> </td>
+<td>Value to uniquely identify the individual lookup within the whole FLookup transaction.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Length</td>
+<td class="txtTableColumnTitle">Range/Format</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Carrier</td>
+<td>STRING</td>
+<td>4</td>
+<td> </td>
+<td>Proprietary Company Code of carrier to lookup values for. All letters must be uppercase.</td>
+</tr>
+<tr>
+<td>Province</td>
+<td>STRING</td>
+<td>2</td>
+<td>Hab Range Tables: <a href="HabRangeTables.htm#Table9">Table 9</a></td>
+<td>Canada Post standard province codes (2 characters)</td>
+</tr>
+<tr>
+<td>Renewal</td>
+<td>BOOL</td>
+<td> </td>
+<td>Y/N</td>
+<td>Indicates whether or not the lookup should be performed with the assumption that the information represents a New Business request, or a Renewal.  If no value or an invalid value is supplied then a value of N is assumed.</td>
+</tr>
+<tr>
+<td>EffDate</td>
+<td>DATE</td>
+<td> </td>
+<td>YYYYMMDD</td>
+<td>Effective date of the lookup.  If none is supplied or a value of 0 (zero) is used, then the current system date will be used.</td>
+</tr>
+<tr>
+<td>CodeName</td>
+<td>STRING</td>
+<td> </td>
+<td>See CodeName column in <a href="HabStructDesc.htm#descResValues">Residence Values</a> table.</td>
+<td>The Codename to use for the lookup.  If no value is supplied, then all supported CodeName values will be used.</td>
+</tr>
+<tr>
+<td>TerrCode</td>
+<td>LONG</td>
+<td> </td>
+<td> </td>
+<td>The relevant Compu-Quote habitation location identifier to use for the lookup.  See TerrCode in the <a href="HabMap.htm#tblDwelling">Hab Map Definition</a>.</td>
+</tr>
+<tr>
+<td>ProtectionClass</td>
+<td>STRING</td>
+<td> </td>
+<td>'P', 'S', or 'U'</td>
+<td>The Protection Class to use for the lookup.  See ProtectionClass in the <a href="HabMap.htm#tblDwelling">Hab Map Definition</a>.</td>
+</tr>
+<tr>
+<td>FHDist</td>
+<td>STRING</td>
+<td> </td>
+<td> </td>
+<td>The Firehall Distance (in kms) to use for the lookup.  See FHDist in the <a href="HabMap.htm#tblDwelling">Hab Map Definition</a>.</td>
+</tr>
+<tr>
+<td>FormRateBookNum</td>
+<td>STRING</td>
+<td> </td>
+<td> </td>
+<td>The Form Ratebook number to use for the lookup.</td>
+</tr>
+<tr>
+<td>TerritoryRateBookNum</td>
+<td>STRING</td>
+<td> </td>
+<td> </td>
+<td>The Territory Ratebook number to use for the lookup.</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>STRING</td>
+<td> </td>
+<td> </td>
+<td>The territory/zone literal to use for the lookup.  This value would correspond to the result TableName, EarthquakeZone, SewerBackupZone, or FloaterZone values returned from a carrier quotation.</td>
+</tr>
+<tr>
+<td>LocationType</td>
+<td>STRING</td>
+<td> </td>
+<td>'TableName', 'EarthquakeZone', 'SewerBackupZone', or 'FloaterZone'</td>
+<td>The type of location that Location represents.  If none is supplied or an invalid value is used, then 'TableName' will be used.</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>STRING</td>
+<td> </td>
+<td>'English' or 'French'</td>
+<td>The language to use when returning values, if appropriate.  If none is supplied or an invalid value is used, then 'English' will be used.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="lnkOutputXML"></a><h2>Output XML</h2>
+<p>Depending on the type of the individual lookup, the results will be returned slightly differently.  The model for 
+               returning results is meant to be flexible and generic enough to return a single value, a list of values, or groups of lists of values.
+            </p><a name="tblResults"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="100">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Results</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>STRING</td>
+<td>The following lookup types will return multiple Value tags here: CodeNameList</td>
+</tr>
+<tr>
+<td><a href="tblValues">Values</a></td>
+<td>Parent Tag</td>
+<td>Instead of the Value tag, the CodeNameList lookup type will return Values tags.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="tblValues"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left" width="130">
+<col align="center" width="80">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Values</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Attribute Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>STRING</td>
+<td>The range of valid values here will depend on the lookup type.  In most cases, the first occurance of a Values tag will 
+                    have Groups equal to the CodeName.  If a CodeName was specified, then only one CodeNames Values group will appear.  The 
+                    next occurance of a Values tag will have Groups equal to the form type (ex: FormType_0) if the lookup type was FormList or RatingList.
+                    If the lookup type was RatebookList instead, then Groups is equal to the ratebook section. If the lookup type was FormList though, there may be yet 
+                    another occurance of a Values tag.  This will have a Groups equal to 'Default'.  This indicates which previously declared Form literal should be used as the default value when there are multiple possibilities.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Tag Name</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>Values</td>
+<td>STRING</td>
+<td>Can have multiple Values tags here.  Results can be identified by their Group attribute.</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>STRING</td>
+<td>A Values group will contain 1 or more Value tags, and/or 1 or more Values tags.<br>
+                    The following lookup types will return a single Value tags here: TableName, EarthquakeZone, FloaterZone, SewerBackupZone, FormList<br>
+                    The following lookup types will return multiple Value tags here: TableNameList, EarthquakeZoneList, FloaterZoneList, SewerBackupZoneList, FormList, RatingList, TerrCodeList
+                </td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="lnkTables"></a><h1>Tables</h1><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="2">Table 1 - Lookup types</td>
+</tr>
+<tr>
+<td>RatebookList</td>
+<td>Determine the relevant ratebook numbers for different sections of the carrier data.</td>
+</tr>
+<tr>
+<td>TableName</td>
+<td>Retrieve the Territory rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>TableNameList</td>
+<td>Retrieve the list of valid Territory literals used by the carrier.</td>
+</tr>
+<tr>
+<td>EarthquakeZone</td>
+<td>Retrieve the Earthquake Zone rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>EarthquakeZoneList</td>
+<td>Retrieve the list of valid Earthquake Zones used by the carrier.</td>
+</tr>
+<tr>
+<td>FloaterZone</td>
+<td>Retrieve the Floater Zone rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>FloaterZoneList</td>
+<td>Retrieve the list of valid Floater Zones used by the carrier.</td>
+</tr>
+<tr>
+<td>SewerBackupZone</td>
+<td>Retrieve the Sewer Backup Zone rated by the carrier for the information given.</td>
+</tr>
+<tr>
+<td>SewerBackupZoneList</td>
+<td>Retrieve the list of valid Sewer Backup Zones used by the carrier.</td>
+</tr>
+<tr>
+<td>RatingList</td>
+<td>Retrieve the list of valid Rating literals used by the carrier.</td>
+</tr>
+<tr>
+<td>FormList</td>
+<td>Retrieve the list of valid Form literals used by the carrier.</td>
+</tr>
+<tr>
+<td>CodeNameList</td>
+<td>Retrieve the list of supported dwelling types (i.e. CodeNames) for the carrier.</td>
+</tr>
+<tr>
+<td>TerrCodeList</td>
+<td>Retrieve the list of TerrCode indexes that will yield a particular territory/zone.</td>
+</tr>
+<tr>
+<td>UserInit</td>
+<td>Retrieve the list of carrier-specific discounts, surcharges, and extended coverages that the user initiates.</td>
+</tr>
+<tr>
+<td>RenewalCodeList</td>
+<td>Retrieve the list of eligible prior carrier codes, to be considered a renewal quote.</td>
+</tr>
+<tr>
+<td>DisSurList</td>
+<td>Retrieve the list of carrier-specific discouns and surcharges; both user-initated and ratebook-initiated.</td>
+</tr>
+</table><a href="#">top</a><br><br><a name="Table2"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="15">Table 2 - Population Matrix</td>
+</tr>
+<tr>
+<td colspan="11">
+<div style="font-weight:bold; text-decoration: underline;">Legend:</div>
+                R - Required - Value is required for lookup.<br>
+                D - Default Value - Default value will be used if none is given.<br>
+                A - All in range - Value can be specified to narrow results.  If no value is given, then results for each value in range of valid values are returned.<br>
+                L - Looked up - Value can be passed, but is usually looked up based on other parameters.<br>
+                P - Part of 3 fields making up protection grade determination. There are two strategies that might apply here:<br>
+                  1) Pass ProtectionClass always ( P, S, or U ).  Additionally pass FHDist if ProtectionClass is S.<br>
+                  2) Pass ProtectionClass if it is U.  Otherwise, always pass FHDist and HydDist.
+                </td>
+<td colspan="4" valign="top">
+<div style="font-weight:bold; text-decoration: underline;">Defaults:</div>
+                EffDate - system date<br>
+                Renewal - "N"<br>
+                LocationType - TableName (ie territory)<br>
+                Language - "English"
+                </td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td> </td>
+<td colspan="14" align="center">Fields</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Types</td>
+<td>CodeName</td>
+<td>Carrier</td>
+<td>Province</td>
+<td>EffDate</td>
+<td>Renewal</td>
+<td>TerrCode</td>
+<td>ProtectionClass</td>
+<td>FHDist</td>
+<td>HydDist</td>
+<td>FormRateBookNum</td>
+<td>TerritoryRateBookNum</td>
+<td>Location</td>
+<td>LocationType</td>
+<td>Language</td>
+</tr>
+<tr>
+<td>RatebookList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TableName</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>R</td>
+<td>P</td>
+<td>P</td>
+<td>P</td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TableNameList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EarthquakeZone</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>R</td>
+<td>P</td>
+<td>P</td>
+<td>P</td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EarthquakeZoneList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FloaterZone</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>R</td>
+<td>P</td>
+<td>P</td>
+<td>P</td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FloaterZoneList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SewerBackupZone</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td>R</td>
+<td>P</td>
+<td>P</td>
+<td>P</td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SewerBackupZoneList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RatingList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FormList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>L</td>
+<td>L</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CodeNameList</td>
+<td></td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TerrCodeList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td>P+</td>
+<td>P+</td>
+<td>P+</td>
+<td>L</td>
+<td>L</td>
+<td>R</td>
+<td>D</td>
+<td></td>
+</tr>
+<tr>
+<td>UserInit</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>D</td>
+</tr>
+<tr>
+<td>RenewalCodeList</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DisSurList</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>D</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>D</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td> </td>
+<td colspan="14">+ Only if the LocationType = 'TableName'</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="lnkExamples"></a><h1>Examples</h1><a name="Table3"></a><table class="txtTableBody" cellSpacing="0">
+<col width="1">
+<col width="1">
+<col width="1">
+<col>
+<tr class="txtTableTitle">
+<td colspan="4">Table 3 - Examples</td>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="HabFLookupEx1_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx1_out.xml">Output XML</a></td>
+<td><strong>CodeNameList</strong> - Retrieve the list of supported dwelling types (i.e. CodeNames) for 2 carriers.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="HabFLookupEx2_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx2_out.xml">Output XML</a></td>
+<td><strong>FormList</strong> - Retrieve the list of valid Form literals for Homeowners CodeName for 2 carriers.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="HabFLookupEx3_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx3_out.xml">Output XML</a></td>
+<td><strong>FormList</strong> - Retrieve the list of valid Form literals for all supported CodeNames for 2 carriers.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="HabFLookupEx4_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx4_out.xml">Output XML</a></td>
+<td><strong>TableNameList and TableName</strong> - Retrieve the list of valid Territory literals for Homeowners CodeName for 2 carriers, as well as retrieve the rated Territory for Homeowners CodeName for 2 carriers.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="HabFLookupEx5_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx5_out.xml">Output XML</a></td>
+<td><strong>FormList</strong> - Retrieve the list of valid Form literals for Seasonal CodeName for 2 carriers.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="HabFLookupEx6_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx6_out.xml">Output XML</a></td>
+<td><strong>RatebookList</strong> - Retrieve the relevant Ratebook numbers for Homeowners CodeName for 2 carriers.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="HabFLookupEx7_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx7_out.xml">Output XML</a></td>
+<td>A number of different types of lookups for different CodeNames for different carriers.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="HabFLookupEx8_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx8_out.xml">Output XML</a></td>
+<td><strong>TerrCodeList</strong> - Retrieves the lists of TerrCode indexes for a particular territory, earthquake zone, sewer-backup zone, and floater zone, for Homeowners CodeName for 1 carrier.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="HabFLookupEx9_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx9_out.xml">Output XML</a></td>
+<td><strong>UserInit</strong> - Retrieves the lists of company specific discounts, surcharges, and extended coverages that are initiated by the user.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="HabFLookupEx10_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx10_out.xml">Output XML</a></td>
+<td><strong>RenewalCodeList</strong> - Retrieves the lists of eligible prior carrier codes, to be considered a renewal quote.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="HabFLookupEx11_in.xml">Input XML</a></td>
+<td><a href="HabFLookupEx11_out.xml">Output XML</a></td>
+<td><strong>DisSurList</strong> - Retrieve the list of carrier-specific discouns and surcharges; both user-initated and ratebook-initiated.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

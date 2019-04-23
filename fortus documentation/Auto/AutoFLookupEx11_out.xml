@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Automobile">
+  <!-- 
+      AmountOverride (1st part, before underscore):
+        CANNOT - User cannot set amount
+        CAN - User can set amount
+        MUST - User must set amount
+        
+      AmountOverride (2nd part, after underscore):
+        % - Amount that user can set will be a percentage
+        $ - Amount that user can set will be a dollar value
+      
+      Scope:
+        Prn - item only available to principal operators
+        Occ - item only available to occasional operators
+        Both - item avaible to both principal and occasional operators
+     -->
+  <Defaults>
+    <Province>QC</Province>
+  </Defaults>
+  <Lookups>
+    <Lookup ID="11a"
+            Type="UserInitDisSur">
+      <Carrier>PAF</Carrier>
+      <Results>
+        <Values Group="Discounts">
+          <Values Group="ZDSU1">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Car/Home - Family 15</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Car/Home - Family 15</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[A 15% discount will apply to family members of named insureds qualifying for the Combined Policy Discount, who insure vehicle(s) registered in their own name. The discount will apply to Liability, Accident Benefits, Uninsured Automobile, Direct Compensation Property Damage, All Perils, Collision, Comprehensive, and Specified Perils subject to the following conditions: - All insureds must be residing in the same household. - The Property policy must be the primary residence for all insureds. - Both the Automobile and Property policies must be insured with a company within the Aviva family of Companies, and through the same insurance intermediary. - Policy is not part of a combined policy.]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Green VariableMax</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Green VariableMax</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[Apply any discount you want or stay with our chosen %, and call it a green discount.]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU3">
+            <Values Group="AmountOverride">
+              <Value>MUST_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Brown</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Brown</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[No default amount with this item.  You must enter the flat dollar amount to discount.]]></Value>
+            </Values>
+          </Values>
+        </Values>
+        <Values Group="Surcharges">
+          <Values Group="ZSRU1">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Yellow</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Yellow</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[You can change the flat dollar amount surcharged, if you want.]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU2">
+            <Values Group="AmountOverride">
+              <Value>MUST_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Red</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Red</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[You must provide the percentage to surcharge.]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU3">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Pink</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Pink</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[You cannot change the amount being surcharged when you choose this surcharge.]]></Value>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+    <Lookup ID="11b"
+            Type="UserInitDisSur">
+      <Carrier>UTOM</Carrier>
+      <Results>
+        <Values Group="Discounts">
+          <Values Group="ZDSU3">
+            <Values Group="AmountOverride">
+              <Value>MUST_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Green Hair</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Green Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[Tell us how much % to discount for Green Hair!]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Blue Hair</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Blue Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Prn</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[Tell us how many $ to discount for Blue Hair!]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZDSU1">
+            <Values Group="AmountOverride">
+              <Value>CANNOT</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Pink Hair</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Pink Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[We already know how must to discount for Pink Hair!]]></Value>
+            </Values>
+          </Values>
+        </Values>
+        <Values Group="Surcharges">
+          <Values Group="ZSRU3">
+            <Values Group="AmountOverride">
+              <Value>CAN_%</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Red Hair</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Red Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Occ</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[You can surcharge for Red Hair if you want.  We have a default %, or you can tell us the %.!]]></Value>
+            </Values>
+          </Values>
+          <Values Group="ZSRU2">
+            <Values Group="AmountOverride">
+              <Value>CAN_$</Value>
+            </Values>
+            <Values Group="Description">
+              <Value>Black Hair</Value>
+            </Values>
+            <Values Group="Identifier">
+              <Value>Black Hair</Value>
+            </Values>
+            <Values Group="Scope">
+              <Value>Both</Value>
+            </Values>
+            <Values Group="Definition">
+              <Value><![CDATA[You can surcharge for Black Hair if you want.  We have a default $ amount, or you can tell us the $ amount.!]]></Value>
+            </Values>
+          </Values>
+        </Values>
+      </Results>
+    </Lookup>
+  </Lookups>
+</LookupTransaction>

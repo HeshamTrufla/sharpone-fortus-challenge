@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<LookupTransaction Type="Property">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <CodeName>Seasonal</CodeName>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="FormList">
+         <Carrier>GC</Carrier>
+      </Lookup>
+      <Lookup ID="2" Type="FormList">
+         <Carrier>MR</Carrier>
+      </Lookup>
+   </Lookups>
+</LookupTransaction>

@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="AutoGeneral.htm">Auto</a></li>
+<li><span>›</span>VICC</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkVICC">VICC Information</a></li>
+<li><a href="#lnkFAQ">F.A.Q.</a></li>
+</ul>
+</div><a name="lnkVICC"></a><h1>VICC Information</h1>
+<p>Each carrier defines their own set of VICC Vehicle Rate Groups. 
+            However, before calculation of the quote, a facility is needed to determine if a particular 
+            vehicle year and vehicle model are valid (Ex. Did the Ford Tempo exist in 1992?). A 
+            file, PPVDETL_BI.TXT, is supplied to fill this need.</p>
+<p>The first line (or record) contains the field names. This line
+            should be deleted before or after the data is imported into the database. Each field is
+            delimited by a pipe ('|') character, and each line (or record) is seperated by a carriage return and 
+            a line feed. The fields are defined in <a href="#Table1">Table 1</a> below.</p><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Table 1: PPVDETL_BI.TXT Fields</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Width</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>MODEL_YEAR</td>
+<td>NUMBER</td>
+<td>4</td>
+<td>Vehicle model year.  MODEL_YEAR and EXT_VICC make a primary key for this data.</td>
+</tr>
+<tr>
+<td>EXT_VICC</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Extended VICC vehicle code.  MODEL_YEAR and EXT_VICC make a primary key for this data.</td>
+</tr>
+<tr>
+<td>VICC_CODE</td>
+<td>CHAR</td>
+<td>4</td>
+<td>VICC vehicle code</td>
+</tr>
+<tr>
+<td>MAKE</td>
+<td>CHAR</td>
+<td>20</td>
+<td>Vehicle make, a.k.a. vehicle manufacturer</td>
+</tr>
+<tr>
+<td>MAKE_FR</td>
+<td>CHAR</td>
+<td>20</td>
+<td>French version of MAKE.</td>
+</tr>
+<tr>
+<td>MODEL</td>
+<td>CHAR</td>
+<td>40</td>
+<td>Vehicle model</td>
+</tr>
+<tr>
+<td>MODEL_FR</td>
+<td>CHAR</td>
+<td>40</td>
+<td>French version of MODEL.</td>
+</tr>
+<tr>
+<td>MAKEMOD</td>
+<td>CHAR</td>
+<td>20</td>
+<td>Abbreviation of MAKE and MODEL</td>
+</tr>
+<tr>
+<td>MODEL_FR</td>
+<td>CHAR</td>
+<td>20</td>
+<td>French version of MAKEMOD.</td>
+</tr>
+<tr>
+<td>WHEELBASE</td>
+<td>CHAR</td>
+<td>4</td>
+<td>Measured in millimeters (mm).  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>WEIGHT</td>
+<td>CHAR</td>
+<td>4</td>
+<td>Measured in kilograms (kg).  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>HORSEPOWER</td>
+<td>CHAR</td>
+<td>3</td>
+<td>Engine horsepower.  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>PRICE</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Manufacturer's Suggested Retail Price + GST.  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>AIRBAGS</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Vehicle airbags.  
+                  <ul>
+<li>0 - not available</li>
+<li>1 - optional</li>
+<li>2 - standard on driver's side</li>
+<li>3 - standard on driver's side / optional on passenger's side</li>
+<li>4 - standard dual airbags</li>
+<li>5 - standard dual and additional airbags (e.g. side airbags)</li>
+<li>6 - standard dual and optional additional airbags (e.g. side airbags)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Anti-lock bracking system.
+                  <ul>
+<li>0 - not available</li>
+<li>1 - rear wheels ABS only</li>
+<li>2 - rear wheels only / four wheels ABS optional</li>
+<li>3 - optional</li>
+<li>4 - standard</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ALM_AUD</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-deterent system - audible alarm.
+                  <ul>
+<li>0 - not available</li>
+<li>1 - standard alarm</li>
+<li>2 - optional alarm</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ALM_CUTOFF</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-deterent system - fuel / ignition / electrical cut-off system.
+                  <ul>
+<li>0 - not available</li>
+<li>1 - standard system</li>
+<li>2 - optional system</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ALM_SECKEY</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Theft-deterent system - security key system.
+                  <ul>
+<li>0 - not available</li>
+<li>1 - standard system</li>
+<li>2 - optional system</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>CYLINDER</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Engine cylinder.
+                  <ul>
+<li>2, 3, 4, 5, 6, 8, 10 and 12 = number of cylinders</li>
+<li>0 - rotary engine, no cylinder</li>
+<li>50 - Electric motor, no cylinder - Low Speed Vehicle (LSV)</li>
+<li>54 - Electric motor with 4 cylinder engine for extended range</li>
+<li>60 - Electric motor, no cylinder</li>
+<li>99 - information not known</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>FUELTYPE</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine fuel type.
+                  <ul>
+<li>G - Gasoline</li>
+<li>D - Diesel</li>
+<li>V - Electric, no fuel</li>
+<li>N - Natural gas</li>
+<li>X - Not available or Unknown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>INDUCTION</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine - forced induction
+                  <ul>
+<li>T - Turbo</li>
+<li>S - Supercharged</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>HYBRID</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine - hybrid
+                  <ul>
+<li>H - Hybrid</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TRACCTRL</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Traction control
+                  <ul>
+<li>0 - Not available</li>
+<li>1 - Standard</li>
+<li>2 - Optional</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>STABCTRL</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Stability control
+                  <ul>
+<li>0 - Not available</li>
+<li>1 - Standard</li>
+<li>2 - Optional</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BODYSTYLE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Body style
+                  <ul>
+<li>2D - 2 Door (car)</li>
+<li>4D - 4 Door (car)</li>
+<li>1P - ½ Ton Pickup</li>
+<li>2P - ¾ Ton Pickup</li>
+<li>3P - 1 Ton Pickup</li>
+<li>4P - Compact Pickup</li>
+<li>CV - Cargo Van</li>
+<li>MP - Multi-Purpose (SUV)</li>
+<li>PV - Passenger Van</li>
+<li>SS - Sport / Specialty</li>
+<li>SW - Station Wagon</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BODYTYPE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>CSIO body type
+                  <ul>
+<li>JP - small SUV (convertible)</li>
+<li>MV - minivan</li>
+<li>P1 - PPV - convertible</li>
+<li>P2 - PPV - 2 door coupe/sedan</li>
+<li>P3 - PPV - 2 door hatchback</li>
+<li>P4 - PPV - 4 door sedan</li>
+<li>P5 - PPV - 4 door hatchback</li>
+<li>P6 - station wagon</li>
+<li>PV - pickup truck</li>
+<li>ST - small soft top SUV</li>
+<li>SU - small hard top - medium SUV</li>
+<li>SW - large SUV</li>
+<li>VL - full size van</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>DRIVETRAIN</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Drive train
+                  <ul>
+<li>1 - 2 wheel drive</li>
+<li>2 - 4 wheel drive</li>
+<li>1F - front wheel drive (not yet available)</li>
+<li>1R - rear wheel drive (not yet available)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>VEHTYPE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Vehicle type
+                  <ul>
+<li>PP - private passenger</li>
+<li>TR - truck</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>CNVERTIBLE</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Convertible
+                  <ul>
+<li>1 - convertible</li>
+<li>0 - not convertible</li>
+</ul>
+</td>
+</tr>
+</table><a href="#">top</a><a name="lnkFAQ"></a><div class="FAQ">
+<h1>Frequently Asked Questions</h1>
+<div class="Question">Q: Do I need all these fields, all this data?</div>
+              A: No, not all of this data is necessary.  A lot of the data may never be used.  
+
+              <div class="Question">Q: If most of this data is not necessary, why is it there?</div>
+              A: Some of the data may be used in other ways, in very different applications.  Some data may be used in the future.  Etc.
+
+              <div class="Question">Q: Some of the entries seem to be missing some data.  Why is there missing data?</div>
+              A: The model year, VICC codes and make/model fields should always be populated.  After that, it is possible that description details about the vehicle are not present. Systems using this description data must plan for this scenario.
+
+              <div class="Question">Q: We are currently using VICC_BI.TXT.  Do we need to switch to PPVDETL_BI.TXT?</div>
+              A: Yes, you should make plans to change to PPVDETL_BI.TXT (VICC_BI.TXT will continue to remain available for some time).  There are several benefits with the new data, but the main force driving the change will be the need to use the 6-digit Extended VICC code, instead of just the 4-digit VICC code.  Increasingly, companies need the 6-digit extended code to quote accurately.
+
+            </div><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

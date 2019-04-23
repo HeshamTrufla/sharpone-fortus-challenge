@@ -1,0 +1,1824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="HabGeneral.htm" class="active">Hab</a></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="HabGeneral.htm">Hab</a></li>
+<li><span>›</span>Structure Descriptions</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#descStdCov">Standard Coverages</a></li>
+<li><a href="#desCovResults">Coverage Results</a></li>
+<li><a href="#descStdCodeNames">Standard CodeNames</a></li>
+<li><a href="#descFormTypeCodeNames">Valid Form Type - CodeName Combinations</a></li>
+<li><a href="#descMultipleForms">Multiple Forms</a></li>
+<li><a href="#descResValues">Residence Values</a></li>
+<li><a href="#descAliases">Structure Aliases</a></li>
+</ul>
+</div><a name="descStdCov"></a><h2>Standard Coverages</h2>
+<p>Each type of dwelling has a different set of Standard Coverages 
+               (<a href="HabMap.htm#tblStdCov">StdCov structure</a>) that are rated with the dwelling.
+               FORTUS&#8482; will create and attach the necessary Standard Coverage structures
+               based on the type of dwelling, if they do not exist in the input XML. Therefore,
+               the input XML does not need to contain any Standard Coverages.
+            </p>
+<hr><a name="desCovResults"></a><h2>Coverage Results</h2>
+<p>Coverage results require some interpretation. The 
+            following illustrates how to interpret coverage results:</p>
+<ul>
+<li>If &lt;Premium&gt; = 0, then the coverage is <strong>Included</strong>.</li>
+<li>If a coverage was requested in the input, but did not appear in the output, then
+                   it is <strong>Not Available</strong>.</li>
+<li>If a coverage contains a &lt;Message&gt; tag(s), then the Message should be
+                   examined to determine if the coverage was available or not.  In most circumstances,
+                   the existence of a &lt;Message&gt; tag(s) indicates that the coverage was <strong>Not 
+                   Available</strong>.</li>
+</ul>
+<hr><a name="descStdCodeNames"></a><h2>Standard Codenames</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Habitational CodeNames</td>
+</tr>
+<tr>
+<td colspan="3" class="txtTableColumnTitle">Primary &amp; Stand-Alone Dwellings - All quotes must have 1 and only 1 of these dwellings.<br>
+                                                                Primary Dwelling - indicates the type of the client's main residence.<br>
+                                                                Stand-Alone Dwelling - indicates a secondary dwelling to be quoted on it's own, without the inclusion of the primary residence.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Dwelling Code</td>
+<td class="txtTableColumnTitle">CodeName</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Homeowners</td>
+<td>Primary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Condos</td>
+<td>Primary condomium dwelling.</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Tenants</td>
+<td>Primary tenant dwelling.</td>
+</tr>
+<tr>
+<td>A</td>
+<td>SASecRentalDwellings</td>
+<td>Stand-alone secondary rental dwelling.</td>
+</tr>
+<tr>
+<td>G</td>
+<td>SASecRentalCondos</td>
+<td>Stand-alone secondary rental condominium.</td>
+</tr>
+<tr>
+<td>E</td>
+<td>SASeasonal</td>
+<td>Stand-alone secondary seasonal dwelling.</td>
+</tr>
+<tr>
+<td>K</td>
+<td>SASecHomeowners</td>
+<td>Stand-alone secondary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>L</td>
+<td>HolidayTrailer</td>
+<td>Holiday trailer.</td>
+</tr>
+<tr>
+<td>P</td>
+<td>ParkModelTrailer</td>
+<td>Park model trailer.</td>
+</tr>
+<tr>
+<td colspan="3" class="txtTableColumnTitle">Secondary Residence Dwellings - These dwellings must be included in a 
+                    quote that already has a Primary or Stand-Alone dwelling.</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Dwelling Code</td>
+<td class="txtTableColumnTitle">CodeName</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td>Secondary seasonal dwelling.</td>
+</tr>
+<tr>
+<td>R</td>
+<td>SecRentalDwellings</td>
+<td>Secondary rental dwelling.</td>
+</tr>
+<tr>
+<td>N</td>
+<td>SecRentalCondos</td>
+<td>Secondary rental condominium dwelling.</td>
+</tr>
+<tr>
+<td>O</td>
+<td>SecHomeowners</td>
+<td>Secondary homeowner dwelling.</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Watercraft</td>
+<td>Secondary watercraft.</td>
+</tr>
+</table><a href="#">top</a><br><hr><a name="descFormTypeCodeNames"></a><h2>Valid Form Type - CodeName Combinations</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="12" align="left">Valid Form Type - CodeName Combinations</td>
+</tr>
+<tr>
+<td colspan="12" class="txtTableColumnTitle">This table demonstrates, with an X, the form types that can be used for each dwelling type.</td>
+</tr>
+<tr>
+<td rowspan="2" class="txtTableColumnTitle">Dwelling Code</td>
+<td rowspan="2" class="txtTableColumnTitle">CodeName</td>
+<td align="center" colspan="10" class="txtTableColumnTitle"><a href="HabRangeTables.htm#Table5">Form Type</a></td>
+</tr>
+<tr>
+<td align="center" class="txtTableColumnTitle">0</td>
+<td align="center" class="txtTableColumnTitle">1</td>
+<td align="center" class="txtTableColumnTitle">2</td>
+<td align="center" class="txtTableColumnTitle">3</td>
+<td align="center" class="txtTableColumnTitle">4</td>
+<td align="center" class="txtTableColumnTitle">5</td>
+<td align="center" class="txtTableColumnTitle">6</td>
+<td align="center" class="txtTableColumnTitle">7</td>
+<td align="center" class="txtTableColumnTitle">9</td>
+<td align="center" class="txtTableColumnTitle">10</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Homeowners</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>C</td>
+<td>Condos</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>T</td>
+<td>Tenants</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>A</td>
+<td>SASecRentalDwellings</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>G</td>
+<td>SASecRentalCondos</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>E</td>
+<td>SASeasonal</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>K</td>
+<td>SASecHomeowners</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>L</td>
+<td>HolidayTrailer</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>P</td>
+<td>ParkModelTrailer</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>R</td>
+<td>SecRentalDwellings</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>N</td>
+<td>SecRentalCondos</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>O</td>
+<td>SecHomeowners</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>W</td>
+<td>Watercraft</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</table><a href="#">top</a><br><hr><a name="descMultipleForms"></a><h2>Multiple Forms</h2>
+<p>Some carriers offer multiple forms for a coverage type. For example, a carrier
+            might offer two different forms for All Risks/All Risks. FORTUS&#8482; can now quote both forms 
+            simultaneously. For backwards compatibility, multiple forms quoting is turned OFF by default. To quote
+            multiple forms, do one of the following:</p>
+<ul>
+<li>Go to Settings in Fortus Config and check "Habitation - Multiple Forms"</li>
+<li>Include the following in the input XML as a child node of &lt;FortusTransaction&gt;:
+                <br>    &lt;RegistryOverrides&gt;
+                <br>      &lt;HabMultipleForms&gt;1&lt;/HabMultipleForms&gt;
+                <br>    &lt;/RegistryOverrides&gt;</li>
+</ul>
+<p>If not quoting multiple forms, the form quoted will be the default form. If 
+            quoting multiple forms, additional forms will manifest as additional &lt;QuoteInfo&gt; tags. These 
+            additional tags are identified with an <strong>AdditionalForm</strong> attribute with a value of <strong>"TRUE"</strong>.</p><br><hr><a name="descResValues"></a><h2>Residence Values</h2>
+<table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="6" align="left">Residence Values</td>
+</tr>
+<tr>
+<td colspan="6" class="txtTableColumnTitle">This table outlines the intended meaning of fields depending on the dwelling type.</td>
+</tr>
+<tr>
+<td rowspan="2" class="txtTableColumnTitle">Dwelling Code</td>
+<td rowspan="2" class="txtTableColumnTitle">CodeName</td>
+<td align="center" colspan="4" class="txtTableColumnTitle"><a href="HabMap.htm#tblDwelling">Fields</a> with their intended meanings</td>
+</tr>
+<tr>
+<td align="center" class="txtTableColumnTitle">Value</td>
+<td align="center" class="txtTableColumnTitle">Coverage</td>
+<td align="center" class="txtTableColumnTitle">OB</td>
+<td align="center" class="txtTableColumnTitle">PP</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Homeowners</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Condos</td>
+<td>Contents Amount</td>
+<td>Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>T</td>
+<td>Tenants</td>
+<td>Contents Amount</td>
+<td>Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>A</td>
+<td>SASecRentalDwellings</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Landlord Contents</td>
+</tr>
+<tr>
+<td>G</td>
+<td>SASecRentalCondos</td>
+<td> </td>
+<td>Landlord Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>E</td>
+<td>SASeasonal</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>K</td>
+<td>SASecHomeowners</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>L</td>
+<td>HolidayTrailer</td>
+<td>Trailer Value</td>
+<td>Trailer Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>P</td>
+<td>ParkModelTrailer</td>
+<td>Trailer Value</td>
+<td>Trailer Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+<tr>
+<td>R</td>
+<td>SecRentalDwellings</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Landlord Contents</td>
+</tr>
+<tr>
+<td>N</td>
+<td>SecRentalCondos</td>
+<td> </td>
+<td>Landlord Contents Coverage</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>O</td>
+<td>SecHomeowners</td>
+<td>Building Value</td>
+<td>Building Coverage</td>
+<td>Outbuildings</td>
+<td>Contents</td>
+</tr>
+</table><a href="#">top</a><br><br><hr><a name="descAliases"></a><h2>Structure Aliases</h2>
+<table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3" align="left">Alias Associations</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Alias</td>
+<td class="txtTableColumnTitle">Base Structure</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>AddLivingExpCov</td>
+<td>StdCov</td>
+<td>Additional living expenses standard coverage</td>
+</tr>
+<tr>
+<td>AgeOfHomeSur</td>
+<td>DisSur</td>
+<td>Age of home surcharge</td>
+</tr>
+<tr>
+<td>AgeOfInsuredSur</td>
+<td>DisSur</td>
+<td>Age of insured surcharge</td>
+</tr>
+<tr>
+<td>AnimalsFlt</td>
+<td>Floater</td>
+<td>Animals (miscellaneous) floater</td>
+</tr>
+<tr>
+<td>AntennaFlt</td>
+<td>Floater</td>
+<td>Antenna floater</td>
+</tr>
+<tr>
+<td>AuxilliaryHeatingSur</td>
+<td>DisSur</td>
+<td>Auxiliary heating surcharge</td>
+</tr>
+<tr>
+<td>BasementAptSur</td>
+<td>DisSur</td>
+<td>Basement apartment surcharge</td>
+</tr>
+<tr>
+<td>BathDis</td>
+<td>DisSur</td>
+<td>Discount relating to the bathrooms.</td>
+</tr>
+<tr>
+<td>BathSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to the bathrooms.</td>
+</tr>
+<tr>
+<td>BettermentsCov</td>
+<td>StdCov</td>
+<td>Betterments standard coverage</td>
+</tr>
+<tr>
+<td>BikesFlt</td>
+<td>Floater</td>
+<td>Bicycles floater</td>
+</tr>
+<tr>
+<td>BrokerFeeCov</td>
+<td>StdCov</td>
+<td>Fee charged as part of the insurance premium payable to the broker for securing the business</td>
+</tr>
+<tr>
+<td>BsmtDis</td>
+<td>DisSur</td>
+<td>Discount relating to the basement.</td>
+</tr>
+<tr>
+<td>BsmtSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to the basement.</td>
+</tr>
+<tr>
+<td>BurglarAlarmDis</td>
+<td>DisSur</td>
+<td>Burglar alarm discount</td>
+</tr>
+<tr>
+<td>BurglaryCov</td>
+<td>StdCov</td>
+<td>Burglary standard coverage</td>
+</tr>
+<tr>
+<td>BusinessUseDis</td>
+<td>DisSur</td>
+<td>Business use discount</td>
+</tr>
+<tr>
+<td>BusinessUseSur</td>
+<td>DisSur</td>
+<td>Business use surcharge</td>
+</tr>
+<tr>
+<td>ByLawsExt</td>
+<td>FreezerExt</td>
+<td>By-laws extended coverage</td>
+</tr>
+<tr>
+<td>CameraFlt</td>
+<td>Floater</td>
+<td>Camera floater</td>
+</tr>
+<tr>
+<td>CBFlt</td>
+<td>Floater</td>
+<td>CB floater</td>
+</tr>
+<tr>
+<td>CellularPhoneFlt</td>
+<td>Floater</td>
+<td>Cellular phone floater</td>
+</tr>
+<tr>
+<td>ChinaFlt</td>
+<td>Floater</td>
+<td>China floater</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>Claim</td>
+<td>Claim structure</td>
+</tr>
+<tr>
+<td>ClaimFreeProtectionExt</td>
+<td>ExtCov</td>
+<td>Claim Free Protection extended coverage</td>
+</tr>
+<tr>
+<td>ClaimsForgivenessDis</td>
+<td>DisSur</td>
+<td>Claims forgiveness discount</td>
+</tr>
+<tr>
+<td>ClaimsFreeDis</td>
+<td>DisSur</td>
+<td>Claims free discount</td>
+</tr>
+<tr>
+<td>ClaimsSur</td>
+<td>DisSur</td>
+<td>Claims surcharge</td>
+</tr>
+<tr>
+<td>CoinsFlt</td>
+<td>Floater</td>
+<td>Coins floater</td>
+</tr>
+<tr>
+<td>CombinationAlarmDis</td>
+<td>DisSur</td>
+<td>Combination alarm discount</td>
+</tr>
+<tr>
+<td>CombinedPolicyDis</td>
+<td>DisSur</td>
+<td>Combined policy discount</td>
+</tr>
+<tr>
+<td>ComputerDeskFlt</td>
+<td>Floater</td>
+<td>Desktop computer floater</td>
+</tr>
+<tr>
+<td>ComputerPortableFlt</td>
+<td>Floater</td>
+<td>Portable computer floater</td>
+</tr>
+<tr>
+<td>ConstructionDis</td>
+<td>DisSur</td>
+<td>Discount related to type of dwelling construction.</td>
+</tr>
+<tr>
+<td>ConstructionSur</td>
+<td>DisSur</td>
+<td>Surcharge related to type of dwelling construction.</td>
+</tr>
+<tr>
+<td>ContactsFlt</td>
+<td>Floater</td>
+<td>Contacts floater</td>
+</tr>
+<tr>
+<td>ContentsCov</td>
+<td>StdCov</td>
+<td>Contents standard coverage</td>
+</tr>
+<tr>
+<td>ContingentCov</td>
+<td>StdCov</td>
+<td>Contingency standard coverage</td>
+</tr>
+<tr>
+<td>CourseConstructionDis</td>
+<td>DisSur</td>
+<td>Course construction discount</td>
+</tr>
+<tr>
+<td>CreditScore</td>
+<td>CreditScore</td>
+<td>CreditScore structure</td>
+</tr>
+<tr>
+<td>CreditScoreMis</td>
+<td>CreditScore</td>
+<td>Credit score information</td>
+</tr>
+<tr>
+<td>DeadBoltDis</td>
+<td>DisSur</td>
+<td>Deadbolt discount</td>
+</tr>
+<tr>
+<td>DedAssessExt</td>
+<td>FreezerExt</td>
+<td>Condominium deductible assessment extended coverage.</td>
+</tr>
+<tr>
+<td>DeductibleCov</td>
+<td>StdCov</td>
+<td>Deductible standard coverage</td>
+</tr>
+<tr>
+<td>DuplexSur</td>
+<td>DisSur</td>
+<td>Duplex surcharge</td>
+</tr>
+<tr>
+<td>Dwelling</td>
+<td>Dwelling</td>
+<td>Dwelling structure</td>
+</tr>
+<tr>
+<td>DwellingTotal</td>
+<td>HabPremium</td>
+<td>Total premium for Dwelling</td>
+</tr>
+<tr>
+<td>EarthquakeBldgExt</td>
+<td>EarthquakeExt</td>
+<td>Earthquake - building extended coverage</td>
+</tr>
+<tr>
+<td>EarthquakeCntsExt</td>
+<td>EarthquakeExt</td>
+<td>Earthquake - contents extended coverage</td>
+</tr>
+<tr>
+<td>EarthquakeOutBldgExt</td>
+<td>EarthquakeExt</td>
+<td>Earthquake - outbuilding extended coverage.</td>
+</tr>
+<tr>
+<td>ElectDis</td>
+<td>DisSur</td>
+<td>Discount relating to electrical wiring, service, panel, etc.</td>
+</tr>
+<tr>
+<td>ElectSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to electrical wiring, service, panel, etc.</td>
+</tr>
+<tr>
+<td>EQIndirectExt</td>
+<td>MiscExt</td>
+<td>Indirect damage from earthquake extended coverage</td>
+</tr>
+<tr>
+<td>FineArtsBrkFlt</td>
+<td>Floater</td>
+<td>Fine arts with breakage floater</td>
+</tr>
+<tr>
+<td>FineArtsFlt</td>
+<td>Floater</td>
+<td>Fine arts floater</td>
+</tr>
+<tr>
+<td>FireAlarmDis</td>
+<td>DisSur</td>
+<td>Fire alarm discount</td>
+</tr>
+<tr>
+<td>FirearmsFlt</td>
+<td>Floater</td>
+<td>Fire arms floater</td>
+</tr>
+<tr>
+<td>FireDeptChargesExt</td>
+<td>FreezerExt</td>
+<td>Fire department charges extended coverage</td>
+</tr>
+<tr>
+<td>FishFlt</td>
+<td>Floater</td>
+<td>Fishing equipment floater</td>
+</tr>
+<tr>
+<td>FreezerExt</td>
+<td>FreezerExt</td>
+<td>Food freezer extended coverage</td>
+</tr>
+<tr>
+<td>FuelOilLeakageExt</td>
+<td>FreezerExt</td>
+<td>Damage caused by the sudden and accidental leakage of fuel oil from a tank permanently installed inside a dwelling</td>
+</tr>
+<tr>
+<td>FuelOilLeakageOutdoorExt</td>
+<td>FreezerExt</td>
+<td>Damage caused by the sudden and accidental leakage of fuel oil from a tank permanently installed outside a dwelling</td>
+</tr>
+<tr>
+<td>FursFlt</td>
+<td>Floater</td>
+<td>Furs floater</td>
+</tr>
+<tr>
+<td>GlassDedExt</td>
+<td>GlassDedExt</td>
+<td>Glass breakage buy down extended coverage</td>
+</tr>
+<tr>
+<td>GoldSilverFlt</td>
+<td>Floater</td>
+<td>Gold and Silver floater</td>
+</tr>
+<tr>
+<td>GolfCartFlt</td>
+<td>Floater</td>
+<td>Golf cart floater</td>
+</tr>
+<tr>
+<td>GolfClubsFlt</td>
+<td>Floater</td>
+<td>Golf clubs floater</td>
+</tr>
+<tr>
+<td>GravestoneFlt</td>
+<td>Floater</td>
+<td>Gravestone floater</td>
+</tr>
+<tr>
+<td>GroundWaterExt</td>
+<td>FreezerExt</td>
+<td>Ground water coverage</td>
+</tr>
+<tr>
+<td>GroupPlanDis</td>
+<td>DisSur</td>
+<td>Group plan discount</td>
+</tr>
+<tr>
+<td>GroupPlanSur</td>
+<td>DisSur</td>
+<td>Group plan surcharge</td>
+</tr>
+<tr>
+<td>GuarBldgRepCostCov</td>
+<td>StdCov</td>
+<td>Guaranteed building replacement cost coverage</td>
+</tr>
+<tr>
+<td>HailCov</td>
+<td>StdCov</td>
+<td>Hail peril coverage</td>
+</tr>
+<tr>
+<td>HearingAidFlt</td>
+<td>Floater</td>
+<td>Hearing aid floater</td>
+</tr>
+<tr>
+<td>HeatingDis</td>
+<td>DisSur</td>
+<td>Heating type discount</td>
+</tr>
+<tr>
+<td>HomeBusDis</td>
+<td>DisSur</td>
+<td>Home-based business discount</td>
+</tr>
+<tr>
+<td>HomeBusExt</td>
+<td>HomeBusExt</td>
+<td>Home-based business extended coverage structure.</td>
+</tr>
+<tr>
+<td>HomeBusProfLiabExt</td>
+<td>ExtCov</td>
+<td>Professional Liability for Home-based Business extended coverage</td>
+</tr>
+<tr>
+<td>HomeBusSur</td>
+<td>DisSur</td>
+<td>Home-based business surcharge</td>
+</tr>
+<tr>
+<td>HomeSecurityDis</td>
+<td>DisSur</td>
+<td>Home security discount</td>
+</tr>
+<tr>
+<td>IdentityTheftExt</td>
+<td>FreezerExt</td>
+<td>Identity theft</td>
+</tr>
+<tr>
+<td>JeweleryFlt</td>
+<td>Floater</td>
+<td>Jewellery floater</td>
+</tr>
+<tr>
+<td>JewelerySafeFlt</td>
+<td>Floater</td>
+<td>Jewellery in vault or safety deposit floater</td>
+</tr>
+<tr>
+<td>LawnCareFlt</td>
+<td>Floater</td>
+<td>Lawn care floater</td>
+</tr>
+<tr>
+<td>LegalFeesExt</td>
+<td>FreezerExt</td>
+<td>Legal fees incurred in the event of a dispute</td>
+</tr>
+<tr>
+<td>LiabHomeBusCov</td>
+<td>StdCov</td>
+<td>Liability coverage for home-based business.</td>
+</tr>
+<tr>
+<td>LiabilityCov</td>
+<td>StdCov</td>
+<td>Liability coverage</td>
+</tr>
+<tr>
+<td>LiabMultiFamCov</td>
+<td>StdCov</td>
+<td>Liability coverage for multi-family.</td>
+</tr>
+<tr>
+<td>LiabOilTankCov</td>
+<td>StdCov</td>
+<td>Liability coverage for oil tank.</td>
+</tr>
+<tr>
+<td>LiabPoolCov</td>
+<td>StdCov</td>
+<td>Liability coverage for swimming pool.</td>
+</tr>
+<tr>
+<td>LiabSolarCov</td>
+<td>StdCov</td>
+<td>Liability coverage for solar panel(s).</td>
+</tr>
+<tr>
+<td>LiabUnderConstCov</td>
+<td>StdCov</td>
+<td>Liability coverage for dwelling under construction.</td>
+</tr>
+<tr>
+<td>LiabVacancyCov</td>
+<td>StdCov</td>
+<td>Liability coverage for vacancy.</td>
+</tr>
+<tr>
+<td>LocationDis</td>
+<td>DisSur</td>
+<td>Discount related to geographic location of dwelling.</td>
+</tr>
+<tr>
+<td>LocationSur</td>
+<td>DisSur</td>
+<td>Surcharge related to geographic location of dwelling.</td>
+</tr>
+<tr>
+<td>LogHomeSur</td>
+<td>DisSur</td>
+<td>Log home surcharge</td>
+</tr>
+<tr>
+<td>LossAssessLiabCov</td>
+<td>StdCov</td>
+<td>Loss assessment liability coverage</td>
+</tr>
+<tr>
+<td>LossAssessPropCov</td>
+<td>StdCov</td>
+<td>Loss assessment property coverage</td>
+</tr>
+<tr>
+<td>LoyaltyDis</td>
+<td>DisSur</td>
+<td>For future use. Not functional, do not use.</td>
+</tr>
+<tr>
+<td>MassEvacExt</td>
+<td>ExtCov</td>
+<td>Mass evacuation extended coverage</td>
+</tr>
+<tr>
+<td>MatureHomeownerDis</td>
+<td>DisSur</td>
+<td>Mature home owner discount</td>
+</tr>
+<tr>
+<td>MaxCapDis</td>
+<td>DisSur</td>
+<td>Max cap discount</td>
+</tr>
+<tr>
+<td>MediaStorageFlt</td>
+<td>Floater</td>
+<td>Media / storage (tapes, CDs, DVDs, etc) floater</td>
+</tr>
+<tr>
+<td>MedicalEquipmentFlt</td>
+<td>Floater</td>
+<td>Medical equipment floater</td>
+</tr>
+<tr>
+<td>MinPremiumSur</td>
+<td>DisSur</td>
+<td>Surcharge to enforce minimum premium.</td>
+</tr>
+<tr>
+<td>Misc0Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc0Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc0Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Including this alias in the input with Apply set to 1 will turn on surcharge.</td>
+</tr>
+<tr>
+<td>Misc10Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc10Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc11Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc11Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc12Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc12Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc13Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc13Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc14Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc14Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc15Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc15Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc16Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc16Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc17Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc17Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc18Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc18Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc19Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc19Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc1Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc1Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc1Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Including this alias in the input with Apply set to 1 will turn on surcharge.</td>
+</tr>
+<tr>
+<td>Misc20Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc21Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc22Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc23Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc24Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc25Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc26Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc27Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc28Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc29Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc2Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc2Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc2Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Including this alias in the input with Apply set to 1 will turn on surcharge.</td>
+</tr>
+<tr>
+<td>Misc3Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc3Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc3Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Including this alias in the input with Apply set to 1 will turn on surcharge.</td>
+</tr>
+<tr>
+<td>Misc4Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Including this alias in the input with Apply set to 1 will turn on discount.</td>
+</tr>
+<tr>
+<td>Misc4Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Including this alias in the input with Apply set to 1 will turn on extended coverage.</td>
+</tr>
+<tr>
+<td>Misc4Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Including this alias in the input with Apply set to 1 will turn on surcharge.</td>
+</tr>
+<tr>
+<td>Misc5Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc5Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc5Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc6Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc6Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc6Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc7Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc7Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc7Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc8Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc8Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc8Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc9Dis</td>
+<td>DisSur</td>
+<td>Carrier-specific discount. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc9Ext</td>
+<td>MiscExt</td>
+<td>Carrier-specific extended coverage. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>Misc9Sur</td>
+<td>DisSur</td>
+<td>Carrier-specific surcharge. Carrier turns this on if appropriate.</td>
+</tr>
+<tr>
+<td>MortgageFreeDis</td>
+<td>DisSur</td>
+<td>Mortgage free discount</td>
+</tr>
+<tr>
+<td>MortgageSur</td>
+<td>DisSur</td>
+<td>Surcharge related to mortgage(s).</td>
+</tr>
+<tr>
+<td>MultiFamilyDis</td>
+<td>DisSur</td>
+<td>Multi-family discount</td>
+</tr>
+<tr>
+<td>MultiFamilySur</td>
+<td>DisSur</td>
+<td>Multi-family surcharge</td>
+</tr>
+<tr>
+<td>MultiPolicyDis</td>
+<td>DisSur</td>
+<td>Multi-policy discount</td>
+</tr>
+<tr>
+<td>MultiPolicySur</td>
+<td>DisSur</td>
+<td>Multi-policy surcharge</td>
+</tr>
+<tr>
+<td>MusicalInstrumentFlt</td>
+<td>Floater</td>
+<td>Musical instruments floater</td>
+</tr>
+<tr>
+<td>NeighbourhoodWatchDis</td>
+<td>DisSur</td>
+<td>Neighbourhood watch discount</td>
+</tr>
+<tr>
+<td>NewBusinessDis</td>
+<td>DisSur</td>
+<td>New business discount.</td>
+</tr>
+<tr>
+<td>NewHomeDis</td>
+<td>DisSur</td>
+<td>New home discount</td>
+</tr>
+<tr>
+<td>NonSmokerDis</td>
+<td>DisSur</td>
+<td>Non-smokers discount</td>
+</tr>
+<tr>
+<td>NoPreviousInsuranceSur</td>
+<td>DisSur</td>
+<td>No previous insurance surcharge</td>
+</tr>
+<tr>
+<td>OccupationalDis</td>
+<td>DisSur</td>
+<td>Occupation discount</td>
+</tr>
+<tr>
+<td>OutbuildingCov</td>
+<td>StdCov</td>
+<td>Out building coverage</td>
+</tr>
+<tr>
+<td>OverlandWaterExt</td>
+<td>EarthquakeExt</td>
+<td>Overland water extended coverage</td>
+</tr>
+<tr>
+<td>PersonalCyberExt</td>
+<td>FreezerExt</td>
+<td>Personal Cyber extended coverage</td>
+</tr>
+<tr>
+<td>PersonalEffectsOtherFlt</td>
+<td>Floater</td>
+<td>Other personal effects floater</td>
+</tr>
+<tr>
+<td>PersonalEffectsWWFlt</td>
+<td>Floater</td>
+<td>Personal effects world wide floater</td>
+</tr>
+<tr>
+<td>PlumbDis</td>
+<td>DisSur</td>
+<td>Discount relating to the plumbing.</td>
+</tr>
+<tr>
+<td>PlumbSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to the plumbing.</td>
+</tr>
+<tr>
+<td>PolicyTotal</td>
+<td>HabPremium</td>
+<td>Total premium for the Policy</td>
+</tr>
+<tr>
+<td>PoolAboveGroundExt</td>
+<td>MiscExt</td>
+<td>Above Ground Pool extended coverage</td>
+</tr>
+<tr>
+<td>PoolDis</td>
+<td>DisSur</td>
+<td>Discount relating to a swimming pool.</td>
+</tr>
+<tr>
+<td>PoolInGroundExt</td>
+<td>MiscExt</td>
+<td>InGround Pool extended coverage</td>
+</tr>
+<tr>
+<td>PoolSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to a swimming pool.</td>
+</tr>
+<tr>
+<td>PortableRadioFlt</td>
+<td>Floater</td>
+<td>Portable radio floater</td>
+</tr>
+<tr>
+<td>PowerSquadronDis</td>
+<td>DisSur</td>
+<td>Power squadron discount</td>
+</tr>
+<tr>
+<td>PreferredCustomerDis</td>
+<td>DisSur</td>
+<td>Preferred customer discount</td>
+</tr>
+<tr>
+<td>PrimaryHeatingSur</td>
+<td>DisSur</td>
+<td>Primary heating surcharge</td>
+</tr>
+<tr>
+<td>PropertyInStorageExt</td>
+<td>PropertyInStorageExt</td>
+<td>Property in storage extended coverage structure</td>
+</tr>
+<tr>
+<td>QualityHomeDis</td>
+<td>DisSur</td>
+<td>Quality home discount</td>
+</tr>
+<tr>
+<td>QuoteInfo</td>
+<td>QuoteInfo</td>
+<td>QuoteInfo structure</td>
+</tr>
+<tr>
+<td>RenewalDis</td>
+<td>DisSur</td>
+<td>Renewal discount</td>
+</tr>
+<tr>
+<td>RentalExt</td>
+<td>RentalExt</td>
+<td>Rental Income extended coverage structure</td>
+</tr>
+<tr>
+<td>ReplacementCostCov</td>
+<td>StdCov</td>
+<td>Replacement cost coverage</td>
+</tr>
+<tr>
+<td>ResGlassExt</td>
+<td>FreezerExt</td>
+<td>Residential Glass.</td>
+</tr>
+<tr>
+<td>ResidenceCov</td>
+<td>StdCov</td>
+<td>Residence coverage</td>
+</tr>
+<tr>
+<td>RoofDis</td>
+<td>DisSur</td>
+<td>Discount related to type of dwelling roof.</td>
+</tr>
+<tr>
+<td>RoofSur</td>
+<td>DisSur</td>
+<td>Surcharge related to type of dwelling roof.</td>
+</tr>
+<tr>
+<td>SailingSchoolDis</td>
+<td>DisSur</td>
+<td>Sailing school discount</td>
+</tr>
+<tr>
+<td>SatelliteFlt</td>
+<td>Floater</td>
+<td>Satellite floater</td>
+</tr>
+<tr>
+<td>SBUPrevMeasDis</td>
+<td>DisSur</td>
+<td>Discount for preventative measures in place for sewer backup.</td>
+</tr>
+<tr>
+<td>SecurityGuardDis</td>
+<td>DisSur</td>
+<td>Security guard discount</td>
+</tr>
+<tr>
+<td>SeniorsDis</td>
+<td>DisSur</td>
+<td>Seniors discount</td>
+</tr>
+<tr>
+<td>SepticSystemDis</td>
+<td>DisSur</td>
+<td>Discount related to a septic system.</td>
+</tr>
+<tr>
+<td>SewerBackupExt</td>
+<td>FreezerExt</td>
+<td>Water damage caused by discharge, backing up or overflow of water from a sewer</td>
+</tr>
+<tr>
+<td>ShuttleTankerDis</td>
+<td>DisSur</td>
+<td>Discount related to shuttle tanker.</td>
+</tr>
+<tr>
+<td>SingleLimitCov</td>
+<td>StdCov</td>
+<td>Single limit coverage</td>
+</tr>
+<tr>
+<td>SkisFlt</td>
+<td>Floater</td>
+<td>Skis floater</td>
+</tr>
+<tr>
+<td>SmokeAlarmDis</td>
+<td>DisSur</td>
+<td>Smoke alarm discount</td>
+</tr>
+<tr>
+<td>SolarDis</td>
+<td>DisSur</td>
+<td>Solar panel(s) discount</td>
+</tr>
+<tr>
+<td>SolarExt</td>
+<td>SolarExt</td>
+<td>Solar panel(s) extended coverage structure.</td>
+</tr>
+<tr>
+<td>SolarSur</td>
+<td>DisSur</td>
+<td>Solar panel(s) surcharge</td>
+</tr>
+<tr>
+<td>SpasAboveGroundExt</td>
+<td>ExtCov</td>
+<td>Above-ground spas extended coverage</td>
+</tr>
+<tr>
+<td>SpasInGroundExt</td>
+<td>ExtCov</td>
+<td>In-ground spas extended coverage</td>
+</tr>
+<tr>
+<td>SportsCardsFlt</td>
+<td>Floater</td>
+<td>Sports cards floater</td>
+</tr>
+<tr>
+<td>SportsEquipmentFlt</td>
+<td>Floater</td>
+<td>Sports equipment floater</td>
+</tr>
+<tr>
+<td>SprinklerDis</td>
+<td>DisSur</td>
+<td>Sprinkler discount</td>
+</tr>
+<tr>
+<td>StabilityDis</td>
+<td>DisSur</td>
+<td>Discount related to stability of residence occupancy.</td>
+</tr>
+<tr>
+<td>StampsFlt</td>
+<td>Floater</td>
+<td>Stamps floater</td>
+</tr>
+<tr>
+<td>StoreyDis</td>
+<td>DisSur</td>
+<td>Discount related to floor or storey of residence.</td>
+</tr>
+<tr>
+<td>ToolsFlt</td>
+<td>Floater</td>
+<td>Tools floater</td>
+</tr>
+<tr>
+<td>TVFlt</td>
+<td>Floater</td>
+<td>Television floater</td>
+</tr>
+<tr>
+<td>TypewriterFlt</td>
+<td>Floater</td>
+<td>Typewriter floater</td>
+</tr>
+<tr>
+<td>UnderConstDis</td>
+<td>DisSur</td>
+<td>Dwelling under construction discount</td>
+</tr>
+<tr>
+<td>UnderConstExt</td>
+<td>UnderConstExt</td>
+<td>Dwelling under construction extended coverage structure.</td>
+</tr>
+<tr>
+<td>UnderConstSur</td>
+<td>DisSur</td>
+<td>Dwelling under construction surcharge</td>
+</tr>
+<tr>
+<td>UnitsSur</td>
+<td>DisSur</td>
+<td>Surcharge related to the total number of units in the building.</td>
+</tr>
+<tr>
+<td>VacancyDis</td>
+<td>DisSur</td>
+<td>Vacancy discount</td>
+</tr>
+<tr>
+<td>VacancyExt</td>
+<td>ExtCov</td>
+<td>Vacancy</td>
+</tr>
+<tr>
+<td>VacancySur</td>
+<td>DisSur</td>
+<td>Vacancy surcharge</td>
+</tr>
+<tr>
+<td>VanMalBldgCov</td>
+<td>StdCov</td>
+<td>Vandalism/malicious damage building coverage</td>
+</tr>
+<tr>
+<td>VanMalCntsCov</td>
+<td>StdCov</td>
+<td>Vandalism/malicious damage contents coverage</td>
+</tr>
+<tr>
+<td>VideoEquipmentFlt</td>
+<td>Floater</td>
+<td>Video equipment floater</td>
+</tr>
+<tr>
+<td>VolCompResEmpCov</td>
+<td>StdCov</td>
+<td>For future use. Not functional, do not use.</td>
+</tr>
+<tr>
+<td>VoluntaryMedCov</td>
+<td>StdCov</td>
+<td>Voluntary medical coverage</td>
+</tr>
+<tr>
+<td>VoluntaryPropCov</td>
+<td>StdCov</td>
+<td>Voluntary property coverage</td>
+</tr>
+<tr>
+<td>WaterCov</td>
+<td>StdCov</td>
+<td>Water peril coverage</td>
+</tr>
+<tr>
+<td>WaterCraft</td>
+<td>WaterCraft</td>
+<td>Watercraft structure</td>
+</tr>
+<tr>
+<td>WaterCraftTotal</td>
+<td>HabPremium</td>
+<td>Total premium for Watercraft</td>
+</tr>
+<tr>
+<td>WaterDamageExt</td>
+<td>FreezerExt</td>
+<td>Water damage caused by seepage or influx of surface or ground water, except overflow from any stream or body of water</td>
+</tr>
+<tr>
+<td>WaterEntryExt</td>
+<td>FreezerExt</td>
+<td>Demolition and renovation costs as a result of breakage or faulty operation of the water entry</td>
+</tr>
+<tr>
+<td>WaterHeaterDis</td>
+<td>DisSur</td>
+<td>Discount relating to the water heater.</td>
+</tr>
+<tr>
+<td>WaterHeaterSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to the water heater.</td>
+</tr>
+<tr>
+<td>WaterMainDis</td>
+<td>DisSur</td>
+<td>Discount relating to the water main.</td>
+</tr>
+<tr>
+<td>WaterMainSur</td>
+<td>DisSur</td>
+<td>Surcharge relating to the water main.</td>
+</tr>
+<tr>
+<td>WheelchairMotorizedFlt</td>
+<td>Floater</td>
+<td>Wheelchair - motorized floater</td>
+</tr>
+<tr>
+<td>WheelchairOtherFlt</td>
+<td>Floater</td>
+<td>Wheelchair - other floater</td>
+</tr>
+<tr>
+<td>WindCov</td>
+<td>StdCov</td>
+<td>Wind peril coverage</td>
+</tr>
+</table><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

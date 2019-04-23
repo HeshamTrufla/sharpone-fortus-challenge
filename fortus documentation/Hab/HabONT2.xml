@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FortusTransaction Type="Property" xmlns="">
+   <Carriers>
+      <Carrier>TEST</Carrier>
+   </Carriers>
+   <Province>ON</Province>
+   <Renewal>NO</Renewal>
+   <CodeNames>
+      <Tenants>
+         <QuoteInfo>
+            <Language>English</Language>
+            <Dwelling>
+               <AutoCo>NBUS</AutoCo>
+               <AutoCoDate>20020101</AutoCoDate>
+               <BurgAlarm>NONE</BurgAlarm>
+               <CityName>NORTH YORK</CityName>
+               <Construction>BRICK</Construction>
+               <Coverage>65000</Coverage>
+               <DeadBolt>1</DeadBolt>
+               <Ded>-1</Ded>
+               <DobCoIns>19700101</DobCoIns>
+               <DobIns>19700101</DobIns>
+               <DwellingDate>19700101</DwellingDate>
+               <DwellingType>T</DwellingType>
+               <ElectDate>19900101</ElectDate>
+               <ElectServ>100 AMP</ElectServ>
+               <ElectType>COPPER</ElectType>
+               <FHDist>8</FHDist>
+               <FireAlarm>NONE</FireAlarm>
+               <FireExt>2</FireExt>
+               <FloorNum>1</FloorNum>
+               <FormType>6</FormType>
+               <HabCo>NBUS</HabCo>
+               <HabCoDate>20020101</HabCoDate>
+               <InsSince>19950101</InsSince>
+               <Liab>-1</Liab>
+               <NumBedrooms>2</NumBedrooms>
+               <NumFam>1</NumFam>
+               <NumUnits>24</NumUnits>
+               <OccSince>19700101</OccSince>
+               <OwnerOcc>1</OwnerOcc>
+               <PlumbDate>19900101</PlumbDate>
+               <PlumbType>COPPER</PlumbType>
+               <PostalCode>M4R9H4</PostalCode>
+               <PrmHeatApproved>1</PrmHeatApproved>
+               <PrmHeatChimneyType>NONE</PrmHeatChimneyType>
+               <PrmHeatDate>19900101</PrmHeatDate>
+               <PrmHeatType>ELECTRIC</PrmHeatType>
+               <ProtectionClass>P</ProtectionClass>
+               <Prov>ON</Prov>
+               <RoofDate>19900101</RoofDate>
+               <RoofType>TAR AND GRAVEL</RoofType>
+               <SecuredEntrance>1</SecuredEntrance>
+               <SmokeDetectors>2</SmokeDetectors>
+               <Sprinkler>NONE</Sprinkler>
+               <Structure>TOWNHOUSE</Structure>
+               <TerrCode>783</TerrCode>
+               <Value>50000</Value>
+               <VideoSystem>1</VideoSystem>
+               <WithBroker>19950101</WithBroker>
+            </Dwelling>
+         </QuoteInfo>
+      </Tenants>
+      <SecHomeowners>
+         <QuoteInfo>
+            <Language>English</Language>
+            <Dwelling>
+               <BurgAlarm>NONE</BurgAlarm>
+               <CityName>CAT LAKE</CityName>
+               <Construction>FRAME</Construction>
+               <Coverage>184000</Coverage>
+               <DeadBolt>1</DeadBolt>
+               <Ded>-1</Ded>
+               <DwellingDate>19980101</DwellingDate>
+               <DwellingType>O</DwellingType>
+               <ElectDate>19980101</ElectDate>
+               <ElectServ>100 AMP</ElectServ>
+               <ElectType>COPPER</ElectType>
+               <FHDist>8</FHDist>
+               <FireAlarm>NONE</FireAlarm>
+               <FireExt>2</FireExt>
+               <FormType>2</FormType>
+               <GBRC>1</GBRC>
+               <Liab>-1</Liab>
+               <NumFam>1</NumFam>
+               <NumMortgage>1</NumMortgage>
+               <NumUnits>1</NumUnits>
+               <OB>-1</OB>
+               <OccSince>19980101</OccSince>
+               <OwnerOcc>1</OwnerOcc>
+               <PlumbDate>19980101</PlumbDate>
+               <PlumbType>COPPER</PlumbType>
+               <PostalCode>P0V1J0</PostalCode>
+               <PP>-1</PP>
+               <PrmHeatApproved>1</PrmHeatApproved>
+               <PrmHeatChimneyType>BRICK</PrmHeatChimneyType>
+               <PrmHeatDate>19980101</PrmHeatDate>
+               <PrmHeatType>CENTRAL FURNACE - WOOD</PrmHeatType>
+               <ProtectionClass>U</ProtectionClass>
+               <Prov>ON</Prov>
+               <RoofDate>19980101</RoofDate>
+               <RoofType>ASPHALT SHINGLES</RoofType>
+               <SmokeDetectors>2</SmokeDetectors>
+               <Sprinkler>NONE</Sprinkler>
+               <Structure>DETACHED</Structure>
+               <TerrCode>1518</TerrCode>
+               <Value>184000</Value>
+               <WithBroker>19940101</WithBroker>
+            </Dwelling>
+         </QuoteInfo>
+      </SecHomeowners>
+   </CodeNames>
+</FortusTransaction>

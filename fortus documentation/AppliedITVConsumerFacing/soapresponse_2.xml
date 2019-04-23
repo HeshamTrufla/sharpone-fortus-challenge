@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<soap:Body>
+		<DwellingLookupResponse xmlns="http://www.compu-quote.com/AppliedITV/Version1">
+			<DwellingLookupResult>
+				<TrackingNumber>844</TrackingNumber>
+				<StatusCode>SUCCESS</StatusCode>
+				<ServiceResponse1>
+					<AppliedITVConsumerFacingResponse xmlns="http://www.compu-quote.com/ezITVValidation/Version1">
+						<AppliedITVConsumerFacingResult>
+							<TrackingNumber>45692</TrackingNumber>
+							<StatusCode>SUCCESS</StatusCode>
+							<RawResponse>
+								<iClarifyResponseDS xmlns="http://localhost/ITVWebService/XMLSchemas/iClarifyResponseDS.xsd">
+									<ResponseDT>
+										<ReleaseVersion>Unreleased</ReleaseVersion>
+										<BuildVersion>2.15.0.1</BuildVersion>
+										<ResponseDateTime>6/11/2018 7:24:38 AM</ResponseDateTime>
+										<CallTime>3940.508</CallTime>
+										<AggregationID></AggregationID>
+										<LocationID>20-D6736185</LocationID>
+										<ResultCode>A-Q-0</ResultCode>
+										<OptaAddressKey>00A-26M-13X</OptaAddressKey>
+										<Valuation>219.18</Valuation>
+										<ReplacementCost>438360</ReplacementCost>
+										<ValidityRating>Good</ValidityRating>
+										<iClarifyQuickLink>https://www2.optaintel.ca/quicklinkCT/QuickLink_Compact.aspx?key=596c0925a098</iClarifyQuickLink>
+										<AddressGrade>9</AddressGrade>
+										<NFZ>NO</NFZ>
+									</ResponseDT>
+									<IndexedAddress>
+										<StreetAddress>4510 RHODES DR</StreetAddress>
+										<StreetNumber>4510</StreetNumber>
+										<StreetNumberSuffix></StreetNumberSuffix>
+										<StreetName>RHODES</StreetName>
+										<StreetType>DR</StreetType>
+										<StreetDirection></StreetDirection>
+										<SuiteNumber></SuiteNumber>
+										<Municipality>WINDSOR</Municipality>
+										<Province>ON</Province>
+										<PostalCode>N8W5K5</PostalCode>
+									</IndexedAddress>
+									<AvailablePhotosDT>
+										<PhotoExpiresOn>2018-06-12T07:24:40-06:00</PhotoExpiresOn>
+										<PropertyPhotoURL>https://www2.optaintel.ca/ITVWebService/ilastream_FT.asp?GUID=951f861dcbbb98c3</PropertyPhotoURL>
+									</AvailablePhotosDT>
+									<AvailablePhotosDT>
+										<PhotoType>Satellite</PhotoType>
+										<PhotoExpiresOn>2018-06-12T07:24:40-06:00</PhotoExpiresOn>
+										<PropertyPhotoURL>http://www2.optaintel.ca/ITVWebService/GMViewer.html?key=NDIuMjg2MTcwLC04Mi45NTkwMTY=</PropertyPhotoURL>
+									</AvailablePhotosDT>
+									<AvailablePhotosDT>
+										<PhotoType>StaticSatelliteHigh</PhotoType>
+										<PhotoExpiresOn>2018-06-12T07:24:40-06:00</PhotoExpiresOn>
+										<PropertyPhotoURL>https://www2.optaintel.ca/ITVWebService/ilastream_FT.asp?GUID=b21f36d82eb119c2</PropertyPhotoURL>
+									</AvailablePhotosDT>
+									<AvailablePhotosDT>
+										<PhotoType>StaticSatelliteLow</PhotoType>
+										<PhotoExpiresOn>2018-06-12T07:24:40-06:00</PhotoExpiresOn>
+										<PropertyPhotoURL>https://www2.optaintel.ca/ITVWebService/ilastream_FT.asp?GUID=87d45d0cc22199e7</PropertyPhotoURL>
+									</AvailablePhotosDT>
+									<ITVParameterPointsOfLightDT>
+										<ITVParameterYearBuiltRange>Post 1980</ITVParameterYearBuiltRange>
+										<ITVParameterYearBuilt>2000</ITVParameterYearBuilt>
+										<ITVParameterSquareFootageRange>1401-2000 sqft</ITVParameterSquareFootageRange>
+										<ITVParameterSquareFootage>2000</ITVParameterSquareFootage>
+										<ITVParameterFoundationType>Basement</ITVParameterFoundationType>
+										<ITVParameterArchitecturalStyleType>Detached</ITVParameterArchitecturalStyleType>
+										<ITVParameterNumberofStories>1</ITVParameterNumberofStories>
+										<ITVParameterNumberofKitchens>1</ITVParameterNumberofKitchens>
+										<ITVParameterNumberofBaths>1</ITVParameterNumberofBaths>
+										<ITVParameterExteriorWallType>Wood Siding</ITVParameterExteriorWallType>
+										<ITVParameterRoofType>Tin</ITVParameterRoofType>
+										<ITVParameterBasementFinishType>No</ITVParameterBasementFinishType>
+										<ITVParameterAttachedStructureType>None</ITVParameterAttachedStructureType>
+										<ITVParameterGarageType>None</ITVParameterGarageType>
+									</ITVParameterPointsOfLightDT>
+									<RequestDT>
+										<RequestIdentifier>45692</RequestIdentifier>
+										<RequestorID>WebRater</RequestorID>
+										<OrderdateTime>2018/06/11T09:24:38</OrderdateTime>
+										<IncludePhotos>Y</IncludePhotos>
+										<Language>E</Language>
+										<Municipality>WINDSOR</Municipality>
+										<Province>ON</Province>
+										<PostalCode>N8W5K5</PostalCode>
+										<RuralFlag>U</RuralFlag>
+										<StreetAddress>4510+RHODES+DRIVE</StreetAddress>
+										<AddressKey>20-D6736185</AddressKey>
+										<TransactionKey></TransactionKey>
+									</RequestDT>
+									<MessageDT>
+										<Code>3</Code>
+										<Text>PHOTOS NOT AVAILABLE</Text>
+									</MessageDT>
+								</iClarifyResponseDS>
+							</RawResponse>
+						</AppliedITVConsumerFacingResult>
+					</AppliedITVConsumerFacingResponse>
+				</ServiceResponse1>
+				<ServiceResponse2>
+					<CallFUSWebServiceResult xmlns="http://www.compu-quote.com/FUSService/">
+						<TrackingNumber>25800</TrackingNumber>
+						<CQAuthTrackingNumber>29526080</CQAuthTrackingNumber>
+						<StatusCode>SUCCESS</StatusCode>
+						<RawResponse>
+							<tResponse_oGetFUSResultsByAddressv2>
+								<ExtensionData></ExtensionData>
+								<Result>
+									<ExtensionData></ExtensionData>
+									<Dwelling>
+										<ExtensionData></ExtensionData>
+										<DwellingGrades>
+											<ExtensionData></ExtensionData>
+											<AllOtherAreasGrades></AllOtherAreasGrades>
+											<FirehallProtectedGrades></FirehallProtectedGrades>
+											<HydrantProtectedGrades>
+												<HydrantProtectedGrade>
+													<Grade>1</Grade>
+													<GradeDescriptionShort>Career, Fully Protected</GradeDescriptionShort>
+													<ProtectionApplies>This grade applies to properties located within 8 km road distance of a recognized responding fire hall and 300 m hose lay of a recognized fire hydrant.</ProtectionApplies>
+													<ProtectionDescription>Hydrant Protected Area</ProtectionDescription>
+													<WaterSystem>
+														<ExtensionData></ExtensionData>
+														<Identifier>W-3500526-001</Identifier>
+														<Name>Windsor - W.S.</Name>
+													</WaterSystem>
+												</HydrantProtectedGrade>
+											</HydrantProtectedGrades>
+										</DwellingGrades>
+										<Location>
+											<ExtensionData></ExtensionData>
+											<FireProtectionAreaName>WINDSOR</FireProtectionAreaName>
+											<FireProtectionAreaType>City</FireProtectionAreaType>
+											<Interpretation>
+												<ExtensionData></ExtensionData>
+												<FullText>Dwelling Protection Grade (DPG) 1 (Career, Fully Protected) should be applied.</FullText>
+												<HydrantProtected>Dwelling Protection Grade (DPG) 1 (Career, Fully Protected) should be applied.</HydrantProtected>
+											</Interpretation>
+											<Name>4510 RHODES DR</Name>
+											<Province>ON</Province>
+											<Summary>4510 RHODES DR is located within the City of WINDSOR. The responding fire hall is Windsor - F.S. #6 located in the CITY OF WINDSOR Fire Protection Area.</Summary>
+										</Location>
+										<RespondingFirehall>
+											<ExtensionData></ExtensionData>
+											<Address>2650 Airport Rd., Windsor, Ontario</Address>
+											<CPGTerritory>73</CPGTerritory>
+											<DPGTerritory>74</DPGTerritory>
+											<EquipmentProvision>G</EquipmentProvision>
+											<FulltimeFireFightersPerFireStation>8</FulltimeFireFightersPerFireStation>
+											<GoverningAgency>CITY OF WINDSOR</GoverningAgency>
+											<GradingDate>2012-10-12</GradingDate>
+											<Identifier>F-3500526-006</Identifier>
+											<MobileWaterSupply>Nil</MobileWaterSupply>
+											<Name>Windsor - F.S. #6</Name>
+											<Province>ON</Province>
+											<PumperFlowImperialGallonsPerMinute>2300</PumperFlowImperialGallonsPerMinute>
+											<RoadDistanceKilometers>3.6</RoadDistanceKilometers>
+											<STSSAccreditationDate></STSSAccreditationDate>
+											<TankerCapacityImperialGallons>875</TankerCapacityImperialGallons>
+											<VolunteerFireFightersPerFireStation>0</VolunteerFireFightersPerFireStation>
+										</RespondingFirehall>
+										<Support>
+											<ExtensionData></ExtensionData>
+											<Email>
+												<ExtensionData></ExtensionData>
+												<Address>insurerqueryontario@fireunderwriters.ca</Address>
+												<Subject>2018.06.11 - Insurer query (WSv2) - Dwelling Protection info for 4510 RHODES DR, WINDSOR, ON</Subject>
+											</Email>
+										</Support>
+									</Dwelling>
+									<Hydrants>
+										<HydrantCount>
+											<ExtensionData></ExtensionData>
+											<Count>3</Count>
+											<Ownership>Public</Ownership>
+											<RadiusInMeters>150</RadiusInMeters>
+											<Recognized>Y</Recognized>
+										</HydrantCount>
+										<HydrantCount>
+											<ExtensionData></ExtensionData>
+											<Count>5</Count>
+											<Ownership>Private</Ownership>
+											<RadiusInMeters>150</RadiusInMeters>
+											<Recognized>Y</Recognized>
+										</HydrantCount>
+										<HydrantCount>
+											<ExtensionData></ExtensionData>
+											<Count>5</Count>
+											<Ownership>Public</Ownership>
+											<RadiusInMeters>300</RadiusInMeters>
+											<Recognized>Y</Recognized>
+										</HydrantCount>
+										<HydrantCount>
+											<ExtensionData></ExtensionData>
+											<Count>13</Count>
+											<Ownership>Private</Ownership>
+											<RadiusInMeters>300</RadiusInMeters>
+											<Recognized>Y</Recognized>
+										</HydrantCount>
+									</Hydrants>
+								</Result>
+							</tResponse_oGetFUSResultsByAddressv2>
+						</RawResponse>
+					</CallFUSWebServiceResult>
+				</ServiceResponse2>
+			</DwellingLookupResult>
+		</DwellingLookupResponse>
+	</soap:Body>
+</soap:Envelope>

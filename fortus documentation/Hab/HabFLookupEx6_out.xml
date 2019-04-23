@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Property">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <CodeName>Homeowners</CodeName>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="RatebookList">
+         <Carrier>GC</Carrier>
+         <Results>
+            <Values Group="Homeowners">
+               <Values Group="RatesSetup">
+                  <Value>3</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>3</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>3</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>6</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="RatebookList">
+         <Carrier>MR</Carrier>
+         <Results>
+            <Values Group="Homeowners">
+               <Values Group="RatesSetup">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="PostalCode">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="TownGradeDesc">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="RatingDesc">
+                  <Value>3</Value>
+               </Values>
+               <Values Group="CoverageDesc">
+                  <Value>2</Value>
+               </Values>
+               <Values Group="DisSurDesc">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="EndorsementDesc">
+                  <Value>4</Value>
+               </Values>
+               <Values Group="Underwriting">
+                  <Value>5</Value>
+               </Values>
+               <Values Group="UWFloat">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecSeason">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWWater">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecRent">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWsecRentCondo">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="LookupTBL">
+                  <Value>0</Value>
+               </Values>
+               <Values Group="UWSecHome">
+                  <Value>0</Value>
+               </Values>
+            </Values>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQWIN\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Hab Engine: C:\CQWIN\cqhe3210.dll</Info>
+      <Info>Legacy Hab Engine Info: Version 1.2 Build 5</Info>
+      <Info LookupID="1">c:\cqwin\hab\qc\c_q_gc.bdf</Info>
+      <Info LookupID="2">c:\cqwin\hab\qc\c_q_mr.bdf</Info>
+      <Info>FLookup Engine Info: Version 1 Build 2</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Tue Aug 29 12:02:32 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

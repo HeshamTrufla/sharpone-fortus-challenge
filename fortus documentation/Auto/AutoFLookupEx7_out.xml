@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="CoverageList">
+         <Carrier>GA</Carrier>
+         <Results>
+            <Value>TP</Value>
+            <Value>AP</Value>
+            <Value>COL</Value>
+            <Value>CMP</Value>
+            <Value>SP</Value>
+            <Value>PAK</Value>
+            <Value>2</Value>
+            <Value>5A</Value>
+            <Value>13C</Value>
+            <Value>20</Value>
+            <Value>23A</Value>
+            <Value>27</Value>
+            <Value>34</Value>
+            <Value>43D</Value>
+            <Value>43E</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="CoverageList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>TP</Value>
+            <Value>AP</Value>
+            <Value>COL</Value>
+            <Value>CMP</Value>
+            <Value>SP</Value>
+            <Value>PAK</Value>
+            <Value>2</Value>
+            <Value>5A</Value>
+            <Value>13C</Value>
+            <Value>20</Value>
+            <Value>23A</Value>
+            <Value>27</Value>
+            <Value>34</Value>
+            <Value>43A</Value>
+            <Value>43D</Value>
+            <Value>43E</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="3" Type="CoverageList">
+         <Carrier>GC</Carrier>
+         <Results>
+            <Value>TP</Value>
+            <Value>AP</Value>
+            <Value>COL</Value>
+            <Value>CMP</Value>
+            <Value>SP</Value>
+            <Value>PAK</Value>
+            <Value>2</Value>
+            <Value>13C</Value>
+            <Value>20</Value>
+            <Value>27</Value>
+            <Value>34</Value>
+            <Value>43</Value>
+            <Value>43B</Value>
+            <Value>43C</Value>
+            <Value>43D</Value>
+            <Value>43E</Value>
+            <Value>LWD</Value>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQWIN\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Auto Engine: C:\CQWIN\cqae32r.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 5</Info>
+      <Info LookupID="1">Ratebook File: c:\cqwin\auto\AP8GA.QUE</Info>
+      <Info LookupID="2">Ratebook File: c:\cqwin\auto\AP7AXA.QUE</Info>
+      <Info LookupID="3">Ratebook File: c:\cqwin\auto\AP8GC.QUE</Info>
+      <Info>FLookup Engine Info: Version 1 Build 2</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Tue Aug 29 09:04:09 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Language>English</Language>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="ClassHelp">
+         <Carrier>GA</Carrier>
+         <Results>
+            <Value>CLASSE 01     (SUITE: LES DOSSIERS)          
+Promenade.                                   
+Le conducteur principal, proposant ou non,   
+doit être:                                   
+-un homme célibataire de 30 ans ou plus; ou  
+-un homme marié âgé de 25 ans ou plus vivant 
+avec son conjoint; ou                        
+-une femme de 25 ans ou plus.                
+Pas plus de deux conducteurs par voiture au  
+domicile du proposant, lesquels doivent avoir
+leur permis de conduire depuis les trois     
+dernières années.                            
+La voiture n'est pas utilisé pour aller au   
+travail ou en revenir, ni pour les           
+déplacements professionnels.                 
+Le parcours moyen prévu ne dépasse pas       
+16 000 km (10 000 milles) par années.        
+                                             
+CLASSE 02                                    
+Promenade.                                   
+Le conducteur principal, proposant ou non,   
+doit être:                                   
+-un homme célibataire de 30 ans ou plus; ou  
+-un homme marié âgé de 25 ans ou plus vivant 
+avec son conjoint; ou                        
+-une femme de 25 ans ou plus.                
+Pas plus de deux conducteurs par voiture au  
+domicile au proposant.                       
+La voiture utilisée pour aller au travail ou 
+en revenir ne parcourt pas plus de 16 km     
+(10 milles) par trajet.                      
+Le parcours moyen prévu ne dépasse pas       
+25 000 km (15 625 milles) par an.            
+                                             
+CLASSE 02A                                   
+Promenade.                                   
+Le conducteur principal, proposant ou non,   
+doit être:                                   
+-un homme célibataire de 30 ans ou plus; ou  
+-un homme marié âgé de 25 ans ou plus vivant 
+avec son conjoint; ou                        
+-une femme de 25 ans ou plus.                
+Pas plus de deux conducteurs par voiture au  
+domicile du proposant.                       
+La voiture utilisée pour aller au travail ou 
+en revenir ne parcourt pas plus de 8 km      
+(5 milles) par trajet.                       
+Le parcours moyen prévu ne dépasse pas       
+16 000 km (10 000 milles) par an.            
+                                             
+CLASSE 03                                    
+Promenade et/ou affaires occasionnelles.     
+Le conducteur principal, proposant ou non,   
+doit être:                                   
+-un homme célibataire de 30 ans ou plus; ou  
+-un homme marié âgé de 25 ans ou plus vivant 
+avec son conjoint; ou                        
+-une femme de 25 ans ou plus.                
+Le kilométrage annuel pour affaires n'excède 
+pas 3 000 km (1 800 milles).                 
+                                             
+CLASSE 04                                    
+Conducteur principal célibataire masculin,   
+proposant ou non, âgé d'au moins 25 ans et   
+d'au plus 29.                                
+                                             
+CLASSE 05                                    
+Conducteur occasionnel Feminine âgé de moins 
+de 25 ans, lorsque le conducteur principal   
+est classe 01, 02, 02A, 03, 04, 07, 18 ou 19.
+Note:  Lorsqu'il y a plus d'un conducteur    
+occasionnel de moins de 25 ans, exiger la    
+prime la plus élevée selon le dossier de     
+chaqun des conducteurs.                      
+                                             
+CLASSE 06                                    
+Conducteur occasionnel masculin âgé de moins 
+de 25 ans, lorsque le conducteur principal   
+est classe 01, 02, 02A, 03, 04, 07, 18 ou 19.
+Note:  Lorsqu'il y a plus d'un conducteur    
+occasionnel de moins de 25 ans, exiger la    
+prime la plus élevée selon le dossier de     
+chaqun des conducteurs.                      
+                                             
+CLASSE 07                                    
+Affaires ou affaires et promenade.           
+Le conducteur principal, proposant ou non,   
+doit être:                                   
+-un homme célibataire de 30 ans ou plus; ou  
+-un homme marié âgé de 25 ans ou plus vivant 
+avec son conjoint; ou                        
+-une femme de 25 ans ou plus.                
+                                             
+CLASSE 08                                    
+Conducteur principal, proposant ou non, est  
+un homme marié ayant moins de 21 ans,        
+vivant avec son conjoint.                    
+                                             
+CLASSE 09                                    
+Conducteur principal, proposant ou non, est  
+un homme marié ayant moins de 25 ans et plus 
+de 21 ans, vivant avec son conjoint.         
+                                             
+CLASSE 10                                    
+Conducteur principal est un homme            
+célibataire, proposant ou non, âgé de 16, 17 
+ou 18 ans.                                   
+                                             
+CLASSE 11                                    
+Conducteur principal est un homme            
+célibataire, proposant ou non, âgé de 19 ou  
+20 ans.                                      
+                                             
+CLASSE 12                                    
+Conducteur principal est un homme            
+célibataire, proposant ou non, âgé de 21 ou  
+22 ans.                                      
+                                             
+CLASSE 13                                    
+Conducteur principal est un homme            
+célibataire, proposant ou non, âgé de 23 ou  
+24 ans.                                      
+                                             
+CLASSE 18                                    
+Conducteur principal de sexe féminin,        
+proposant ou non, âgé de moins de 21 ans.    
+                                             
+CLASSE 19                                    
+Conducteur principal de sexe féminin,        
+proposant ou non, âgé de moins de 25 ans mais
+de plus de 21 ans.                           
+                                             
+Note:  Les risques visés par la              
+&lt;&lt;Tarification personnalisée des flottes&gt;&gt; se
+voient appliquer, pour tous les chapitres au 
+contrat, les taux d'un dossier de conduite 0 
+dans la classe pertinente.                   
+                                             
+DOSSIER 6                                    
+1. Admissibilité - Affaires nouvelles        
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins six    
+(6) ans sans interruption d'un permis de     
+conduire valide délivré au Canada.           
+Tout autre conducteur du véhicule de l'Assuré
+est depuis au moins trois (3) ans titulaire  
+d'un permis de conduire valide délivré au    
+Canada à l'exception d'un conducteur         
+occasionnel féminin ou masculin (classe 06)  
+de moins de 25 ans.                          
+b. Ni le véhicule ni aucun des ses           
+conducteurs n'a été mâle à un accident avec  
+responsabilité depuis au moins six (6) ans.  
+c. Aucun des conducteurs n'a eu de condamna- 
+tion pour infraction au Code criminel du     
+Canada en matière de circulation routière    
+depuis au moins trois (3) ans.               
+d. Aucun des conducteurs n'a commis plus de  
+deux (2) infractions au code de la circula-  
+tion routière depuis au moins trois (3) ans  
+ni accumulé plus de sept (7) points d'inapti-
+tude.                                        
+e. Montant minimum d'assurance Responsabilité
+Civile de 1 000 000$.                        
+NOTE:  Le formulaire de la Société           
+d'assurance automobile du Québec (SSAQ) doit 
+tre signé et joint à tous les nouveaux       
+contrats (conducteur principal).             
+2. Admissibilité - Renouvellements           
+a. Voir Table des dossiers de conduite au    
+renouvellement, page H 12.                   
+                                             
+DOSSIER 5                                    
+1. Admissibilité - Affaires nouvelles        
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins cinq   
+(5) ans sans interruption d'un permis de     
+conduire valide délivré au Canada.           
+b. Aucun conducteur du véhicule n'ont été    
+impliqués dans au plus un (1) accident avec  
+responabilité au cours des cinq (5) années   
+précédentes.                                 
+c. Au cours des trois (3) années précédantes 
+l'entrée en vigueur ou le renouvellement du  
+contrat, aucun des conducteurs du véhicule   
+n'a eu:                                      
+- de condamnation pour infraction criminelle,
+ni                                           
+- plus de deux contraventions pour infraction
+au code de la route.                         
+NOTE:  Le formulaire de la Société           
+d'assurance automobile du Québec (SSAQ) doit 
+tre signé et joint à tous les nouveaux       
+contrats (conducteur principal).             
+2. Admissibilité - Renouvellements           
+a. Voir Table des dossiers de conduite au    
+revouvellement, page H 12.                   
+                                             
+DOSSIER 4                                    
+1. Admissibilité - Affaires nouvelles        
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins quatre 
+(4) ans sans interruption d'un permis de     
+conduire valide délivré au Canada.           
+b. Aucun conducteur du véhicule n'a eu       
+d'accident avec responsabilité au cours des  
+trois (4) dernières années.                  
+c. Au cours des trois (3) années précédant   
+l'entrée en vigeur ou le renouvellement du   
+contrat, aucun des conducteurs du véhicule   
+n'a eu:                                      
+- de condamnation pour infraction criminelle,
+ni                                           
+- plus de deux contraventions pour infraction
+du code de la route.                         
+NOTE:  Le formulaire de la Société           
+d'assurance automobile du Québec (SSAQ) doit 
+tre signé et joint à tous les nouveaux       
+contrats (conducteur principal).             
+2. Admissibilité - Renouvellements           
+a. Voir Table des dossiers de conduite au    
+renouvellement, page H 12.                   
+                                             
+DOSSIER 3                                    
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins trois  
+(3) ans sans interruption d'un permis de     
+conduire valide délivré au Canada ou est     
+conducteur débutant et il a réussi un cours  
+de conduite.                                 
+b. Aucun conducteur du véhicule n'a eu       
+d'accident avec responsabilité (au sens      
+défini plus haut) au cours des trois (3)     
+dernières années ou depuis l'obtention de son
+permis pour un conducteur débutant.          
+c. Au cours des trois (3) années précédant   
+L'entrée en vigueur ou le renouvellement du  
+contrat, aucun des conducteurs du véhicule   
+n'a eu de condamnation pour infraction       
+criminelle.                                  
+                                             
+DOSSIER 2                                    
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins deux   
+(2) ans sans interruption d'un permis de     
+conduire valide délivré au Canada.           
+b. Aucun conducteur du véhicule n'a eu       
+d'accident avec responsabilité (au sens      
+défini plus haut) au cours des deux (2)      
+dernières années.                            
+c. Au cour des deux (2) années précédantes   
+l'entrée en vigueur ou le renouvellement du  
+contrat, aucun des conducteurs du véhicule   
+n'a eu du condamnation pour infraction       
+criminelle.                                  
+                                             
+DOSSIER 1                                    
+a. L'Assuré ou le conducteur principal, selon
+le cas, est titulaire depuis au moins un (1) 
+an sans interruption d'un permis de conduire 
+valide délivré au Canada ou est conducteur   
+débutant sans cours de conduite.             
+b. Aucun conducteur du véhicule n'a eu       
+d'accident avec responsabilité (au sens      
+défini plus haut) au cours de la dernière    
+année ou depuis l'obtention de son permis    
+pour un conducteur débutant.                 
+c. Au cours de la dernière année précédante  
+l'entrée en vigueur ou le renouvellement du  
+contrat, aucun des conducteurs du  véhicule  
+n'a eu de condamnation pour infraction       
+criminelle.                                  
+                                             
+DOSSIER 0                                    
+Risques qui n'entrent pas dans le cadre des  
+dossiers 6, 5, 4, 3, 2 ou 1.                 
+                                             
+NOTE:                                        
+Les sinistres imputables aux conducteurs de  
+la classe 06 n'affectent pas la classe       
+principale, tant que la police couvre cette  
+classe.                                      
+                                             
+TABLES DES DOSSIERS DE CONDUITE AU           
+RENOUVELLEMENT                               
+La table ci-dessous constitue un guide       
+d'application générale.                      
+                                             
+Dossier actual: 6                            
+a. Nombre d'accidents avec responsabilité    
+durant les six (6) dernières années: 0       
+Dossier au renouvellement (tous chapitres): 6
+b. Nombre d'accidents avec responsabilité    
+durant les six (6) dernières années: 1       
+Dossier au renouvellement (tous chapitres): 5
+c. Nombre d'accidents avec responsabilité    
+durant les six (6) dernières années: 2 ou    
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actuel: 5                            
+a. Nombre d'accidents avec responsabilité    
+durant les six (6) dernières années: 0       
+Dossier au renouvellement (tous chapitres):  
+6*                                           
+b. Nombre d'accidents avec responsabilité    
+durant les six (6) dernières années: 1       
+Dossier au renouvellement (tous chapitres): 5
+c. Nombre d'accidents avec responsablité     
+durant les six (6) dernières années: 2 ou    
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actuel: 4                            
+a. Nombre d'accidents avec responsabilité    
+durant les cinq (5) dernières années: 0      
+Dossier au renouvellement (tous chapitres):  
+5*                                           
+b. Nombre d'accidents avec responsabilité    
+durant les cinq (5) dernières années: 1 ou   
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actuel: 3                            
+a. Nombre d'accidents avec responsabilité    
+durant les quatre (4) dernières années: 0    
+Dossier au renouvellement (tous chapitres): 4
+b. Nombre d'accidents avec responsabilité    
+durant les quatre (4) dernières années: 1 ou 
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actuel: 2                            
+a. Nombre d'accidents avec responsabilité    
+durant les trois (3) dernières années: 0     
+Dossier au renouvellement (tous chapitres): 3
+b. Nombre d'accidents avec responsabilité    
+durant les trois (3) dernières années: 1 ou  
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actual: 1                            
+a. Nombre d'accidents avec responsabilité    
+durant les deux (2) dernières années: 0      
+Dossier au renouvellement (tous chapitres): 2
+b. Nombre d'accidents avec responsabilité    
+durant les deux (2) dernières années: 1 ou   
+plus                                         
+Dossier au renouvellement (tous chapitres): 0
+                                             
+Dossier actuel: 0                            
+a. Nombre d'accidents avec responsabilité    
+l'an passé: 0                                
+Dossier au renouvellement (tous chapitres): 1
+b. Nombre d'accidents avec responsabilité    
+l'an passé: 1 ou plus                        
+Dossier au renouvellement (tous chapitres): 0
+                                             
+* Sujets à des règles d'admissibilité.       
+                                             
+Dans le cas de sinsistres répètes avec ou    
+sans responsabilité de la part de l'Assuré,  
+la compagnie peut à sa discretion majorer la 
+prime et/ou la franchise à l'occasion du     
+renouvellement.</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="ClassHelp">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>CLASSE 01     (SUITE: LES DOSSIERS)          
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Kilometrage aller-retour travail: 8 km max.  
+Kilometrage annuel: 16 000 km max.           
+2 conducteurs maximum par vehicule.          
+Tout conducteur possedant un permis de       
+conduire valide depuis les 3 precedentes     
+annees.                                      
+Aucun conducteur masculin ou feminin         
+celibataire de moins de 25 ans.              
+                                             
+CLASSE 02                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Kilometrage aller-retour travail: 16 km max. 
+Kilometrage annuel: 25 000 km max.           
+2 conducteurs maximum par vehicule.          
+Aucun conducteur masculin ou feminin         
+celibataire de moins de 25 ans.              
+CLASSE 03                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire    
+age 30 ans et plus.                          
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade.                            
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 04                                    
+Conducteur principal masculin celibataire    
+de 25 a 29 ans.                              
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 06                                    
+Conducteur occasionnel masculin de moins de  
+25 ans.                                      
+Notes:                                       
+La prime a exiger est distincte et doit etre 
+inscrite separement sur la proposition.      
+Lorsq'il y a plus d'un conducteur occasionnel
+masculin de moins de 25 ans:                 
+A) exiger la prime la plus elevee de la      
+classe 06 selon le dossier de chacun des     
+conducteurs.                                 
+B) tarifer en utilisant la classe 03, si la  
+classe principale est 01 ou 02.              
+                                             
+CLASSE 07                                    
+Conducteur principal masculin marie age 25   
+ans et plus.                                 
+Conducteur principal masculin celibataire age
+30 ans et plus.                              
+Conducteur principal feminin marie ou        
+celibataire age 25 ans et plus.              
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+CLASSE 08                                    
+Conducteur principal masculin marie de 16    
+20 ans.                                      
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 09                                    
+Conducteur principal masculin marie de 21    
+24 ans.                                      
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 10                                    
+Conducteur principal masculin celibataire de 
+16 a 18 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 11                                    
+Conducteur principal masculin celibataire de 
+19 a 20 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 12                                    
+Conducteur principal masculin celibataire de 
+21 a 22 ans.                                 
+Usage:  Promenade et Affaires.               
+                                             
+CLASSE 13                                    
+Conducteur principal masculin celibataire de 
+23 a 24 ans.                                 
+Usage: Promenade et Affaires.                
+                                             
+CLASSE 18                                    
+Conducteur principal feminin marie ou        
+celibataire de 16 a 20 ans.                  
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+CLASSE 19                                    
+Conducteur principal feminin marie ou        
+celibataire de 21 a 24 ans.                  
+Usage: Promenade et Affaires.                
+Aucun conducteur masculin de moins de 25 ans.
+                                             
+DOSSIER 5                                    
+"Bon dossier" au cours des cinq (5) annees   
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.  Valable
+seulement pour les risques admissibles au    
+dossier cinq (5) ans.                        
+Tous les conducteurs doivent, pendant les    
+cinq (5) annees qui precedent immediatement  
+la date d'entree en vigueur de la police de  
+son dernier renouvellement:                  
+avoir detenu un permis de conduire valide, et
+n'avoir eu aucun accident responsable sous   
+les garanties Responsabilite Civile et/ou    
+Collision.                                   
+                                             
+De plus, durant les trois (3) annees qui     
+precedent imm}diatement la date d'entree en  
+vigueur de la police ou de son renouvellement
+les conducteurs doivent n'avoir subi:        
+Aucune condamnation pour infraction de       
+circulation routiere relevant du Code        
+Criminel;                                    
+Plus de deux (2) infractions de circulation  
+routiere.                                    
+Les proposants qui etaient proprietaires ou  
+locataires d'un vehicule doivent avoir       
+detenu une assurance automobile.             
+                                             
+NOTE:                                        
+Tout risque tarife en vertu du dossier 5 ne  
+perd pas automatiquement son dossier apres un
+accident responsable.                        
+                                             
+Classe 06:                                   
+Les conducteurs de la classe 06 sont exclus, 
+sauf si les conducteurs de la classe         
+principale et ces derniers se qualifient.    
+Les conducteurs de la classe 06 qui ne se    
+qualifient pas au dossier 5, ne privent pas  
+les conducteurs de la classe principale      
+d'avoir droit au dossier 5 pour autant.      
+Conjoints:                                   
+Signifie l'homme et la femme qui:            
+Sont maries et cohabitent.                   
+Cohabitent maritalement et se presentent     
+publiquement comme conjoints, depuis au moins
+trois ans, ou dans les cas suivants, depuis  
+au moins un an:                              
+Un enfant est ne ou est a naitre de leur     
+union,                                       
+Ils ont conjointement adopte un enfant,      
+L'un deux a adopte un enfant de l'autre.     
+                                             
+DOSSIER 3                                    
+Bon dossier au cours des trois (3) annees    
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.         
+                                             
+DOSSIER 2                                    
+Bon dossier au cours des deux (2) annees     
+immediatement anterieures a la prise d'effet 
+ou au renouvellement de l'assurance.         
+                                             
+DOSSIER 1                                    
+Bon dossier au cours de l'annee immediatement
+anterieure a la prise d'effet ou au          
+renouvellement de l'assurance.               
+                                             
+DOSSIER 0                                    
+Risques qui n'entrent dans aucune des        
+categories ci-dessus.</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="3" Type="ClassHelp">
+         <Carrier>GC</Carrier>
+         <Results>
+            <Value>CLASSE 01     (SUITE: LES DOSSIERS)          
+-peut servir à la promenade seulement (n'est 
+pas utilisé pour aller au travail ou en      
+revenir ni à des activités professionnelles);
+-dont le kilométrage annuel ne dépasse pas   
+16 000 km (si plus de 16 000 km, voir les    
+classes 22, 02 et 03);                       
+                                             
+NOMBRE DE CONDUCTEURS PAR VOITURE AU DOMICILE
+DU PROPOSANT.                                
+                                             
+-maximum deux sans tenir compte de la présen-
+ce d'un seul conducteur occasionnel masculin 
+de moins de 25 ans et pour lequel une classe 
+06 est chargée (voir aussie les conditions   
+concernant les conducteurs occasionnel ci-   
+après).                                      
+                                             
+Conducteur Principal                         
+-est un homme célibataire de 30 ans ou plus; 
+-ou un homme marié de 25 ans ou plus;        
+-ou une femme de 25 ans ou plus.             
+Conducteur Occasionnel                       
+-s'il y a au moins un conducteur occasionnel 
+féminin célibataire de moins de 25 ans, le   
+conducteur principal n'est pas admissible    
+la classe 01 (voir la classe 03);            
+-s'il y a un seul conducteur occasionnel mas-
+culin de moins de 25 ans, le conducteur prin-
+cipal est admissible à la classe 01 s'il rem-
+plit les autres conditions, mais il faut     
+ajouter une classe 06 pour ce conducteur     
+occasionnel;                                 
+-s'il y a au moins 2 conducteurs occasionnels
+masculins de moins de 25 ans au domicile du  
+proposant, le conducteur principal n'est pas 
+admissible à la classe 01 (voir les classes  
+03 et 06).                                   
+                                             
+CLASSE 22                                    
+-peut servir à la promenade et pour aller au 
+travail et en revenir, si le trajet ne dépas-
+se pas 8 km à l'aller et 8 km au retour      
+(n'est pas utilisé pour des activités profes-
+sionnelles);                                 
+-n'est pas utilisé pour aller au travail ou  
+en revenir et le kilométrage annuel dépasse  
+16 000 km.                                   
+                                             
+NOMBRE DE CONDUCTEURS PAR VOITURE AU DOMICILE
+DU PROPOSANT                                 
+                                             
+-maximum deux sans tenir compte de la présen-
+ce d'un seul conducteur occasionnel masculin 
+de moins de 25 ans et pour lequel une classe 
+06 est chargée (voir aussi les conditions    
+concernant les conducteurs occasionnels ci-  
+après).                                      
+                                             
+Conducteur Principal                         
+-et un homme célibataire de 30 ans ou plus;  
+-est un homme marié de 25 ans ou plus;       
+-ou une femme de 25 ans ou plus.             
+Conducteur Occasionnel                       
+-s'il y a au moins un conducteur occasionnel 
+féminin célibataire de moins de 25 ans, le   
+conducteur principal n'est pas admissible    
+la classe 22 (voir la classe 03);            
+-s'il y a un seul conducteur occasionnel mas-
+culin de moins de 25 ans, le conducteur prin-
+cipal est admissible à la classe 22 s'il rem-
+plit les autres conditions, mais il faut aj- 
+outer une classe 06 pour ce conducteur occa- 
+sionnel;                                     
+-s'il y a au moins 2 conducteurs occasionnels
+masculins de moins de 25 ans, le conducteur  
+principal n'est pas admissible à la classe 22
+(voir les classes 03 et 06).                 
+                                             
+CLASSE 02                                    
+-peut servir à la promenade et pour aller au 
+travail et en revenir, si le trajet est de 9 
+km ou plus à l'aller et de 9 km ou plus au   
+retour sans dépasser 16 km pour chaque trajet
+                                             
+NOMBRE DE CONDUCTEURS PAR VOITURE AU DOMICILE
+DU PROPOSANT.                                
+                                             
+-maximum deux sans tenir compte de la présen-
+ce d'un seul conducteur occasionnel masculin 
+de moins de 25 ans et pour lequel une classe 
+06 est chargée (voir aussi les conditions    
+concernant les conducteurs occasionnels si   
+après).                                      
+                                             
+Conducteur Principal                         
+-est un homme célibataire de 30 ans ou plus; 
+-est un homme marié de 25 ans ou plus;       
+-ou une femme de 25 ans ou plus.             
+Conducteur Occasionnel                       
+-s'il y a au moins un conducteur occasionnel 
+féminin célibataire de moins de 25 ans, le   
+conducteur principal n'est pas admissible    
+la classe 02 (voir la classe 03);            
+-s'il y a un seul conducteur occasionnel mas-
+culin de moins de 25 ans, le conduteur prin- 
+cipal est admissible à la classe 02 s'il rem-
+plit les autre conditions, mais il faut      
+ajouter une classe 06 pour ce conducteur     
+occasionnel;                                 
+-s'il y a au moins 2 conducteurs occasionnels
+masculins de moins de 25 ans au domicile du  
+proposant, le conducteur principal n'est pas 
+admissible à la classe 02 (voir les classes  
+03 et 06).                                   
+                                             
+CLASSE 03                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir, sans restric-
+tion quant à la distance du trajet.          
+                                             
+Conducteur Principal                         
+-est un homme célibataire de 30 ans ou plus; 
+-ou un homme marié de 25 ans ou plus;        
+-ou une femme de 25 ans ou plus.             
+Conducteur Occasionnel                       
+C'est cette classe qu'il faut assigner au    
+conducteur principal:                        
+-s'il y a au moins un conducteur occasionnel 
+féminin de moins de 25 ans;                  
+-ou s'il y a au moins 2 conducteurs occasion-
+nels masculins de moins de 25 ans au domicile
+du proposant. Dans ce cas, il faut également 
+ajouter une classe 06 pour ces conducteurs   
+occasionnels.                                
+CLASSE 04                                    
+Véhicule peut servir &lt; la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+-Conducteur principal est un homme céliba-   
+taire de 25 à 29 ans inclusivement.          
+-S'il y a au moins un conducteur occasionnel 
+masculin de 25 ans, il faut ajouter une      
+classe 06 pour ce ou ces conducteurs occa-   
+sionnels.                                    
+                                             
+CLASSE 06                                    
+Conducteur occasionnel masculin de moins 25  
+ans lorsque le conducteur principal du véhi- 
+cule s'est vu assigner la classe 01, 02, 03, 
+04, 07, 08, 09, 10, 11, 12, 13, 18, 19 ou 22.
+NOTES:                                       
+La prime pour la classe 06 est distincte de  
+celle du conducteur principal et est inscrite
+séparément sur la police.                    
+2.Lorsqu'il y a plus d'un conducteur occasi- 
+onnel masculin de moins de 25 ans nous n'a-  
+joutons qu'une classe 06, mais lui assignons 
+le dossier du conducteur le plus pénalisé. De
+plus, nous assignons la classe 03, 04, 07, 08
+09, 10, 11, 12, 13, 18 ou 19 selon le cas, au
+conducteur principal, conformément aux règles
+d'attribution de ces classes.                
+3.Lorsq'il y a plus d'un véhicule sur la po- 
+lice, nous présumons que le ou les conduc-   
+teurs occasionnels masculins de moins de 25  
+ans ont accès à tous les véhicules et ratta- 
+chons la classe 06 au véhicule ayant la prime
+la plus élevée. Si ce n'est pas le cas, nous 
+pouvons rattacher la classe 06 à un autre vé-
+hicule en ajoutant l'avenant F.A.Q. no 28    
+-Restriction de la garantie - conducteurs    
+désignés pour indiquer le ou les véhicules   
+auxquels le ou les conducteurs occasionnels  
+n'ont pas accès.                             
+                                             
+CLASSE 07                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+                                             
+Conducteur Principal                         
+-est un homme célibataire de 30 ans ou plus; 
+-ou un homme marié de 25 ans ou plus;        
+-ou une femme, peu importe son âge.          
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+                                             
+CLASSE 08                                    
+(Utiliser les primes de la classe 11)        
+Véhicule peut servir à la promenade et pour  
+aller au travail et pour les affaires.       
+Conducteur principal est un homme marié de 16
+joint.                                       
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+                                             
+CLASSE 09                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+Conducteur principal est un homme marié de 21
+24 ans inclusivement vivant avec son con-    
+joint.                                       
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+                                             
+CLASSE 10                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+Conducteur principal est un homme célibataire
+de 16 à 18 ans inclusivement.                
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+NOTE: Les conducteurs de 18 ans ont un rabais
+de 6% sur les primes publiées de la classe 10
+                                             
+CLASSE 11                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+Conducteur principal est un homme célibataire
+de 19 ou 20 ans.                             
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+NOTE: Les conducteurs de 20 ans ont un rabais
+de 6% sur les primes publiées de la classe 11
+                                             
+CLASSE 12                                    
+Véhicule peut sevir à la promenade et pour   
+aller au travail et en revenir et pour les   
+affaires.                                    
+Conducteur principal est un homme célibataire
+de 21 ou 22 ans.                             
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+NOTE: Les conducteurs de 22 ans ont un rabais
+de 6% sur les primes publiées de la classe 12
+                                             
+CLASSE 13                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir et pour les   
+affaires.                                    
+Conducteur principal est un homme célibataire
+de 23 ou 24 ans.                             
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+NOTE: Les conducteurs de 24 ans ont un rabais
+de 6% sur les primes publiées de la classe 13
+                                             
+CLASSE 18                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir. S'il y a uti-
+lisation pour les affaires, voir la classe   
+07.                                          
+Conducteur principal est une femme de 16 à 20
+ans inclusivement.                           
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+NOTE: Les conducteurs de 19 et 20 ans ont un 
+rabais de 6% sur les primes publiées de la   
+classe 18.                                   
+                                             
+CLASSE 19                                    
+Véhicule peut servir à la promenade et pour  
+aller au travail et en revenir. S'il a utili-
+sation pour les affaires, voir la classe 07. 
+Conducteur principal est une femme de 21 à 24
+ans inclusivement.                           
+S'il y a au moins un conducteur occasionnel  
+masculin de moins de 25 ans, il faut ajouter 
+une classe 06 pour ce ou ces conducteurs     
+occasionnels.                                
+                                             
+DOSSIER 6 - EXCELLENCE                       
+Doit satisfaire toutes ces conditions:       
+-L'Assuré ou le conducteur principal est ti- 
+tulaire d'un permis de conduire valide depuis
+au moins les 5 années qui précèdent immédia- 
+tement la date de prise d'effet du contrat ou
+de son dernier renouvellement.               
+-Au cours de cette même période de 5 ans, il 
+n'y a eu aucun accident responsable impli-   
+quant l'Assuré, le conducteur principal ou   
+tout autre conducteur du véhicule, ni le vé- 
+hicule assuré ou celui qu'il a remplacé.     
+-Au cours des 3 années qui précèdent immédia-
+tement la date de prise d'effet du contrat ou
+de son dernier renouvellement, l'Assuré, le  
+conducteur principal ou tout autre conducteur
+du véhicule assuré:                          
+-n'a subi aucune condamnaton en vertu du Code
+criminel du Canada (ou toute autre loi analo-
+gue à l'étranger) suite à une infraction     
+toute loi régissant la circulation routière; 
+-n'a pas été coupable de plus de 3 infrac-   
+tions à toute loi régissant la circulation   
+routière.                                    
+NOTE: L'Assuré qui a accédé au dossier 6 et  
+qui est par la suite impliqué dans un seul   
+accident ou il est tenu responsble passe au  
+dossier 5.                                   
+                                             
+DOSSIER 5                                    
+Doit satisfaire toutes ces conditions:       
+-L'Assuré ou le conducteur principal est ti- 
+tulaire d'un permis de conduire valide depuis
+au moins les 5 années qui précèdent immédia- 
+tement la date de prise d'effet du contrat ou
+de son dernier renouvellement.               
+-Au cours de cette même période de 5 ans, il 
+n'y a pas eu plus d'un accident responsable  
+impliquant l'Assuré, le conducteur principal 
+ou tout autre conducteur du véhicule, ni le  
+véhicule assuré ou celui qu'il a remplacé. Il
+faut de plus que cet unique sinistre soit    
+survenu après  que l'Assuré ait accédé au    
+dossier 6 chez ING Groupe Commerce ou à un   
+dossier équivalent chez un autre assureur.   
+-Au cours des 3 années qui précèdent immédia-
+tement la date de prise d'effet du contrat ou
+de son renouvellement,l'Assuré, le conducteur
+principal ou tout autre conducteur du véhi-  
+cule assuré:                                 
+-n'a subi aucune condamnation en vertu du    
+Code criminel du Canada (ou toute autre loi  
+analogue à l'étranger) suite à une infraction
+toute loi régissant la circulation routière  
+-n'a pas été coupable de plus de 3 infrac-   
+tions à toute loi régissant la circulation   
+routière.                                    
+                                             
+DOSSIER 4                                    
+Doit satisfaire toutes ces conditions:       
+L'Assuré ou le conducteur principal est titu-
+laire d'un permis de conduire valide depuis  
+au moins les 4 années qui précèdent immédiat-
+ement la date de prise d'effet du contrat ou 
+de son dernier renouvellement.               
+-Au cours de cette même période de 4 ans:    
+-il n'y a eu aucun accident responsable im-  
+pliquant l'Assuré, le conducteur principal,  
+ou tout autre conducteur du véhicule assuré  
+ou celui qu'il a remplacé;                   
+-l'Assuré, le conducteur principal ou tout   
+autre conducteur du véhicule assuré n'ont    
+subi aucune condamnation en vertu du Code    
+criminel du Canada (ou toute autre loi       
+analogue à l'étranger) suite à une infraction
+toute loi régissant la circulation routière  
+                                             
+DOSSIER 3                                    
+Doit satisfaire toutes ces conditions:       
+-l'Assuré ou le conducteur principal est ti- 
+tulaire d'un permis de conduire valide depuis
+au moins les 3 années qui précèdent immédia- 
+tement la date de prise d'effet du contrat ou
+de son dernier renouvellement.               
+-Au cours de cette même période de 3 ans:    
+-il n'y a eu aucun accident responsable im-  
+pliquant l'Assuré, le conducteur principal ou
+tout autre conducteur du véhicule, ni le     
+véhicule assuré ou celui qu'il a remplacé;   
+-l'Assuré, le conducteur principal ou tout   
+autre conducteur du véhicule assuré n'ont    
+subi aucune condamnation en vertu du Code    
+criminel du Canada (ou toute autre loi analo-
+gue à l'étranger) suite à une infraction     
+toute loi régissant la circulation routière. 
+                                             
+DOSSIER 2                                    
+Doit satisfaire toutes ces conditions:       
+-L'assuré ou le conducteur principal est ti- 
+tulaire d'un permis de conduire valide depuis
+au moins 2 années qui précèdent immédiatement
+la date de prise d'effet du contrat ou de son
+dernier renouvellement.                      
+-Au cours de cette même période de 2 ans:    
+-il n'y a eu aucun accident responsable      
+impliquant l'Assuré, le conducteur principal 
+ou tout autre conducteur du véhicule, ni le  
+véhicule assuré ou celui qu'il a remplacé;   
+-l'Assuré, le conducteur principal ou tout   
+autre conducteur du véhicule assuré n'ont    
+subi aucune condamnation en vertu du Code    
+criminel du Canada (ou toute autre loi analo-
+gue à l'étranger) suite à toute loi régissant
+la circulation routière.                     
+                                             
+DOSSIER 1                                    
+Doit satisfaire toutes ces conditions:       
+-l'Assuré ou le conducteur principal est ti- 
+tulaire d'un permis de conduire valide depuis
+au moins 1 an précédant immédiatement la date
+de prise d'effet du contrat ou de son dernier
+renouvellement.                              
+-Au cours de cette même période d'un an:     
+-il n'y a eu aucun accident responsable im-  
+pliquant l'Assuré, le conducteur principal ou
+tout autre conducteur du véhicule, ni le     
+véhicule assuré ou celui qu'il a remplacé;   
+-l'Assuré, le conducteur principal ou tout   
+autre conducteur du véhicule assuré n'ont    
+subi aucune condamnation en vertu du Code    
+criminel du Cananda (ou toute autre loi      
+analogue à l'étranger) suite à une infraction
+toute loi régissant la circulation routière. 
+                                             
+DOSSIER 0                                    
+Tout cas qui ne rencontre pas les conditions 
+des dossiers 6, 5, 4, 3, 2 ou 1.</Value>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQWIN\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Auto Engine: C:\CQWIN\cqae32r.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 5</Info>
+      <Info LookupID="1">Ratebook File: c:\cqwin\auto\AP8GA.QUE</Info>
+      <Info LookupID="2">Ratebook File: c:\cqwin\auto\AP7AXA.QUE</Info>
+      <Info LookupID="3">Ratebook File: c:\cqwin\auto\AP8GC.QUE</Info>
+      <Info>FLookup Engine Info: Version 1 Build 2</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Tue Aug 29 09:04:03 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>

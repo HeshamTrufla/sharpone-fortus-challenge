@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../index.htm">Home</a></li>
+<li><a href="../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../Auto/AutoGeneral.htm">Auto</a></li>
+<li><span class="active">Hab</span></li>
+<li><a href="../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="section">
+<div class="container"><a name="lnkHab"></a><h1>Hab</h1>
+<h3>* For new development, the <a href="../Hab2/HabGeneral.htm">Hab 2</a> data model should be used instead. *</h3>
+<ul class="liMain">
+<li><a href="HabStructDesc.htm">Structure Descriptions</a></li>
+<li><a href="HabMap.htm">Map Definition</a></li>
+<li><a href="HabRangeTables.htm">Range Tables</a></li>
+<li><a href="HabDataPropagation.htm">Data Propagation</a></li>
+<li><a href="HabPerCarrierValues.htm">Per Carrier Values</a></li>
+<li><a href="HabMessages.htm">Messages</a></li>
+<li><a href="../MapErrors.htm">Errors and Warnings</a></li>
+<li><a href="../Territory.htm">Territory Information</a></li>
+<li><a href="HabProtectionClass.htm">Protection Class</a></li>
+<li>XML Input: Hab Quote Examples
+                   <ol>
+<li><a href="HabONA1.xml">Ontario, Rented Dwelling (Stand-alone)</a></li>
+<li><a href="HabONT1.xml">Ontario, Tenant (Primary)</a></li>
+<li><a href="HabONT2.xml">Ontario, Tenant (Primary), Homeowner (Secondary)</a></li>
+<li><a href="HabONC1.xml">Ontario, Condo (Primary)</a></li>
+<li><a href="HabQCH1.xml">Quebec, Homeowner (Primary), Seasonal (Secondary), Extended Coverages, Floaters</a></li>
+<li><a href="HabONH1.xml">Ontario, Homeowner (Primary), Seasonal (Secondary), 2 Watercraft</a></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

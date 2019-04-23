@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Header>
+      <CQCredentials xmlns="http://www.compu-quote.com/EzLeadsWebService/">
+         <UserName>Username1</UserName>
+         <Password>Password1</Password>
+      </CQCredentials>
+   </soap:Header>
+   <soap:Body>
+      <RecordFortusLead xmlns="http://www.compu-quote.com/EzLeadsWebService/">
+         <QuoteGUID>E1353B05-5169-4681-8E4E-D453FAC2AAAA</QuoteGUID>
+         <From>OurInsuranceSite.com</From>
+         <To>BROKERCODE_GIVENBYCQ</To>
+         <FortusQuote>
+            <FortusTransaction Type="Automobile" xmlns="">
+               <Carriers>
+                  <Carrier>GC</Carrier>
+               </Carriers>
+               <CodeNames>
+                  <Auto>
+                     <QuoteInfo>
+                        <Claim>
+                           <AmountBI>2645</AmountBI>
+                           <AmountTotal>2645</AmountTotal>
+                           <ClaimDate>20110408</ClaimDate>
+                           <ClaimType>Non-responsible Collision</ClaimType>
+                           <DriverID>00163062</DriverID>
+                           <ID>00131390</ID>
+                           <VehicleID>00178120</VehicleID>
+                        </Claim>
+                        <Claim>
+                           <AmountBI>1860</AmountBI>
+                           <AmountTotal>1860</AmountTotal>
+                           <ClaimDate>20110731</ClaimDate>
+                           <ClaimType>Non-responsible Collision</ClaimType>
+                           <DriverID>00163062</DriverID>
+                           <ID>00131391</ID>
+                           <VehicleID>00178120</VehicleID>
+                        </Claim>
+                        <CombinedPolicy>Y</CombinedPolicy>
+                        <Conviction>
+                           <ConvictionDate>20110115</ConvictionDate>
+                           <DriverID>00163062</DriverID>
+                           <ID>00025949</ID>
+                           <OffenceCode>SP</OffenceCode>
+                           <Severity>Minor</Severity>
+                        </Conviction>
+                        <Conviction>
+                           <ConvictionDate>20110913</ConvictionDate>
+                           <DriverID>00163062</DriverID>
+                           <ID>00025948</ID>
+                           <OffenceCode>SS</OffenceCode>
+                           <Severity>Minor</Severity>
+                        </Conviction>
+                        <Conviction>
+                           <ConvictionDate>20111118</ConvictionDate>
+                           <DriverID>00163062</DriverID>
+                           <ID>00026140</ID>
+                           <OffenceCode>SP</OffenceCode>
+                           <Severity>Minor</Severity>
+                        </Conviction>
+                        <CoverageOverride>More</CoverageOverride>
+                        <CreditScore vorGC="SkipBranch">
+                           <Article1 vorMR="S45A"></Article1>
+                           <DobIns>19930817</DobIns>
+                           <Factor1 vorMR="45"/>
+                           <ID>00001520</ID>
+                           <StatusCode vorMR="601"/>
+                        </CreditScore>
+                        <DriverProfile>
+                           <Birthdate>19930817</Birthdate>
+                           <DateContinuousInsurance>20121213</DateContinuousInsurance>
+                           <DateWithCompany>20121213</DateWithCompany>
+                           <DriverLicense>
+                              <Country>CA</Country>
+                              <ID>1</ID>
+                              <LicenseClass>G</LicenseClass>
+                              <LicenseDate>20121213</LicenseDate>
+                              <ProvinceState>QC</ProvinceState>
+                           </DriverLicense>
+                           <DriverTraining>N</DriverTraining>
+                           <Gender>M</Gender>
+                           <ID>00163062</ID>
+                           <MaritalStatus>S</MaritalStatus>
+                           <OccupationCode>999</OccupationCode>
+                           <OccupFullTime>N</OccupFullTime>
+                           <RelationshipToApplicant>Applicant</RelationshipToApplicant>
+                        </DriverProfile>
+                        <ID>00216243</ID>
+                        <Incident>
+                           <DateReinstated>20121213</DateReinstated>
+                           <DriverID>00163062</DriverID>
+                           <ID>00009275</ID>
+                           <IncidentDate>20111118</IncidentDate>
+                           <IncidentType>Lic Susp</IncidentType>
+                           <Reason>Points</Reason>
+                        </Incident>
+                        <Language>French</Language>
+                        <TermRequested>12</TermRequested>
+                        <Vehicle>
+                           <AirBag>None</AirBag>
+                           <AntitheftDevice>
+                              <DeviceType>Ignition Disable</DeviceType>
+                              <ID>1</ID>
+                              <Manufacturer>Automobile Manufacturer</Manufacturer>
+                           </AntitheftDevice>
+                           <Coverage>
+                              <CSIOCode>34</CSIOCode>
+                              <ID>02</ID>
+                              <Limit1>10000</Limit1>
+                           </Coverage>
+                           <Coverage>
+                              <CSIOCode>TP</CSIOCode>
+                              <ID>01</ID>
+                              <Limit1>1000000</Limit1>
+                           </Coverage>
+                           <DistanceDaily>20</DistanceDaily>
+                           <DistanceYearly>25000</DistanceYearly>
+                           <ID>00178120</ID>
+                           <Location>RIVIERE-BEAUDETTE</Location>
+                           <LocationIndex>1236</LocationIndex>
+                           <MakeAndModel>FOCUS ZTW FAMILIALE</MakeAndModel>
+                           <Manufacturer>FORD</Manufacturer>
+                           <Owned>Y</Owned>
+                           <PostalCode>J0P1R0</PostalCode>
+                           <ProductLine>Personal</ProductLine>
+                           <PurchaseCondition>U</PurchaseCondition>
+                           <PurchaseDate>20121214</PurchaseDate>
+                           <PurchasePrice>1000</PurchasePrice>
+                           <VehType>Private Passenger</VehType>
+                           <VehUse>Pleasure</VehUse>
+                           <VICCCode>9024</VICCCode>
+                           <Year>2003</Year>
+                        </Vehicle>
+                        <VehLink>
+                           <DateOwnerPrincipal>20121213</DateOwnerPrincipal>
+                           <DriverID>00163062</DriverID>
+                           <ID>1</ID>
+                           <Link>Prn</Link>
+                           <PrincipalOwner>Y</PrincipalOwner>
+                           <VehicleID>00178120</VehicleID>
+                        </VehLink>
+                     </QuoteInfo>
+                  </Auto>
+               </CodeNames>
+               <EffDate>20130111</EffDate>
+               <Province>QC</Province>
+               <Renewal>NO</Renewal>
+            </FortusTransaction>
+         </FortusQuote>
+         <FortusExtended>
+            <FortusTransaction Type="Automobile" xmlns="">
+               <Carriers>
+                  <Carrier>GC</Carrier>
+                  <Carrier>MR</Carrier>
+               </Carriers>
+               <CodeNames>
+                  <Auto>
+                     <QuoteInfo>
+                        <Client>
+                           <Address>
+                              <Address1>1234 Ch Nexistepas</Address1>
+                              <City>Riviere Beaudette</City>
+                              <Classification>Client</Classification>
+                              <ID>1</ID>
+                              <PostalCode>J0P1R0</PostalCode>
+                              <Province>QC</Province>
+                           </Address>
+                           <ID>000000000129943</ID>
+                           <Name>
+                              <Classification>Client</Classification>
+                              <FirstName>John</FirstName>
+                              <ID>1</ID>
+                              <LastName>Doe</LastName>
+                           </Name>
+                           <Telephone>
+                              <AreaCode>555</AreaCode>
+                              <Classification>Home</Classification>
+                              <ID>1</ID>
+                              <Number>5555555</Number>
+                           </Telephone>
+                           <Note>
+                             <Contents>This is the first client memo.</Contents>
+                             <ID>1</ID>
+                             <Subject>Client Memo 1</Subject>
+                           </Note>
+                           <Note>
+                             <Contents>This is the second client memo.</Contents>
+                             <ID>2</ID>
+                             <Subject>Client Memo 2</Subject>
+                           </Note>
+                        </Client>
+                        <CreditScore>
+                           <Address>
+                              <Address1>1234 Ch Nexistepas</Address1>
+                              <City>Riviere Beaudette</City>
+                              <Classification>Insured</Classification>
+                              <ID>00001520</ID>
+                              <PostalCode>J0P1R0</PostalCode>
+                              <Province>QC</Province>
+                           </Address>
+                           <Birthdate>19930817</Birthdate>
+                           <ID>1</ID>
+                           <Name>
+                              <Classification>Insured</Classification>
+                              <FirstName>Johnathan</FirstName>
+                              <ID>1</ID>
+                              <LastName>Doe</LastName>
+                           </Name>
+                           <PartyType>IN</PartyType>
+                           <Telephone>
+                              <AreaCode>555</AreaCode>
+                              <Classification>Insured</Classification>
+                              <ID>1</ID>
+                              <Number>5555555</Number>
+                           </Telephone>
+                        </CreditScore>
+                        <DriverProfile>
+                           <ID>00163062</ID>
+                           <Name>
+                              <Classification>Driver</Classification>
+                              <FirstName>John</FirstName>
+                              <ID>1</ID>
+                              <LastName>Doe</LastName>
+                           </Name>
+                        </DriverProfile>
+                        <Vehicle>
+                           <ID>00178120</ID>
+                           <VIN>1M8GDM9AXKP042788</VIN>
+                        </Vehicle>
+                        <ID>00216243</ID>
+                        <Note>
+                          <Contents>This is the first quote note. 
+                          Contact: 9:00 AM to 11:00 AM
+                          Web quote:  $534
+                          </Contents>
+                          <ID>1</ID>
+                          <Subject>Quote Note 1</Subject>
+                        </Note>
+                        <Note>
+                          <Contents>OurInsuranceSite.com trackback number 123456.</Contents>
+                          <ID>2</ID>
+                          <Subject>Web TrackBack</Subject>
+                        </Note>
+                        </QuoteInfo>
+                  </Auto>
+               </CodeNames>
+            </FortusTransaction>
+         </FortusExtended>
+      </RecordFortusLead>
+   </soap:Body>
+</soap:Envelope>

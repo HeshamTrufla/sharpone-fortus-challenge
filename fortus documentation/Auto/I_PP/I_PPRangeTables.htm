@@ -1,0 +1,2168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkCommercial">Commercial</a></li>
+<li><span>›</span>Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table9">Table 9: Vehicle Types</a></li>
+<li><a href="#Table17">Table 17: License Classes</a></li>
+<li><a href="#Table29">Table 29: Commercial Uses</a></li>
+<li><a href="#Table30">Table 30: Delivery Types</a></li>
+<li><a href="#Table37">Table 37: Delivery Frequency Types</a></li>
+<li><a href="#Table38">Table 38: Fuel Types</a></li>
+<li><a href="#Table39">Table 39: Product Line</a></li>
+</ul>
+</div>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="1">Table 9:  Vehicle Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Private Passenger</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table17"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Ontario</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Commercial license Class A.</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>Commercial license Class A with condition (R).</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Commercial license Class B.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Commercial license Class C.</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Commercial license Class D.</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Commercial license Class E.</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Commercial license Class F.</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>First level motorcycle license, often referred to as a learner's permit.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Second level motorcycle license, often referred to as a probationary license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Heavy vehicle</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Straight truck</td>
+</tr>
+<tr>
+<td>4A</td>
+<td>4A - Emergency vehicle</td>
+</tr>
+<tr>
+<td>4B</td>
+<td>4B - Small bus or minibus</td>
+</tr>
+<tr>
+<td>4C</td>
+<td>4C - taxicab</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+<tr>
+<td>M0</td>
+<td>First level motorcycle license, often referred to as a learner's permit.  This license is much like the M1 license, except that a further restriction is placed on the driver, that they can only drive in a closed circuit training course and not the open road.  In Quebec, this is license 6R. NOTE: The license is M0 (a zero, not the letter 'O')</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>First level motorcycle license, often referred to as a learner's permit.</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Second level motorcycle license, often referred to as a probationary license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: New Brunswick</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>A1 - PPV class 2, 3, 4, 5, truck tractor, semi, semi with trailer, truck towing trailer, air brakes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A2 - PPV class 3, 4, or 5 and bus with &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A3 - PPV, 2 axle vehicle, 3 axle vehicle</td>
+</tr>
+<tr>
+<td>3/</td>
+<td>A3/4 - PPV holding class 3 or 4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - ambulance, PPV, taxicab, bus with &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9 - Motor driven cycle and farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Alberta</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Any vehicle</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - 3 axle plus</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi / ambulance</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Prince Edward Island</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Truck over 14,000 kg</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Nova Scotia</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailers and tractor trailer combo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Vehicle trailer combo weighing more than 14,000 kg</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Small buses, vans with more than 24 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Farm tractor</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Newfoundland &amp; Labrador</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8 - Traction engine vehicles only</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Full motorcycle driver's license.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Northwest Territories</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 17:  License Classes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="2">Type: Yukon</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Semi trailer truck</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Bus &gt; 24 passengers</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Trucks with 3 or more axles</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Taxi, ambulance, PPV, bus &lt; 25 passengers</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Full driver's license.  For ex, Class 5 license, regular license, etc.</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>First level private passenger license, often referred to as a learner's permit. For example, graduated license first level, learner's permit, etc.</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Second level private passenger license, often referred to as a probationary license.  For ex, graduated license second level, probationary permit, etc.</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table29"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 29:  Commercial Uses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Rest of Canada</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Armoured Cars</td>
+<td>Véhicules blindés</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Artisan - Appliance Serv Tech/Com. Serv Tech/IT Tech</td>
+<td>Artisan - Tech. dappareils / Tech. en comm. / Tech. support</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Artisan - Electrician</td>
+<td>Artisan - Électricien</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Artisan - Handyman - Variety of tasks</td>
+<td>Artisan - homme à tout faire - variété de tâches</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Artisan - Not specifically classified</td>
+<td>Artisan - non classé spécifiquement</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Artisan - Plumber/Indoor Sprinkler System Installation</td>
+<td>Artisan - Plombier / installation de système intérieur de gicleurs</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Auto Parts and Accessories</td>
+<td>Pièces et accessoires d'automobiles</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Automotive Service Technician / Repair - Including mobile</td>
+<td>Technicien dentretien dauto. / réparations - mobilité incluse</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Automotive Service Technician / Repair - Excluding mobile repairs</td>
+<td>Technicien dentretien dauto. / réparations - mobilité excluse</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Bakeries and Distributors</td>
+<td>Boulangeries et agents de boulangeries</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Breweries and Distributors</td>
+<td>Brasseries et agents de brasseries</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Building Products (bricks, blocks, lumber, etc.)</td>
+<td>Produits de construction (briques, blocs, bois, etc.)</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Building Products (excluding brick and cement block)</td>
+<td>Produits de construction (sauf briques et blocs de ciment)</td>
+</tr>
+<tr>
+<td>117</td>
+<td>Bulk Transporting - Liquid - Non Hazardous</td>
+<td>Transport lourd - liquide - non hasardeux</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Bulk Transporting - Non Liquid - Non Hazardous</td>
+<td>Transport lourd - non liquide - non hasardeux</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Butchers</td>
+<td>Bouchers</td>
+</tr>
+<tr>
+<td>121</td>
+<td>Canteen Services</td>
+<td>Services de cantine</td>
+</tr>
+<tr>
+<td>122</td>
+<td>Caterers</td>
+<td>Traiteurs</td>
+</tr>
+<tr>
+<td>123</td>
+<td>Cement Block, Building Block and Brick</td>
+<td>Blocs de ciment, blocs de construction et briques</td>
+</tr>
+<tr>
+<td>124</td>
+<td>Cement Mixers</td>
+<td>Camions bétonnières</td>
+</tr>
+<tr>
+<td>125</td>
+<td>Chip wagons - Cooking</td>
+<td>Cantines mobiles - de cuisine</td>
+</tr>
+<tr>
+<td>126</td>
+<td>Cleaners and Dyers</td>
+<td>Nettoyeurs et teinturiers</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Coal and Wood Dealers</td>
+<td>Marchands de charbon et bois</td>
+</tr>
+<tr>
+<td>130</td>
+<td>Computer Sales and Service</td>
+<td>Vente et réparation d'ordinateur</td>
+</tr>
+<tr>
+<td>132</td>
+<td>Construction Pro. (Engineer, Surveyor, Architect, Mining consult)</td>
+<td>Prof. construct. (Ingénieur, architecte, arpenteur, exploit minier)</td>
+</tr>
+<tr>
+<td>133</td>
+<td>Construction Equipment</td>
+<td>Matériaux de construction</td>
+</tr>
+<tr>
+<td>134</td>
+<td>Contractors - Excluding transportation of bricks, cement, sand, etc.</td>
+<td>Entrepreneurs - sauf transport de briques, ciment, sable, etc</td>
+</tr>
+<tr>
+<td>135</td>
+<td>Courier Service (mail and parcel delivery) - Other</td>
+<td>Messageries (livraison de courrier et colis) - autre</td>
+</tr>
+<tr>
+<td>136</td>
+<td>Courier Service (mail and parcel delivery) - Set routes</td>
+<td>Messageries (livraison de courrier et colis) - route déterminée</td>
+</tr>
+<tr>
+<td>137</td>
+<td>Cranes (Licensed Mobile)</td>
+<td>Grues mobiles immatriculées</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Dairies and Distributors</td>
+<td>Laiteries et vendeurs de produits laitiers</td>
+</tr>
+<tr>
+<td>141</td>
+<td>Dangerous Goods - Chemical products and substances not classified</td>
+<td>Marchandises dangereuses - produits chimiques et substances non classifié</td>
+</tr>
+<tr>
+<td>142</td>
+<td>Dangerous Goods - Crude Oil, incl. small quantities of condesate and methanol</td>
+<td>Marchandises dangereuses - pétrole brut, petites quantités de prod. condensation/méthanol</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Dangerous Goods - Explosives</td>
+<td>Marchandises dangereuses - explosifs</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Dangerous Goods - Hazardous Wastes</td>
+<td>Marchandises dangereuses - déchets dangereux</td>
+</tr>
+<tr>
+<td>145</td>
+<td>Dangerous Goods - Other (Fuel Oil / Diesel)</td>
+<td>Marchandises dangereuses - autre (mazout / diesel)</td>
+</tr>
+<tr>
+<td>146</td>
+<td>Dangerous Goods - Petroleum products (gasoline, liquified petroleum gas, etc.)</td>
+<td>Marchandises dangereuses - produits pétrolier (essence, gaz de pétrole liquifié, etc.)</td>
+</tr>
+<tr>
+<td>147</td>
+<td>Dangerous Goods - Radioactive Materials</td>
+<td>Marchandises dangereuses - matières radioactive</td>
+</tr>
+<tr>
+<td>148</td>
+<td>Delivery (unclassified) not courier</td>
+<td>Livraisons (non classifiées) sauf courrier</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Dock and Station Trucks</td>
+<td>Camions de gare ou de quai</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Drug Manufacturers and Wholesalers</td>
+<td>Fabricants et grossistes de produits pharmaceutiques</td>
+</tr>
+<tr>
+<td>151</td>
+<td>Drug Stores</td>
+<td>Pharmacies</td>
+</tr>
+<tr>
+<td>152</td>
+<td>Express Companies</td>
+<td>Compagnies de messageries express</td>
+</tr>
+<tr>
+<td>153</td>
+<td>Farm Trucks - Farm use only</td>
+<td>Camions de ferme - utilisation sur la ferme uniquement</td>
+</tr>
+<tr>
+<td>154</td>
+<td>Farm Trucks - Road use</td>
+<td>Camions de ferme - utilisation sur les routes</td>
+</tr>
+<tr>
+<td>155</td>
+<td>Fast Food Delivery</td>
+<td>Livraison de repas à domicile (mets chinois, pizza, etc.)</td>
+</tr>
+<tr>
+<td>160</td>
+<td>Fish and Seafood Distributors</td>
+<td>Marchands de poissons et fruits de mer</td>
+</tr>
+<tr>
+<td>161</td>
+<td>Fishermen</td>
+<td>Pêcheurs</td>
+</tr>
+<tr>
+<td>162</td>
+<td>Florist - Customers premises</td>
+<td>Fleuriste - locaux des clients</td>
+</tr>
+<tr>
+<td>163</td>
+<td>Florist - Own premises</td>
+<td>Fleuriste - propres locaux</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Food Products Delivery - Not otherwise classified</td>
+<td>Livraison de produits alimentaires - non classifiée autrement</td>
+</tr>
+<tr>
+<td>166</td>
+<td>Fruit Dealers</td>
+<td>Marchands de fruits</td>
+</tr>
+<tr>
+<td>167</td>
+<td>Fuel Dealers Solid Fuel (Coal and Wood)</td>
+<td>Distributeurs de carburant solide (charbon et bois)</td>
+</tr>
+<tr>
+<td>168</td>
+<td>Furniture Manufacturers and Distributors</td>
+<td>Fabricants et marchands de meubles</td>
+</tr>
+<tr>
+<td>170</td>
+<td>Garage service - Parts pickup vehicle</td>
+<td>Dépanneuses - affectation accessoire de garagiste</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Garage service - Road assist (excluding tow trucks)</td>
+<td>Dépanneuses-assistance routière (sauf service de dépannage)</td>
+</tr>
+<tr>
+<td>172</td>
+<td>Garbage Trucks, Packers, Recycle Trucks</td>
+<td>Camions à ordures, recyclage ou bennes à compression</td>
+</tr>
+<tr>
+<td>173</td>
+<td>Gardener - Customers premises</td>
+<td>Jardinier utilisé sur les terrains des clients</td>
+</tr>
+<tr>
+<td>174</td>
+<td>Gardeners</td>
+<td>Jardiniers</td>
+</tr>
+<tr>
+<td>175</td>
+<td>General Contractor (Project Manager)</td>
+<td>Entrepreneur général (chef de projets)</td>
+</tr>
+<tr>
+<td>176</td>
+<td>Golf Carts</td>
+<td>Voiturettes de golf</td>
+</tr>
+<tr>
+<td>178</td>
+<td>Gravel, sand, earth, stone, asphalt, hot tar</td>
+<td>Gravier, sable, terre, pierre, asphalte, goudron chaud</td>
+</tr>
+<tr>
+<td>179</td>
+<td>Greenhouse Operators</td>
+<td>Exploitants de serres</td>
+</tr>
+<tr>
+<td>180</td>
+<td>Grocers</td>
+<td>Épiciers</td>
+</tr>
+<tr>
+<td>181</td>
+<td>Hardware</td>
+<td>Quincailleries</td>
+</tr>
+<tr>
+<td>182</td>
+<td>Heating, Refrigeration and Air-Conditioning (HVAC) Mechanic</td>
+<td>Mécanique de chauffage, de réfrigération et air climatisé</td>
+</tr>
+<tr>
+<td>183</td>
+<td>Horticulturists</td>
+<td>Horticulteurs</td>
+</tr>
+<tr>
+<td>184</td>
+<td>Ice Cream Manufacturers and Distributors</td>
+<td>Fabricants et; distributeurs de crème glacée</td>
+</tr>
+<tr>
+<td>185</td>
+<td>Ice Cream Vendors</td>
+<td>Marchands ambulants de crème glacée</td>
+</tr>
+<tr>
+<td>186</td>
+<td>Ice Dealers</td>
+<td>Marchands de glace</td>
+</tr>
+<tr>
+<td>187</td>
+<td>Industrial Machinery Manufactures and Distributors</td>
+<td>Fabricants et marchands de machines industrielles</td>
+</tr>
+<tr>
+<td>188</td>
+<td>Industrial Trucks (unlicensed)</td>
+<td>Camions industriels (non-immatriculés)</td>
+</tr>
+<tr>
+<td>190</td>
+<td>Janitorial Services / Housekeeping - Commercial / Residential</td>
+<td>Services de concierge /  entretien ménager - commercial / résidentiel</td>
+</tr>
+<tr>
+<td>192</td>
+<td>Landscapers</td>
+<td>Paysagistes</td>
+</tr>
+<tr>
+<td>193</td>
+<td>Laundries</td>
+<td>Buanderies</td>
+</tr>
+<tr>
+<td>194</td>
+<td>Lawn Mowers</td>
+<td>Tondeuses à gazon</td>
+</tr>
+<tr>
+<td>195</td>
+<td>Livestock</td>
+<td>Bétail</td>
+</tr>
+<tr>
+<td>196</td>
+<td>Logging Trucks</td>
+<td>Billes de bois</td>
+</tr>
+<tr>
+<td>197</td>
+<td>Lumber Dealers</td>
+<td>Marchands de bois</td>
+</tr>
+<tr>
+<td>198</td>
+<td>Mail Delivery Trucks</td>
+<td>Camions postaux</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Market Gardeners</td>
+<td>Jardiniers maraîchers</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Meals - Home delivery (fast food)</td>
+<td>Repas - livraisons à domicile (restauration rapide)</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Meals - Home delivery (no fast food)</td>
+<td>Repas - livraisons à domicile (pas restauration rapide)</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Meat Packers</td>
+<td>Abattoirs</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Messenger Service</td>
+<td>Service de messagerie</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Municipal Corp. Vehicles (other than Ambulance, Fire, Police)</td>
+<td>Corps de véh. municipaux (sauf ambulance, pompier, police)</td>
+</tr>
+<tr>
+<td>207</td>
+<td>Newspaper Delivery - Urban</td>
+<td>Livraison de quotidiens - urbaine</td>
+</tr>
+<tr>
+<td>208</td>
+<td>Newspaper Delivery (Rural - less than 15,000 population)</td>
+<td>Livraison de quotidiens (rurale - moins de 15 000 habitants)</td>
+</tr>
+<tr>
+<td>209</td>
+<td>Nurserymen</td>
+<td>Opérations de pépinière</td>
+</tr>
+<tr>
+<td>210</td>
+<td>Oil Drilling, Exploration and Seismograph</td>
+<td>Forage pétrolier, exploration et sysmographes</td>
+</tr>
+<tr>
+<td>211</td>
+<td>Parcel Delivery</td>
+<td>Livraison de colis</td>
+</tr>
+<tr>
+<td>213</td>
+<td>Photo or Film Delivery</td>
+<td>Livraison de photos ou films</td>
+</tr>
+<tr>
+<td>214</td>
+<td>Pilot Vehicles</td>
+<td>Véhicules d'essai</td>
+</tr>
+<tr>
+<td>215</td>
+<td>Poultry Dealers</td>
+<td>Marchands de volaille</td>
+</tr>
+<tr>
+<td>216</td>
+<td>Produce Dealers</td>
+<td>Marchands de produits</td>
+</tr>
+<tr>
+<td>217</td>
+<td>Public service vehicles (not ambulances, police, fire, etc.)</td>
+<td>Véhicules service publique (sauf ambulance, police, incendie, etc.)</td>
+</tr>
+<tr>
+<td>218</td>
+<td>Radio Sales and Service</td>
+<td>Vente et réparation de radios</td>
+</tr>
+<tr>
+<td>220</td>
+<td>Road Construction - Tractors</td>
+<td>Construction et entretien de routes - tracteurs</td>
+</tr>
+<tr>
+<td>224</td>
+<td>Road Construction and Maintenance - Snow blowers, ploughs</td>
+<td>Construction et entretien de routes - soufleurs à neige et chasse neige</td>
+</tr>
+<tr>
+<td>226</td>
+<td>Road Construction and Maintenance (excluding gravel trucks), graders, street sweepers, etc.</td>
+<td>Construction et entretien de routes (sauf camions graviers), niveleuses, balayeuses, etc.</td>
+</tr>
+<tr>
+<td>230</td>
+<td>Safe Dealers and Manufacturers</td>
+<td>Fabricants ou marchands de coffres-forts</td>
+</tr>
+<tr>
+<td>232</td>
+<td>Scrap - Paper, metal, etc.</td>
+<td>Rebuts - papier, métal, etc.</td>
+</tr>
+<tr>
+<td>233</td>
+<td>Septic Tanks and Sewers</td>
+<td>Camions de vidange des égouts et des fosses septiques</td>
+</tr>
+<tr>
+<td>234</td>
+<td>Snow Ploughs (salters, sanders) - Commercial</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - commerciale</td>
+</tr>
+<tr>
+<td>235</td>
+<td>Snow Ploughs (salters, sanders) - Residential</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - résidentiel</td>
+</tr>
+<tr>
+<td>236</td>
+<td>Soft Drink Manufacturers and Distributors</td>
+<td>Fabricants et marchands de boissons gazeuses</td>
+</tr>
+<tr>
+<td>237</td>
+<td>Special Delivery (subject to time and similar constraints)</td>
+<td>Livraison spéciale (sujet au temps et autres contraintes similaire)</td>
+</tr>
+<tr>
+<td>238</td>
+<td>Station Trucks (unlicensed)</td>
+<td>Camions de station (non-immatriculés)</td>
+</tr>
+<tr>
+<td>239</td>
+<td>Steel Manufacturers and Distributors</td>
+<td>Fabricants et marchands d'acier</td>
+</tr>
+<tr>
+<td>240</td>
+<td>Tow Trucks</td>
+<td>Dépanneuses (service de dépannage)</td>
+</tr>
+<tr>
+<td>241</td>
+<td>Tractors - Farm</td>
+<td>Tracteurs - ferme</td>
+</tr>
+<tr>
+<td>242</td>
+<td>Tractors - Not farm or road construction, not Highway Type</td>
+<td>Tracteurs - pas de ferme, construc. des routes, type autoroute</td>
+</tr>
+<tr>
+<td>244</td>
+<td>Truckmen (not classified)</td>
+<td>Camionneurs (sans classification)</td>
+</tr>
+<tr>
+<td>245</td>
+<td>TV Sales and Service</td>
+<td>Vente et réparation de téléviseurs</td>
+</tr>
+<tr>
+<td>246</td>
+<td>Valet Service</td>
+<td>Service de valet</td>
+</tr>
+<tr>
+<td>247</td>
+<td>Vegetable Dealers</td>
+<td>Marchands de légumes</td>
+</tr>
+<tr>
+<td>248</td>
+<td>Well Drilling</td>
+<td>Forage de puits de pétrole</td>
+</tr>
+<tr>
+<td>251</td>
+<td>Wood Chip Hauling</td>
+<td>Transport de copeaux de bois</td>
+</tr>
+<tr>
+<td>253</td>
+<td>Wrecking Contractors Trucks</td>
+<td>Camions des entrepreneurs en démolition</td>
+</tr>
+<tr>
+<td>254</td>
+<td>Oilfield Equipment Hauling</td>
+<td>Transport d&#8217;équipement de champ pétrolifère</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Oilfield Pipe Hauling</td>
+<td>Transport de tuyau de champ pétrolifère</td>
+</tr>
+<tr>
+<td>256</td>
+<td>Water Hauling</td>
+<td>Transport d&#8217;eau</td>
+</tr>
+<tr>
+<td>257</td>
+<td>Welding Trucks</td>
+<td>Camion de soudage</td>
+</tr>
+<tr>
+<td>258</td>
+<td>Snow ploughs (salters, sanders) on com veh - Commercial - Municipal Roads</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - commerciale - routes municipales</td>
+</tr>
+<tr>
+<td>259</td>
+<td>Artisan/Contractor - Carpet Duct Cleaning</td>
+<td>Atrisan/Contracteur - Nettoyage de tapis conduit</td>
+</tr>
+<tr>
+<td>260</td>
+<td>Artisan/Contractor - Floor Installation (Carpet, Tiles, Hardwood)</td>
+<td>Artisan/Contracteur - Installation de plancher (Tapis - Tuile - Bois franc)</td>
+</tr>
+<tr>
+<td>261</td>
+<td>Artisan/Contractor - Painter</td>
+<td>Artisan/Contracteur - Peintre</td>
+</tr>
+<tr>
+<td>262</td>
+<td>Artisan/Contractor - Driveway Paving and Sealing</td>
+<td>Artisan/Contracteur - Pavage d&#8217;allée et Scellage</td>
+</tr>
+<tr>
+<td>263</td>
+<td>Artisan/Contractor - Oil Field Operations</td>
+<td>Artisan/Contracteur - Opérations de champs pétrolifère</td>
+</tr>
+<tr>
+<td>264</td>
+<td>Artisan/Contractor - Roofer</td>
+<td>Artisan/Contracteur - Couvreur</td>
+</tr>
+<tr>
+<td>265</td>
+<td>Artisan/Contractor - Window Cleaning/Washing</td>
+<td>Artisan/Contracteur - Nettoyage/Lavage de fenêtre</td>
+</tr>
+<tr>
+<td>266</td>
+<td>Artisan/Contractor - Carpenter, Cabinet Maker and Wood Worker</td>
+<td>Artisan/Contracteur - Charpentier - Ébéniste et travailleur de bois</td>
+</tr>
+<tr>
+<td>999</td>
+<td>All Commercial Vehicles not classified</td>
+<td>Tous les véhicules utilitaires sans classification expresse</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 29:  Commercial Uses</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Animal Feed - Milling Truck</td>
+<td>Moulée - camion à moulange</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Animal Feed - Transport and Delivery</td>
+<td>Moulée - transport et livraision</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Armoured Cars</td>
+<td>Véhicules blindés</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Artisan - Appliance Serv Tech/Com. Serv Tech/IT Tech</td>
+<td>Artisan - Tech. dappareils / Tech. en comm. / Tech. support</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Artisan - Electrician</td>
+<td>Artisan - Électricien</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Artisan - Handyman - Variety of tasks</td>
+<td>Artisan - homme à tout faire - variété de tâches</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Artisan - Not specifically classified</td>
+<td>Artisan -  non classé spécifiquement</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Artisan - Plumber/Indoor Sprinkler System Installation</td>
+<td>Artisan - Plombier / installation de système intérieur de gicleurs</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Auto Parts and Accessories</td>
+<td>Pièces et accessoires d'automobiles</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Automotive Service Technician / Repair - Including mobile</td>
+<td>Technicien dentretien dauto. / réparations - mobilité incluse</td>
+</tr>
+<tr>
+<td>110</td>
+<td>Automotive Service Technician / Repair - Excluding mobile repairs</td>
+<td>Technicien dentretien dauto. / réparations - mobilité excluse</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Bakeries and Distributors</td>
+<td>Boulangeries et agents de boulangeries</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Breweries and Distributors</td>
+<td>Brasseries et agents de brasseries</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Building Contractors (excluding roads) - Duty and construction site supervision</td>
+<td>Entrepreneurs en construction d'immeubles - commissionnaire et surv. de chantier</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Building Contractors (excluding roads) - On construction site</td>
+<td>Entrepreneurs en construction d'immeubles - véhicule sur le chantier</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Building Products (bricks, blocks, lumber, etc.)</td>
+<td>Produits de construction (briques, blocs, bois, etc.)</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Building Products (excluding brick and cement block)</td>
+<td>Produits de construction (sauf briques et blocs de ciment)</td>
+</tr>
+<tr>
+<td>117</td>
+<td>Bulk Transporting - Liquid - Non Hazardous</td>
+<td>Transport lourd - liquide - non hasardeux</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Bulk Transporting - Non Liquid - Non Hazardous</td>
+<td>Transport lourd - non liquide - non hasardeux</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Butchers</td>
+<td>Bouchers</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Candy and Confectionary Wholesalers</td>
+<td>Confiserie - grossistes</td>
+</tr>
+<tr>
+<td>121</td>
+<td>Canteen Services</td>
+<td>Services de cantine</td>
+</tr>
+<tr>
+<td>122</td>
+<td>Caterers</td>
+<td>Traiteurs</td>
+</tr>
+<tr>
+<td>123</td>
+<td>Cement Block, Building Block and Brick</td>
+<td>Blocs de ciment, blocs de construction et briques</td>
+</tr>
+<tr>
+<td>124</td>
+<td>Cement Mixers</td>
+<td>Camions bétonnières</td>
+</tr>
+<tr>
+<td>125</td>
+<td>Chip wagons - Cooking</td>
+<td>Cantines mobiles - de cuisine</td>
+</tr>
+<tr>
+<td>126</td>
+<td>Cleaners and Dyers</td>
+<td>Nettoyeurs et teinturiers</td>
+</tr>
+<tr>
+<td>127</td>
+<td>Cleaning Service</td>
+<td>Service de toilette</td>
+</tr>
+<tr>
+<td>128</td>
+<td>Clothing Articles</td>
+<td>Articles de vêtements</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Coal and Wood Dealers</td>
+<td>Marchands de charbon et bois</td>
+</tr>
+<tr>
+<td>130</td>
+<td>Computer Sales and Service</td>
+<td>Vente et réparation d'ordinateur</td>
+</tr>
+<tr>
+<td>132</td>
+<td>Construction Pro. (Engineer, Surveyor, Architect, Mining consult)</td>
+<td>Prof. construct. (Ingénieur, architecte, arpenteur, exploit minier)</td>
+</tr>
+<tr>
+<td>133</td>
+<td>Construction Equipment</td>
+<td>Matériaux de construction</td>
+</tr>
+<tr>
+<td>134</td>
+<td>Contractors - Excluding transportation of bricks, cement, sand, etc.</td>
+<td>Entrepreneurs - sauf transport de briques, ciment, sable, etc</td>
+</tr>
+<tr>
+<td>135</td>
+<td>Courier Service (mail and parcel delivery) - Other</td>
+<td>Messageries (livraison de courrier et colis) - autre</td>
+</tr>
+<tr>
+<td>136</td>
+<td>Courier Service (mail and parcel delivery) - Set routes</td>
+<td>Messageries (livraison de courrier et colis) - route déterminée</td>
+</tr>
+<tr>
+<td>137</td>
+<td>Cranes (Licensed Mobile)</td>
+<td>Grues mobiles immatriculées</td>
+</tr>
+<tr>
+<td>138</td>
+<td>Curtain and Drapery Dealer</td>
+<td>Draperie et rideaux - marchands</td>
+</tr>
+<tr>
+<td>139</td>
+<td>Dairies - Transport by tank truck</td>
+<td>Lait - transport en citerne</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Dairies and Distributors</td>
+<td>Laiteries et vendeurs de produits laitiers</td>
+</tr>
+<tr>
+<td>141</td>
+<td>Dangerous Goods - Chemical products and substances not classified</td>
+<td>Marchandises dangereuses - produits chimiques et substances non classifié</td>
+</tr>
+<tr>
+<td>142</td>
+<td>Dangerous Goods - Crude Oil, small quantities of condesate and methanol</td>
+<td>Marchandises dangereuses - pétrole brut, petites quantités de prod. condensation/méthanol</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Dangerous Goods - Explosives</td>
+<td>Marchandises dangereuses - explosifs</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Dangerous Goods - Hazardous Wastes</td>
+<td>Marchandises dangereuses - déchets dangereux</td>
+</tr>
+<tr>
+<td>145</td>
+<td>Dangerous Goods - Other (Fuel Oil / Diesel)</td>
+<td>Marchandises dangereuses - autre (mazout / diesel)</td>
+</tr>
+<tr>
+<td>146</td>
+<td>Dangerous Goods - Petroleum products (gasoline, liquified petroleum gas, etc.)</td>
+<td>Marchandises dangereuses - produits pétrolier (essence, gaz de pétrole liquifié, etc.)</td>
+</tr>
+<tr>
+<td>147</td>
+<td>Dangerous Goods - Radioactive Materials</td>
+<td>Marchandises dangereuses - matières radioactive</td>
+</tr>
+<tr>
+<td>148</td>
+<td>Delivery (unclassified) not courier</td>
+<td>Livraisons (non classifiées) sauf courrier</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Dock and Station Trucks</td>
+<td>Camions de gare ou de quai</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Drug Manufacturers and Wholesalers</td>
+<td>Fabricants et grossistes de produits pharmaceutiques</td>
+</tr>
+<tr>
+<td>151</td>
+<td>Drug Stores</td>
+<td>Pharmacies</td>
+</tr>
+<tr>
+<td>152</td>
+<td>Express Companies</td>
+<td>Compagnies de messageries express</td>
+</tr>
+<tr>
+<td>153</td>
+<td>Farm Trucks - Farm use only</td>
+<td>Camions de ferme - utilisation sur la ferme uniquement</td>
+</tr>
+<tr>
+<td>154</td>
+<td>Farm Trucks - Road use</td>
+<td>Camions de ferme - utilisation sur les routes</td>
+</tr>
+<tr>
+<td>155</td>
+<td>Fast Food Delivery</td>
+<td>Livraison de repas à domicile (mets chinois, pizza, etc.)</td>
+</tr>
+<tr>
+<td>156</td>
+<td>Fertilizers non liquid (transport only without class. plate) - Small trailers</td>
+<td>Engrais non liquides (transport seulement, non placardé) - petites remorques</td>
+</tr>
+<tr>
+<td>157</td>
+<td>Fertilizers non liquid (transport only without class. plate) - Truck</td>
+<td>Engrais non liquides (transport seulement, non placardé) - pamions</td>
+</tr>
+<tr>
+<td>158</td>
+<td>Fertilizers, Watering and Spreading (without class. plate)</td>
+<td>Engrais, arrosage et épandage (non placardé)</td>
+</tr>
+<tr>
+<td>159</td>
+<td>Firewood</td>
+<td>Bois de chauffage</td>
+</tr>
+<tr>
+<td>160</td>
+<td>Fish and Seafood Distributors</td>
+<td>Marchands de poissons et fruits de mer</td>
+</tr>
+<tr>
+<td>161</td>
+<td>Fishermen</td>
+<td>Pêcheurs</td>
+</tr>
+<tr>
+<td>162</td>
+<td>Florist - Customers premises</td>
+<td>Fleuriste - locaux des clients</td>
+</tr>
+<tr>
+<td>163</td>
+<td>Florist - Own premises</td>
+<td>Fleuriste - propres locaux</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Food Products Delivery - Not otherwise classified</td>
+<td>Livraison de produits alimentaires - non classifiée autrement</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Freight - Pickup and Delivery (air, boat, rail)</td>
+<td>Fret - cuillette et livraison (air, bateau, rail)</td>
+</tr>
+<tr>
+<td>166</td>
+<td>Fruit Dealers</td>
+<td>Marchands de fruits</td>
+</tr>
+<tr>
+<td>167</td>
+<td>Fuel Dealers Solid Fuel (Coal and Wood)</td>
+<td>Distributeurs de carburant solide (charbon et bois)</td>
+</tr>
+<tr>
+<td>168</td>
+<td>Furniture Manufacturers and Distributors</td>
+<td>Fabricants et marchands de meubles</td>
+</tr>
+<tr>
+<td>169</td>
+<td>Furniture Manufacturers and Distributors - Duty vehicle</td>
+<td>Meubles - fabricants et marchands (véhicule de service)</td>
+</tr>
+<tr>
+<td>170</td>
+<td>Garage service - Parts pickup vehicle</td>
+<td>Dépanneuses - affectation accessoire de garagiste</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Garage service - Road assist (excluding tow trucks)</td>
+<td>Dépanneuses-assistance routière (sauf service de dépannage)</td>
+</tr>
+<tr>
+<td>172</td>
+<td>Garbage Trucks, Packers, Recycle Trucks</td>
+<td>Camions à ordures, recyclage ou bennes à compression</td>
+</tr>
+<tr>
+<td>173</td>
+<td>Gardener - Customers premises</td>
+<td>Jardinier utilisé sur les terrains des clients</td>
+</tr>
+<tr>
+<td>174</td>
+<td>Gardeners</td>
+<td>Jardiniers</td>
+</tr>
+<tr>
+<td>175</td>
+<td>General Contractor (Project Manager)</td>
+<td>Entrepreneur général (chef de projets)</td>
+</tr>
+<tr>
+<td>176</td>
+<td>Golf Carts</td>
+<td>Voiturettes de golf</td>
+</tr>
+<tr>
+<td>177</td>
+<td>Grain and Fertilizer - Dealer and Cooperative</td>
+<td>Moulée / engrais - fabricants et marchands</td>
+</tr>
+<tr>
+<td>178</td>
+<td>Gravel, sand, earth, stone, asphalt, hot tar</td>
+<td>Gravier, sable, terre, pierre, asphalte, goudron chaud</td>
+</tr>
+<tr>
+<td>179</td>
+<td>Greenhouse Operators</td>
+<td>Exploitants de serres</td>
+</tr>
+<tr>
+<td>180</td>
+<td>Grocers</td>
+<td>Épiciers</td>
+</tr>
+<tr>
+<td>181</td>
+<td>Hardware</td>
+<td>Quincailleries</td>
+</tr>
+<tr>
+<td>182</td>
+<td>Heating, Refrigeration and Air-Conditioning (HVAC) Mechanic</td>
+<td>Mécanique de chauffage, de réfrigération et air climatisé</td>
+</tr>
+<tr>
+<td>183</td>
+<td>Horticulturists</td>
+<td>Horticulteurs</td>
+</tr>
+<tr>
+<td>184</td>
+<td>Ice Cream Manufacturers and Distributors</td>
+<td>Fabricants et distributeurs de crème glacée</td>
+</tr>
+<tr>
+<td>185</td>
+<td>Ice Cream Vendors</td>
+<td>Marchands ambulants de crème glacée</td>
+</tr>
+<tr>
+<td>186</td>
+<td>Ice Dealers</td>
+<td>Marchands de glace</td>
+</tr>
+<tr>
+<td>187</td>
+<td>Industrial Machinery Manufactures and Distributors</td>
+<td>Fabricants et marchands de machines industrielles</td>
+</tr>
+<tr>
+<td>188</td>
+<td>Industrial Trucks (unlicensed)</td>
+<td>Camions industriels (non-immatriculés)</td>
+</tr>
+<tr>
+<td>189</td>
+<td>Ironing service</td>
+<td>Service de repassage</td>
+</tr>
+<tr>
+<td>190</td>
+<td>Janitorial Services / Housekeeping - Commercial / Residential</td>
+<td>Services de concierge /  entretien ménager - commercial / résidentiel</td>
+</tr>
+<tr>
+<td>191</td>
+<td>Knacker / Rendering animal bone, tallow, fat</td>
+<td>Équarrisseur (os, suif et gras animal)</td>
+</tr>
+<tr>
+<td>192</td>
+<td>Landscapers</td>
+<td>Paysagistes</td>
+</tr>
+<tr>
+<td>193</td>
+<td>Laundries</td>
+<td>Buanderies</td>
+</tr>
+<tr>
+<td>194</td>
+<td>Lawn Mowers</td>
+<td>Tondeuses à gazon</td>
+</tr>
+<tr>
+<td>195</td>
+<td>Livestock</td>
+<td>Bétail</td>
+</tr>
+<tr>
+<td>196</td>
+<td>Logging Trucks</td>
+<td>Billes de bois</td>
+</tr>
+<tr>
+<td>197</td>
+<td>Lumber Dealers</td>
+<td>Marchands de bois</td>
+</tr>
+<tr>
+<td>198</td>
+<td>Mail Delivery Trucks</td>
+<td>Camions postaux</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Market Gardeners</td>
+<td>Jardiniers maraîchers</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Meals - Home delivery (fast food)</td>
+<td>Repas - livraisons à domicile (restauration rapide)</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Meals - Home delivery (no fast food)</td>
+<td>Repas - livraisons à domicile (pas restauration rapide)</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Meat Packers</td>
+<td>Abattoirs</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Messenger Service</td>
+<td>Service de messagerie</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Milk Transportation</td>
+<td>Transport de lait</td>
+</tr>
+<tr>
+<td>205</td>
+<td>Miscellaneous Food Products</td>
+<td>Produits alimentaires divers</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Municipal Corp. Vehicles (other than Ambulance, Fire, Police)</td>
+<td>Corps de véh. municipaux (sauf ambulance, pompier, police)</td>
+</tr>
+<tr>
+<td>207</td>
+<td>Newspaper Delivery - Urban</td>
+<td>Livraison de quotidiens - urbaine</td>
+</tr>
+<tr>
+<td>208</td>
+<td>Newspaper Delivery (Rural - less than 15,000 population)</td>
+<td>Livraison de quotidiens (rurale - moins de 15 000 habitants)</td>
+</tr>
+<tr>
+<td>209</td>
+<td>Nurserymen</td>
+<td>Opérations de pépinière</td>
+</tr>
+<tr>
+<td>210</td>
+<td>Oil Drilling, Exploration and Seismograph</td>
+<td>Forage pétrolier, exploration et sysmographes</td>
+</tr>
+<tr>
+<td>211</td>
+<td>Parcel Delivery</td>
+<td>Livraison de colis</td>
+</tr>
+<tr>
+<td>212</td>
+<td>Peddler (fruit, vegetables, etc.)</td>
+<td>Colporteur (fruit, légumes, etc.)</td>
+</tr>
+<tr>
+<td>213</td>
+<td>Photo or Film Delivery</td>
+<td>Livraison de photos ou films</td>
+</tr>
+<tr>
+<td>214</td>
+<td>Pilot Vehicles</td>
+<td>Véhicules d'essai</td>
+</tr>
+<tr>
+<td>215</td>
+<td>Poultry Dealers</td>
+<td>Marchands de volaille</td>
+</tr>
+<tr>
+<td>216</td>
+<td>Produce Dealers</td>
+<td>Marchands de produits</td>
+</tr>
+<tr>
+<td>217</td>
+<td>Public Service Vehicles (not ambulances, police, fire, etc.)</td>
+<td>Véhicules service publique (sauf ambulance, police, incendie, etc.)</td>
+</tr>
+<tr>
+<td>218</td>
+<td>Radio Sales and Service</td>
+<td>Vente et réparation de radios</td>
+</tr>
+<tr>
+<td>219</td>
+<td>Railroad Station or Wharf Trailer / Truck</td>
+<td>Camion / chariot de gare (ou de quai)</td>
+</tr>
+<tr>
+<td>220</td>
+<td>Road Construction and Maintenance - Tractors</td>
+<td>Construction et entretien de routes - tracteurs</td>
+</tr>
+<tr>
+<td>221</td>
+<td>Road Construction and Maintenance - Duty vehicle</td>
+<td>Construction et entretien de routes - véhicule de service</td>
+</tr>
+<tr>
+<td>222</td>
+<td>Road Construction and Maintenance - Other rolling stock (no storage)</td>
+<td>Construction et entretien de routes - autre matériel roulant (aucun stockage)</td>
+</tr>
+<tr>
+<td>223</td>
+<td>Road Construction and Maintenance - Seasonal equipment vehicles</td>
+<td>Construction et entretien de routes - véhicules d'équipement saisonniers</td>
+</tr>
+<tr>
+<td>224</td>
+<td>Road Construction and Maintenance - Snow blowers, ploughs</td>
+<td>Construction et entretien de routes - soufleurs à neige et chasse neige</td>
+</tr>
+<tr>
+<td>225</td>
+<td>Road Construction and Maintenance - Tar spraying machine</td>
+<td>Construction et entretien de routes - goudronneuse</td>
+</tr>
+<tr>
+<td>226</td>
+<td>Road Construction and Maintenance (excluding gravel trucks), graders, street sweepers, etc.</td>
+<td>Construction et entretien de routes (sauf camions graviers), niveleuses, balayeuses, etc.</td>
+</tr>
+<tr>
+<td>227</td>
+<td>Roofing Contractors - Duty vehicle and supervision of work site</td>
+<td>Toiture (installation et réparation) - commissionnaire et surveillance de chantier</td>
+</tr>
+<tr>
+<td>228</td>
+<td>Roofing Contractors - Tar spraying machine</td>
+<td>Toiture (installation et réparation) - goudronneuse</td>
+</tr>
+<tr>
+<td>229</td>
+<td>Roofing Contractors - Vehicles on work site</td>
+<td>Toiture (installation et réparation) - véhicule sur le chantier</td>
+</tr>
+<tr>
+<td>230</td>
+<td>Safe Dealers and Manufacturers</td>
+<td>Fabricants ou marchands de coffres-forts</td>
+</tr>
+<tr>
+<td>231</td>
+<td>Sash and Door Manufacturers</td>
+<td>Fenêtres et portes - fabricants</td>
+</tr>
+<tr>
+<td>232</td>
+<td>Scrap - Paper, metal, etc.</td>
+<td>Rebuts - papier, métal, etc.</td>
+</tr>
+<tr>
+<td>233</td>
+<td>Septic Tanks and Sewers</td>
+<td>Camions de vidange des égouts et des fosses septiques</td>
+</tr>
+<tr>
+<td>234</td>
+<td>Snow Ploughs (salters, sanders) - Commercial</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - commerciale</td>
+</tr>
+<tr>
+<td>235</td>
+<td>Snow Ploughs (salters, sanders) - Residential</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - résidentiel</td>
+</tr>
+<tr>
+<td>236</td>
+<td>Soft Drink Manufacturers and Distributors</td>
+<td>Fabricants et marchands de boissons gazeuses</td>
+</tr>
+<tr>
+<td>237</td>
+<td>Special Delivery (subject to time and similar constraints)</td>
+<td>Livraison spéciale (sujet au temps et autres contraintes similaire)</td>
+</tr>
+<tr>
+<td>238</td>
+<td>Station Trucks (unlicensed)</td>
+<td>Camions de station (non-immatriculés)</td>
+</tr>
+<tr>
+<td>239</td>
+<td>Steel Manufacturers and Distributors</td>
+<td>Fabricants et marchands d'acier</td>
+</tr>
+<tr>
+<td>240</td>
+<td>Tow Trucks</td>
+<td>Dépanneuses (service de dépannage)</td>
+</tr>
+<tr>
+<td>241</td>
+<td>Tractors - Farm</td>
+<td>Tracteurs - ferme</td>
+</tr>
+<tr>
+<td>242</td>
+<td>Tractors - Not farm or road construction, not Highway Type</td>
+<td>Tracteurs - pas de ferme, construc. des routes, type autoroute</td>
+</tr>
+<tr>
+<td>243</td>
+<td>Trip Structure Manufacturer and Distributor</td>
+<td>Acier - fabricants et marchands</td>
+</tr>
+<tr>
+<td>244</td>
+<td>Truckmen (not classified)</td>
+<td>Camionneurs (sans classification)</td>
+</tr>
+<tr>
+<td>245</td>
+<td>TV Sales and Service</td>
+<td>Vente et réparation de téléviseurs</td>
+</tr>
+<tr>
+<td>246</td>
+<td>Valet Service</td>
+<td>Service de valet</td>
+</tr>
+<tr>
+<td>247</td>
+<td>Vegetable Dealers</td>
+<td>Marchands de légumes</td>
+</tr>
+<tr>
+<td>248</td>
+<td>Well Drilling</td>
+<td>Forage de puits de pétrole</td>
+</tr>
+<tr>
+<td>249</td>
+<td>Windows</td>
+<td>Fenêtres</td>
+</tr>
+<tr>
+<td>250</td>
+<td>Windows - Installation</td>
+<td>Fenêtres - installation</td>
+</tr>
+<tr>
+<td>251</td>
+<td>Wood Chip Hauling</td>
+<td>Transport de copeaux de bois</td>
+</tr>
+<tr>
+<td>252</td>
+<td>Wood Trusses - Manufacturers and Dealers</td>
+<td>Charpentes de bois - fabricants et marchands</td>
+</tr>
+<tr>
+<td>253</td>
+<td>Wrecking Contractors Trucks</td>
+<td>Camions des entrepreneurs en démolition</td>
+</tr>
+<tr>
+<td>258</td>
+<td>Snow ploughs (salters, sanders) on com veh - Commercial - Municipal Roads</td>
+<td>Chasse-neige (sel, sable) sur véhicule utilitaire - commerciale - routes municipales</td>
+</tr>
+<tr>
+<td>999</td>
+<td>All Commercial Vehicles not classified</td>
+<td>Tous les véhicules utilitaires sans classification expresse</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table30"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 30:  Delivery Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>Wholesale</td>
+<td>Wholesale</td>
+<td>De gros</td>
+</tr>
+<tr>
+<td>Retail</td>
+<td>Retail</td>
+<td>De détail</td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+<td>Aucune</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table37"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 37:  Delivery Frequency Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>F (Do not use.  Replaced by D)</td>
+<td>Frequent</td>
+<td>Fréquente</td>
+</tr>
+<tr>
+<td>I (Do not use.  Replaced by Y)</td>
+<td>Incidental</td>
+<td>Intermittent</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Daily</td>
+<td>Quotidien</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Monthly</td>
+<td>Mensuel</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Never</td>
+<td>Jamais</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Seasonal</td>
+<td>Saisonnière</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Weekly</td>
+<td>Hebdomadaire</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Yearly</td>
+<td>Annuel</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table38"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 38:  Fuel Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Alcohol</td>
+<td>Alcool</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Electric - Battery</td>
+<td>Pile</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Diesel</td>
+<td>Diesel</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Electric - Fuel cell</td>
+<td>Pile à combustible</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Gasoline</td>
+<td>Gaz</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Natural Gas</td>
+<td>Gaz naturel</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Propane</td>
+<td>Propane</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Propane (Factory)</td>
+<td>Propane (Usine)</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Solar</td>
+<td>Solaire</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Other</td>
+<td>Autre</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table39"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="2">Table 39:  Product Line</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+</tr>
+<tr>
+<td>IRCA</td>
+<td>Individually Rated Commercial Auto</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" src="js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="index.htm">Home</a></li>
+<li><span class="active">Release Notes</span></li>
+<li><a href="FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnk582">Version 5.8 Build 2</a></li>
+<li><a href="#lnk581">Version 5.8 Build 1</a></li>
+<li><a href="#lnk576">Version 5.7 Build 6</a></li>
+<li><a href="#lnk575">Version 5.7 Build 5</a></li>
+<li><a href="#lnk574">Version 5.7 Build 4</a></li>
+<li><a href="#lnk573">Version 5.7 Build 3</a></li>
+<li><a href="#lnk572">Version 5.7 Build 2</a></li>
+<li><a href="#lnk571">Version 5.7 Build 1</a></li>
+<li><a href="#lnk561">Version 5.6 Build 1</a></li>
+</ul>
+</div><a name="lnk582"></a><h1>FORTUS&#8482; Version 5.8 Build 2</h1>
+<ul>
+<li>Internal technology upgrades.</li>
+</ul>
+<hr><a name="lnk581"></a><h1>FORTUS&#8482; Version 5.8 Build 1</h1>
+<h2>Automobile</h2>
+<ul>
+<li>Added many new fields to LeadInfo, in the Extended Data Model: ContactLanguage, ContactMethod, ContactTime, LeadTypeEn, LeadTypeFr, RecipientAccountCode, RecipientAccountName, Referrer, and SubmitterLeadID. See <a href="ExtAuto/ExtAutoMap.htm#tblLeadDetail">LeadDetail</a> for more details.</li>
+<li>Added new messages: 315.  See <a href="Auto/AutoMessages.htm">Auto Messages</a> for more details.</li>
+</ul>
+<h2>Habitation</h2>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li><strong>THIS IS A BREAKING CHANGE!</strong><br>Added new extended coverage aliases: OverlandWaterExt.  This new single alias <strong>REPLACES</strong> all 3 previous aliases.  The following are <strong>NO LONGER VALID</strong> and <strong>SHOULD NOT BE USED</strong>: OverlandWaterBldgExt, OverlandWaterCntsExt, OverlandWaterOutBldgExt.  See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+<li>Added new messages: 72 and 77. See <a href="Hab/HabMessages.htm">Hab Messages</a> for more details.</li>
+<li>Removed messages: 331, 332, and 339.</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li><strong>THIS IS A BREAKING CHANGE!</strong><br>Added new extended coverage type: OverlandWater.  This new single type <strong>REPLACES</strong> all 3 previous types.  The following are <strong>NO LONGER VALID</strong> and <strong>SHOULD NOT BE USED</strong>: OverlandWaterBldg, OverlandWaterCnts, OverlandWaterOutBldg.  See <a href="Hab2/HabRangeTables.htm#Table42">Table 42</a> for more details.</li>
+<li>Added new messages: 72 and 77. See <a href="Hab2/HabMessages.htm">Hab Messages</a> for more details.</li>
+<li>Removed messages: 331, 332, and 339.</li>
+<li>Added many new fields to LeadInfo, in the Extended Data Model: ContactLanguage, ContactMethod, ContactTime, LeadTypeEn, LeadTypeFr, RecipientAccountCode, RecipientAccountName, Referrer, and SubmitterLeadID. See <a href="ExtHab2/ExtHab2Map.htm#tblLeadDetail">LeadDetail</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk576"></a><h1>FORTUS&#8482; Version 5.7 Build 6</h1>
+<ul>
+<li>Addition of documentation for <a href="AppliedITVConsumerFacing/AppliedITVConsumerFacingGeneral.htm"> Consumer-Facing Applied ITV Web Service</a></li>
+<li>Internal technology upgrades.</li>
+</ul>
+<hr><a name="lnk575"></a><h1>FORTUS&#8482; Version 5.7 Build 5</h1>
+<h2>Automobile</h2>
+<ul>
+<li>Added new fields to DriverProfile, for ATVs:  ATVPriorExpDate and ATVInsDate. See <a href="Auto/ATV/ATVMap.htm#tblDriverProfile">DriverProfile for ATV</a> for more details.</li>
+<li>Added new fields to DriverProfile, for Snow Vehicles: SnowPriorExpDate and SnowInsDate. See <a href="Auto/Snow/SnowMap.htm#tblDriverProfile">DriverProfile for Snow Vehicle</a> for more details.</li>
+</ul>
+<h2>Habitation</h2>
+<ul>
+<li>Added underlying functionality for home-based business, though this will not be available for rating until a later date.</li>
+</ul>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li>Added new fields to Dwelling:  HBNumClients and HBNumStylists.  See <a href="Hab/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new extended coverage aliases: HomeBusProfLiabExt and ClaimFreeProtectionExt. See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+<li>Added new messages: 212-223. See <a href="Hab/HabMessages.htm">Hab Messages</a> for more details.</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li>Added new fields to Dwelling:  HBNumClients and HBNumStylists.  See <a href="Hab2/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new extended coverage types: HomeBusProfLiab and ClaimFreeProtection. See <a href="Hab2/HabRangeTables.htm#Table42">Table 42 - Extended Coverage Types</a> and <a href="Hab2/HabStructDesc.htm#descExtCovFields">Extended Coverage Field Matrix</a> for more details.</li>
+<li>Added new messages: 212-223. See <a href="Hab2/HabMessages.htm">Hab Messages</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk574"></a><h1>FORTUS&#8482; Version 5.7 Build 4</h1>
+<h2>Automobile</h2>
+<ul>
+<li>Added new messages: 314.  See <a href="Auto/AutoMessages.htm">Auto Messages</a> for more details.  This message will appear in company results when similar message is generated in Alberta Grid calculations.</li>
+<li>Suppression of premium structure for coverages already included in endorsement packages.</li>
+<li>Added new fields to QuoteInfo, in extended map: CompanyQuoteNum. See <a href="ExtAuto/ExtAutoMap.htm#tblQuoteInfo">QuoteInfo</a> for more details.</li>
+</ul>
+<h2>Habitation</h2>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li>Changed some Dwelling fields to Required:  HailDeduct, WindDeduct, and WaterDeduct.  See <a href="Hab/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new fields to Dwelling:  Garage and RoofSlope.  See <a href="Hab/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Heating types that were previously restricted by province are now valid in all provinces.  See <a href="Hab/HabRangeTables.htm#Table1">Heating Type Codes</a> for more details.</li>
+<li>Added new messages: 205-206. See <a href="Hab/HabMessages.htm">Hab Messages</a> for more details.</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li>Changed some Dwelling fields to Required:  HailDeduct, WindDeduct, and WaterDeduct.  See <a href="Hab2/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new fields to Dwelling:  Garage and RoofSlope.  See <a href="Hab2/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Heating types that were previously restricted by province are now valid in all provinces.  See <a href="Hab2/HabRangeTables.htm#Table1">Heating Type Codes</a> for more details.</li>
+<li>Added new messages: 205-206. See <a href="Hab2/HabMessages.htm">Hab Messages</a> for more details.</li>
+<li>Added new fields to QuoteInfo, in extended map: CompanyQuoteNum. See <a href="ExtHab2/ExtHab2Map.htm#tblQuoteInfo">QuoteInfo</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk573"></a><h1>FORTUS&#8482; Version 5.7 Build 3</h1>
+<h2>Habitation</h2>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li>Added new extended coverage alias: PersonalCyberExt. See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+<li>Heating type of "Combination Furnace - Wood and oil" is now valid in all provinces.  See <a href="Hab/HabRangeTables.htm#Table1">Heating Type Codes</a> for more details.</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li>Added new extended coverage type: PersonalCyber. See <a href="Hab2/HabRangeTables.htm#Table42">Table 42 - Extended Coverage Types</a> and <a href="Hab2/HabStructDesc.htm#descExtCovFields">Extended Coverage Field Matrix</a> for more details.</li>
+<li>Heating type of "Combination Furnace - Wood and oil" is now valid in all provinces.  See <a href="Hab2/HabRangeTables.htm#Table1">Heating Type Codes</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk572"></a><h1>FORTUS&#8482; Version 5.7 Build 2</h1>
+<h2>Automobile</h2>
+<ul>
+<li>Added new field to DriverProfile: AutoCompanyCode.  See <a href="Auto/AutoMap.htm#tblDriverProfile">DriverProfile</a> for more details.</li>
+<li>Added new field to Client, in the Extended Data Model: CompanyWebsite. See <a href="ExtAuto/ExtAutoMap.htm#tblClient">Client</a> for more details.</li>
+</ul>
+<h2>Habitation</h2>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li>Added new fields to Dwelling:  PrmHeatOilTankConstruction, Aux1HeatOilTankConstruction, Aux2HeatOilTankConstruction, Aux3HeatOilTankConstruction, and UnderwritingEffDate.  See <a href="Hab/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new field to standard coverage, extended coverage, and floater:  Interpret.  See <a href="Hab/HabMap.htm">Map Definition</a> for more details.</li>
+<li>Added new miscellaneous extended coverage aliases: Misc20Ext to Misc29Ext. See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+<li>Added new floater aliases: MedicalEquipmentFlt and AnimalsFlt. See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+<li>Added new messages: 186-190. See <a href="Hab/HabMessages.htm">Hab Messages</a> for more details.</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li>Added new field to Heating:  OilTankConstruction.  See <a href="Hab2/HabMap.htm#tblHeating">Heating</a> for more details.</li>
+<li>Added new field to Dwelling: UnderwritingEffDate.  See <a href="Hab2/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Added new miscellaneous extended coverage types: Misc20 to Misc29. See <a href="Hab2/HabRangeTables.htm#Table42">Table 42 - Extended Coverage Types</a> and <a href="Hab2/HabStructDesc.htm#descExtCovFields">Extended Coverage Field Matrix</a> for more details.</li>
+<li>Added new floater types: MedicalEquipment and Animals. See <a href="Hab2/HabRangeTables.htm#Table43">Table 43 - Floater Types</a> for more details.</li>
+<li>Added new messages: 186-190. See <a href="Hab2/HabMessages.htm">Hab Messages</a> for more details.</li>
+<li>Added new field to Client, in the Extended Data Model: CompanyWebsite. See <a href="ExtHab2/ExtHab2Map.htm#tblClient">Client</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk571"></a><h1>FORTUS&#8482; Version 5.7 Build 1</h1>
+<h2>Automobile</h2>
+<ul>
+<li>Internal technology upgrades.</li>
+<li>Added new messages: 313.  See <a href="Auto/AutoMessages.htm">Auto Messages</a> for more details.</li>
+<li>Added new child structure reference to QuoteInfo, in the Extended Data Model: LeadDetail. See <a href="ExtAuto/ExtAutoMap.htm#tblLeadDetail">LeadDetail</a> for more details.</li>
+</ul>
+<h2>Habitation</h2>
+<ul>
+<h3>Hab data model</h3>
+<ul>
+<li>Added water peril coverage:
+                        <ul>
+<li>Dwelling fields: WaterDeduct, WaterCoverage, and RoofResistance. See <a href="Hab/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Standard coverage: WaterCov.  See <a href="Hab/HabStructDesc.htm#descAliases">Structure Aliases</a> for more details.</li>
+</ul>
+</li>
+</ul>
+<h3>Hab2 data model</h3>
+<ul>
+<li>Added water peril coverage:
+                        <ul>
+<li>Dwelling fields: WaterDeduct, WaterCoverage and RoofResistance. See <a href="Hab2/HabMap.htm#tblDwelling">Dwelling</a> for more details.</li>
+<li>Standard coverage: Water.  See <a href="Hab2/HabRangeTables.htm#Table41">Standard Coverage Types</a> for more details.</li>
+</ul>
+</li>
+<li>Added new child structure reference to QuoteInfo, in the Extended Data Model: LeadDetail. See <a href="ExtHab2/ExtHab2Map.htm#tblLeadInfo">LeadDetail</a> for more details.</li>
+</ul>
+</ul>
+<hr><a name="lnk561"></a><h1>FORTUS&#8482; Version 5.6 Build 1</h1>
+<li>Internal technology upgrades.</li>
+<hr>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

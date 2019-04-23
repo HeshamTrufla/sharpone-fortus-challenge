@@ -1,0 +1,1088 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkPersonalTrailer">Personal Trailer</a></li>
+<li><span>›</span>Range Tables</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#Table9">Table 9: Vehicle Types</a></li>
+<li><a href="#Table16">Table 16: Group Plan Codes</a></li>
+<li><a href="#Table35">Table 35: Body Styles</a></li>
+<li><a href="#Table40">Table 40: Vehicle Types for Towing</a></li>
+</ul>
+</div>
+<a name="Table9"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="1">Table 9:  Vehicle Types</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>Personal Trailer</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table16"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 16:  Group Plan Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Alberta</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>CAASCO</td>
+<td>CAA Plus / SCO Motorcycle Program</td>
+<td>Programme CAA Plus / SCO Motorcycle</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+</tr>
+<tr>
+<td>CMG</td>
+<td>CMG Online</td>
+<td>CMG Online</td>
+</tr>
+<tr>
+<td>CCRC</td>
+<td>Cycle City Riders Club</td>
+<td>Cycle City Riders Club</td>
+</tr>
+<tr>
+<td>GWRRA</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+</tr>
+<tr>
+<td>GWTA</td>
+<td>Goldwing Touring Association (GWTA)</td>
+<td>Goldwing Touring Association (GWTA)</td>
+</tr>
+<tr>
+<td>HOG</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+</tr>
+<tr>
+<td>MCC</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+</tr>
+<tr>
+<td>SCRC</td>
+<td>Southern Cruisers Riding Club</td>
+<td>Southern Cruisers Riding Club</td>
+</tr>
+<tr>
+<td>AMA</td>
+<td>Alberta Motorcycle Association (AMA)</td>
+<td>Alberta Motorcycle Association (AMA)</td>
+</tr>
+<tr>
+<td>ASA</td>
+<td>Alberta Snowmobile Association (ASA)</td>
+<td>Alberta Snowmobile Association (ASA)</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 16:  Group Plan Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Ontario</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>CAASCO</td>
+<td>CAA Plus / SCO Motorcycle Program</td>
+<td>CAA Plus / SCO Motorcycle Program</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+</tr>
+<tr>
+<td>CMG</td>
+<td>CMG Online</td>
+<td>CMG Online</td>
+</tr>
+<tr>
+<td>CCRC</td>
+<td>Cycle City Riders Club</td>
+<td>Cycle City Riders Club</td>
+</tr>
+<tr>
+<td>GWRRA</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+</tr>
+<tr>
+<td>GWTA</td>
+<td>Goldwing Touring Association (GWTA)</td>
+<td>Goldwing Touring Association (GWTA)</td>
+</tr>
+<tr>
+<td>HOG</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+</tr>
+<tr>
+<td>MCC</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+</tr>
+<tr>
+<td>SCRC</td>
+<td>Southern Cruisers Riding Club</td>
+<td>Southern Cruisers Riding Club</td>
+</tr>
+<tr>
+<td>OMA</td>
+<td>Ontario Motorcycle Association (OMA)</td>
+<td>Ontario Motorcycle Association (OMA)</td>
+</tr>
+<tr>
+<td>SCR</td>
+<td>Sturgess Cycles Riders Club</td>
+<td>Sturgess Cycles Riders Club</td>
+</tr>
+<tr>
+<td>TSTR</td>
+<td>Temiskaming Star Touring &amp; Riding</td>
+<td>Temiskaming Star Touring &amp; Riding</td>
+</tr>
+<tr>
+<td>OFSC</td>
+<td>Ontario Federation of Snowmobile Clubs (OFSC)</td>
+<td>Ontario Federation of Snowmobile Clubs (OFSC)</td>
+</tr>
+<tr>
+<td>OFTV</td>
+<td>Ontario Federation of All Terrain Vehicle Clubs (OFATV)</td>
+<td>Ontario Federation of All Terrain Vehicle Clubs</td>
+</tr>
+</table><a href="#">top</a><br><br><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 16:  Group Plan Codes</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td colspan="3">Type: Quebec</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>GWRRA</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+<td>Goldwing Road Riders Association (GWRRA)</td>
+</tr>
+<tr>
+<td>CMA</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+<td>Canadian Motorcycle Association (CMA)</td>
+</tr>
+<tr>
+<td>CMG</td>
+<td>CMG Online</td>
+<td>CMG Online</td>
+</tr>
+<tr>
+<td>HOG</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+<td>Harley Davidson Motorcycle Owners (HOG)</td>
+</tr>
+<tr>
+<td>MCC</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+<td>Motorcyclists Confederation of Canada (MCC)</td>
+</tr>
+<tr>
+<td>SCRC</td>
+<td>Southern Cruisers Riding Club</td>
+<td>Southern Cruisers Riding Club</td>
+</tr>
+<tr>
+<td>CLUBSP</td>
+<td>Club-Spyder</td>
+<td>Club-Spyder</td>
+</tr>
+<tr>
+<td>AMMC</td>
+<td>Association of Military Motorcyclists of Canada (AMMC)</td>
+<td>Association de Motocyclisme Militaire Canadien (AMMC)</td>
+</tr>
+<tr>
+<td>MOTR</td>
+<td>Motoroute66</td>
+<td>Motoroute66</td>
+</tr>
+<tr>
+<td>MCQ</td>
+<td>MotoClubQuebec</td>
+<td>MotoClubQuebec</td>
+</tr>
+<tr>
+<td>MOTOD</td>
+<td>Motodirect</td>
+<td>Motodirect</td>
+</tr>
+<tr>
+<td>QSR</td>
+<td>Québec Stariders</td>
+<td>Québec Stariders</td>
+</tr>
+<tr>
+<td>AQVL</td>
+<td>Association Québécoise des Véhicules de Loisirs (AQVL)</td>
+<td>Association Québécoise des Véhicules de Loisirs (AQVL)</td>
+</tr>
+<tr>
+<td>QMF</td>
+<td>Quebec Motorcyclist Federation</td>
+<td>Fédération Motocycliste du Québec (FMQ)</td>
+</tr>
+<tr>
+<td>FMTQ</td>
+<td>Fédération Moto Tourisme Québec (FMTQ)</td>
+<td>Fédération Moto Tourisme Québec (FMTQ)</td>
+</tr>
+<tr>
+<td>BK</td>
+<td>Blue Knights</td>
+<td>Blue Knights</td>
+</tr>
+<tr>
+<td>ADMDQ</td>
+<td>Association des Motoneigistes du Québec (ADMDQ)</td>
+<td>Association des Motoneigistes du Québec (ADMDQ)</td>
+</tr>
+<tr>
+<td>AMMI</td>
+<td>Association des Motoneigistes Manicouagan Inc.(AMMI)</td>
+<td>Association des Motoneigistes Manicouagan Inc.(AMMI)</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>Club des Motoneigistes du Saguenay Inc.</td>
+<td>Club des Motoneigistes du Saguenay Inc.</td>
+</tr>
+<tr>
+<td>CNST</td>
+<td>Club des Neiges Sorel-Tracy Inc.</td>
+<td>Club des Neiges Sorel-Tracy Inc.</td>
+</tr>
+<tr>
+<td>CMBA</td>
+<td>Club Motoneige Bon-Air Inc.</td>
+<td>Club Motoneige Bon-Air Inc.</td>
+</tr>
+<tr>
+<td>CMSR</td>
+<td>Club Motoneige St-Raymond Inc.</td>
+<td>Club Motoneige St-Raymond Inc.</td>
+</tr>
+<tr>
+<td>CMHR</td>
+<td>Club Motoneige du Haut-Richelieu Inc.</td>
+<td>Club Motoneige du Haut-Richelieu Inc.</td>
+</tr>
+<tr>
+<td>CMSIO</td>
+<td>Club Motoneige des Sorciers de l'Ile d'Orléans Inc.</td>
+<td>Club Motoneige des Sorciers de l'Ile d'Orléans Inc.</td>
+</tr>
+<tr>
+<td>CMCC</td>
+<td>Club Motoneige Caribou-Conscrits</td>
+<td>Club Motoneige Caribou-Conscrits</td>
+</tr>
+<tr>
+<td>CMHN</td>
+<td>Club Motoneige Harfand des Neiges</td>
+<td>Club Motoneige Harfand des Neiges</td>
+</tr>
+<tr>
+<td>CMLA</td>
+<td>Club Motoneige Les Amicaux</td>
+<td>Club Motoneige Les Amicaux</td>
+</tr>
+<tr>
+<td>CMSS</td>
+<td>Club Motoneige Ste-Agathe / Ste-Lucie</td>
+<td>Club Motoneige Ste-Agathe / Ste-Lucie</td>
+</tr>
+<tr>
+<td>CMLDM</td>
+<td>Club Motoneige les Lynx de Deux-Montagnes</td>
+<td>Club Motoneige les Lynx de Deux-Montagnes</td>
+</tr>
+<tr>
+<td>FCMQ</td>
+<td>Féderation des Clubs de Motoneigistes du Québec (FCMQ)</td>
+<td>Féderation des Clubs de Motoneigistes du Québec (FCMQ)</td>
+</tr>
+<tr>
+<td>UMLS</td>
+<td>Union des Motoneigistes Lac St-Jean Est Inc.</td>
+<td>Union des Motoneigistes Lac St-Jean Est Inc.</td>
+</tr>
+<tr>
+<td>FQCQ</td>
+<td>Féderation Québecoise des Clubs Quads (FQCQ)</td>
+<td>Féderation Québecoise des Clubs Quads (FQCQ)</td>
+</tr>
+<tr>
+<td>QUAD</td>
+<td>Quadnet</td>
+<td>Quadnet</td>
+</tr>
+<tr>
+<td>ABT</td>
+<td>Abitibi-Témiscamingue</td>
+<td>Abitibi-Témiscamingue</td>
+</tr>
+<tr>
+<td>AFMQ</td>
+<td>Association Femmes Moto Québec</td>
+<td>Association Femmes Moto Québec</td>
+</tr>
+<tr>
+<td>AMAQ</td>
+<td>Association Moto Américaine du Québec</td>
+<td>Association Moto Américaine du Québec</td>
+</tr>
+<tr>
+<td>AMA</td>
+<td>Association Moto Amos</td>
+<td>Association Moto Amos</td>
+</tr>
+<tr>
+<td>AMBC</td>
+<td>Association Moto Baie-Comeau</td>
+<td>Association Moto Baie-Comeau</td>
+</tr>
+<tr>
+<td>AMBCH</td>
+<td>Association Moto Baie-des-Chaleurs</td>
+<td>Association Moto Baie-des-Chaleurs</td>
+</tr>
+<tr>
+<td>AMBL</td>
+<td>Association Moto Basses Laurentides</td>
+<td>Association Moto Basses Laurentides</td>
+</tr>
+<tr>
+<td>AMB</td>
+<td>Association Moto Brossard</td>
+<td>Association Moto Brossard</td>
+</tr>
+<tr>
+<td>AMCD</td>
+<td>Association Moto Cap Diamant</td>
+<td>Association Moto Cap Diamant</td>
+</tr>
+<tr>
+<td>AMC</td>
+<td>Association Moto Chibougamau, Chapais</td>
+<td>Association Moto Chibougamau, Chapais</td>
+</tr>
+<tr>
+<td>AMCAP</td>
+<td>Association Moto de la Capitale</td>
+<td>Association Moto de la Capitale</td>
+</tr>
+<tr>
+<td>AME</td>
+<td>Association Moto Eust</td>
+<td>Association Moto Eust</td>
+</tr>
+<tr>
+<td>AMFL</td>
+<td>Association Moto Fleur de Lys</td>
+<td>Association Moto Fleur de Lys</td>
+</tr>
+<tr>
+<td>AMG</td>
+<td>Association Moto Granby</td>
+<td>Association Moto Granby</td>
+</tr>
+<tr>
+<td>AMHM</td>
+<td>Association Moto Harfang Mauricie</td>
+<td>Association Moto Harfang Mauricie</td>
+</tr>
+<tr>
+<td>AMHR</td>
+<td>Association Moto Haut-Richelieu</td>
+<td>Association Moto Haut-Richelieu</td>
+</tr>
+<tr>
+<td>AMIS</td>
+<td>Association Moto Iles de Sorel</td>
+<td>Association Moto Iles de Sorel</td>
+</tr>
+<tr>
+<td>AMIM</td>
+<td>Association Moto Inter Municipale 93</td>
+<td>Association Moto Inter Municipale 93</td>
+</tr>
+<tr>
+<td>AMJ</td>
+<td>Association Moto Joliette</td>
+<td>Association Moto Joliette</td>
+</tr>
+<tr>
+<td>AMK</td>
+<td>Association Moto Kamouraska, Riviere du Loup, Témiscaouata, Basque</td>
+<td>Association Moto Kamouraska, Riviere du Loup, Témiscaouata, Basque</td>
+</tr>
+<tr>
+<td>AMLP</td>
+<td>Association Moto La Plaine</td>
+<td>Association Moto La Plaine</td>
+</tr>
+<tr>
+<td>AMLSE</td>
+<td>Association Moto Lac St-Jean Est</td>
+<td>Association Moto Lac St-Jean Est</td>
+</tr>
+<tr>
+<td>AMLSJ</td>
+<td>Association Moto Lac St-Jean Ouest</td>
+<td>Association Moto Lac St-Jean Ouest</td>
+</tr>
+<tr>
+<td>AMLSL</td>
+<td>Association Moto Lac St-Louis</td>
+<td>Association Moto Lac St-Louis</td>
+</tr>
+<tr>
+<td>AML</td>
+<td>Association Moto Laval</td>
+<td>Association Moto Laval</td>
+</tr>
+<tr>
+<td>AMLG</td>
+<td>Association Moto Le Gardeur</td>
+<td>Association Moto Le Gardeur</td>
+</tr>
+<tr>
+<td>AMME</td>
+<td>Association Moto Métropolitaine</td>
+<td>Association Moto Métropolitaine</td>
+</tr>
+<tr>
+<td>AMM</td>
+<td>Association Moto Militaire</td>
+<td>Association Moto Militaire</td>
+</tr>
+<tr>
+<td>AMNF</td>
+<td>Association Moto Nouvelle-France</td>
+<td>Association Moto Nouvelle-France</td>
+</tr>
+<tr>
+<td>AMO</td>
+<td>Association Moto Outaouais</td>
+<td>Association Moto Outaouais</td>
+</tr>
+<tr>
+<td>AMPC</td>
+<td>Association Moto Port-Cartier</td>
+<td>Association Moto Port-Cartier</td>
+</tr>
+<tr>
+<td>AMR</td>
+<td>Association Moto Rimouski</td>
+<td>Association Moto Rimouski</td>
+</tr>
+<tr>
+<td>AMRN</td>
+<td>Association Moto Rive-Nord</td>
+<td>Association Moto Rive-Nord</td>
+</tr>
+<tr>
+<td>AMRS</td>
+<td>Association Moto Rive-Sud</td>
+<td>Association Moto Rive-Sud</td>
+</tr>
+<tr>
+<td>AMSH</td>
+<td>Association Moto Sherbrooke</td>
+<td>Association Moto Sherbrooke</td>
+</tr>
+<tr>
+<td>AMSL</td>
+<td>Association Moto Soleil Levant</td>
+<td>Association Moto Soleil Levant</td>
+</tr>
+<tr>
+<td>AMSO</td>
+<td>Association Moto Sorel-Tracy</td>
+<td>Association Moto Sorel-Tracy</td>
+</tr>
+<tr>
+<td>AMSC</td>
+<td>Association Moto St-Constant</td>
+<td>Association Moto St-Constant</td>
+</tr>
+<tr>
+<td>AMST</td>
+<td>Association Moto Ste-Thérèse</td>
+<td>Association Moto Ste-Thérèse</td>
+</tr>
+<tr>
+<td>AMTE</td>
+<td>Association Moto Terrebonne</td>
+<td>Association Moto Terrebonne</td>
+</tr>
+<tr>
+<td>AMT</td>
+<td>Association Moto Tétreauville</td>
+<td>Association Moto Tétreauville</td>
+</tr>
+<tr>
+<td>AMTB</td>
+<td>Association Moto Tourisme Beauce</td>
+<td>Association Moto Tourisme Beauce</td>
+</tr>
+<tr>
+<td>AMTBF</td>
+<td>Association Moto Tourisme Bois-Francs</td>
+<td>Association Moto Tourisme Bois-Francs</td>
+</tr>
+<tr>
+<td>AMTC</td>
+<td>Association Moto Tourisme Charlevoix</td>
+<td>Association Moto Tourisme Charlevoix</td>
+</tr>
+<tr>
+<td>AMTCH</td>
+<td>Association Moto Tourisme Chaudière</td>
+<td>Association Moto Tourisme Chaudière</td>
+</tr>
+<tr>
+<td>AMTCM</td>
+<td>Association Moto Tourisme Chute Montmorency</td>
+<td>Association Moto Tourisme Chute Montmorency</td>
+</tr>
+<tr>
+<td>AMTD</td>
+<td>Association Moto Tourisme Drummond</td>
+<td>Association Moto Tourisme Drummond</td>
+</tr>
+<tr>
+<td>AMTGM</td>
+<td>Association Moto Tourisme Grand-Mère</td>
+<td>Association Moto Tourisme Grand-Mère</td>
+</tr>
+<tr>
+<td>AMTHL</td>
+<td>Association Moto Tourisme Hautes Laurentides</td>
+<td>Association Moto Tourisme Hautes Laurentides</td>
+</tr>
+<tr>
+<td>AMTI</td>
+<td>Association Moto Tourisme Intruder</td>
+<td>Association Moto Tourisme Intruder</td>
+</tr>
+<tr>
+<td>AMTL</td>
+<td>Association Moto Tourisme Lachute</td>
+<td>Association Moto Tourisme Lachute</td>
+</tr>
+<tr>
+<td>AMTLA</td>
+<td>Association Moto Tourisme Larochelle</td>
+<td>Association Moto Tourisme Larochelle</td>
+</tr>
+<tr>
+<td>AMTLI</td>
+<td>Association Moto Tourisme Lévis Inc.</td>
+<td>Association Moto Tourisme Lévis Inc.</td>
+</tr>
+<tr>
+<td>AMTLO</td>
+<td>Association Moto Tourisme Longueuil</td>
+<td>Association Moto Tourisme Longueuil</td>
+</tr>
+<tr>
+<td>AMTLB</td>
+<td>Association Moto Tourisme Lotbinière</td>
+<td>Association Moto Tourisme Lotbinière</td>
+</tr>
+<tr>
+<td>AMTMV</td>
+<td>Association Moto Tourisme Madeleine de Verchères</td>
+<td>Association Moto Tourisme Madeleine de Verchères</td>
+</tr>
+<tr>
+<td>AMTMK</td>
+<td>Association Moto Tourisme Maskinongé</td>
+<td>Association Moto Tourisme Maskinongé</td>
+</tr>
+<tr>
+<td>AMTMT</td>
+<td>Association Moto Tourisme Matane</td>
+<td>Association Moto Tourisme Matane</td>
+</tr>
+<tr>
+<td>AMTMA</td>
+<td>Association Moto Tourisme Mauricie</td>
+<td>Association Moto Tourisme Mauricie</td>
+</tr>
+<tr>
+<td>AMTME</td>
+<td>Association Moto Tourisme Métropole</td>
+<td>Association Moto Tourisme Métropole</td>
+</tr>
+<tr>
+<td>AMTO</td>
+<td>Association Moto Tourisme Orford</td>
+<td>Association Moto Tourisme Orford</td>
+</tr>
+<tr>
+<td>AMTQM</td>
+<td>Association Moto Tourisme Québec Métropolitain</td>
+<td>Association Moto Tourisme Québec Métropolitain</td>
+</tr>
+<tr>
+<td>AMTRA</td>
+<td>Association Moto Tourisme Radisson</td>
+<td>Association Moto Tourisme Radisson</td>
+</tr>
+<tr>
+<td>AMTRN</td>
+<td>Association Moto Tourisme Rouyn-Noranda</td>
+<td>Association Moto Tourisme Rouyn-Noranda</td>
+</tr>
+<tr>
+<td>AMTSI</td>
+<td>Association Moto Tourisme Sept-Iles</td>
+<td>Association Moto Tourisme Sept-Iles</td>
+</tr>
+<tr>
+<td>AMTS</td>
+<td>Association Moto Tourisme Shawinigan</td>
+<td>Association Moto Tourisme Shawinigan</td>
+</tr>
+<tr>
+<td>AMTSE</td>
+<td>Association Moto Tourisme St-Élie D'Orford</td>
+<td>Association Moto Tourisme St-Élie D'Orford</td>
+</tr>
+<tr>
+<td>AMTHU</td>
+<td>Association Moto Tourisme St-Hubert</td>
+<td>Association Moto Tourisme St-Hubert</td>
+</tr>
+<tr>
+<td>AMTHY</td>
+<td>Association Moto Tourisme St-Hyacinthe</td>
+<td>Association Moto Tourisme St-Hyacinthe</td>
+</tr>
+<tr>
+<td>AMTSY</td>
+<td>Association Moto Tourisme Sylvie Francs</td>
+<td>Association Moto Tourisme Sylvie Francs</td>
+</tr>
+<tr>
+<td>AMTVF</td>
+<td>Association Moto Tourisme Valleyfield</td>
+<td>Association Moto Tourisme Valleyfield</td>
+</tr>
+<tr>
+<td>AMTVS</td>
+<td>Association Moto Tourisme Vaudreuil Soulange</td>
+<td>Association Moto Tourisme Vaudreuil Soulange</td>
+</tr>
+<tr>
+<td>AMTV</td>
+<td>Association Moto Tourisme Verdun</td>
+<td>Association Moto Tourisme Verdun</td>
+</tr>
+<tr>
+<td>AMTR</td>
+<td>Association Moto Trois-Rivières</td>
+<td>Association Moto Trois-Rivières</td>
+</tr>
+<tr>
+<td>AMVTC</td>
+<td>Association Moto V. Twin (Cruiser)</td>
+<td>Association Moto V. Twin (Cruiser)</td>
+</tr>
+<tr>
+<td>AMVRS</td>
+<td>Association Moto Vulcan Rive-Sud</td>
+<td>Association Moto Vulcan Rive-Sud</td>
+</tr>
+<tr>
+<td>AMGQ</td>
+<td>Association Motocycliste Guay du Québec</td>
+<td>Association Motocycliste Guay du Québec</td>
+</tr>
+<tr>
+<td>AQVR</td>
+<td>Association Québec Vulcan Roadboy</td>
+<td>Association Québec Vulcan Roadboy</td>
+</tr>
+<tr>
+<td>ARM</td>
+<td>Association Rétablissement Motocycliste</td>
+<td>Association Rétablissement Motocycliste</td>
+</tr>
+<tr>
+<td>ASTQ</td>
+<td>Association Sport Touring Québec</td>
+<td>Association Sport Touring Québec</td>
+</tr>
+<tr>
+<td>AVS</td>
+<td>Association V. Star</td>
+<td>Association V. Star</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>B.M.W.</td>
+<td>B.M.W.</td>
+</tr>
+<tr>
+<td>CHAP</td>
+<td>Chap West Island 044</td>
+<td>Chap West Island 044</td>
+</tr>
+<tr>
+<td>HDI</td>
+<td>Club 1340 HD Inc.</td>
+<td>Club 1340 HD Inc.</td>
+</tr>
+<tr>
+<td>SOL</td>
+<td>Club Les Solidaires</td>
+<td>Club Les Solidaires</td>
+</tr>
+<tr>
+<td>CME</td>
+<td>Club Moto Évasion</td>
+<td>Club Moto Évasion</td>
+</tr>
+<tr>
+<td>CMSL</td>
+<td>Club Moto Saguenay Lac St-Jean</td>
+<td>Club Moto Saguenay Lac St-Jean</td>
+</tr>
+<tr>
+<td>CSC</td>
+<td>Club Southern Cruiser</td>
+<td>Club Southern Cruiser</td>
+</tr>
+<tr>
+<td>CSN</td>
+<td>Club St-Narcisse</td>
+<td>Club St-Narcisse</td>
+</tr>
+<tr>
+<td>CAPM</td>
+<td>Comité Action Politique Moto</td>
+<td>Comité Action Politique Moto</td>
+</tr>
+<tr>
+<td>CYBER</td>
+<td>Cyber Moto</td>
+<td>Cyber Moto</td>
+</tr>
+<tr>
+<td>GWP</td>
+<td>Goldwing Plus</td>
+<td>Goldwing Plus</td>
+</tr>
+<tr>
+<td>GWQ</td>
+<td>Goldwing Québec</td>
+<td>Goldwing Québec</td>
+</tr>
+<tr>
+<td>HDLMG</td>
+<td>Harley Davidson Lachute MG1</td>
+<td>Harley Davidson Lachute MG1</td>
+</tr>
+<tr>
+<td>HGBE</td>
+<td>Hog Beauce</td>
+<td>Hog Beauce</td>
+</tr>
+<tr>
+<td>HGCH</td>
+<td>Hog Châteauguay</td>
+<td>Hog Châteauguay</td>
+</tr>
+<tr>
+<td>HGCN</td>
+<td>Hog Côte Nord</td>
+<td>Hog Côte Nord</td>
+</tr>
+<tr>
+<td>HGDV</td>
+<td>Hog Drummondville</td>
+<td>Hog Drummondville</td>
+</tr>
+<tr>
+<td>HGLSJ</td>
+<td>Hog Lac St-Jean</td>
+<td>Hog Lac St-Jean</td>
+</tr>
+<tr>
+<td>HGLA</td>
+<td>Hog Laurentides</td>
+<td>Hog Laurentides</td>
+</tr>
+<tr>
+<td>HGLE</td>
+<td>Hog Lennoxville</td>
+<td>Hog Lennoxville</td>
+</tr>
+<tr>
+<td>HGMO</td>
+<td>Hog Montérégie</td>
+<td>Hog Montérégie</td>
+</tr>
+<tr>
+<td>HGMQ</td>
+<td>Hog Montréal - Québec Canada</td>
+<td>Hog Montréal - Québec Canada</td>
+</tr>
+<tr>
+<td>HGNA</td>
+<td>Hog Nord Ouest Abitibi</td>
+<td>Hog Nord Ouest Abitibi</td>
+</tr>
+<tr>
+<td>HGOS</td>
+<td>Hog Outaouais</td>
+<td>Hog Outaouais</td>
+</tr>
+<tr>
+<td>HGQC</td>
+<td>Hog Québec</td>
+<td>Hog Québec</td>
+</tr>
+<tr>
+<td>HGRE</td>
+<td>Hog Repentigny</td>
+<td>Hog Repentigny</td>
+</tr>
+<tr>
+<td>HGRI</td>
+<td>Hog Rimouski</td>
+<td>Hog Rimouski</td>
+</tr>
+<tr>
+<td>HGSH</td>
+<td>Hog Shawinigan</td>
+<td>Hog Shawinigan</td>
+</tr>
+<tr>
+<td>HGST</td>
+<td>Hog St-Hyacinthe</td>
+<td>Hog St-Hyacinthe</td>
+</tr>
+<tr>
+<td>HGVA</td>
+<td>Hog Valleyfield</td>
+<td>Hog Valleyfield</td>
+</tr>
+<tr>
+<td>HGVI</td>
+<td>Hog Victoriaville</td>
+<td>Hog Victoriaville</td>
+</tr>
+<tr>
+<td>KRID</td>
+<td>Knights Riders</td>
+<td>Knights Riders</td>
+</tr>
+<tr>
+<td>ELITE</td>
+<td>Les Élites</td>
+<td>Les Élites</td>
+</tr>
+<tr>
+<td>MONT</td>
+<td>Les Montagnards</td>
+<td>Les Montagnards</td>
+</tr>
+<tr>
+<td>QWEST</td>
+<td>Moto QWEST M.R.C.</td>
+<td>Moto QWEST M.R.C.</td>
+</tr>
+<tr>
+<td>MRS</td>
+<td>Moto Rencontre Sherbrooke</td>
+<td>Moto Rencontre Sherbrooke</td>
+</tr>
+<tr>
+<td>REDK</td>
+<td>Red Knight 2-3</td>
+<td>Red Knight 2-3</td>
+</tr>
+<tr>
+<td>SOB</td>
+<td>Sobriété Québec</td>
+<td>Sobriété Québec</td>
+</tr>
+<tr>
+<td>STM</td>
+<td>Sport Touring Moto</td>
+<td>Sport Touring Moto</td>
+</tr>
+<tr>
+<td>STAR</td>
+<td>Star Riders</td>
+<td>Star Riders</td>
+</tr>
+<tr>
+<td>WIMG</td>
+<td>West Island Moto Groupe</td>
+<td>West Island Moto Groupe</td>
+</tr>
+<tr>
+<td>FQCC</td>
+<td>Fédération québécoise de camping et de caravaning</td>
+<td>Fédération québécoise de camping et de caravaning</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table35"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<col align="left">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="3">Table 35:  Body Styles</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+<td>English Description</td>
+<td>Description Française</td>
+</tr>
+<tr>
+<td>UT</td>
+<td>Utility</td>
+<td>Utilitaire</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>Tent</td>
+<td>Tente roulotte</td>
+</tr>
+<tr>
+<td>CT</td>
+<td>Cabin/Home</td>
+<td>Caravane</td>
+</tr>
+<tr>
+<td>FW</td>
+<td>Cabin/Home - Fifth Wheel</td>
+<td>Caravane à sellette</td>
+</tr>
+</table><a href="#">top</a><br><br>
+<a name="Table40"></a><table class="txtTableBody" cellSpacing="0">
+<col align="left">
+<tr class="txtTableTitle">
+<td colspan="1">Table 40:  Vehicle Types for Towing</td>
+</tr>
+<tr class="txtTableColumnTitle">
+<td>Range</td>
+</tr>
+<tr>
+<td>ATV Non-Amphibious</td>
+</tr>
+<tr>
+<td>Motorcycle</td>
+</tr>
+<tr>
+<td>Motor Home</td>
+</tr>
+<tr>
+<td>Snow Vehicle</td>
+</tr>
+<tr>
+<td>Private Passenger</td>
+</tr>
+</table><a href="#">top</a><br><br></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.compu-quote.com/RateBridge/Version1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.compu-quote.com/RateBridge/Version1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.compu-quote.com/RateBridge/Version1">
+      <s:element name="Rate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuoteGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QuoteIterationGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlparam_FortusTransaction">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlparam_ExtendedInput">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlparam_CarrierInfo">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RateResult" type="tns:RateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RateResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BrokerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FortusOutputXML">
+            <s:complexType>
+              <s:sequence>
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="FailedCarriers">
+            <s:complexType>
+              <s:sequence>
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="tns:statusCodes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrackingNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="statusCodes">
+        <s:restriction base="s:string">
+          <s:enumeration value="SUCCESS" />
+          <s:enumeration value="ERROR" />
+          <s:enumeration value="CQCREDENTIALS" />
+          <s:enumeration value="INVALIDINPUT" />
+          <s:enumeration value="NOTAUTHORIZED" />
+          <s:enumeration value="USERDISABLED" />
+          <s:enumeration value="WEBSERVICETIMEOUT" />
+          <s:enumeration value="WEBSERVICEERROR" />
+          <s:enumeration value="WEBSERVICEINTERNALERROR" />
+          <s:enumeration value="TRANSFORMERROR" />
+          <s:enumeration value="SCHEMAERROR" />
+          <s:enumeration value="SCHEMANOTIFICATION" />
+          <s:enumeration value="TPCREDENTIALS" />
+          <s:enumeration value="TPINVALIDINPUT" />
+          <s:enumeration value="MANDATORYFIELDS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CQCredentials" type="tns:CQCredentials" />
+      <s:complexType name="CQCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Caller" type="tns:Caller" />
+      <s:complexType name="Caller">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Product" type="tns:ProductType" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineOfBusiness" type="tns:LOBType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Province" type="tns:Provinces" />
+          <s:element minOccurs="1" maxOccurs="1" name="Language" type="tns:Languages" />
+          <s:element minOccurs="0" maxOccurs="1" name="FortusVersion" type="tns:FortusVersionType" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:simpleType name="ProductType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ThirdParty_Web" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LOBType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AUTO" />
+          <s:enumeration value="HAB" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Provinces">
+        <s:restriction base="s:string">
+          <s:enumeration value="AB" />
+          <s:enumeration value="BC" />
+          <s:enumeration value="MB" />
+          <s:enumeration value="NB" />
+          <s:enumeration value="NF" />
+          <s:enumeration value="NS" />
+          <s:enumeration value="NT" />
+          <s:enumeration value="ON" />
+          <s:enumeration value="PE" />
+          <s:enumeration value="QC" />
+          <s:enumeration value="SK" />
+          <s:enumeration value="YT" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Languages">
+        <s:restriction base="s:string">
+          <s:enumeration value="FR" />
+          <s:enumeration value="EN" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="FortusVersionType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MajorVersion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinorVersion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Build" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deviation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RateSoapIn">
+    <wsdl:part name="parameters" element="tns:Rate" />
+  </wsdl:message>
+  <wsdl:message name="RateSoapOut">
+    <wsdl:part name="parameters" element="tns:RateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RateCQCredentials">
+    <wsdl:part name="CQCredentials" element="tns:CQCredentials" />
+  </wsdl:message>
+  <wsdl:message name="RateCaller">
+    <wsdl:part name="Caller" element="tns:Caller" />
+  </wsdl:message>
+  <wsdl:portType name="RateBridgeWebServiceSoap">
+    <wsdl:operation name="Rate">
+      <wsdl:input message="tns:RateSoapIn" />
+      <wsdl:output message="tns:RateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RateBridgeWebServiceSoap" type="tns:RateBridgeWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Rate">
+      <soap:operation soapAction="http://www.compu-quote.com/RateBridge/Version1/Rate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RateCQCredentials" part="CQCredentials" use="literal" />
+        <soap:header message="tns:RateCaller" part="Caller" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RateBridgeWebServiceSoap12" type="tns:RateBridgeWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Rate">
+      <soap12:operation soapAction="http://www.compu-quote.com/RateBridge/Version1/Rate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RateCQCredentials" part="CQCredentials" use="literal" />
+        <soap12:header message="tns:RateCaller" part="Caller" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RateBridgeWebService">
+    <wsdl:port name="RateBridgeWebServiceSoap" binding="tns:RateBridgeWebServiceSoap">
+      <soap:address location="http://localhost/RateBridge/Version1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RateBridgeWebServiceSoap12" binding="tns:RateBridgeWebServiceSoap12">
+      <soap12:address location="http://localhost/RateBridge/Version1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

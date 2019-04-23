@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../css/main.css" type="text/css">
+<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon"><script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="../../index.htm">Home</a></li>
+<li><a href="../../ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="../../FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="../AutoGeneral.htm" class="active">Auto</a></li>
+<li><a href="../../Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="../../Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><a href="../../WSGeneral.htm">Web Services</a></li>
+</ul>
+</div>
+<div class="breadcrumb">
+<ul>
+<li><a href="../AutoGeneral.htm">Auto</a></li>
+<li><span>›</span><a href="../AutoGeneral.htm#lnkMotorcycle">Motorcycle</a></li>
+<li><span>›</span>VICC</li>
+</ul>
+</div>
+<div class="section">
+<div class="container">
+<div id="toc">
+<div id="tocTitle">+ Table of Contents</div>
+<ul id="toc-ul">
+<li><a href="#lnkVICC">VICC Information</a></li>
+<li><a href="#lnkFAQ">F.A.Q.</a></li>
+</ul>
+</div><a name="lnkVICC"></a><h1>VICC Information</h1>
+<p>Each carrier defines their own set of VICC Vehicle Rate Groups. 
+            However, before calculation of the quote, a facility is needed to determine if a particular 
+            vehicle year and vehicle model are valid (Ex. Did the Triumph Street Triple exist in 2014?). A 
+            file, MOTODETL_BI.TXT, is supplied to fill this need.</p>
+<p>The first line (or record) contains the field names. This line
+            should be deleted before or after the data is imported into the database. Each field is
+            delimited by a pipe ('|') character, and each line (or record) is seperated by a carriage return and 
+            a line feed. The fields are defined in <a href="#Table1">Table 1</a> below.</p><a name="Table1"></a><table class="txtTableBody" cellSpacing="0">
+<tr class="txtTableTitle">
+<td colspan="4" align="left">Table 1: MOTODETL_BI.TXT Fields</td>
+</tr>
+<tr>
+<td class="txtTableColumnTitle">Field</td>
+<td class="txtTableColumnTitle">Type</td>
+<td class="txtTableColumnTitle">Width</td>
+<td class="txtTableColumnTitle">Description</td>
+</tr>
+<tr>
+<td>MODEL_YEAR</td>
+<td>NUMBER</td>
+<td>4</td>
+<td>Vehicle model year.  MODEL_YEAR and EXT_VICC make a primary key for this data.</td>
+</tr>
+<tr>
+<td>EXT_VICC</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Extended VICC vehicle code.  MODEL_YEAR and EXT_VICC make a primary key for this data.</td>
+</tr>
+<tr>
+<td>VICC_CODE</td>
+<td>CHAR</td>
+<td>4</td>
+<td>VICC vehicle code</td>
+</tr>
+<tr>
+<td>MAKE</td>
+<td>CHAR</td>
+<td>25</td>
+<td>Vehicle make, a.k.a. vehicle manufacturer</td>
+</tr>
+<tr>
+<td>MAKE_FR</td>
+<td>CHAR</td>
+<td>25</td>
+<td>French version of MAKE.</td>
+</tr>
+<tr>
+<td>MODEL</td>
+<td>CHAR</td>
+<td>40</td>
+<td>Vehicle model</td>
+</tr>
+<tr>
+<td>MODEL_FR</td>
+<td>CHAR</td>
+<td>40</td>
+<td>French version of MODEL.</td>
+</tr>
+<tr>
+<td>MAKEMOD</td>
+<td>CHAR</td>
+<td>20</td>
+<td>Abbreviation of MAKE and MODEL</td>
+</tr>
+<tr>
+<td>MODEL_FR</td>
+<td>CHAR</td>
+<td>20</td>
+<td>French version of MAKEMOD.</td>
+</tr>
+<tr>
+<td>ABS</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Anti-lock bracking system.
+                  <ul>
+<li>0 - not available</li>
+<li>3 - optional</li>
+<li>4 - standard</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>WEIGHT</td>
+<td>CHAR</td>
+<td>4</td>
+<td>Measured in kilograms (kg).  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>PRICE</td>
+<td>CHAR</td>
+<td>6</td>
+<td>Manufacturer's Suggested Retail Price + GST.  Blank, or a value of 0, indicates not available.</td>
+</tr>
+<tr>
+<td>CYLINDER</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Engine cylinder.
+                  <ul>
+<li>1, 2, 3, 4, 6 and 8 = number of cylinders</li>
+<li>0 - rotary engine, no cylinder</li>
+<li>60 - Electric motor, no cylinder</li>
+<li>99 - information not known</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>FUELTYPE</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine fuel type.
+                  <ul>
+<li>G - Gasoline</li>
+<li>D - Diesel</li>
+<li>V - Electric, no fuel</li>
+<li>N - Natural gas</li>
+<li>X - Not available or Unknown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BODYSTYLE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Body style  (older classification method)
+                  <ul>
+<li>3M - 3 Wheel motorcycle</li>
+<li>3S - 3 Wheel scooter</li>
+<li>C - custom</li>
+<li>CS - custom sidecar</li>
+<li>DP - dual purpose</li>
+<li>MA - adventure</li>
+<li>MP - moped/scooter</li>
+<li>OE - off-road enduro</li>
+<li>OM - off-road motocross</li>
+<li>OR - off-road</li>
+<li>OT - off-road trial</li>
+<li>S - sport</li>
+<li>T - touring</li>
+<li>TR - 3 Wheel motorcycle 'trike'</li>
+<li>V - vintage</li>
+<li>XX - unknown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BODYSTYLE2</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Body style 2 (newer classification method)
+                  <ul>
+<li>SA - Standard</li>
+<li>CR - Cruiser</li>
+<li>NS - Naked Sport</li>
+<li>S - Sport</li>
+<li>SG - Sport Touring</li>
+<li>T - Touring</li>
+<li>SS - Standard Sidecar</li>
+<li>MP - Moped</li>
+<li>SR - Scooter</li>
+<li>DP - Dual Purpose</li>
+<li>MA - Adventure</li>
+<li>OE - Enduro</li>
+<li>OS - Motard / Super Motard</li>
+<li>OR - Off Road</li>
+<li>OM - Off Road Motocross</li>
+<li>OT - Off Road Trials</li>
+<li>3S - 3 Wheel Scooter (Excludes 2 rear wheels)</li>
+<li>3M - 3 Wheel Motorcycle (Excludes 2 rear wheels)</li>
+<li>TR - Trike (3 Wheel Motorcycle)</li>
+<li>V - Vintage</li>
+<li>XX - N/A or Unknown class type</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BODYTYPE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>CSIO body type.  Blank at the moment.  For future use.</td>
+</tr>
+<tr>
+<td>DRIVETRAIN</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Drive train
+                  <ul>
+<li>B - belt drive</li>
+<li>C - chain drive</li>
+<li>S - shaft drive</li>
+<li>X - unknown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>VEHTYPE</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Vehicle type
+                  <ul>
+<li>MC - motorcycle</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>CHAR</td>
+<td>4</td>
+<td>Engine Displacement (cc)
+                  <ul>
+<li>0 - electric motor</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>COOLING</td>
+<td>CHAR</td>
+<td>2</td>
+<td>Engine Cooling. Blank indicates electric motor.
+                  <ul>
+<li>L - Liquid</li>
+<li>A - Air</li>
+<li>AO - Air/Oil</li>
+<li>O - Oil</li>
+<li>F - Fan</li>
+<li>XX - Unknown</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ENG_CONFIG</td>
+<td>CHAR</td>
+<td>3</td>
+<td>Engine Configuration
+                  <ul>
+<li>F1 = Flat - 1 cylinder</li>
+<li>H2 = Horizontally Opposed - 2 cylinders</li>
+<li>H4 = Horizontally Opposed - 4 cylinders</li>
+<li>H6 = Horizontally Opposed - 6 cylinders</li>
+<li>K = Electric motor</li>
+<li>L2 = In-Line - 2 cylinders</li>
+<li>L3 = In-Line - 3 cylinders</li>
+<li>L4 = In-Line - 4 cylinders</li>
+<li>L6 = In-Line - 6 cylinders</li>
+<li>V2 = V configuration - 2 cylinders</li>
+<li>V4 = V configuration - 4 cylinders</li>
+<li>V6 = V configuration - 6 cylinders</li>
+<li>V8 = V configuration - 8 cylinders</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>ENG_STROKE</td>
+<td>CHAR</td>
+<td>1</td>
+<td>Engine Stroke
+                  <ul>
+<li>0 = electric motor</li>
+</ul>
+</td>
+</tr>
+</table><a href="#">top</a><a name="lnkFAQ"></a><div class="FAQ">
+<h1>Frequently Asked Questions</h1>
+<div class="Question">Q: Do I need all these fields, all this data?</div>
+              A: No, not all of this data is necessary.  A lot of the data may never be used.  
+
+              <div class="Question">Q: If most of this data is not necessary, why is it there?</div>
+              A: Some of the data may be used in other ways, in very different applications.  Some data may be used in the future.  Etc.
+
+              <div class="Question">Q: Some of the entries seem to be missing some data.  Why is there missing data?</div>
+              A: The model year, VICC codes and make/model fields should always be populated.  After that, it is possible that description details about the vehicle are not present. Systems using this description data must plan for this scenario.
+
+              <div class="Question">Q: We are currently using MCVICC_BI.TXT.  Do we need to switch to MOTODETL_BI.TXT?</div>
+              A: Yes, you should make plans to change to MOTODETL_BI.TXT (MCVICC_BI.TXT will continue to remain available for some time).  There are several benefits with the new data, but having a list that goes beyond the last 15 years is a major reason.
+
+            </div><a href="#">top</a></div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

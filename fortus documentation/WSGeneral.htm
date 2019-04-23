@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>FORTUS&#8482; Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><script type="text/javascript" src="js/jquery-1.9.1.min.js"></script><script type="text/javascript" src="js/main.js"></script><script type="text/javascript">
+            $(function() {
+                function inViewport($el) {
+                    var elH = $el.outerHeight(),
+                        H = $(window).height(),
+                        r = $el[0].getBoundingClientRect(), t=r.top, b=r.bottom;
+                    return Math.max(0, t>0? Math.min(elH, H-t) : Math.min(b, H));
+                }
+
+                var $toc = $('#toc');
+                if ($toc.length) {
+                    var offset = $toc.offset();
+                    $(window).on('load resize scroll', function(e){
+                        var scrollTop = $(window).scrollTop();
+                        (offset.top < scrollTop + 20 && $toc.css('z-index') == 'auto')
+                            ? $toc.css({ position:'fixed', top:'20px', overflowY:'auto', height:($(window).height()-inViewport($('.footer'))-20)+'px' })
+                            : $toc.css({ position:'', top:'', overflowY:'', height:'' });
+                    });
+                }
+            });
+        </script><script type="text/javascript" src="js/jquery.maphilight.min.js"></script><script type="text/javascript">
+			$(function() {
+				$('.map').maphilight();
+				$('#rwslink').mouseover(function(e) { $('#rws').mouseover(); }).mouseout(function(e) { $('#rws').mouseout(); });
+				$('#rbwslink').mouseover(function(e) { $('#rbws').mouseover(); }).mouseout(function(e) { $('#rbws').mouseout(); });
+				$('#lwslink').mouseover(function(e) { $('#lws').mouseover(); }).mouseout(function(e) { $('#lws').mouseout(); });
+			});
+		</script></head>
+<body>
+<div class="
+         header">
+<h1><span class="doctitle">FORTUS&#8482; Documentation <span class="version">(Version 5.8 Build 2)</span></span></h1>
+</div>
+<div class="nav">
+<ul class="sf-menu group">
+<li><a href="index.htm">Home</a></li>
+<li><a href="ReleaseNotes.htm">Release Notes</a></li>
+<li><a href="FortusTransaction/QuoteFortusTransaction.htm">Fortus Transaction</a></li>
+<li><a href="Auto/AutoGeneral.htm">Auto</a></li>
+<li><a href="Hab/HabGeneral.htm">Hab</a></li>
+<li><a href="Hab2/HabGeneral.htm">Hab 2</a></li>
+<li><span class="active">Web Services</span></li>
+</ul>
+</div>
+<div class="section">
+<div class="container"><a name="lnkWebServices"></a><h1>Web Services</h1>
+<ul class="liMain">
+<li><a id="rwslink" href="RatingWebService/RWSGeneral.htm">Rating Web Service</a></li>
+<li><a id="rbwslink" href="RateBridge/RBGeneral.htm">RateBridge&#8482; Web Service</a></li>
+<li><a id="lwslink" href="Leads/LeadsGeneral.htm">Leads Web Service</a></li>
+<li><a id="aitvwslink" href="AppliedITVConsumerFacing/AppliedITVConsumerFacingGeneral.htm"> Consumer-Facing Applied ITV Web Service</a></li>
+</ul><img id="WSWorkflow" src="images/wsworkflow.png" border="0" width="806" height="779" orgWidth="806" orgHeight="779" usemap="#wsworkflowmap" alt="" class="map"><map name="wsworkflowmap" id="wsworkflowmap">
+<area id="rws" alt="" title="Rating Web Service" href="RatingWebService/RWSGeneral.htm" shape="rect" coords="210,205,344,295" style="outline:none;" target="_self">
+<area id="lws" alt="" title="Leads Web Service" href="Leads/LeadsGeneral.htm" shape="rect" coords="166,487,336,579" style="outline:none;" target="_self">
+<area id="rbws" alt="" title="RateBridge&#8482; Web Service" href="RateBridge/RBGeneral.htm" shape="rect" coords="192,340,346,438" style="outline:none;" target="_self">
+<area alt="" title="" href="RatingWebService/RWSGeneral.htm#lnkQuoteWebMethod" shape="rect" coords="368,232,524,254" style="outline:none;" target="_self">
+<area alt="" title="" href="RateBridge/RBGeneral.htm#lnkRateWebMethod" shape="rect" coords="359,365,520,387" style="outline:none;" target="_self">
+<area alt="" title="" href="Leads/LeadsGeneral.htm#lnkRecordFortusLeadWebMethod" shape="rect" coords="347,515,549,537" style="outline:none;" target="_self">
+<area alt="" title="" href="FortusTransaction/QuoteFortusTransaction.htm" shape="rect" coords="522,232,615,254" style="outline:none;" target="_self">
+<area alt="" title="" href="FortusTransaction/QuoteFortusTransaction.htm" shape="rect" coords="518,364,611,386" style="outline:none;" target="_self">
+<area alt="" title="" href="Auto/AutoGeneral.htm#lnkExtended" shape="rect" coords="608,365,714,387" style="outline:none;" target="_self">
+<area alt="" title="" href="RateBridge/RBGeneral.htm#lnkRWMSOAPBody" shape="rect" coords="714,365,779,387" style="outline:none;" target="_self">
+<area alt="" title="" href="Leads/LeadsGeneral.htm#lnkRFLWMSOAPBody" shape="rect" coords="548,515,598,537" style="outline:none;" target="_self">
+<area alt="" title="" href="FortusTransaction/QuoteFortusTransaction.htm" shape="rect" coords="598,515,687,537" style="outline:none;" target="_self">
+<area alt="" title="" href="Auto/AutoGeneral.htm#lnkExtended" shape="rect" coords="686,515,795,537" style="outline:none;" target="_self">
+</map>
+</div>
+</div>
+<div class="footer"><div class="container">
+<hr>
+<p>© 2018 Applied Systems, Inc. All rights reserved.</p>
+</div></div>
+</body>
+</html>

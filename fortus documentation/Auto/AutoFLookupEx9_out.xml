@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<LookupTransaction Type="Automobile">
+   <RegistryOverrides>
+      <Diagnostics>1</Diagnostics>
+   </RegistryOverrides>
+   <Defaults>
+      <EffDate>20060829</EffDate>
+      <Province>QC</Province>
+      <ProductLine>Personal</ProductLine>
+   </Defaults>
+   <Lookups>
+      <Lookup ID="1" Type="DriverClassList">
+         <Carrier>MR</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>15</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>05</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>16</Value>
+            <Value>17</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+         </Results>
+      </Lookup>
+      <Lookup ID="2" Type="DriverClassList">
+         <Carrier>AXA</Carrier>
+         <Results>
+            <Value>01</Value>
+            <Value>02</Value>
+            <Value>03</Value>
+            <Value>04</Value>
+            <Value>06</Value>
+            <Value>07</Value>
+            <Value>08</Value>
+            <Value>09</Value>
+            <Value>10</Value>
+            <Value>11</Value>
+            <Value>12</Value>
+            <Value>13</Value>
+            <Value>18</Value>
+            <Value>19</Value>
+         </Results>
+      </Lookup>
+   </Lookups>
+   <Diagnostics>
+      <Info>Warning: Diagnostics will not include some items because it is turned on too late.  Turn on in the system registry to rectify.</Info>
+      <Info>New Engine: C:\CQWIN\cqe20.dll</Info>
+      <Info>New Engine Info: Version 2.1 Build 14</Info>
+      <Info>Legacy Auto Engine: C:\CQWIN\cqae32r.dll</Info>
+      <Info>Legacy Auto Engine Info: Version 3 Build 5</Info>
+      <Info LookupID="1">Ratebook File: c:\cqwin\auto\AP8MR.QUE</Info>
+      <Info LookupID="2">Ratebook File: c:\cqwin\auto\AP7AXA.QUE</Info>
+      <Info>FLookup Engine Info: Version 1 Build 2</Info>
+      <Info>Platform: WIN32</Info>
+      <Info>Operating System: Windows XP Build 2600</Info>
+      <Info>Multibyte Data Format: Little Endian</Info>
+      <Info>System Date/Time: Tue Aug 29 09:08:23 2006
+</Info>
+   </Diagnostics>
+</LookupTransaction>
