@@ -21,7 +21,7 @@ call a Restful Endpoint "JSON" to consume Fortus RateBridge service
 <hr />
 
 ### Documentation and references:
-* [Fortus Documentation](/fortus_documentation)
+* [Fortus Documentation](/fortus%20documentation)
 
 <hr />
 
